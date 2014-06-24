@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MRMaintenance">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="ECVM-WW2014:ECVM-WW2014\mrsystems">
+          <Created>2014-06-16T18:18:47.7982826-04:00</Created>
+          <Type>SQL</Type>
+          <Server>ECVM-WW2014</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>MRMaintenance</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="spAccessLevelAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spAccessLevelAdd.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spEquipmentDocLink.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spEquipmentDocLink.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spFacilityAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spFacilityAdd.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spLocationAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spLocationAdd.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spManufacturerAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spManufacturerAdd.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spDepartmentAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spDepartmentAdd.sql</FullPath>
+        </FileNode>
+        <FileNode Name="spEmployeeAdd.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ECVM-WW2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ECVM-WW2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>spEmployeeAdd.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
