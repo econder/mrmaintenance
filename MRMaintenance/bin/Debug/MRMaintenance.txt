@@ -1,0 +1,486 @@
+7/21/2014 8:35:30 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 144
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 8:37:33 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 8:40:43 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 8:47:08 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 8:57:45 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:02:16 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:03:02 PM
+Message:	Cannot open database "mrmaintenanc" requested by the login. The login failed.
+Login failed for user 'mrsystems'.
+Source:		.Net SqlClient Data Provider
+StackTrace:	   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at MRMaintenance.Data.Sql.MRDatabase.TestConnection(String serverName, String database) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 81
+TargetSite:	Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action])
+
+7/21/2014 9:03:58 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:07:58 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 146
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:10:18 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 151
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:21:56 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 166
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 9:22:12 PM
+Message:	The process cannot access the file 'C:\Users\mrsystems\AppData\Roaming\MR Systems\MRMaintenance\DB' because it is being used by another process.
+Source:		mscorlib
+StackTrace:	   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at MRMaintenance.Data.Sql.MRDatabase.SaveConnection(String serverName, String database) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 140
+TargetSite:	Void WinIOError(Int32, System.String)
+
+7/21/2014 9:22:46 PM
+Message:	The ConnectionString property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 159
+TargetSite:	Void PermissionDemand()
+
+7/21/2014 9:22:57 PM
+Message:	The process cannot access the file 'C:\Users\mrsystems\AppData\Roaming\MR Systems\MRMaintenance\DB' because it is being used by another process.
+Source:		mscorlib
+StackTrace:	   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at MRMaintenance.Data.Sql.MRDatabase.SaveConnection(String serverName, String database) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 140
+TargetSite:	Void WinIOError(Int32, System.String)
+
+7/21/2014 9:24:45 PM
+Message:	The ConnectionString property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at MRMaintenance.Data.Sql.MRDatabase.Facilities() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 159
+TargetSite:	Void PermissionDemand()
+
+7/21/2014 9:26:45 PM
+Message:	The process cannot access the file 'C:\Users\mrsystems\AppData\Roaming\MR Systems\MRMaintenance\DB' because it is being used by another process.
+Source:		mscorlib
+StackTrace:	   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at MRMaintenance.Data.Sql.MRDatabase.SaveConnection(String serverName, String database) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 140
+TargetSite:	Void WinIOError(Int32, System.String)
+
+7/21/2014 11:18:50 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:18:50 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:18:54 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:24:15 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:24:15 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:24:15 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:26:36 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:26:36 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:26:36 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:28:42 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:28:42 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:28:42 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:29:37 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:29:43 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:29:43 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:29:43 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:40:05 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:40:11 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:40:11 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:40:11 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:42:53 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:42:53 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:42:53 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:44:23 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:44:23 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:45:39 PM
+Message:	Fill: SelectCommand.Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.Common.DbDataAdapter.GetConnection3(DbDataAdapter adapter, IDbCommand command, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 250
+TargetSite:	System.Data.IDbConnection GetConnection3(System.Data.Common.DbDataAdapter, System.Data.IDbCommand, System.String)
+
+7/21/2014 11:58:21 PM
+Message:	'table' argument cannot be null.
+Parameter name: table
+Source:		System.Data
+StackTrace:	   at System.Data.DataTableCollection.BaseAdd(DataTable table)
+   at System.Data.DataTableCollection.Add(DataTable table)
+   at MRMaintenance.MainForm..ctor() in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\MainForm.cs:line 47
+TargetSite:	Void BaseAdd(System.Data.DataTable)
+
+7/21/2014 11:58:49 PM
+Message:	ExecuteReader: Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 248
+TargetSite:	Void ValidateCommand(System.String, Boolean)
+
+7/21/2014 11:58:49 PM
+Message:	ExecuteReader: Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 248
+TargetSite:	Void ValidateCommand(System.String, Boolean)
+
+7/21/2014 11:58:52 PM
+Message:	ExecuteReader: Connection property has not been initialized.
+Source:		System.Data
+StackTrace:	   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MRMaintenance.Data.Sql.MRDatabase.WorkOrdersDue(String facility, Int32 dueDateDeadband) in c:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\Data\Sql\MRDatabase.cs:line 248
+TargetSite:	Void ValidateCommand(System.String, Boolean)
+
