@@ -28,35 +28,66 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			//Initialize MRDatabase class
-			MRDatabase mrdb = new MRDatabase();
-			
-			//Load facilities comobobox
-			cboFacilties.DataSource = mrdb.Facilities();
-			cboFacilties.DisplayMember = "name";
-			
-			//Load first facility's work orders
-			if(cboFacilties.Items.Count > 0)
+			try
 			{
-				try
+				//Initialize MRDatabase class
+				MRDatabase mrdb = new MRDatabase();
+				
+				//Load and bind facilities combobox
+				cboFacilties.DataSource = mrdb.Facilities();
+				cboFacilties.DisplayMember = "name";
+				cboFacilties.ValueMember = "name";
+				
+				
+				//Load and bind time intervals combobox
+				cboInterval.DataSource = mrdb.TimeIntervals();
+				cboInterval.DisplayMember = "intName";
+				cboInterval.ValueMember = "intName";
+				
+				
+				//Load and bind departments combobox
+				cboDept.DataSource = mrdb.Departments();
+				cboDept.DisplayMember = "name";
+				cboDept.ValueMember = "name";
+				
+				
+				//Load and bind equipment combobox
+				cboEquip.DataSource = mrdb.Equipment();
+				cboEquip.DisplayMember = "equipName";
+				cboEquip.ValueMember = "equipName";
+				
+				
+				//Load and bind facility locations combobox
+				cboLocation.DataSource = mrdb.FacilityLocations(cboFacilties.SelectedValue.ToString());
+				cboLocation.DisplayMember = "name";
+				cboLocation.ValueMember = "name";
+				
+				
+				//Load first facility's work orders
+				/*
+				if(cboFacilties.Items.Count > 0)
 				{
 					DataTable dt = new DataTable();
-					dt = mrdb.WorkOrdersDue(cboFacilties.Text, 7);
+					dt = mrdb.WorkOrdersDue(this.cboFacilties.SelectedValue.ToString(), 7);
 					
-					DataSet ds = new DataSet();
-					ds.Tables.Add(dt);
-					
-					dgview.DataSource = ds;
+					this.dgview.DataSource = dt;
 				}
-				catch(Exception ex)
-				{
-					WinEventLog winel = new WinEventLog();
-					winel.WriteEvent(ex);
-					return;
-				}
+				*/
+			}
+			catch(InvalidCastException ex)
+			{
+				//Do nothing since this will happen each time a  
+				//work order with a null Next Due date is clicked.
+				return;
+			}
+			catch(Exception ex)
+			{
+				WinEventLog winel = new WinEventLog();
+				winel.WriteEvent(ex);
+				return;
 			}
 		}
-				
+		
 		
 		private void SettingsToolStripMenuItemClick(object sender, EventArgs e)
 		{
@@ -64,13 +95,34 @@ namespace MRMaintenance
 			frm.ShowDialog();
 		}
 		
-		private void CboFaciltiesSelectedIndexChanged(object sender, EventArgs e)
+		
+		private void cboFaciltiesSelectedIndexChanged(object sender, EventArgs e)
 		{
-			MRDatabase mrdb = new MRDatabase();
-			
 			try
 			{
-				dgview.DataSource = mrdb.WorkOrdersDue(this.cboFacilties.SelectedText, 7);
+				MRDatabase mrdb = new MRDatabase();
+				DataTable dt = new DataTable();
+				dt = mrdb.WorkOrdersDue(this.cboFacilties.SelectedValue.ToString(), 1000);
+				
+				this.dgview.DataSource = dt;
+				
+				//Set data bindings
+				this.txtName.DataBindings.Add(new Binding("Text", dt, "Name"));
+				this.txtDescr.DataBindings.Add("Text", dt, "Description");
+				this.dtStartDate.DataBindings.Add("Value", dt, "Start Date");
+				this.numFreq.DataBindings.Add("Value", dt, "Frequency");
+				this.cboInterval.DataBindings.Add("SelectedValue", dt, "Interval");
+				this.dtLastCompleted.DataBindings.Add("Value", dt, "Last Completed");
+				this.dtNextDue.Enabled = true;
+				this.dtNextDue.DataBindings.Add("Value", dt, "Next Due");
+				this.cboDept.DataBindings.Add("SelectedValue", dt, "Department");
+				this.cboEquip.DataBindings.Add("SelectedValue", dt, "Equipment");
+				this.cboLocation.DataBindings.Add("SelectedValue", dt, "Location");
+			}
+			catch(InvalidCastException ex)
+			{
+				//Catch null datetimepicker values but ignore them since they are ok.
+				return;
 			}
 			catch(Exception ex)
 			{

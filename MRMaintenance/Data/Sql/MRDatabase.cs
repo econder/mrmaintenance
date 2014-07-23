@@ -181,11 +181,7 @@ namespace MRMaintenance.Data.Sql
 		}
 		
 		
-		/// <summary>
-		/// Gets all work orders.
-		/// </summary>
-		/// <returns>DataTable object.</returns>
-		protected internal DataTable WorkOrders(string facility)
+		protected internal DataTable Departments()
 		{
 			try
 			{
@@ -195,28 +191,134 @@ namespace MRMaintenance.Data.Sql
 					
 					SqlCommand sqlCmd = new SqlCommand();
 					sqlCmd.Connection = dbConn;
-					sqlCmd.CommandText = "SELECT * FROM v_WorkOrders2 WHERE ORDER BY nextDue ASC";
+					sqlCmd.CommandText = "SELECT deptId, name FROM Departments ORDER BY name";
 					
 					SqlDataAdapter adapt = new SqlDataAdapter(sqlCmd);
-					DataTable dt = new DataTable("Work Orders");
+					DataTable dt = new DataTable("Departments");
 					adapt.Fill(dt);
 					
 					return dt;
 				}
 			}
-			catch(InvalidOperationException e)
+			catch(Exception e)
 			{
-				WinEventLog winel = new WinEventLog();
+				WinEventLog winel	 = new WinEventLog();
 				winel.WriteEvent(e);
 				return null;
 			}
-			catch(SqlException e)
+		}
+		
+		
+		protected internal DataTable Equipment()
+		{
+			try
 			{
-				WinEventLog winel = new WinEventLog();
+				using(SqlConnection dbConn = new SqlConnection(this.ConnectionString))
+				{
+					dbConn.Open();
+					
+					SqlCommand sqlCmd = new SqlCommand();
+					sqlCmd.Connection = dbConn;
+					sqlCmd.CommandText = "SELECT equipId, equipName FROM Equipment ORDER BY equipName";
+					
+					SqlDataAdapter adapt = new SqlDataAdapter(sqlCmd);
+					DataTable dt = new DataTable("Equipment");
+					adapt.Fill(dt);
+					
+					return dt;
+				}
+			}
+			catch(Exception e)
+			{
+				WinEventLog winel	 = new WinEventLog();
 				winel.WriteEvent(e);
 				return null;
 			}
-			catch(ArgumentException e)
+		}
+		
+		
+		protected internal DataTable FacilityLocations(string facilityName)
+		{
+			try
+			{
+				using(SqlConnection dbConn = new SqlConnection(this.ConnectionString))
+				{
+					dbConn.Open();
+					
+					SqlCommand sqlCmd = new SqlCommand();
+					sqlCmd.Connection = dbConn;
+					sqlCmd.CommandText = "SELECT Locations.locId, Locations.name FROM Locations INNER JOIN Facilities ON Locations.facId = Facilities.facId WHERE Facilities.name = @facilityName ORDER BY name";
+					
+					sqlCmd.Parameters.AddWithValue("@facilityName", facilityName);
+					
+					SqlDataAdapter adapt = new SqlDataAdapter(sqlCmd);
+					DataTable dt = new DataTable("FacilityLocations");
+					adapt.Fill(dt);
+					
+					return dt;
+				}
+			}
+			catch(Exception e)
+			{
+				WinEventLog winel	 = new WinEventLog();
+				winel.WriteEvent(e);
+				return null;
+			}
+		}
+		
+		
+		protected internal DataTable TimeIntervals()
+		{
+			try
+			{
+				using(SqlConnection dbConn = new SqlConnection(this.ConnectionString))
+				{
+					dbConn.Open();
+					
+					SqlCommand sqlCmd = new SqlCommand();
+					sqlCmd.Connection = dbConn;
+					sqlCmd.CommandText = "SELECT intId, intName FROM TimeIntervals ORDER BY intId";
+					
+					SqlDataAdapter adapt = new SqlDataAdapter(sqlCmd);
+					DataTable dt = new DataTable("TimeIntervals");
+					adapt.Fill(dt);
+					
+					return dt;
+				}
+			}
+			catch(Exception e)
+			{
+				WinEventLog winel	 = new WinEventLog();
+				winel.WriteEvent(e);
+				return null;
+			}
+		}
+		
+		
+		/// <summary>
+		/// Gets all work orders.
+		/// </summary>
+		/// <returns>DataTable object.</returns>
+		protected internal DataTable WorkOrdersDue(int dueDateDeadband = 7)
+		{
+			try
+			{
+				using(SqlConnection dbConn = new SqlConnection(this.ConnectionString))
+				{
+					dbConn.Open();
+					
+					SqlCommand cmd = new SqlCommand("spWorkOrdersDue", dbConn);
+					cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+					
+					cmd.CommandType = CommandType.StoredProcedure;
+					
+					DataTable dt = new DataTable("Work Orders Due");
+					dt.Load(cmd.ExecuteReader());
+					
+					return dt;
+				}
+			}
+			catch(Exception e)
 			{
 				WinEventLog winel	 = new WinEventLog();
 				winel.WriteEvent(e);
@@ -239,33 +341,19 @@ namespace MRMaintenance.Data.Sql
 				{
 					dbConn.Open();
 					
-					SqlCommand sqlCmd = new SqlCommand();
-					sqlCmd.CommandText = "EXEC spWorkOrdersDue(@facility, @dueDateDeadband)";
+					SqlCommand cmd = new SqlCommand("spWorkOrdersDueByFacility", dbConn);
+					cmd.Parameters.AddWithValue("@facility", facility);
+					cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
 					
-					sqlCmd.Parameters.Add(new SqlParameter("facility", facility));
-					sqlCmd.Parameters.Add(new SqlParameter("dueDateDeadband", dueDateDeadband));
-					
-					SqlDataReader sqlReader = sqlCmd.ExecuteReader(CommandBehavior.CloseConnection);
+					cmd.CommandType = CommandType.StoredProcedure;
 					
 					DataTable dt = new DataTable("Work Orders Due");
-					dt.Load(sqlReader);
+					dt.Load(cmd.ExecuteReader());
 					
 					return dt;
 				}
 			}
-			catch(InvalidOperationException e)
-			{
-				WinEventLog winel = new WinEventLog();
-				winel.WriteEvent(e);
-				return null;
-			}
-			catch(SqlException e)
-			{
-				WinEventLog winel = new WinEventLog();
-				winel.WriteEvent(e);
-				return null;
-			}
-			catch(ArgumentException e)
+			catch(Exception e)
 			{
 				WinEventLog winel	 = new WinEventLog();
 				winel.WriteEvent(e);

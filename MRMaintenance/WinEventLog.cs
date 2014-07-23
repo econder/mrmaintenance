@@ -54,7 +54,7 @@ namespace MRMaintenance
 					writer.WriteLine(msg);
 				}
 			}
-			catch(Exception exc)
+			catch(Exception ex)
 			{
 				return;
 			}

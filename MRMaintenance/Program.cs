@@ -18,6 +18,5 @@ namespace MRMaintenance
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainForm());
 		}
-		
 	}
 }
