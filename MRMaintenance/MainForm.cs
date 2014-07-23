@@ -122,6 +122,8 @@ namespace MRMaintenance
 			catch(InvalidCastException ex)
 			{
 				//Catch null datetimepicker values but ignore them since they are ok.
+				//Caught in its own catch block to prevent filling up the
+				//log file with useless errors that are unpreventable at this point.
 				return;
 			}
 			catch(Exception ex)
@@ -131,5 +133,51 @@ namespace MRMaintenance
 				return;
 			}
 		}
+		
+		
+		void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(!this.cboDept.Items.Contains(this.cboDept.Text)) {
+				
+				if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboDept.Text), "", 
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+					//TODO: Code to show Equipment add dialog box.
+				}
+				else {
+					
+				}
+			}
+		}
+		
+		
+		void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//try
+			//{
+				
+				if(!this.cboEquip.Items.Contains(this.cboEquip.Text)) {
+					
+					if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboEquip.Text), "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+						//TODO: Code to show Equipment add dialog box.
+					}
+				}
+			//}
+		}
+		
+		
+		void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(!this.cboLocation.Items.Contains(this.cboLocation.Text)) {
+				
+				if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboLocation.Text), "", 
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+					//TODO: Code to show Equipment add dialog box.
+				}
+			}
+		}
+		
+		
+		
 	}
 }

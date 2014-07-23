@@ -72,6 +72,7 @@ namespace MRMaintenance
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
@@ -211,6 +212,7 @@ namespace MRMaintenance
 			// 
 			this.panel2.AutoSize = true;
 			this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.cboLocation);
 			this.panel2.Controls.Add(this.label12);
 			this.panel2.Controls.Add(this.cboEquip);
@@ -241,57 +243,66 @@ namespace MRMaintenance
 			// 
 			// cboLocation
 			// 
+			this.cboLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboLocation.FormattingEnabled = true;
-			this.cboLocation.Location = new System.Drawing.Point(550, 75);
+			this.cboLocation.Location = new System.Drawing.Point(550, 111);
 			this.cboLocation.Name = "cboLocation";
 			this.cboLocation.Size = new System.Drawing.Size(215, 21);
 			this.cboLocation.TabIndex = 22;
+			this.cboLocation.Validating += new System.ComponentModel.CancelEventHandler(this.cboLocation_Validating);
 			// 
 			// label12
 			// 
-			this.label12.Location = new System.Drawing.Point(550, 61);
+			this.label12.Location = new System.Drawing.Point(550, 97);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(84, 18);
+			this.label12.Size = new System.Drawing.Size(84, 20);
 			this.label12.TabIndex = 21;
 			this.label12.Text = "Location";
 			// 
 			// cboEquip
 			// 
+			this.cboEquip.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboEquip.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboEquip.FormattingEnabled = true;
-			this.cboEquip.Location = new System.Drawing.Point(293, 75);
+			this.cboEquip.Location = new System.Drawing.Point(293, 111);
 			this.cboEquip.Name = "cboEquip";
 			this.cboEquip.Size = new System.Drawing.Size(251, 21);
 			this.cboEquip.TabIndex = 20;
+			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			// 
 			// label11
 			// 
-			this.label11.Location = new System.Drawing.Point(293, 61);
+			this.label11.Location = new System.Drawing.Point(293, 97);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(104, 18);
+			this.label11.Size = new System.Drawing.Size(104, 20);
 			this.label11.TabIndex = 19;
 			this.label11.Text = "Equipment Name";
 			// 
 			// cboDept
 			// 
+			this.cboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboDept.FormattingEnabled = true;
-			this.cboDept.Location = new System.Drawing.Point(588, 19);
+			this.cboDept.Location = new System.Drawing.Point(588, 55);
 			this.cboDept.Name = "cboDept";
 			this.cboDept.Size = new System.Drawing.Size(177, 21);
 			this.cboDept.TabIndex = 18;
+			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
 			// label10
 			// 
-			this.label10.Location = new System.Drawing.Point(588, 5);
+			this.label10.Location = new System.Drawing.Point(588, 41);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(120, 18);
+			this.label10.Size = new System.Drawing.Size(120, 20);
 			this.label10.TabIndex = 17;
 			this.label10.Text = "Department Assigned";
 			// 
 			// dtNextDue
 			// 
-			this.dtNextDue.CustomFormat = "ww, mmm d yyyy";
+			this.dtNextDue.CustomFormat = "";
 			this.dtNextDue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtNextDue.Location = new System.Drawing.Point(433, 20);
+			this.dtNextDue.Location = new System.Drawing.Point(433, 56);
 			this.dtNextDue.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 			this.dtNextDue.Name = "dtNextDue";
 			this.dtNextDue.Size = new System.Drawing.Size(134, 20);
@@ -299,17 +310,17 @@ namespace MRMaintenance
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(433, 5);
+			this.label9.Location = new System.Drawing.Point(433, 41);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(134, 18);
+			this.label9.Size = new System.Drawing.Size(134, 20);
 			this.label9.TabIndex = 15;
 			this.label9.Text = "Due Again On";
 			// 
 			// dtLastCompleted
 			// 
-			this.dtLastCompleted.CustomFormat = "ww, mmm d yyyy";
+			this.dtLastCompleted.CustomFormat = "";
 			this.dtLastCompleted.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtLastCompleted.Location = new System.Drawing.Point(293, 20);
+			this.dtLastCompleted.Location = new System.Drawing.Point(293, 56);
 			this.dtLastCompleted.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 			this.dtLastCompleted.Name = "dtLastCompleted";
 			this.dtLastCompleted.Size = new System.Drawing.Size(134, 20);
@@ -317,31 +328,34 @@ namespace MRMaintenance
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(293, 5);
+			this.label8.Location = new System.Drawing.Point(293, 41);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(134, 18);
+			this.label8.Size = new System.Drawing.Size(134, 20);
 			this.label8.TabIndex = 13;
 			this.label8.Text = "Last Completed";
 			// 
 			// cboInterval
 			// 
+			this.cboInterval.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboInterval.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cboInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboInterval.FormattingEnabled = true;
-			this.cboInterval.Location = new System.Drawing.Point(164, 197);
+			this.cboInterval.Location = new System.Drawing.Point(164, 233);
 			this.cboInterval.Name = "cboInterval";
 			this.cboInterval.Size = new System.Drawing.Size(100, 21);
 			this.cboInterval.TabIndex = 11;
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(164, 183);
+			this.label6.Location = new System.Drawing.Point(164, 219);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(84, 18);
+			this.label6.Size = new System.Drawing.Size(84, 20);
 			this.label6.TabIndex = 10;
 			this.label6.Text = "Time Interval";
 			// 
 			// numFreq
 			// 
-			this.numFreq.Location = new System.Drawing.Point(91, 198);
+			this.numFreq.Location = new System.Drawing.Point(91, 234);
 			this.numFreq.Maximum = new decimal(new int[] {
 									999999999,
 									0,
@@ -353,17 +367,17 @@ namespace MRMaintenance
 			// 
 			// label5
 			// 
-			this.label5.Location = new System.Drawing.Point(91, 183);
+			this.label5.Location = new System.Drawing.Point(91, 219);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(100, 18);
+			this.label5.Size = new System.Drawing.Size(100, 20);
 			this.label5.TabIndex = 7;
 			this.label5.Text = "Frequency";
 			// 
 			// dtStartDate
 			// 
-			this.dtStartDate.CustomFormat = "ww, mmm d yyyy";
+			this.dtStartDate.CustomFormat = "";
 			this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtStartDate.Location = new System.Drawing.Point(0, 156);
+			this.dtStartDate.Location = new System.Drawing.Point(0, 192);
 			this.dtStartDate.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 			this.dtStartDate.Name = "dtStartDate";
 			this.dtStartDate.Size = new System.Drawing.Size(134, 20);
@@ -371,50 +385,59 @@ namespace MRMaintenance
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(0, 141);
+			this.label4.Location = new System.Drawing.Point(0, 177);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(134, 18);
+			this.label4.Size = new System.Drawing.Size(134, 20);
 			this.label4.TabIndex = 4;
 			this.label4.Text = "Schedule Start Date";
 			// 
 			// txtDescr
 			// 
-			this.txtDescr.Location = new System.Drawing.Point(0, 62);
+			this.txtDescr.Location = new System.Drawing.Point(0, 98);
 			this.txtDescr.Multiline = true;
 			this.txtDescr.Name = "txtDescr";
-			this.txtDescr.Size = new System.Drawing.Size(264, 70);
+			this.txtDescr.Size = new System.Drawing.Size(264, 72);
 			this.txtDescr.TabIndex = 3;
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(0, 47);
+			this.label3.Location = new System.Drawing.Point(0, 83);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(100, 18);
+			this.label3.Size = new System.Drawing.Size(100, 20);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Description";
 			// 
 			// txtName
 			// 
-			this.txtName.Location = new System.Drawing.Point(0, 20);
+			this.txtName.Location = new System.Drawing.Point(0, 56);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 1;
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(0, 5);
+			this.label2.Location = new System.Drawing.Point(0, 41);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 18);
+			this.label2.Size = new System.Drawing.Size(100, 20);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Name";
 			// 
 			// label7
 			// 
-			this.label7.Location = new System.Drawing.Point(0, 193);
+			this.label7.Location = new System.Drawing.Point(0, 229);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(83, 30);
+			this.label7.Size = new System.Drawing.Size(83, 32);
 			this.label7.TabIndex = 12;
 			this.label7.Text = "Run Schedule \r\nEvery";
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(0, 8);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 23;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
@@ -439,6 +462,7 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.ComboBox cboLocation;
 		private System.Windows.Forms.Label label10;

@@ -44,6 +44,10 @@ namespace MRMaintenance
 			this.btnTest = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnOK = new System.Windows.Forms.Button();
+			this.txtUsername = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.txtPassword = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -78,9 +82,9 @@ namespace MRMaintenance
 			// 
 			// btnTest
 			// 
-			this.btnTest.Location = new System.Drawing.Point(100, 91);
+			this.btnTest.Location = new System.Drawing.Point(100, 177);
 			this.btnTest.Name = "btnTest";
-			this.btnTest.Size = new System.Drawing.Size(97, 23);
+			this.btnTest.Size = new System.Drawing.Size(97, 29);
 			this.btnTest.TabIndex = 4;
 			this.btnTest.Text = "Test Connection";
 			this.btnTest.UseVisualStyleBackColor = true;
@@ -89,9 +93,9 @@ namespace MRMaintenance
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(122, 135);
+			this.btnCancel.Location = new System.Drawing.Point(122, 221);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.btnCancel.Size = new System.Drawing.Size(75, 29);
 			this.btnCancel.TabIndex = 5;
 			this.btnCancel.Text = "&Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
@@ -99,13 +103,44 @@ namespace MRMaintenance
 			// 
 			// btnOK
 			// 
-			this.btnOK.Location = new System.Drawing.Point(41, 135);
+			this.btnOK.Location = new System.Drawing.Point(41, 221);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
+			this.btnOK.Size = new System.Drawing.Size(75, 29);
 			this.btnOK.TabIndex = 6;
 			this.btnOK.Text = "&OK";
 			this.btnOK.UseVisualStyleBackColor = true;
 			this.btnOK.Click += new System.EventHandler(this.BtnOKClick);
+			// 
+			// txtUsername
+			// 
+			this.txtUsername.Location = new System.Drawing.Point(12, 110);
+			this.txtUsername.Name = "txtUsername";
+			this.txtUsername.Size = new System.Drawing.Size(185, 20);
+			this.txtUsername.TabIndex = 8;
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(12, 95);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(85, 18);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "User Name";
+			// 
+			// txtPassword
+			// 
+			this.txtPassword.Location = new System.Drawing.Point(12, 151);
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '•';
+			this.txtPassword.Size = new System.Drawing.Size(185, 20);
+			this.txtPassword.TabIndex = 10;
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(12, 136);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(85, 18);
+			this.label4.TabIndex = 9;
+			this.label4.Text = "Password";
 			// 
 			// frmDatabaseConnection
 			// 
@@ -113,7 +148,11 @@ namespace MRMaintenance
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(211, 161);
+			this.ClientSize = new System.Drawing.Size(211, 255);
+			this.Controls.Add(this.txtPassword);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.txtUsername);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnTest);
@@ -133,6 +172,10 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox txtPassword;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox txtUsername;
 		private System.Windows.Forms.Button btnOK;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Button btnTest;

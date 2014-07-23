@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -62,7 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Equipment.cs" />
+    <Compile Include="Data\EquipmentTypes.cs" />
+    <Compile Include="Data\Facilities.cs" />
+    <Compile Include="Data\Locations.cs" />
+    <Compile Include="Data\Manufacturers.cs" />
     <Compile Include="Data\Sql\MRDatabase.cs" />
+    <Compile Include="Data\VendorContacts.cs" />
+    <Compile Include="Data\Vendors.cs" />
     <Compile Include="frmDatabaseConnection.cs" />
     <Compile Include="frmDatabaseConnection.Designer.cs">
       <DependentUpon>frmDatabaseConnection.cs</DependentUpon>
