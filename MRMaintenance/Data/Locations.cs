@@ -52,35 +52,35 @@ namespace MRMaintenance.Data
 			da.InsertCommand.CommandText = "INSERT INTO Locations(facId, name, addr1, addr2, city, stateId, zip, lat, long)" +
 											" VALUES(@facId, @name, @addr1, @addr2, @city, @stateId, @zip, @lat, @long)";
 			
-			da.InsertCommand.Parameters.Add("@facId", this.FacilityId);
-			da.InsertCommand.Parameters.Add("@name", this.Name);
-			da.InsertCommand.Parameters.Add("@addr1", this.Address1);
-			da.InsertCommand.Parameters.Add("@addr2", this.Address2);
-			da.InsertCommand.Parameters.Add("@city", this.City);
-			da.InsertCommand.Parameters.Add("@stateId", this.StateId);
-			da.InsertCommand.Parameters.Add("@zip", this.Zipcode);
-			da.InsertCommand.Parameters.Add("@lat", this.Latitude);
-			da.InsertCommand.Parameters.Add("@long", this.Longitude);
+			da.InsertCommand.Parameters.AddWithValue("@facId", this.FacilityId);
+			da.InsertCommand.Parameters.AddWithValue("@name", this.Name);
+			da.InsertCommand.Parameters.AddWithValue("@addr1", this.Address1);
+			da.InsertCommand.Parameters.AddWithValue("@addr2", this.Address2);
+			da.InsertCommand.Parameters.AddWithValue("@city", this.City);
+			da.InsertCommand.Parameters.AddWithValue("@stateId", this.StateId);
+			da.InsertCommand.Parameters.AddWithValue("@zip", this.Zipcode);
+			da.InsertCommand.Parameters.AddWithValue("@lat", this.Latitude);
+			da.InsertCommand.Parameters.AddWithValue("@long", this.Longitude);
 			
 			//UPDATE
 			da.UpdateCommand.CommandText = "UPDATE Locations SET facId=@facId, name=@name, addr1=@addr1, addr2=@addr2, city=@city, stateId=@stateId, zip=@zip, lat=@lat, long=@long)" +
 											" WHERE locId=@locId";
 			
-			da.UpdateCommand.Parameters.Add("@locId", this.Id);
-			da.UpdateCommand.Parameters.Add("@facId", this.FacilityId);
-			da.UpdateCommand.Parameters.Add("@name", this.Name);
-			da.UpdateCommand.Parameters.Add("@addr1", this.Address1);
-			da.UpdateCommand.Parameters.Add("@addr2", this.Address2);
-			da.UpdateCommand.Parameters.Add("@city", this.City);
-			da.UpdateCommand.Parameters.Add("@stateId", this.StateId);
-			da.UpdateCommand.Parameters.Add("@zip", this.Zipcode);
-			da.UpdateCommand.Parameters.Add("@lat", this.Latitude);
-			da.UpdateCommand.Parameters.Add("@long", this.Longitude);
+			da.UpdateCommand.Parameters.AddWithValue("@locId", this.Id);
+			da.UpdateCommand.Parameters.AddWithValue("@facId", this.FacilityId);
+			da.UpdateCommand.Parameters.AddWithValue("@name", this.Name);
+			da.UpdateCommand.Parameters.AddWithValue("@addr1", this.Address1);
+			da.UpdateCommand.Parameters.AddWithValue("@addr2", this.Address2);
+			da.UpdateCommand.Parameters.AddWithValue("@city", this.City);
+			da.UpdateCommand.Parameters.AddWithValue("@stateId", this.StateId);
+			da.UpdateCommand.Parameters.AddWithValue("@zip", this.Zipcode);
+			da.UpdateCommand.Parameters.AddWithValue("@lat", this.Latitude);
+			da.UpdateCommand.Parameters.AddWithValue("@long", this.Longitude);
 			
 			//DELETE
 			da.DeleteCommand.CommandText = "DELETE FROM Locations WHERE locId=@locId";
 			
-			da.DeleteCommand.Parameters.Add("@locId", this.Id);
+			da.DeleteCommand.Parameters.AddWithValue("@locId", this.Id);
 			
 			return da;
 		}

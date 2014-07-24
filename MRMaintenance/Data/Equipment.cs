@@ -26,21 +26,22 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		protected Equipment(long id, long equipmentTypeId, long manufacturerId, long vendorId, string equipmentNumber, string name, 
+		protected Equipment(long id, long locationId, long equipmentTypeId, long manufacturerId, long vendorId, string equipmentNumber, string name, 
 		                    string equipmentSerial, string equipmentModel, string equipmentModelDescr)
 		{
+			this.Id = id;
 			this.LocationId = locationId;
 			this.EquipmentTypeId = equipmentTypeId;
 			this.ManufacturerId = manufacturerId;
 			this.VendorId = vendorId;
 			this.EquipmentNumber = equipmentNumber;
-			this.EquipmentName = name;
-			this.EquipmentSerial = equipmentSerial;
-			this.EquipmentModel = equipmentModel;
-			this.EquipmentModelDescr = equipmentModelDescr;
+			this.Name = name;
+			this.Serial = equipmentSerial;
+			this.Model = equipmentModel;
+			this.Description = equipmentModelDescr;
 		}
 		
-		
+		/*
 		protected Equipment(Nullable<long> id, long locationId, long equipmentTypeId, long manufacturerId, long vendorId, string equipmentNumber, string name, 
 		                    string serial, string model, string description)
 		{
@@ -55,9 +56,9 @@ namespace MRMaintenance.Data
 			this.Model = model;
 			this.Description = description;
 		}
+		*/
 		
-		
-		protected static SqlDataAdapter EquipmentTable()
+		protected SqlDataAdapter EquipmentTable()
 		{
 			SqlDataAdapter da = new SqlDataAdapter();
 			
@@ -68,35 +69,35 @@ namespace MRMaintenance.Data
 			da.InsertCommand.CommandText = "INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, equipNumber, equipName, equipSerial, equipModel, equipModelDesc)" +
 											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @equipNumber, @equipName, @equipSerial, @equipModel, @equipModelDesc)";
 			
-			da.InsertCommand.Parameters.Add("@locId", this.LocationId);
-			da.InsertCommand.Parameters.Add("@equipTypeId", this.EquipmentTypeId);
-			da.InsertCommand.Parameters.Add("@manId", this.ManufacturerId);
-			da.InsertCommand.Parameters.Add("@vendorId", this.VendorId);
-			da.InsertCommand.Parameters.Add("@equipNumber", this.EquipmentNumber);
-			da.InsertCommand.Parameters.Add("@equipName", this.Name);
-			da.InsertCommand.Parameters.Add("@equipSerial", this.Serial);
-			da.InsertCommand.Parameters.Add("@equipModel", this.Model);
-			da.InsertCommand.Parameters.Add("@equipModelDesc", this.Description);
+			da.InsertCommand.Parameters.AddWithValue("@locId", this.LocationId);
+			da.InsertCommand.Parameters.AddWithValue("@equipTypeId", this.EquipmentTypeId);
+			da.InsertCommand.Parameters.AddWithValue("@manId", this.ManufacturerId);
+			da.InsertCommand.Parameters.AddWithValue("@vendorId", this.VendorId);
+			da.InsertCommand.Parameters.AddWithValue("@equipNumber", this.EquipmentNumber);
+			da.InsertCommand.Parameters.AddWithValue("@equipName", this.Name);
+			da.InsertCommand.Parameters.AddWithValue("@equipSerial", this.Serial);
+			da.InsertCommand.Parameters.AddWithValue("@equipModel", this.Model);
+			da.InsertCommand.Parameters.AddWithValue("@equipModelDesc", this.Description);
 			
 			//UPDATE
 			da.UpdateCommand.CommandText = "UPDATE Equipment SET locId=@locId, equipTypeId=@equipTypeId, manId=@manId, vendorId=@vendorId, equipNumber=@equipNumber, equipName=@equipName," +
 											" equipSerial=@equipSerial, equipModel=@equipModel, equipModelDesc=@equipModelDesc" + 
 											" WHERE equipId=@equipId";
 			
-			da.UpdateCommand.Parameters.Add("@equipId", this.Id);
-			da.UpdateCommand.Parameters.Add("@locId", this.LocationId);
-			da.UpdateCommand.Parameters.Add("@equipTypeId", this.EquipmentTypeId);
-			da.UpdateCommand.Parameters.Add("@manId", this.ManufacturerId);
-			da.UpdateCommand.Parameters.Add("@vendorId", this.VendorId);
-			da.UpdateCommand.Parameters.Add("@equipNumber", this.EquipmentNumber);
-			da.UpdateCommand.Parameters.Add("@equipName", this.Name);
-			da.UpdateCommand.Parameters.Add("@equipSerial", this.Serial);
-			da.UpdateCommand.Parameters.Add("@equipModel", this.Model);
-			da.UpdateCommand.Parameters.Add("@equipModelDesc", this.Description);
+			da.UpdateCommand.Parameters.AddWithValue("@equipId", this.Id);
+			da.UpdateCommand.Parameters.AddWithValue("@locId", this.LocationId);
+			da.UpdateCommand.Parameters.AddWithValue("@equipTypeId", this.EquipmentTypeId);
+			da.UpdateCommand.Parameters.AddWithValue("@manId", this.ManufacturerId);
+			da.UpdateCommand.Parameters.AddWithValue("@vendorId", this.VendorId);
+			da.UpdateCommand.Parameters.AddWithValue("@equipNumber", this.EquipmentNumber);
+			da.UpdateCommand.Parameters.AddWithValue("@equipName", this.Name);
+			da.UpdateCommand.Parameters.AddWithValue("@equipSerial", this.Serial);
+			da.UpdateCommand.Parameters.AddWithValue("@equipModel", this.Model);
+			da.UpdateCommand.Parameters.AddWithValue("@equipModelDesc", this.Description);
 			
 			//DELETE
 			da.DeleteCommand.CommandText = "DELETE FROM Equipment WHERE equipId=@equipId";
-			da.DeleteCommand.Parameters.Add("@equipId", this.Id);
+			da.DeleteCommand.Parameters.AddWithValue("@equipId", this.Id);
 			
 			return da;
 		}

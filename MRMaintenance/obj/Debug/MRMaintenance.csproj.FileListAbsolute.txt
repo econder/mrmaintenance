@@ -6,3 +6,4 @@ C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaint
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
+C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipment.resources

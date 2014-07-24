@@ -8,6 +8,10 @@
  *
  * *************************************************************************************************/
 using System;
+using System.Data.SqlClient;
+
+using MRMaintenance.Data.Sql;
+
 
 namespace MRMaintenance.Data
 {
@@ -47,35 +51,35 @@ namespace MRMaintenance.Data
 			da.InsertCommand.CommandText = "INSERT INTO VendorContacts(venId, firstName, midName, lastName, title, phone1, phone2, fax, email)" +
 											" VALUES(@venId, @firstName, @midName, @lastName, @title, @phone1, @phone2, @fax, @email)";
 			
-			da.InsertCommand.Parameters.Add("@venId", this.VendorId);
-			da.InsertCommand.Parameters.Add("@firstName", this.FirstName);
-			da.InsertCommand.Parameters.Add("@midName", this.MiddleName);
-			da.InsertCommand.Parameters.Add("@lastName", this.LastName);
-			da.InsertCommand.Parameters.Add("@title", this.Title);
-			da.InsertCommand.Parameters.Add("@phone1", this.Phone1);
-			da.InsertCommand.Parameters.Add("@phone2", this.Phone2);
-			da.InsertCommand.Parameters.Add("@fax", this.Fax);
-			da.InsertCommand.Parameters.Add("@email", this.Email);
+			da.InsertCommand.Parameters.AddWithValue("@venId", this.VendorId);
+			da.InsertCommand.Parameters.AddWithValue("@firstName", this.FirstName);
+			da.InsertCommand.Parameters.AddWithValue("@midName", this.MiddleName);
+			da.InsertCommand.Parameters.AddWithValue("@lastName", this.LastName);
+			da.InsertCommand.Parameters.AddWithValue("@title", this.Title);
+			da.InsertCommand.Parameters.AddWithValue("@phone1", this.Phone1);
+			da.InsertCommand.Parameters.AddWithValue("@phone2", this.Phone2);
+			da.InsertCommand.Parameters.AddWithValue("@fax", this.Fax);
+			da.InsertCommand.Parameters.AddWithValue("@email", this.Email);
 			
 			//UPDATE
 			da.UpdateCommand.CommandText = "UPDATE Vendors SET venId=@venId, firstName=@firstName, midName=@midName, lastName=@lastName, title=@title, phone1=@phone1, phone2=@phone2, fax=@fax, email=@email" +
 											" WHERE venContId=@venContId";
 			
-			da.UpdateCommand.Parameters.Add("@venContId", this.Id);
-			da.UpdateCommand.Parameters.Add("@venId", this.VendorId);
-			da.UpdateCommand.Parameters.Add("@firstName", this.FirstName);
-			da.UpdateCommand.Parameters.Add("@midName", this.MiddleName);
-			da.UpdateCommand.Parameters.Add("@lastName", this.LastName);
-			da.UpdateCommand.Parameters.Add("@title", this.Title);
-			da.UpdateCommand.Parameters.Add("@phone1", this.Phone1);
-			da.UpdateCommand.Parameters.Add("@phone2", this.Phone2);
-			da.UpdateCommand.Parameters.Add("@fax", this.Fax);
-			da.UpdateCommand.Parameters.Add("@email", this.Email);
+			da.UpdateCommand.Parameters.AddWithValue("@venContId", this.Id);
+			da.UpdateCommand.Parameters.AddWithValue("@venId", this.VendorId);
+			da.UpdateCommand.Parameters.AddWithValue("@firstName", this.FirstName);
+			da.UpdateCommand.Parameters.AddWithValue("@midName", this.MiddleName);
+			da.UpdateCommand.Parameters.AddWithValue("@lastName", this.LastName);
+			da.UpdateCommand.Parameters.AddWithValue("@title", this.Title);
+			da.UpdateCommand.Parameters.AddWithValue("@phone1", this.Phone1);
+			da.UpdateCommand.Parameters.AddWithValue("@phone2", this.Phone2);
+			da.UpdateCommand.Parameters.AddWithValue("@fax", this.Fax);
+			da.UpdateCommand.Parameters.AddWithValue("@email", this.Email);
 			
 			//DELETE
 			da.DeleteCommand.CommandText = "DELETE FROM VendorContacts WHERE venContId=@venContId";
 			
-			da.DeleteCommand.Parameters.Add("@venContId", this.Id);
+			da.DeleteCommand.Parameters.AddWithValue("@venContId", this.Id);
 			
 			return da;
 		}

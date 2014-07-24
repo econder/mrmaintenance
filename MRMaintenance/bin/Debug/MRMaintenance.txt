@@ -1397,3 +1397,16 @@ StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
    at MRMaintenance.MainForm.cboFaciltiesSelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 118
 TargetSite:	System.Object get_Item(Int32)
 
+7/23/2014 7:22:34 PM
+Message:	This causes two bindings in the collection to bind to the same property.
+Parameter name: binding
+Source:		System.Windows.Forms
+StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
+   at System.Windows.Forms.Binding.CheckBinding()
+   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
+   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
+   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
+   at System.Windows.Forms.ControlBindingsCollection.Add(Binding binding)
+   at MRMaintenance.MainForm.cboFaciltiesSelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 110
+TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
+

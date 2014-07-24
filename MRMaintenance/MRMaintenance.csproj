@@ -75,6 +75,10 @@
     <Compile Include="frmDatabaseConnection.Designer.cs">
       <DependentUpon>frmDatabaseConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEquipment.cs" />
+    <Compile Include="frmEquipment.Designer.cs">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -90,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmDatabaseConnection.resx">
       <DependentUpon>frmDatabaseConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipment.resx">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

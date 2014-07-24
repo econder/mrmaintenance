@@ -107,17 +107,16 @@ namespace MRMaintenance
 				this.dgview.DataSource = dt;
 				
 				//Set data bindings
-				this.txtName.DataBindings.Add(new Binding("Text", dt, "Name"));
-				this.txtDescr.DataBindings.Add("Text", dt, "Description");
-				this.dtStartDate.DataBindings.Add("Value", dt, "Start Date");
-				this.numFreq.DataBindings.Add("Value", dt, "Frequency");
-				this.cboInterval.DataBindings.Add("SelectedValue", dt, "Interval");
-				this.dtLastCompleted.DataBindings.Add("Value", dt, "Last Completed");
-				this.dtNextDue.Enabled = true;
-				this.dtNextDue.DataBindings.Add("Value", dt, "Next Due");
-				this.cboDept.DataBindings.Add("SelectedValue", dt, "Department");
-				this.cboEquip.DataBindings.Add("SelectedValue", dt, "Equipment");
-				this.cboLocation.DataBindings.Add("SelectedValue", dt, "Location");
+				this.txtName.DataBindings.Add("Text", dt, "Name", true, DataSourceUpdateMode.OnPropertyChanged, "");
+				this.txtDescr.DataBindings.Add("Text", dt, "Description", true, DataSourceUpdateMode.OnPropertyChanged, "");
+				this.dtStartDate.DataBindings.Add("Value", dt, "Start Date", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
+				this.numFreq.DataBindings.Add("Value", dt, "Frequency", true, DataSourceUpdateMode.OnPropertyChanged, 0);
+				this.cboInterval.DataBindings.Add("SelectedValue", dt, "Interval", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+				this.dtLastCompleted.DataBindings.Add("Value", dt, "Last Completed", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
+				this.dtNextDue.DataBindings.Add("Value", dt, "Next Due", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
+				this.cboDept.DataBindings.Add("SelectedValue", dt, "Department", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+				this.cboEquip.DataBindings.Add("SelectedValue", dt, "Equipment", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+				this.cboLocation.DataBindings.Add("SelectedValue", dt, "Location", true, DataSourceUpdateMode.OnPropertyChanged, -1);
 			}
 			catch(InvalidCastException ex)
 			{
@@ -137,43 +136,75 @@ namespace MRMaintenance
 		
 		void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if(!this.cboDept.Items.Contains(this.cboDept.Text)) {
+			try
+			{
+				DataTable dt = (DataTable)cboEquip.DataSource;
+				var result = dt.Select(string.Format("name='{0}'", this.cboDept.Text));
 				
-				if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboDept.Text), "", 
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
-					//TODO: Code to show Equipment add dialog box.
-				}
-				else {
+				if(result.Length == 0) {
 					
+					if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboDept.Text), "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+						
+						//TODO: Code to show Department add dialog box.
+					}
 				}
+			}
+			catch(Exception ex)
+			{
+				WinEventLog winel = new WinEventLog();
+				winel.WriteEvent(ex);
+				return;
 			}
 		}
 		
 		
 		void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//try
-			//{
+			try
+			{
+				DataTable dt = (DataTable)cboEquip.DataSource;
+				var result = dt.Select(string.Format("equipName='{0}'", this.cboEquip.Text));
 				
-				if(!this.cboEquip.Items.Contains(this.cboEquip.Text)) {
+				if(result.Length == 0) {
 					
 					if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboEquip.Text), "",
 					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+						
 						//TODO: Code to show Equipment add dialog box.
 					}
 				}
-			//}
+			}
+			catch(Exception ex)
+			{
+				WinEventLog winel = new WinEventLog();
+				winel.WriteEvent(ex);
+				return;
+			}
 		}
 		
 		
 		void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if(!this.cboLocation.Items.Contains(this.cboLocation.Text)) {
+			try
+			{
+				DataTable dt = (DataTable)cboEquip.DataSource;
+				var result = dt.Select(string.Format("name='{0}'", this.cboLocation.Text));
 				
-				if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboLocation.Text), "", 
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
-					//TODO: Code to show Equipment add dialog box.
+				if(result.Length == 0) {
+					
+					if(MessageBox.Show(string.Format("{0} does not exist in the database. Would you like to add it?", this.cboLocation.Text), "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+						
+						//TODO: Code to show Location add dialog box.
+					}
 				}
+			}
+			catch(Exception ex)
+			{
+				WinEventLog winel = new WinEventLog();
+				winel.WriteEvent(ex);
+				return;
 			}
 		}
 		
