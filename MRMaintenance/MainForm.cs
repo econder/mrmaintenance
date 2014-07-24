@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   MRDbConnection.cs
- * Created By: Eric Conder
- * Created On: 7/9/2014
+ * Class:   	MainForm.cs
+ * Created By: 	Eric Conder
+ * Created On: 	7/9/2014
  * 
  * Changes:
  * 
@@ -9,12 +9,14 @@
  * *************************************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
-using MRMaintenance.Data.Sql;
+using MRMaintenance.BusinessAccess;
 
 
 namespace MRMaintenance
@@ -24,83 +26,80 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class MainForm : Form
 	{
+		private FacilityBA facility;
+		private LocationBA location;
+		private EquipmentBA equip;
+		private DepartmentBA dept;
+		private TimeIntervalBA timeInterval;
+		private WorkOrderViewBA woView;
+		
+		
 		public MainForm()
 		{
 			InitializeComponent();
 			
-			try
-			{
-				//Initialize MRDatabase class
-				MRDatabase mrdb = new MRDatabase();
-				
-				//Load and bind facilities combobox
-				cboFacilties.DataSource = mrdb.Facilities();
-				cboFacilties.DisplayMember = "name";
-				cboFacilties.ValueMember = "name";
-				
-				
-				//Load and bind time intervals combobox
-				cboInterval.DataSource = mrdb.TimeIntervals();
-				cboInterval.DisplayMember = "intName";
-				cboInterval.ValueMember = "intName";
-				
-				
-				//Load and bind departments combobox
-				cboDept.DataSource = mrdb.Departments();
-				cboDept.DisplayMember = "name";
-				cboDept.ValueMember = "name";
-				
-				
-				//Load and bind equipment combobox
-				cboEquip.DataSource = mrdb.Equipment();
-				cboEquip.DisplayMember = "equipName";
-				cboEquip.ValueMember = "equipName";
-				
-				
-				//Load and bind facility locations combobox
-				cboLocation.DataSource = mrdb.FacilityLocations(cboFacilties.SelectedValue.ToString());
-				cboLocation.DisplayMember = "name";
-				cboLocation.ValueMember = "name";
-				
-				
-				//Load first facility's work orders
-				/*
-				if(cboFacilties.Items.Count > 0)
-				{
-					DataTable dt = new DataTable();
-					dt = mrdb.WorkOrdersDue(this.cboFacilties.SelectedValue.ToString(), 7);
-					
-					this.dgview.DataSource = dt;
-				}
-				*/
-			}
-			catch(InvalidCastException ex)
-			{
-				//Do nothing since this will happen each time a  
-				//work order with a null Next Due date is clicked.
-				return;
-			}
-			catch(Exception ex)
-			{
-				WinEventLog winel = new WinEventLog();
-				winel.WriteEvent(ex);
-				return;
-			}
+			this.FillData();
+		}
+		
+		
+		private void FillData()
+		{
+			//Load and bind facilities combobox
+			facility = new FacilityBA();
+			DataTable dtFacility = facility.Load();
+			
+			cboFacilties.DataSource = dtFacility;
+			cboFacilties.DisplayMember = "name";
+			cboFacilties.ValueMember = "facId";
+			
+			
+			//Load and bind time intervals combobox
+			timeInterval = new TimeIntervalBA();
+			cboInterval.DataSource = timeInterval.Load();
+			cboInterval.DisplayMember = "intName";
+			cboInterval.ValueMember = "intId";
+			
+			
+			//Load and bind departments combobox
+			dept = new DepartmentBA();
+			cboDept.DataSource = dept.Load();
+			cboDept.DisplayMember = "name";
+			cboDept.ValueMember = "deptId";
+			
+			
+			//Load and bind equipment combobox
+			equip = new EquipmentBA();
+			cboEquip.DataSource = equip.Load();
+			cboEquip.DisplayMember = "equipName";
+			cboEquip.ValueMember = "equipId";
+			
+			
+			//Load and bind facility locations combobox
+			location = new LocationBA();
+			cboLocation.DataSource = location.LoadByFacility((long)cboFacilties.SelectedValue);
+			cboLocation.DisplayMember = "name";
+			cboLocation.ValueMember = "locId";
+			
+			
+			//Load DataGridView with WorkOrdersDueByFacility
+			woView = new WorkOrderViewBA();
+			dgview.DataSource = woView.LoadByFacility((long)cboFacilties.SelectedValue, 600);
 		}
 		
 		
 		private void SettingsToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmDatabaseConnection frm = new frmDatabaseConnection();
-			frm.ShowDialog();
+			//frmDatabaseConnection frm = new frmDatabaseConnection();
+			//frm.ShowDialog();
 		}
 		
 		
 		private void cboFaciltiesSelectedIndexChanged(object sender, EventArgs e)
 		{
+			/*
 			try
 			{
-				MRDatabase mrdb = new MRDatabase();
+				
 				DataTable dt = new DataTable();
 				dt = mrdb.WorkOrdersDue(this.cboFacilties.SelectedValue.ToString(), 1000);
 				
@@ -131,11 +130,13 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
+			*/
 		}
 		
 		
 		void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			/*
 			try
 			{
 				DataTable dt = (DataTable)cboEquip.DataSource;
@@ -156,11 +157,13 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
+			*/
 		}
 		
 		
 		void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			/*
 			try
 			{
 				DataTable dt = (DataTable)cboEquip.DataSource;
@@ -181,11 +184,13 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
+			*/
 		}
 		
 		
 		void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			/*
 			try
 			{
 				DataTable dt = (DataTable)cboEquip.DataSource;
@@ -206,9 +211,7 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
+			*/
 		}
-		
-		
-		
 	}
 }

@@ -63,22 +63,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Equipment.cs" />
-    <Compile Include="Data\EquipmentTypes.cs" />
-    <Compile Include="Data\Facilities.cs" />
-    <Compile Include="Data\Locations.cs" />
-    <Compile Include="Data\Manufacturers.cs" />
-    <Compile Include="Data\Sql\MRDatabase.cs" />
-    <Compile Include="Data\VendorContacts.cs" />
-    <Compile Include="Data\Vendors.cs" />
-    <Compile Include="frmDatabaseConnection.cs" />
-    <Compile Include="frmDatabaseConnection.Designer.cs">
-      <DependentUpon>frmDatabaseConnection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEquipment.cs" />
-    <Compile Include="frmEquipment.Designer.cs">
-      <DependentUpon>frmEquipment.cs</DependentUpon>
-    </Compile>
+    <Compile Include="BusinessAccess\DepartmentBA.cs" />
+    <Compile Include="BusinessAccess\EquipmentBA.cs" />
+    <Compile Include="BusinessAccess\EquipmentTypeBA.cs" />
+    <Compile Include="BusinessAccess\FacilityBA.cs" />
+    <Compile Include="BusinessAccess\LocationBA.cs" />
+    <Compile Include="BusinessAccess\ManufacturerBA.cs" />
+    <Compile Include="BusinessAccess\TimeIntervalBA.cs" />
+    <Compile Include="BusinessAccess\VendorBA.cs" />
+    <Compile Include="BusinessAccess\VendorContactBA.cs" />
+    <Compile Include="BusinessAccess\WorkOrderViewBA.cs" />
+    <Compile Include="BusinessObjects\Department.cs" />
+    <Compile Include="BusinessObjects\Equipment.cs" />
+    <Compile Include="BusinessObjects\EquipmentType.cs" />
+    <Compile Include="BusinessObjects\Facility.cs" />
+    <Compile Include="BusinessObjects\Location.cs" />
+    <Compile Include="BusinessObjects\Manufacturer.cs" />
+    <Compile Include="BusinessObjects\TimeInterval.cs" />
+    <Compile Include="BusinessObjects\Vendor.cs" />
+    <Compile Include="BusinessObjects\VendorContact.cs" />
+    <Compile Include="BusinessObjects\WorkOrderView.cs" />
+    <Compile Include="Data\DepartmentDA.cs" />
+    <Compile Include="Data\EquipmentDA.cs" />
+    <Compile Include="Data\EquipmentTypeDA.cs" />
+    <Compile Include="Data\FacilityDA.cs" />
+    <Compile Include="Data\LocationDA.cs" />
+    <Compile Include="Data\ManufacturerDA.cs" />
+    <Compile Include="Data\TimeIntervalDA.cs" />
+    <Compile Include="Data\VendorContactDA.cs" />
+    <Compile Include="Data\VendorDA.cs" />
+    <Compile Include="Data\WorkOrderViewDA.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -89,15 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data" />
-    <Folder Include="Data\Sql" />
+    <Folder Include="BusinessObjects" />
+    <Folder Include="BusinessAccess" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDatabaseConnection.resx">
-      <DependentUpon>frmDatabaseConnection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipment.resx">
-      <DependentUpon>frmEquipment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1410,3 +1410,31 @@ StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates
    at MRMaintenance.MainForm.cboFaciltiesSelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 110
 TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
 
+7/24/2014 8:58:38 AM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.Data.Facilities.FacilitiesTable() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\Data\Facilities.cs:line 49
+   at MRMaintenance.MainForm..ctor() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 42
+TargetSite:	System.Data.SqlClient.SqlDataAdapter FacilitiesTable()
+
+7/24/2014 9:24:57 AM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.Data.Facilities.FacilitiesTable() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\Data\Facilities.cs:line 51
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 57
+TargetSite:	System.Data.SqlClient.SqlDataAdapter FacilitiesTable()
+
+7/24/2014 9:26:18 AM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.Data.Facilities.FacilitiesTable() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\Data\Facilities.cs:line 51
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 57
+TargetSite:	System.Data.SqlClient.SqlDataAdapter FacilitiesTable()
+
+7/24/2014 9:29:25 AM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.Data.Facilities.FacilitiesTable() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\Data\Facilities.cs:line 51
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 57
+TargetSite:	System.Data.SqlClient.SqlDataAdapter FacilitiesTable()
+

@@ -45,6 +45,8 @@ namespace MRMaintenance
 			this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.facilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabCtrl = new System.Windows.Forms.TabControl();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.dgview = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -72,7 +74,10 @@ namespace MRMaintenance
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.menuStrip1.SuspendLayout();
+			this.tabCtrl.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -133,6 +138,28 @@ namespace MRMaintenance
 			this.settingsToolStripMenuItem.Text = "&Settings...";
 			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItemClick);
 			// 
+			// tabCtrl
+			// 
+			this.tabCtrl.Controls.Add(this.tabPage1);
+			this.tabCtrl.Controls.Add(this.tabPage2);
+			this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabCtrl.Location = new System.Drawing.Point(0, 24);
+			this.tabCtrl.Name = "tabCtrl";
+			this.tabCtrl.SelectedIndex = 0;
+			this.tabCtrl.Size = new System.Drawing.Size(1141, 691);
+			this.tabCtrl.TabIndex = 1;
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(1133, 665);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "Work Orders Due";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.AutoSize = true;
@@ -144,19 +171,17 @@ namespace MRMaintenance
 			this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 691);
-			this.tableLayoutPanel1.TabIndex = 1;
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 659);
+			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// dgview
 			// 
-			this.dgview.AllowUserToAddRows = false;
-			this.dgview.AllowUserToDeleteRows = false;
 			this.dgview.AllowUserToOrderColumns = true;
 			this.dgview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -197,7 +222,6 @@ namespace MRMaintenance
 			this.cboFacilties.Name = "cboFacilties";
 			this.cboFacilties.Size = new System.Drawing.Size(226, 21);
 			this.cboFacilties.TabIndex = 1;
-			this.cboFacilties.SelectedIndexChanged += new System.EventHandler(this.cboFaciltiesSelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -318,7 +342,6 @@ namespace MRMaintenance
 			this.cboDept.Name = "cboDept";
 			this.cboDept.Size = new System.Drawing.Size(134, 21);
 			this.cboDept.TabIndex = 18;
-			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
 			// label10
 			// 
@@ -361,6 +384,7 @@ namespace MRMaintenance
 			// dtNextDue
 			// 
 			this.dtNextDue.CustomFormat = "";
+			this.dtNextDue.Enabled = false;
 			this.dtNextDue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dtNextDue.Location = new System.Drawing.Point(133, 340);
 			this.dtNextDue.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
@@ -428,12 +452,22 @@ namespace MRMaintenance
 			this.label6.TabIndex = 10;
 			this.label6.Text = "Time Interval";
 			// 
+			// tabPage2
+			// 
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(1133, 665);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Equipment";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1141, 715);
-			this.Controls.Add(this.tableLayoutPanel1);
+			this.Controls.Add(this.tabCtrl);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.MinimumSize = new System.Drawing.Size(640, 480);
@@ -441,6 +475,9 @@ namespace MRMaintenance
 			this.Text = "MRMaintenance - Copyright © 2014";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.tabCtrl.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
+			this.tabPage1.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();
@@ -451,6 +488,9 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabControl tabCtrl;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.ComboBox cboLocation;

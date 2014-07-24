@@ -1,9 +1,7 @@
-C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
-C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
-C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmDatabaseConnection.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.MainForm.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
+C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
+C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
-C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipment.resources
