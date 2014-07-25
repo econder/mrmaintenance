@@ -40,9 +40,14 @@ namespace MRMaintenance
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.workOrderSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.locationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.facilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.manufacturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vendorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.cboLocation = new System.Windows.Forms.ComboBox();
@@ -77,7 +82,8 @@ namespace MRMaintenance
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.viewToolStripMenuItem});
+									this.viewToolStripMenuItem,
+									this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(686, 24);
@@ -87,31 +93,67 @@ namespace MRMaintenance
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.workOrderSchedulesToolStripMenuItem,
 									this.equipmentToolStripMenuItem,
 									this.locationsToolStripMenuItem,
-									this.facilitiesToolStripMenuItem});
+									this.facilitiesToolStripMenuItem,
+									this.departmentsToolStripMenuItem,
+									this.manufacturersToolStripMenuItem,
+									this.vendorsToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
 			this.viewToolStripMenuItem.Text = "&View";
 			// 
+			// workOrderSchedulesToolStripMenuItem
+			// 
+			this.workOrderSchedulesToolStripMenuItem.Name = "workOrderSchedulesToolStripMenuItem";
+			this.workOrderSchedulesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.workOrderSchedulesToolStripMenuItem.Text = "&Work Order Schedules";
+			this.workOrderSchedulesToolStripMenuItem.Click += new System.EventHandler(this.WorkOrderSchedulesToolStripMenuItemClick);
+			// 
 			// equipmentToolStripMenuItem
 			// 
 			this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
-			this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.equipmentToolStripMenuItem.Text = "&Equipment";
 			this.equipmentToolStripMenuItem.Click += new System.EventHandler(this.EquipmentToolStripMenuItemClick);
 			// 
 			// locationsToolStripMenuItem
 			// 
 			this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
-			this.locationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.locationsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.locationsToolStripMenuItem.Text = "&Locations";
+			this.locationsToolStripMenuItem.Click += new System.EventHandler(this.LocationsToolStripMenuItemClick);
 			// 
 			// facilitiesToolStripMenuItem
 			// 
 			this.facilitiesToolStripMenuItem.Name = "facilitiesToolStripMenuItem";
-			this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.facilitiesToolStripMenuItem.Text = "&Facilities";
+			// 
+			// departmentsToolStripMenuItem
+			// 
+			this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
+			this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.departmentsToolStripMenuItem.Text = "&Departments";
+			// 
+			// manufacturersToolStripMenuItem
+			// 
+			this.manufacturersToolStripMenuItem.Name = "manufacturersToolStripMenuItem";
+			this.manufacturersToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.manufacturersToolStripMenuItem.Text = "Manufacturers";
+			// 
+			// vendorsToolStripMenuItem
+			// 
+			this.vendorsToolStripMenuItem.Name = "vendorsToolStripMenuItem";
+			this.vendorsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.vendorsToolStripMenuItem.Text = "Vendors";
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+			this.aboutToolStripMenuItem.Text = "About...";
 			// 
 			// label1
 			// 
@@ -374,6 +416,7 @@ namespace MRMaintenance
 			this.cboFacilties.Name = "cboFacilties";
 			this.cboFacilties.Size = new System.Drawing.Size(226, 21);
 			this.cboFacilties.TabIndex = 7;
+			this.cboFacilties.SelectedIndexChanged += new System.EventHandler(this.cboFacilties_SelectedIndexChanged);
 			// 
 			// MainForm
 			// 
@@ -399,6 +442,11 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem vendorsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem manufacturersToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem departmentsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem workOrderSchedulesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem locationsToolStripMenuItem;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label label12;

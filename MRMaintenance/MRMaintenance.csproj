@@ -69,9 +69,11 @@
     <Compile Include="BusinessAccess\FacilityBA.cs" />
     <Compile Include="BusinessAccess\LocationBA.cs" />
     <Compile Include="BusinessAccess\ManufacturerBA.cs" />
+    <Compile Include="BusinessAccess\StateBA.cs" />
     <Compile Include="BusinessAccess\TimeIntervalBA.cs" />
     <Compile Include="BusinessAccess\VendorBA.cs" />
     <Compile Include="BusinessAccess\VendorContactBA.cs" />
+    <Compile Include="BusinessAccess\WorkOrderScheduleBA.cs" />
     <Compile Include="BusinessAccess\WorkOrderViewBA.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
     <Compile Include="BusinessObjects\Equipment.cs" />
@@ -79,9 +81,11 @@
     <Compile Include="BusinessObjects\Facility.cs" />
     <Compile Include="BusinessObjects\Location.cs" />
     <Compile Include="BusinessObjects\Manufacturer.cs" />
+    <Compile Include="BusinessObjects\State.cs" />
     <Compile Include="BusinessObjects\TimeInterval.cs" />
     <Compile Include="BusinessObjects\Vendor.cs" />
     <Compile Include="BusinessObjects\VendorContact.cs" />
+    <Compile Include="BusinessObjects\WorkOrderSchedule.cs" />
     <Compile Include="BusinessObjects\WorkOrderView.cs" />
     <Compile Include="Data\DepartmentDA.cs" />
     <Compile Include="Data\EquipmentDA.cs" />
@@ -89,13 +93,31 @@
     <Compile Include="Data\FacilityDA.cs" />
     <Compile Include="Data\LocationDA.cs" />
     <Compile Include="Data\ManufacturerDA.cs" />
+    <Compile Include="Data\StateDA.cs" />
     <Compile Include="Data\TimeIntervalDA.cs" />
     <Compile Include="Data\VendorContactDA.cs" />
     <Compile Include="Data\VendorDA.cs" />
+    <Compile Include="Data\WorkOrderScheduleDA.cs" />
     <Compile Include="Data\WorkOrderViewDA.cs" />
+    <Compile Include="frmAbout.cs" />
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepartment.cs" />
+    <Compile Include="frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEquipment.cs" />
     <Compile Include="frmEquipment.Designer.cs">
       <DependentUpon>frmEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocations.cs" />
+    <Compile Include="frmLocations.Designer.cs">
+      <DependentUpon>frmLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWorkOrderSchedule.cs" />
+    <Compile Include="frmWorkOrderSchedule.Designer.cs">
+      <DependentUpon>frmWorkOrderSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
@@ -111,8 +133,20 @@
     <Folder Include="BusinessAccess" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDepartment.resx">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEquipment.resx">
       <DependentUpon>frmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocations.resx">
+      <DependentUpon>frmLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkOrderSchedule.resx">
+      <DependentUpon>frmWorkOrderSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

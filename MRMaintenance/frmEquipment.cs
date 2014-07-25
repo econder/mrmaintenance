@@ -28,10 +28,25 @@ namespace MRMaintenance
 		private EquipmentTypeBA equipmentTypeBA;
 		private ManufacturerBA manufacturerBA;
 		private VendorBA vendorBA;
+		private DataTable dtEquip;
 		
 		public frmEquipment()
 		{
 			InitializeComponent();
+			
+			equipmentBA = new EquipmentBA();
+			facilityBA = new FacilityBA();
+			locationBA = new LocationBA();
+			manufacturerBA = new ManufacturerBA();
+			vendorBA = new VendorBA();
+			equipmentTypeBA = new EquipmentTypeBA();
+			
+			dgviewEquip.AutoGenerateColumns = false;
+			dgviewEquip.ColumnCount = 2;
+			dgviewEquip.Columns[0].Name = "ID";
+			dgviewEquip.Columns[0].DataPropertyName = "equipId";
+			dgviewEquip.Columns[1].Name = "Name";
+			dgviewEquip.Columns[1].DataPropertyName = "equipName";
 			
 			this.FillData();
 		}
@@ -39,20 +54,13 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
+			dtEquip = equipmentBA.Load();
+			
 			//Load and bind equipment datagridview
-			dgviewEquip.AutoGenerateColumns = false;
-			dgviewEquip.ColumnCount = 2;
-			dgviewEquip.Columns[0].Name = "ID";
-			dgviewEquip.Columns[0].DataPropertyName = "equipId";
-			dgviewEquip.Columns[1].Name = "Name";
-			dgviewEquip.Columns[1].DataPropertyName = "equipName";
-			equipmentBA = new EquipmentBA();
-			DataTable dtEquip = equipmentBA.Load();
 			dgviewEquip.DataSource = dtEquip;
 			
 			
 			//Load and bind facilities combobox
-			facilityBA = new FacilityBA();
 			DataTable dtFacility = facilityBA.Load();
 			cboFacility.DataSource = dtFacility;
 			cboFacility.DisplayMember = "name";
@@ -60,7 +68,6 @@ namespace MRMaintenance
 			
 			
 			//Load and bind facility locations combobox
-			locationBA = new LocationBA();
 			cboLocation.DataSource = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
 			cboLocation.DisplayMember = "name";
 			cboLocation.ValueMember = "locId";
@@ -82,24 +89,44 @@ namespace MRMaintenance
 			
 			
 			//Load and bind manufacturers combobox
-			manufacturerBA = new ManufacturerBA();
 			cboManufacturer.DataSource = manufacturerBA.Load();
 			cboManufacturer.DisplayMember = "name";
 			cboManufacturer.ValueMember = "manId";
 			
 			
 			//Load and bind vendors combobox
-			vendorBA = new VendorBA();
 			cboVendor.DataSource = vendorBA.Load();
 			cboVendor.DisplayMember = "name";
 			cboVendor.ValueMember = "venId";
 			
 			
 			//Load and bind equipment types combobox
-			equipmentTypeBA = new EquipmentTypeBA();
 			cboEquipType.DataSource = equipmentTypeBA.Load();
 			cboEquipType.DisplayMember = "typeName";
 			cboEquipType.ValueMember = "typeId";
+		}
+		
+		
+		private void ResetControlBindings()
+		{
+			//Clear existing databindings for each control
+			dgviewEquip.DataBindings.Clear();
+			cboFacility.DataBindings.Clear();
+			cboLocation.DataBindings.Clear();
+			txtName.DataBindings.Clear();
+			txtEquipNumber.DataBindings.Clear();
+			txtDescr.DataBindings.Clear();
+			cboManufacturer.DataBindings.Clear();
+			cboVendor.DataBindings.Clear();
+			txtModel.DataBindings.Clear();
+			txtSerial.DataBindings.Clear();
+			cboEquipType.DataBindings.Clear();
+			
+			//Clear and reload datatable
+			dtEquip.Clear();
+			
+			//Load database and re-bind all the controls
+			this.FillData();
 		}
 		
 		
@@ -110,7 +137,7 @@ namespace MRMaintenance
 			
 			equipmentBA.Delete(equipment);
 			
-			dgviewEquip.ResetBindings();
+			this.ResetControlBindings();
 		}
 		
 		
@@ -129,7 +156,7 @@ namespace MRMaintenance
 			
 			equipmentBA.Insert(equipment);
 			
-			dgviewEquip.ResetBindings();
+			this.ResetControlBindings();
 		}
 		
 		
@@ -149,7 +176,7 @@ namespace MRMaintenance
 			
 			equipmentBA.Update(equipment);
 			
-			dgviewEquip.ResetBindings();
+			this.ResetControlBindings();
 		}
 		
 		

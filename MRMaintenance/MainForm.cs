@@ -38,6 +38,13 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
+			facility = new FacilityBA();
+			timeInterval = new TimeIntervalBA();
+			dept = new DepartmentBA();
+			equip = new EquipmentBA();
+			location = new LocationBA();
+			woView = new WorkOrderViewBA();
+			
 			this.FillData();
 		}
 		
@@ -45,47 +52,31 @@ namespace MRMaintenance
 		private void FillData()
 		{
 			//Load and bind facilities combobox
-			facility = new FacilityBA();
 			DataTable dtFacility = facility.Load();
 			
 			cboFacilties.DataSource = dtFacility;
 			cboFacilties.DisplayMember = "name";
 			cboFacilties.ValueMember = "facId";
 			
-			
 			//Load and bind time intervals combobox
-			timeInterval = new TimeIntervalBA();
 			cboInterval.DataSource = timeInterval.Load();
 			cboInterval.DisplayMember = "intName";
 			cboInterval.ValueMember = "intId";
 			
-			
 			//Load and bind departments combobox
-			dept = new DepartmentBA();
 			cboDept.DataSource = dept.Load();
 			cboDept.DisplayMember = "name";
 			cboDept.ValueMember = "deptId";
 			
-			
 			//Load and bind equipment combobox
-			equip = new EquipmentBA();
 			cboEquip.DataSource = equip.Load();
 			cboEquip.DisplayMember = "equipName";
 			cboEquip.ValueMember = "equipId";
 			
-			
 			//Load and bind facility locations combobox
-			location = new LocationBA();
 			cboLocation.DataSource = location.LoadByFacility((long)cboFacilties.SelectedValue);
 			cboLocation.DisplayMember = "name";
 			cboLocation.ValueMember = "locId";
-		}
-		
-		
-		private void SettingsToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			//frmDatabaseConnection frm = new frmDatabaseConnection();
-			//frm.ShowDialog();
 		}
 		
 		
@@ -94,7 +85,6 @@ namespace MRMaintenance
 			try
 			{
 				//Load DataGridView with WorkOrdersDueByFacility
-				woView = new WorkOrderViewBA();
 				DataTable dt = woView.LoadByFacility((long)this.cboFacilties.SelectedValue, 300);
 				this.dgview.DataSource = dt;
 				
@@ -206,9 +196,24 @@ namespace MRMaintenance
 			*/
 		}
 		
+		
 		void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmEquipment form = new frmEquipment();
+			form.Show();
+		}
+		
+		
+		void WorkOrderSchedulesToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			frmWorkOrderSchedule form = new frmWorkOrderSchedule();
+			form.Show();
+		}
+		
+		
+		void LocationsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			frmLocations form = new frmLocations();
 			form.Show();
 		}
 	}

@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderView.cs
+ * Class:   	WorkOrderSchedule.cs
  * Created By: 	Eric Conder
- * Created On: 	7/24/2014
+ * Created On: 	7/25/2014
  * 
  * Changes:
  * 
@@ -12,11 +12,11 @@ using System;
 namespace MRMaintenance.BusinessObjects
 {
 	/// <summary>
-	/// Description of WorkOrder.
+	/// Description of WorkOrderSchedule.
 	/// </summary>
-	public class WorkOrderView
+	public class WorkOrderSchedule
 	{
-		public WorkOrderView()
+		public WorkOrderSchedule()
 		{
 		}
 		
@@ -25,14 +25,12 @@ namespace MRMaintenance.BusinessObjects
 		public long ID { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
+		public long EquipmentID { get; set; }
+		public long DepartmentID { get; set; }
 		public DateTime StartDate { get; set; }
-		public int Frequency { get; set; }
-		public string Interval { get; set; }
-		public DateTime NextDue { get; set; }
-		public string Department { get; set; }
-		public string Equipment { get; set; }
-		public string Location { get; set; }
-		public float Runtime { get; set; }
-		public long Cycles { get; set; }
+		public int RecurrenceCount { get; set; }
+		public int TimeFrequency { get; set; }
+		public long TimeIntervalID { get; set; }
+		public DateTime LastCompleted { get; set; }
 	}
 }
