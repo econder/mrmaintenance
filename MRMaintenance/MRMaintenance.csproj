@@ -93,6 +93,10 @@
     <Compile Include="Data\VendorContactDA.cs" />
     <Compile Include="Data\VendorDA.cs" />
     <Compile Include="Data\WorkOrderViewDA.cs" />
+    <Compile Include="frmEquipment.cs" />
+    <Compile Include="frmEquipment.Designer.cs">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -107,6 +111,9 @@
     <Folder Include="BusinessAccess" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmEquipment.resx">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

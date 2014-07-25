@@ -79,11 +79,6 @@ namespace MRMaintenance
 			cboLocation.DataSource = location.LoadByFacility((long)cboFacilties.SelectedValue);
 			cboLocation.DisplayMember = "name";
 			cboLocation.ValueMember = "locId";
-			
-			
-			//Load DataGridView with WorkOrdersDueByFacility
-			woView = new WorkOrderViewBA();
-			dgview.DataSource = woView.LoadByFacility((long)cboFacilties.SelectedValue, 600);
 		}
 		
 		
@@ -94,15 +89,13 @@ namespace MRMaintenance
 		}
 		
 		
-		private void cboFaciltiesSelectedIndexChanged(object sender, EventArgs e)
+		void cboFacilties_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			/*
 			try
 			{
-				
-				DataTable dt = new DataTable();
-				dt = mrdb.WorkOrdersDue(this.cboFacilties.SelectedValue.ToString(), 1000);
-				
+				//Load DataGridView with WorkOrdersDueByFacility
+				woView = new WorkOrderViewBA();
+				DataTable dt = woView.LoadByFacility((long)this.cboFacilties.SelectedValue, 300);
 				this.dgview.DataSource = dt;
 				
 				//Set data bindings
@@ -130,7 +123,6 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
-			*/
 		}
 		
 		
@@ -212,6 +204,12 @@ namespace MRMaintenance
 				return;
 			}
 			*/
+		}
+		
+		void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			frmEquipment form = new frmEquipment();
+			form.Show();
 		}
 	}
 }

@@ -40,17 +40,9 @@ namespace MRMaintenance
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.workOrdersDueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.scheduledWorkOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.locationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.facilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.tabCtrl = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.dgview = new System.Windows.Forms.DataGridView();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.cboFacilties = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.cboLocation = new System.Windows.Forms.ComboBox();
@@ -74,165 +66,64 @@ namespace MRMaintenance
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.dgview = new System.Windows.Forms.DataGridView();
+			this.cboFacilties = new System.Windows.Forms.ComboBox();
 			this.menuStrip1.SuspendLayout();
-			this.tabCtrl.SuspendLayout();
-			this.tabPage1.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
-			this.panel1.SuspendLayout();
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.viewToolStripMenuItem,
-									this.settingsToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+									this.viewToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1141, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(686, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.workOrdersDueToolStripMenuItem,
-									this.scheduledWorkOrdersToolStripMenuItem,
 									this.equipmentToolStripMenuItem,
+									this.locationsToolStripMenuItem,
 									this.facilitiesToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
 			this.viewToolStripMenuItem.Text = "&View";
 			// 
-			// workOrdersDueToolStripMenuItem
-			// 
-			this.workOrdersDueToolStripMenuItem.Name = "workOrdersDueToolStripMenuItem";
-			this.workOrdersDueToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-			this.workOrdersDueToolStripMenuItem.Text = "&Work Orders Due";
-			// 
-			// scheduledWorkOrdersToolStripMenuItem
-			// 
-			this.scheduledWorkOrdersToolStripMenuItem.Name = "scheduledWorkOrdersToolStripMenuItem";
-			this.scheduledWorkOrdersToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-			this.scheduledWorkOrdersToolStripMenuItem.Text = "&Scheduled Work Orders";
-			// 
 			// equipmentToolStripMenuItem
 			// 
 			this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
-			this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+			this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.equipmentToolStripMenuItem.Text = "&Equipment";
+			this.equipmentToolStripMenuItem.Click += new System.EventHandler(this.EquipmentToolStripMenuItemClick);
+			// 
+			// locationsToolStripMenuItem
+			// 
+			this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
+			this.locationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.locationsToolStripMenuItem.Text = "&Locations";
 			// 
 			// facilitiesToolStripMenuItem
 			// 
 			this.facilitiesToolStripMenuItem.Name = "facilitiesToolStripMenuItem";
-			this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+			this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.facilitiesToolStripMenuItem.Text = "&Facilities";
-			// 
-			// settingsToolStripMenuItem
-			// 
-			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-			this.settingsToolStripMenuItem.Text = "&Settings...";
-			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItemClick);
-			// 
-			// tabCtrl
-			// 
-			this.tabCtrl.Controls.Add(this.tabPage1);
-			this.tabCtrl.Controls.Add(this.tabPage2);
-			this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabCtrl.Location = new System.Drawing.Point(0, 24);
-			this.tabCtrl.Name = "tabCtrl";
-			this.tabCtrl.SelectedIndex = 0;
-			this.tabCtrl.Size = new System.Drawing.Size(1141, 691);
-			this.tabCtrl.TabIndex = 1;
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1133, 665);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Work Orders Due";
-			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.AutoSize = true;
-			this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 291F));
-			this.tableLayoutPanel1.Controls.Add(this.dgview, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 659);
-			this.tableLayoutPanel1.TabIndex = 2;
-			// 
-			// dgview
-			// 
-			this.dgview.AllowUserToOrderColumns = true;
-			this.dgview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle1.NullValue = "0";
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgview.DefaultCellStyle = dataGridViewCellStyle1;
-			this.dgview.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgview.Location = new System.Drawing.Point(6, 55);
-			this.dgview.Name = "dgview";
-			this.dgview.ReadOnly = true;
-			this.dgview.RowHeadersVisible = false;
-			this.dgview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgview.Size = new System.Drawing.Size(838, 630);
-			this.dgview.TabIndex = 0;
-			// 
-			// panel1
-			// 
-			this.panel1.AutoSize = true;
-			this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.panel1.Controls.Add(this.cboFacilties);
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(6, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(838, 43);
-			this.panel1.TabIndex = 1;
-			// 
-			// cboFacilties
-			// 
-			this.cboFacilties.FormattingEnabled = true;
-			this.cboFacilties.Location = new System.Drawing.Point(0, 17);
-			this.cboFacilties.Name = "cboFacilties";
-			this.cboFacilties.Size = new System.Drawing.Size(226, 21);
-			this.cboFacilties.TabIndex = 1;
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(0, 1);
+			this.label1.Location = new System.Drawing.Point(3, 36);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(100, 16);
-			this.label1.TabIndex = 0;
+			this.label1.TabIndex = 5;
 			this.label1.Text = "Facility";
 			// 
 			// panel3
 			// 
+			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel3.Controls.Add(this.cboLocation);
 			this.panel3.Controls.Add(this.label12);
 			this.panel3.Controls.Add(this.cboEquip);
@@ -254,11 +145,10 @@ namespace MRMaintenance
 			this.panel3.Controls.Add(this.label4);
 			this.panel3.Controls.Add(this.label5);
 			this.panel3.Controls.Add(this.label6);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(850, 55);
+			this.panel3.Location = new System.Drawing.Point(420, 81);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(285, 630);
-			this.panel3.TabIndex = 3;
+			this.panel3.Size = new System.Drawing.Size(269, 456);
+			this.panel3.TabIndex = 6;
 			// 
 			// cboLocation
 			// 
@@ -308,6 +198,7 @@ namespace MRMaintenance
 			this.txtDescr.Location = new System.Drawing.Point(3, 151);
 			this.txtDescr.Multiline = true;
 			this.txtDescr.Name = "txtDescr";
+			this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtDescr.Size = new System.Drawing.Size(264, 72);
 			this.txtDescr.TabIndex = 3;
 			// 
@@ -452,45 +343,63 @@ namespace MRMaintenance
 			this.label6.TabIndex = 10;
 			this.label6.Text = "Time Interval";
 			// 
-			// tabPage2
+			// dgview
 			// 
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1133, 665);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Equipment";
-			this.tabPage2.UseVisualStyleBackColor = true;
+			this.dgview.AllowUserToOrderColumns = true;
+			this.dgview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.dgview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgview.DefaultCellStyle = dataGridViewCellStyle1;
+			this.dgview.Location = new System.Drawing.Point(3, 81);
+			this.dgview.Name = "dgview";
+			this.dgview.ReadOnly = true;
+			this.dgview.RowHeadersVisible = false;
+			this.dgview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgview.Size = new System.Drawing.Size(411, 486);
+			this.dgview.TabIndex = 8;
+			// 
+			// cboFacilties
+			// 
+			this.cboFacilties.FormattingEnabled = true;
+			this.cboFacilties.Location = new System.Drawing.Point(3, 52);
+			this.cboFacilties.Name = "cboFacilties";
+			this.cboFacilties.Size = new System.Drawing.Size(226, 21);
+			this.cboFacilties.TabIndex = 7;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1141, 715);
-			this.Controls.Add(this.tabCtrl);
+			this.ClientSize = new System.Drawing.Size(692, 573);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.panel3);
+			this.Controls.Add(this.dgview);
+			this.Controls.Add(this.cboFacilties);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.MinimumSize = new System.Drawing.Size(640, 480);
+			this.MinimumSize = new System.Drawing.Size(700, 600);
 			this.Name = "MainForm";
+			this.Padding = new System.Windows.Forms.Padding(3);
 			this.Text = "MRMaintenance - Copyright © 2014";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			this.tabCtrl.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
-			this.tabPage1.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();
-			this.panel1.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabControl tabCtrl;
+		private System.Windows.Forms.ToolStripMenuItem locationsToolStripMenuItem;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.ComboBox cboLocation;
@@ -513,16 +422,11 @@ namespace MRMaintenance
 		private System.Windows.Forms.DateTimePicker dtStartDate;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.NumericUpDown numFreq;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView dgview;
 		private System.Windows.Forms.ComboBox cboFacilties;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem facilitiesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem equipmentToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem scheduledWorkOrdersToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem workOrdersDueToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 	}

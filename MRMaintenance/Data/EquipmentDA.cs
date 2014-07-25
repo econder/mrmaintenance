@@ -63,8 +63,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, equipNumber, equipName, equipSerial, equipModel, equipModelDesc)" +
-											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @equipNumber, @equipName, @equipSerial, @equipModel, @equipModelDesc)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, equipNumber, equipName, equipSerial, equipModel, descr)" +
+											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @equipNumber, @equipName, @equipSerial, @equipModel, @descr)", dbConn);
 				
 				try
 				{
@@ -76,7 +76,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
 					cmd.Parameters.AddWithValue("@equipModel", equipment.Model);
-					cmd.Parameters.AddWithValue("@equipModelDesc", equipment.Description);
+					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -100,7 +100,7 @@ namespace MRMaintenance.Data
 			{
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("UPDATE Equipment SET locId=@locId, equipTypeId=@equipTypeId, manId=@manId, vendorId=@vendorId, equipNumber=@equipNumber, equipName=@equipName," +
-				                                " equipSerial=@equipSerial, equipModel=@equipModel, equipModelDesc=@equipModelDesc" +
+				                                " equipSerial=@equipSerial, equipModel=@equipModel, descr=@descr" +
 				                                " WHERE equipId=@equipId", dbConn);
 				
 				try
@@ -114,7 +114,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
 					cmd.Parameters.AddWithValue("@equipModel", equipment.Model);
-					cmd.Parameters.AddWithValue("@equipModelDesc", equipment.Description);
+					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					
 					return cmd.ExecuteNonQuery();
 				}
