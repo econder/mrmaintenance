@@ -130,24 +130,28 @@ namespace MRMaintenance
 			this.facilitiesToolStripMenuItem.Name = "facilitiesToolStripMenuItem";
 			this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.facilitiesToolStripMenuItem.Text = "&Facilities";
+			this.facilitiesToolStripMenuItem.Click += new System.EventHandler(this.FacilitiesToolStripMenuItemClick);
 			// 
 			// departmentsToolStripMenuItem
 			// 
 			this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
 			this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.departmentsToolStripMenuItem.Text = "&Departments";
+			this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.DepartmentsToolStripMenuItemClick);
 			// 
 			// manufacturersToolStripMenuItem
 			// 
 			this.manufacturersToolStripMenuItem.Name = "manufacturersToolStripMenuItem";
 			this.manufacturersToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.manufacturersToolStripMenuItem.Text = "Manufacturers";
+			this.manufacturersToolStripMenuItem.Click += new System.EventHandler(this.ManufacturersToolStripMenuItemClick);
 			// 
 			// vendorsToolStripMenuItem
 			// 
 			this.vendorsToolStripMenuItem.Name = "vendorsToolStripMenuItem";
 			this.vendorsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
 			this.vendorsToolStripMenuItem.Text = "Vendors";
+			this.vendorsToolStripMenuItem.Click += new System.EventHandler(this.VendorsToolStripMenuItemClick);
 			// 
 			// aboutToolStripMenuItem
 			// 
@@ -416,7 +420,6 @@ namespace MRMaintenance
 			this.cboFacilties.Name = "cboFacilties";
 			this.cboFacilties.Size = new System.Drawing.Size(226, 21);
 			this.cboFacilties.TabIndex = 7;
-			this.cboFacilties.SelectedIndexChanged += new System.EventHandler(this.cboFacilties_SelectedIndexChanged);
 			// 
 			// MainForm
 			// 

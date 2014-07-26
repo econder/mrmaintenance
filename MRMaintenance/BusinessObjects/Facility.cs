@@ -33,5 +33,7 @@ namespace MRMaintenance.Data
 		public string Phone1 { get; set; }
 		public string Phone2 { get; set; }
 		public string Fax { get; set; }
+		public float Latitude { get; set; }
+		public float Longitude { get; set; }
 	}
 }

@@ -1494,3 +1494,45 @@ StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates
    at MRMaintenance.MainForm.cboFacilties_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 102
 TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
 
+7/25/2014 9:32:06 PM
+Message:	This causes two bindings in the collection to bind to the same property.
+Parameter name: binding
+Source:		System.Windows.Forms
+StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
+   at System.Windows.Forms.Binding.CheckBinding()
+   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
+   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
+   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue, String formatString, IFormatProvider formatInfo)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue)
+   at MRMaintenance.MainForm.cboFacilties_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 95
+TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
+
+7/25/2014 9:32:10 PM
+Message:	This causes two bindings in the collection to bind to the same property.
+Parameter name: binding
+Source:		System.Windows.Forms
+StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
+   at System.Windows.Forms.Binding.CheckBinding()
+   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
+   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
+   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue, String formatString, IFormatProvider formatInfo)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue)
+   at MRMaintenance.MainForm.cboFacilties_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 95
+TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
+
+7/25/2014 11:22:12 PM
+Message:	This causes two bindings in the collection to bind to the same property.
+Parameter name: binding
+Source:		System.Windows.Forms
+StackTrace:	   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
+   at System.Windows.Forms.Binding.CheckBinding()
+   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
+   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
+   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue, String formatString, IFormatProvider formatInfo)
+   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue)
+   at MRMaintenance.MainForm.cboFacilties_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 96
+TargetSite:	Void CheckDuplicates(System.Windows.Forms.Binding)
+

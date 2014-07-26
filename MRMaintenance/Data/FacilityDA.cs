@@ -64,8 +64,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Facilities(name, addr1, addr2, city, stateId, zip, phone1, phone2, fax)" +
-				                                " VALUES(@name, @addr1, @addr2, @city, @stateId, @zip, @phone1, @phone2, @fax)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Facilities(name, addr1, addr2, city, stateId, zip, phone1, phone2, fax, lat, long)" +
+				                                " VALUES(@name, @addr1, @addr2, @city, @stateId, @zip, @phone1, @phone2, @fax, @lat, @long)", dbConn);
 				
 				try
 				{
@@ -78,6 +78,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@phone1", facility.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", facility.Phone2);
 					cmd.Parameters.AddWithValue("@fax", facility.Fax);
+					cmd.Parameters.AddWithValue("@lat", facility.Latitude);
+					cmd.Parameters.AddWithValue("@long", facility.Longitude);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -100,7 +102,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE Facilities SET name=@name, addr1=@addr1, addr2=@addr2, city=@city, stateId=@stateId, zip=@zip, phone1=@phone1, phone2=@phone2, fax=@fax" +
+				SqlCommand cmd = new SqlCommand("UPDATE Facilities SET name=@name, addr1=@addr1, addr2=@addr2, city=@city, stateId=@stateId, zip=@zip, phone1=@phone1, phone2=@phone2, fax=@fax, lat=@lat, long=@long" +
 				                                " WHERE facId=@facId", dbConn);
 				
 				try
@@ -115,6 +117,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@phone1", facility.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", facility.Phone2);
 					cmd.Parameters.AddWithValue("@fax", facility.Fax);
+					cmd.Parameters.AddWithValue("@lat", facility.Latitude);
+					cmd.Parameters.AddWithValue("@long", facility.Longitude);
 					
 					return cmd.ExecuteNonQuery();
 				}

@@ -99,6 +99,10 @@
     <Compile Include="Data\VendorDA.cs" />
     <Compile Include="Data\WorkOrderScheduleDA.cs" />
     <Compile Include="Data\WorkOrderViewDA.cs" />
+    <Compile Include="frmFacility.cs" />
+    <Compile Include="frmFacility.Designer.cs">
+      <DependentUpon>frmFacility.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAbout.cs" />
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
@@ -114,6 +118,14 @@
     <Compile Include="frmLocations.cs" />
     <Compile Include="frmLocations.Designer.cs">
       <DependentUpon>frmLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManufacturer.cs" />
+    <Compile Include="frmManufacturer.Designer.cs">
+      <DependentUpon>frmManufacturer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVendor.cs" />
+    <Compile Include="frmVendor.Designer.cs">
+      <DependentUpon>frmVendor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmWorkOrderSchedule.cs" />
     <Compile Include="frmWorkOrderSchedule.Designer.cs">
@@ -142,8 +154,17 @@
     <EmbeddedResource Include="frmEquipment.resx">
       <DependentUpon>frmEquipment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFacility.resx">
+      <DependentUpon>frmFacility.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLocations.resx">
       <DependentUpon>frmLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManufacturer.resx">
+      <DependentUpon>frmManufacturer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVendor.resx">
+      <DependentUpon>frmVendor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkOrderSchedule.resx">
       <DependentUpon>frmWorkOrderSchedule.cs</DependentUpon>

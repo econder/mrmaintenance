@@ -142,7 +142,6 @@ namespace MRMaintenance
 			this.cboFacilities.Name = "cboFacilities";
 			this.cboFacilities.Size = new System.Drawing.Size(229, 21);
 			this.cboFacilities.TabIndex = 73;
-			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
 			// 
 			// label3
 			// 

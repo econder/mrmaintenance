@@ -43,6 +43,10 @@ namespace MRMaintenance
 			cboFacilities.DisplayMember = "name";
 			cboFacilities.ValueMember = "facId";
 			
+			//Setup event handler after loading and binding the control
+			//to prevent firing the event before the control is populated
+			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
+			
 			//Load and bind states combobox
 			cboState.DataSource = stateBA.Load();
 			cboState.DisplayMember = "abbr";
@@ -54,7 +58,7 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			dt = locationBA.Load();
+			dt = locationBA.LoadByFacility((long)cboFacilities.SelectedValue);
 			
 			//Bind departments listbox
 			listLoc.DataSource = dt;
@@ -66,9 +70,10 @@ namespace MRMaintenance
 			txtAddr1.DataBindings.Add("Text", dt, "addr1", true, DataSourceUpdateMode.Never, "");
 			txtAddr2.DataBindings.Add("Text", dt, "addr2", true, DataSourceUpdateMode.Never, "");
 			txtCity.DataBindings.Add("Text", dt, "city", true, DataSourceUpdateMode.Never, "");
+			cboState.DataBindings.Add("SelectedValue", dt, "stateId", true, DataSourceUpdateMode.Never, -1);
 			txtZip.DataBindings.Add("Text", dt, "zip", true, DataSourceUpdateMode.Never, "");
-			txtLat.DataBindings.Add("Text", dt, "lat", true, DataSourceUpdateMode.Never, "0.000000");
-			txtLong.DataBindings.Add("Text", dt, "long", true, DataSourceUpdateMode.Never, "0.000000");
+			txtLat.DataBindings.Add("Text", dt, "lat", true, DataSourceUpdateMode.Never, "0");
+			txtLong.DataBindings.Add("Text", dt, "long", true, DataSourceUpdateMode.Never, "0");
 		}
 		
 		
@@ -79,6 +84,7 @@ namespace MRMaintenance
 			txtAddr1.DataBindings.Clear();
 			txtAddr2.DataBindings.Clear();
 			txtCity.DataBindings.Clear();
+			cboState.DataBindings.Clear();
 			txtZip.DataBindings.Clear();
 			txtLat.DataBindings.Clear();
 			txtLong.DataBindings.Clear();
