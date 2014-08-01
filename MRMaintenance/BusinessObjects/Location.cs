@@ -15,6 +15,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of Location.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class Location
 	{
 		public Location()

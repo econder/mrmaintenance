@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	EquipmentType.cs
+ * Class:   	EquipmentDoc.cs
  * Created By: 	Eric Conder
- * Created On: 	7/24/2014
+ * Created On: 	7/31/2014
  * 
  * Changes:
  * 
@@ -9,23 +9,23 @@
  * *************************************************************************************************/
 using System;
 
-
 namespace MRMaintenance.BusinessObjects
 {
 	/// <summary>
-	/// Description of EquipmentType.
+	/// Description of EquipmentDoc.
 	/// </summary>
-	[System.ComponentModel.DataObject]
-	public class EquipmentType
+	public class EquipmentDoc
 	{
-		public EquipmentType()
+		
+		public EquipmentDoc()
 		{
 		}
 		
 		
 		//Properties
 		public long ID { get; set; }
+		public long EquipmentID { get; set; }
 		public string Name { get; set; }
-		public string Description { get; set; }
+		public string Link { get; set; }
 	}
 }

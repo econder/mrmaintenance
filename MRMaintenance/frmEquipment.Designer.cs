@@ -37,8 +37,8 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipment));
 			this.label1 = new System.Windows.Forms.Label();
-			this.dgviewEquip = new System.Windows.Forms.DataGridView();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.cboFacility = new System.Windows.Forms.ComboBox();
@@ -57,40 +57,26 @@ namespace MRMaintenance
 			this.label9 = new System.Windows.Forms.Label();
 			this.txtDescr = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
-			this.dgviewWO = new System.Windows.Forms.DataGridView();
-			this.label4 = new System.Windows.Forms.Label();
 			this.btnClose = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
-			this.btnRemove = new System.Windows.Forms.Button();
 			this.txtEquipNumber = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.btnUpdate = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dgviewEquip)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgviewWO)).BeginInit();
+			this.btnRemove = new System.Windows.Forms.Button();
+			this.listEquip = new System.Windows.Forms.ListBox();
+			this.listEquipDocs = new System.Windows.Forms.ListBox();
+			this.btnDocRemove = new System.Windows.Forms.Button();
+			this.btnDocAdd = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(3, 9);
+			this.label1.Location = new System.Drawing.Point(6, 13);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(100, 16);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Equipment List";
-			// 
-			// dgviewEquip
-			// 
-			this.dgviewEquip.AllowUserToAddRows = false;
-			this.dgviewEquip.AllowUserToDeleteRows = false;
-			this.dgviewEquip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left)));
-			this.dgviewEquip.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-			this.dgviewEquip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgviewEquip.Location = new System.Drawing.Point(6, 29);
-			this.dgviewEquip.Name = "dgviewEquip";
-			this.dgviewEquip.RowHeadersVisible = false;
-			this.dgviewEquip.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgviewEquip.Size = new System.Drawing.Size(240, 429);
-			this.dgviewEquip.TabIndex = 1;
 			// 
 			// txtName
 			// 
@@ -242,29 +228,6 @@ namespace MRMaintenance
 			this.label10.TabIndex = 43;
 			this.label10.Text = "Description";
 			// 
-			// dgviewWO
-			// 
-			this.dgviewWO.AllowUserToAddRows = false;
-			this.dgviewWO.AllowUserToDeleteRows = false;
-			this.dgviewWO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.dgviewWO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-			this.dgviewWO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgviewWO.Location = new System.Drawing.Point(256, 328);
-			this.dgviewWO.Name = "dgviewWO";
-			this.dgviewWO.RowHeadersVisible = false;
-			this.dgviewWO.Size = new System.Drawing.Size(466, 130);
-			this.dgviewWO.TabIndex = 45;
-			// 
-			// label4
-			// 
-			this.label4.Location = new System.Drawing.Point(252, 309);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(123, 16);
-			this.label4.TabIndex = 46;
-			this.label4.Text = "Past Work Orders";
-			// 
 			// btnClose
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -279,23 +242,13 @@ namespace MRMaintenance
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(646, 276);
+			this.btnAdd.Location = new System.Drawing.Point(498, 464);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
 			this.btnAdd.TabIndex = 48;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-			// 
-			// btnRemove
-			// 
-			this.btnRemove.Location = new System.Drawing.Point(252, 276);
-			this.btnRemove.Name = "btnRemove";
-			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 49;
-			this.btnRemove.Text = "&Remove";
-			this.btnRemove.UseVisualStyleBackColor = true;
-			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
 			// 
 			// txtEquipNumber
 			// 
@@ -314,7 +267,7 @@ namespace MRMaintenance
 			// 
 			// btnUpdate
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(565, 276);
+			this.btnUpdate.Location = new System.Drawing.Point(417, 464);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
 			this.btnUpdate.TabIndex = 52;
@@ -322,19 +275,80 @@ namespace MRMaintenance
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
 			// 
+			// btnRemove
+			// 
+			this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnRemove.Location = new System.Drawing.Point(160, 455);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(75, 23);
+			this.btnRemove.TabIndex = 64;
+			this.btnRemove.Text = "&Remove";
+			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			// 
+			// listEquip
+			// 
+			this.listEquip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left)));
+			this.listEquip.FormattingEnabled = true;
+			this.listEquip.Location = new System.Drawing.Point(6, 29);
+			this.listEquip.Name = "listEquip";
+			this.listEquip.Size = new System.Drawing.Size(229, 420);
+			this.listEquip.TabIndex = 63;
+			// 
+			// listEquipDocs
+			// 
+			this.listEquipDocs.FormattingEnabled = true;
+			this.listEquipDocs.Location = new System.Drawing.Point(249, 315);
+			this.listEquipDocs.Name = "listEquipDocs";
+			this.listEquipDocs.Size = new System.Drawing.Size(472, 134);
+			this.listEquipDocs.TabIndex = 65;
+			this.listEquipDocs.DoubleClick += new System.EventHandler(this.listEquipDocs_DoubleClick);
+			// 
+			// btnDocRemove
+			// 
+			this.btnDocRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnDocRemove.Image")));
+			this.btnDocRemove.Location = new System.Drawing.Point(663, 286);
+			this.btnDocRemove.Name = "btnDocRemove";
+			this.btnDocRemove.Size = new System.Drawing.Size(26, 23);
+			this.btnDocRemove.TabIndex = 66;
+			this.btnDocRemove.UseVisualStyleBackColor = true;
+			this.btnDocRemove.Click += new System.EventHandler(this.btnDocRemove_Click);
+			// 
+			// btnDocAdd
+			// 
+			this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
+			this.btnDocAdd.Location = new System.Drawing.Point(695, 286);
+			this.btnDocAdd.Name = "btnDocAdd";
+			this.btnDocAdd.Size = new System.Drawing.Size(26, 23);
+			this.btnDocAdd.TabIndex = 67;
+			this.btnDocAdd.UseVisualStyleBackColor = true;
+			this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(249, 298);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(125, 20);
+			this.label4.TabIndex = 68;
+			this.label4.Text = "Documentation && Links";
+			// 
 			// frmEquipment
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(727, 493);
+			this.Controls.Add(this.btnDocAdd);
+			this.Controls.Add(this.btnDocRemove);
+			this.Controls.Add(this.listEquipDocs);
+			this.Controls.Add(this.btnRemove);
+			this.Controls.Add(this.listEquip);
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.txtEquipNumber);
 			this.Controls.Add(this.label11);
-			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.btnClose);
-			this.Controls.Add(this.dgviewWO);
 			this.Controls.Add(this.txtDescr);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.txtModel);
@@ -353,7 +367,6 @@ namespace MRMaintenance
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.dgviewEquip);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label4);
 			this.MinimizeBox = false;
@@ -365,18 +378,20 @@ namespace MRMaintenance
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Equipment";
 			this.TopMost = true;
-			((System.ComponentModel.ISupportInitialize)(this.dgviewEquip)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgviewWO)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button btnDocAdd;
+		private System.Windows.Forms.Button btnDocRemove;
+		private System.Windows.Forms.ListBox listEquipDocs;
+		private System.Windows.Forms.ListBox listEquip;
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.TextBox txtEquipNumber;
 		private System.Windows.Forms.Button btnRemove;
 		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.Button btnClose;
-		private System.Windows.Forms.DataGridView dgviewWO;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txtDescr;
 		private System.Windows.Forms.Label label9;
@@ -389,14 +404,12 @@ namespace MRMaintenance
 		private System.Windows.Forms.ComboBox cboManufacturer;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox cboEquipType;
-		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.ComboBox cboLocation;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox cboFacility;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;
-		private System.Windows.Forms.DataGridView dgviewEquip;
 		private System.Windows.Forms.Label label1;
 	}
 }

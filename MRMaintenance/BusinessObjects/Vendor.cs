@@ -15,6 +15,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of Vendor.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class Vendor
 	{
 		public Vendor()

@@ -14,6 +14,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of TimeInterval.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class TimeInterval
 	{
 		public TimeInterval()

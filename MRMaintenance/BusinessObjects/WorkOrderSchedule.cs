@@ -14,6 +14,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of WorkOrderSchedule.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class WorkOrderSchedule
 	{
 		public WorkOrderSchedule()

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BusinessAccess\DepartmentBA.cs" />
     <Compile Include="BusinessAccess\EquipmentBA.cs" />
+    <Compile Include="BusinessAccess\EquipmentDocBA.cs" />
     <Compile Include="BusinessAccess\EquipmentTypeBA.cs" />
     <Compile Include="BusinessAccess\FacilityBA.cs" />
     <Compile Include="BusinessAccess\LocationBA.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="BusinessAccess\WorkOrderViewBA.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
     <Compile Include="BusinessObjects\Equipment.cs" />
+    <Compile Include="BusinessObjects\EquipmentDoc.cs" />
     <Compile Include="BusinessObjects\EquipmentType.cs" />
     <Compile Include="BusinessObjects\Facility.cs" />
     <Compile Include="BusinessObjects\Location.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="BusinessObjects\WorkOrderView.cs" />
     <Compile Include="Data\DepartmentDA.cs" />
     <Compile Include="Data\EquipmentDA.cs" />
+    <Compile Include="Data\EquipmentDocDA.cs" />
     <Compile Include="Data\EquipmentTypeDA.cs" />
     <Compile Include="Data\FacilityDA.cs" />
     <Compile Include="Data\LocationDA.cs" />
@@ -99,6 +102,10 @@
     <Compile Include="Data\VendorDA.cs" />
     <Compile Include="Data\WorkOrderScheduleDA.cs" />
     <Compile Include="Data\WorkOrderViewDA.cs" />
+    <Compile Include="frmEquipmentDoc.cs" />
+    <Compile Include="frmEquipmentDoc.Designer.cs">
+      <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacility.cs" />
     <Compile Include="frmFacility.Designer.cs">
       <DependentUpon>frmFacility.cs</DependentUpon>
@@ -143,6 +150,8 @@
     <Folder Include="Data" />
     <Folder Include="BusinessObjects" />
     <Folder Include="BusinessAccess" />
+    <Folder Include="Reports" />
+    <Folder Include="res" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
@@ -153,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEquipment.resx">
       <DependentUpon>frmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipmentDoc.resx">
+      <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacility.resx">
       <DependentUpon>frmFacility.cs</DependentUpon>
@@ -172,6 +184,15 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\app.config" />
+    <None Include="res\minus-2x.ico" />
+    <None Include="res\minus-3x.ico" />
+    <None Include="res\plus-2x.ico" />
+    <None Include="res\plus-3x.ico" />
+    <None Include="res\x-2x.ico" />
+    <None Include="res\x-3x.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

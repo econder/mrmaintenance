@@ -14,6 +14,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of State.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class State
 	{
 		public State()

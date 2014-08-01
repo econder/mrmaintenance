@@ -14,6 +14,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of WorkOrder.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class WorkOrderView
 	{
 		public WorkOrderView()

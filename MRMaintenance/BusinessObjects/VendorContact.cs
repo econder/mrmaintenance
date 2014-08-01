@@ -15,6 +15,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of VendorContact.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class VendorContact
 	{
 		public VendorContact()

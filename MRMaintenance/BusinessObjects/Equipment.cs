@@ -14,6 +14,7 @@ namespace MRMaintenance.BusinessObjects
 	/// <summary>
 	/// Description of Equipment.
 	/// </summary>
+	[System.ComponentModel.DataObject]
 	public class Equipment
 	{
 		public Equipment()
