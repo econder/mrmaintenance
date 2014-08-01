@@ -100,6 +100,7 @@ namespace MRMaintenance
 			this.cboFacility.Name = "cboFacility";
 			this.cboFacility.Size = new System.Drawing.Size(153, 21);
 			this.cboFacility.TabIndex = 28;
+			this.cboFacility.Validating += new System.ComponentModel.CancelEventHandler(this.cboFacility_Validating);
 			// 
 			// label3
 			// 

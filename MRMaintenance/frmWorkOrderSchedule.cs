@@ -8,14 +8,13 @@
  *
  * *************************************************************************************************/
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-
 using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
-
 
 namespace MRMaintenance
 {
@@ -44,6 +43,31 @@ namespace MRMaintenance
 		}
 		
 		
+		public frmWorkOrderSchedule(long workOrderId)
+		{
+			InitializeComponent();
+			
+			workOrderSchedBA = new WorkOrderScheduleBA();
+			equip = new EquipmentBA();
+			dept = new DepartmentBA();
+			timeInterval = new TimeIntervalBA();
+			
+			try
+			{
+				this.FillData();
+				
+				listWO.SelectedValue = workOrderId;
+			}
+			catch(InvalidOperationException ex)
+			{
+				WinEventLog winel = new WinEventLog();
+				winel.WriteEvent(ex);
+				return;
+			}
+				
+		}
+		
+		
 		private void FillData()
 		{
 			dt = workOrderSchedBA.Load();
@@ -60,6 +84,8 @@ namespace MRMaintenance
 			cboEquip.DataSource = equip.Load();
 			cboEquip.DisplayMember = "equipName";
 			cboEquip.ValueMember = "equipId";
+			//this.cboEquip.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cboEquip_MouseDoubleClick);
+			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			
 			//Load and bind departments combobox
 			cboDept.DataSource = dept.Load();
@@ -161,6 +187,34 @@ namespace MRMaintenance
 		void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+		
+		
+		void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboEquip.SelectedText != cboEquip.Text)
+			{
+				if(MessageBox.Show("Equipment does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmEquipment form = new frmEquipment();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboDept.SelectedText != cboDept.Text)
+			{
+				if(MessageBox.Show("Department does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmDepartment form = new frmDepartment();
+					form.ShowDialog(this);
+				}
+			}
 		}
 	}
 }

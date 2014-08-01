@@ -37,6 +37,20 @@ namespace MRMaintenance
 		
 		public frmEquipment()
 		{
+			this.Initialize(null);
+		}
+		
+		
+		public frmEquipment(long equipmentId)
+		{
+			this.Initialize(equipmentId);
+			
+			listEquip.SelectedValue = equipmentId;
+		}
+		
+		
+		private void Initialize(Nullable<long> equipmentId)
+		{
 			InitializeComponent();
 			
 			equipmentBA = new EquipmentBA();
@@ -244,6 +258,76 @@ namespace MRMaintenance
 		void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+		
+		
+		void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboFacility.SelectedText != cboFacility.Text)
+			{
+				if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmFacility form = new frmFacility();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboLocation.SelectedText != cboLocation.Text)
+			{
+				if(MessageBox.Show("Location does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmLocations form = new frmLocations();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboManufacturer_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboManufacturer.SelectedText != cboManufacturer.Text)
+			{
+				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmManufacturer form = new frmManufacturer();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboVendor.SelectedText != cboVendor.Text)
+			{
+				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmVendor form = new frmVendor();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboEquipType_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(cboEquipType.SelectedText != cboEquipType.Text)
+			{
+				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					 form = new frmVendor();
+					form.ShowDialog(this);
+				}
+			}
 		}
 	}
 }

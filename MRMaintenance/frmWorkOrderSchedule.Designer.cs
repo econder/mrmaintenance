@@ -65,13 +65,14 @@ namespace MRMaintenance
 			// 
 			// cboEquip
 			// 
-			this.cboEquip.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboEquip.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboEquip.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboEquip.FormattingEnabled = true;
 			this.cboEquip.Location = new System.Drawing.Point(241, 62);
 			this.cboEquip.Name = "cboEquip";
 			this.cboEquip.Size = new System.Drawing.Size(222, 21);
 			this.cboEquip.TabIndex = 24;
+			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			// 
 			// label11
 			// 
@@ -128,6 +129,7 @@ namespace MRMaintenance
 			this.cboDept.Name = "cboDept";
 			this.cboDept.Size = new System.Drawing.Size(222, 21);
 			this.cboDept.TabIndex = 18;
+			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
 			// label10
 			// 

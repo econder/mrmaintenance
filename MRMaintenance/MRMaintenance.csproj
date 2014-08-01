@@ -106,6 +106,10 @@
     <Compile Include="frmEquipmentDoc.Designer.cs">
       <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEquipmentType.cs" />
+    <Compile Include="frmEquipmentType.Designer.cs">
+      <DependentUpon>frmEquipmentType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacility.cs" />
     <Compile Include="frmFacility.Designer.cs">
       <DependentUpon>frmFacility.cs</DependentUpon>
@@ -166,6 +170,9 @@
     <EmbeddedResource Include="frmEquipmentDoc.resx">
       <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipmentType.resx">
+      <DependentUpon>frmEquipmentType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFacility.resx">
       <DependentUpon>frmFacility.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\app.config" />
+    <None Include="Reports\Report1.srd" />
+    <None Include="Reports\rptWorkOrdersAll.srd" />
     <None Include="res\minus-2x.ico" />
     <None Include="res\minus-3x.ico" />
     <None Include="res\plus-2x.ico" />

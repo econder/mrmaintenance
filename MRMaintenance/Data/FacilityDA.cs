@@ -8,6 +8,7 @@
  *
  * *************************************************************************************************/
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -26,7 +27,12 @@ namespace MRMaintenance.Data
 		
 		public FacilityDA()
 		{
-			connStr = String.Format("Server={0}; Database={1}; User Id={2}; Password={3};", "ECVM-WW2014", "MRMaintenance", "mrsystems", "Reggie123");
+			ConnectionStringSettingsCollection arConnStr = ConfigurationManager.ConnectionStrings;
+			
+			if(arConnStr != null)
+			{
+				connStr = arConnStr["MRMaintenanceSQL"].ToString();
+			}
 		}
 		
 		

@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
  * Class:   MRDbConnection.cs
  * Created By: Eric Conder
- * Created On: 7/25/2014
+ * Created On: 8/1/2014
  * 
  * Changes:
  * 
@@ -9,7 +9,7 @@
  * *************************************************************************************************/
 namespace MRMaintenance
 {
-	partial class frmAbout
+	partial class frmEquipmentType
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -37,37 +37,16 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.btnClose = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// btnClose
-			// 
-			this.btnClose.Location = new System.Drawing.Point(155, 274);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 0;
-			this.btnClose.Text = "&Close";
-			this.btnClose.UseVisualStyleBackColor = true;
-			// 
-			// frmAbout
+			// frmEquipmentType
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(400, 303);
-			this.Controls.Add(this.btnClose);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.Location = new System.Drawing.Point(-3, 0);
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "frmAbout";
-			this.Padding = new System.Windows.Forms.Padding(3);
-			this.ShowIcon = false;
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "MR Maintenance";
-			this.TopMost = true;
+			this.ClientSize = new System.Drawing.Size(554, 295);
+			this.Name = "frmEquipmentType";
+			this.Text = "frmEquipmentType";
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.Button btnClose;
 	}
 }

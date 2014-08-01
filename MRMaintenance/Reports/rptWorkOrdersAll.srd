@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportModel>
+    <ReportSettings>
+        <ReportSettings>
+            <ReportName>Work Orders</ReportName>
+            <ReportType>DataReport</ReportType>
+            <BottomMargin>50</BottomMargin>
+            <TopMargin>50</TopMargin>
+            <LeftMargin>50</LeftMargin>
+            <RightMargin>50</RightMargin>
+            <PageSize>827, 1169</PageSize>
+            <Landscape>False</Landscape>
+            <GraphicsUnit>Inch</GraphicsUnit>
+            <Padding>5, 5, 5, 5</Padding>
+            <AvailableFieldsCollection>
+                <AbstractColumn>
+                    <ColumnName>ID</ColumnName>
+                    <DataTypeName>System.Int64</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>name</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Description</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Start Date</ColumnName>
+                    <DataTypeName>System.DateTime</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Frequency</ColumnName>
+                    <DataTypeName>System.Int32</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Interval</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Last Completed</ColumnName>
+                    <DataTypeName>System.DateTime</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Next Due</ColumnName>
+                    <DataTypeName>System.DateTime</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Department</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Equipment</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Location</ColumnName>
+                    <DataTypeName>System.String</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>Facility ID</ColumnName>
+                    <DataTypeName>System.Int64</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>runtime</ColumnName>
+                    <DataTypeName>System.Double</DataTypeName>
+                </AbstractColumn>
+                <AbstractColumn>
+                    <ColumnName>cycles</ColumnName>
+                    <DataTypeName>System.Int64</DataTypeName>
+                </AbstractColumn>
+            </AvailableFieldsCollection>
+            <SortColumnsCollection />
+            <GroupColumnsCollection />
+            <ParameterCollection />
+            <SqlParameters />
+            <ConnectionString>Provider=SQLNCLI10.1;Data Source=.;Integrated Security=SSPI;Initial Catalog=MRMaintenance</ConnectionString>
+            <CommandText>SELECT * FROM [dbo].[v_WorkOrders2]</CommandText>
+            <CommandType>Text</CommandType>
+            <DataModel>PullData</DataModel>
+            <NoDataMessage>No Data for this Report</NoDataMessage>
+            <DefaultFont>Microsoft Sans Serif, 10pt</DefaultFont>
+            <UseStandardPrinter>True</UseStandardPrinter>
+        </ReportSettings>
+    </ReportSettings>
+    <SectionCollection>
+        <BaseSection>
+            <Location>50, 50</Location>
+            <Size>727, 60</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTextItem>
+                    <Location>313, 5</Location>
+                    <Size>100, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>Work Orders</Text>
+                    <DrawBorder>True</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>Work Orders</Name>
+                </BaseTextItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportHeader</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 125</Location>
+            <Size>727, 10</Size>
+            <BackColor>LightGray</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items />
+            <FrameColor>Black</FrameColor>
+            <Name>ReportPageHeader</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 150</Location>
+            <Size>727, 479</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseDataItem>
+                    <Location>22, 108</Location>
+                    <Size>100, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.Int64</DataType>
+                    <RTL>No</RTL>
+                    <Text>=[ID]</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <ColumnName>ID</ColumnName>
+                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                    <Name>ID</Name>
+                </BaseDataItem>
+                <BaseTextItem>
+                    <Location>37, 134</Location>
+                    <Size>100, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>Description</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>Description3</Name>
+                </BaseTextItem>
+                <BaseDataItem>
+                    <Location>37, 160</Location>
+                    <Size>360, 46</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>=[Description]</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <ColumnName>Description</ColumnName>
+                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                    <Name>Description</Name>
+                </BaseDataItem>
+                <BaseTextItem>
+                    <Location>3, 108</Location>
+                    <Size>20, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>ID:</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>ID1</Name>
+                </BaseTextItem>
+                <BaseTableItem>
+                    <Location>3, 347</Location>
+                    <Size>717, 100</Size>
+                    <BackColor>White</BackColor>
+                    <DrawBorder>False</DrawBorder>
+                    <ForeColor>Black</ForeColor>
+                    <FrameColor>Black</FrameColor>
+                    <Items>
+                        <BaseRowItem>
+                            <Location>5, 5</Location>
+                            <Size>707, 40</Size>
+                            <BackColor>White</BackColor>
+                            <DrawBorder>False</DrawBorder>
+                            <ForeColor>Black</ForeColor>
+                            <FrameColor>Black</FrameColor>
+                            <Items>
+                                <BaseTextItem>
+                                    <Location>38, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Start Date</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Start Date4</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>144, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Frequency</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Frequency5</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>233, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Interval</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Interval6</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>310, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Last Completed</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Last Completed7</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>360, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Next Due</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Next Due8</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>410, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Department</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Department9</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>460, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Equipment</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Equipment10</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>510, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>Location</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>Location11</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>610, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>runtime</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>runtime13</Name>
+                                </BaseTextItem>
+                                <BaseTextItem>
+                                    <Location>660, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>cycles</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <Name>cycles14</Name>
+                                </BaseTextItem>
+                            </Items>
+                            <AlternateBackColor />
+                            <ChangeBackColorEveryNRow>0</ChangeBackColorEveryNRow>
+                            <Name />
+                        </BaseRowItem>
+                        <BaseRowItem>
+                            <Location>5, 55</Location>
+                            <Size>707, 30</Size>
+                            <BackColor>White</BackColor>
+                            <DrawBorder>False</DrawBorder>
+                            <ForeColor>Black</ForeColor>
+                            <FrameColor>Black</FrameColor>
+                            <Items>
+                                <BaseDataItem>
+                                    <Location>38, 3</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.DateTime</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Start Date]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Start Date</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Start Date</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>144, 10</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.Int32</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Frequency]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Frequency</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Frequency</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>233, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Interval]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Interval</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Interval</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>305, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.DateTime</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Last Completed]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Last Completed</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Last Completed</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>355, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.DateTime</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Next Due]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Next Due</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Next Due</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>405, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Department]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Department</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Department</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>455, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Equipment]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Equipment</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Equipment</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>505, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.String</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Location]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Location</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Location</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>555, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.Int64</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[Facility ID]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>Facility ID</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>Facility ID</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>605, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.Double</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[runtime]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>runtime</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>runtime</Name>
+                                </BaseDataItem>
+                                <BaseDataItem>
+                                    <Location>655, 5</Location>
+                                    <Size>100, 20</Size>
+                                    <BackColor>White</BackColor>
+                                    <Font>Microsoft Sans Serif, 10pt</Font>
+                                    <StringTrimming>None</StringTrimming>
+                                    <ContentAlignment>TopLeft</ContentAlignment>
+                                    <CanGrow>False</CanGrow>
+                                    <CanShrink>False</CanShrink>
+                                    <DataType>System.Int64</DataType>
+                                    <RTL>No</RTL>
+                                    <Text>=[cycles]</Text>
+                                    <DrawBorder>False</DrawBorder>
+                                    <FrameColor>Black</FrameColor>
+                                    <ForeColor>Black</ForeColor>
+                                    <ColumnName>cycles</ColumnName>
+                                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                                    <Name>cycles</Name>
+                                </BaseDataItem>
+                            </Items>
+                            <AlternateBackColor />
+                            <ChangeBackColorEveryNRow>0</ChangeBackColorEveryNRow>
+                            <Name />
+                        </BaseRowItem>
+                    </Items>
+                    <Name>Table1</Name>
+                </BaseTableItem>
+                <BaseDataItem>
+                    <Location>3, 82</Location>
+                    <Size>364, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>=[name]</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <ColumnName>name</ColumnName>
+                    <BaseTableName>[dbo].[v_WorkOrders2]</BaseTableName>
+                    <Name>name</Name>
+                </BaseDataItem>
+                <BaseTextItem>
+                    <Location>0, 3</Location>
+                    <Size>100, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>Facility ID</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>Facility ID12</Name>
+                </BaseTextItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportDetail</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 644</Location>
+            <Size>727, 60</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items>
+                <BaseTextItem>
+                    <Location>622, 5</Location>
+                    <Size>100, 20</Size>
+                    <BackColor>White</BackColor>
+                    <Font>Microsoft Sans Serif, 10pt</Font>
+                    <StringTrimming>None</StringTrimming>
+                    <ContentAlignment>TopLeft</ContentAlignment>
+                    <CanGrow>False</CanGrow>
+                    <CanShrink>False</CanShrink>
+                    <DataType>System.String</DataType>
+                    <RTL>No</RTL>
+                    <Text>=Globals!PageNumber</Text>
+                    <DrawBorder>False</DrawBorder>
+                    <FrameColor>Black</FrameColor>
+                    <ForeColor>Black</ForeColor>
+                    <Name>PageNumber1</Name>
+                </BaseTextItem>
+            </Items>
+            <FrameColor>Black</FrameColor>
+            <Name>ReportPageFooter</Name>
+        </BaseSection>
+        <BaseSection>
+            <Location>50, 719</Location>
+            <Size>727, 60</Size>
+            <BackColor>White</BackColor>
+            <SectionOffset>0</SectionOffset>
+            <SectionMargin>0</SectionMargin>
+            <DrawBorder>False</DrawBorder>
+            <PageBreakAfter>False</PageBreakAfter>
+            <Items />
+            <FrameColor>Black</FrameColor>
+            <Name>ReportFooter</Name>
+        </BaseSection>
+    </SectionCollection>
+</ReportModel>
