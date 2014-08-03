@@ -155,7 +155,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void listEquip_SelectedIndexChanged(object sender, EventArgs e)
+		private void listEquip_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			dtEquipDocs = equipmentDocBA.LoadByEquipment((long)listEquip.SelectedValue);
 			
@@ -165,7 +165,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnRemove_Click(object sender, EventArgs e)
+		private void btnRemove_Click(object sender, EventArgs e)
 		{
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
@@ -176,7 +176,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnAdd_Click(object sender, EventArgs e)
+		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			Equipment equipment = new Equipment();
 			equipment.LocationID = (long)cboLocation.SelectedValue;
@@ -195,7 +195,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnUpdate_Click(object sender, EventArgs e)
+		private void btnUpdate_Click(object sender, EventArgs e)
 		{
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
@@ -215,7 +215,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnDocRemove_Click(object sender, EventArgs e)
+		private void btnDocRemove_Click(object sender, EventArgs e)
 		{
 			EquipmentDoc equipmentDoc = new EquipmentDoc();
 			equipmentDoc.ID = (long)listEquipDocs.SelectedValue;
@@ -230,7 +230,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnDocAdd_Click(object sender, EventArgs e)
+		private void btnDocAdd_Click(object sender, EventArgs e)
 		{
 			//Only need equipment ID in the equipment object
 			Equipment equipment = new Equipment();
@@ -249,20 +249,27 @@ namespace MRMaintenance
 		}
 		
 		
-		void listEquipDocs_DoubleClick(object sender, EventArgs e)
+		private void listEquipDocs_DoubleClick(object sender, EventArgs e)
 		{
 			Process.Start(listEquipDocs.SelectedValue.ToString());
 		}
 		
 		
-		void btnClose_Click(object sender, EventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 		}
 		
 		
-		void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for null values
+			if(cboFacility.Text == "" || cboFacility.Text == null)
+			{
+				MessageBox.Show("Facility cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
 			if(cboFacility.SelectedText != cboFacility.Text)
 			{
 				if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
@@ -275,8 +282,15 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for null values
+			if(cboLocation.Text == "" || cboLocation.Text == null)
+			{
+				MessageBox.Show("Location cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
 			if(cboLocation.SelectedText != cboLocation.Text)
 			{
 				if(MessageBox.Show("Location does not exist. Would you like to create it?", "",
@@ -289,8 +303,15 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboManufacturer_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboManufacturer_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for null values
+			if(cboManufacturer.Text == "" || cboManufacturer.Text == null)
+			{
+				MessageBox.Show("Manufacturer cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
 			if(cboManufacturer.SelectedText != cboManufacturer.Text)
 			{
 				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
@@ -303,8 +324,9 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for new values
 			if(cboVendor.SelectedText != cboVendor.Text)
 			{
 				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
@@ -317,16 +339,26 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboEquipType_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboEquipType_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			if(cboEquipType.SelectedText != cboEquipType.Text)
 			{
-				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
+				if(MessageBox.Show("Equipment type does not exist. Would you like to create it?", "",
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
 				{
-					 form = new frmVendor();
+					frmEquipmentType form = new frmEquipmentType();
 					form.ShowDialog(this);
 				}
+			}
+		}
+		
+		
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Equipment name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

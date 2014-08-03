@@ -1,11 +1,11 @@
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.config
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
-C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmAbout.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmDepartment.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipment.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentDoc.resources
+C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentType.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmFacility.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmLocations.resources
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmManufacturer.resources
@@ -15,3 +15,4 @@ C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaint
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
+C:\Users\mrsystems\Documents\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache

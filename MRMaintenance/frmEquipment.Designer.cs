@@ -84,6 +84,7 @@ namespace MRMaintenance
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(226, 20);
 			this.txtName.TabIndex = 3;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
 			// 
@@ -119,6 +120,7 @@ namespace MRMaintenance
 			this.cboLocation.Name = "cboLocation";
 			this.cboLocation.Size = new System.Drawing.Size(153, 21);
 			this.cboLocation.TabIndex = 30;
+			this.cboLocation.Validating += new System.ComponentModel.CancelEventHandler(this.cboLocation_Validating);
 			// 
 			// label12
 			// 
@@ -155,6 +157,7 @@ namespace MRMaintenance
 			this.cboManufacturer.Name = "cboManufacturer";
 			this.cboManufacturer.Size = new System.Drawing.Size(226, 21);
 			this.cboManufacturer.TabIndex = 36;
+			this.cboManufacturer.Validating += new System.ComponentModel.CancelEventHandler(this.cboManufacturer_Validating);
 			// 
 			// label6
 			// 
@@ -173,6 +176,7 @@ namespace MRMaintenance
 			this.cboVendor.Name = "cboVendor";
 			this.cboVendor.Size = new System.Drawing.Size(226, 21);
 			this.cboVendor.TabIndex = 38;
+			this.cboVendor.Validating += new System.ComponentModel.CancelEventHandler(this.cboVendor_Validating);
 			// 
 			// label7
 			// 

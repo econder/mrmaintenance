@@ -134,7 +134,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnAdd_Click(object sender, EventArgs e)
+		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
 			workOrderSchedule.Name = this.txtName.Text;
@@ -153,7 +153,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnUpdate_Click(object sender, EventArgs e)
+		private void btnUpdate_Click(object sender, EventArgs e)
 		{
 			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
 			workOrderSchedule.ID = (long)this.listWO.SelectedValue;
@@ -173,7 +173,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnRemove_Click(object sender, EventArgs e)
+		private void btnRemove_Click(object sender, EventArgs e)
 		{
 			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
 			workOrderSchedule.ID = (long)this.listWO.SelectedValue;
@@ -184,14 +184,21 @@ namespace MRMaintenance
 			this.ResetControlBindings();
 		}
 		
-		void btnClose_Click(object sender, EventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 		}
 		
 		
-		void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for null values
+			if(cboEquip.Text == "" || cboEquip.Text == null)
+			{
+				MessageBox.Show("Equipment name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
 			if(cboEquip.SelectedText != cboEquip.Text)
 			{
 				if(MessageBox.Show("Equipment does not exist. Would you like to create it?", "",
@@ -204,8 +211,15 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			//Check for null values
+			if(cboDept.Text == "" || cboDept.Text == null)
+			{
+				MessageBox.Show("Department name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
 			if(cboDept.SelectedText != cboDept.Text)
 			{
 				if(MessageBox.Show("Department does not exist. Would you like to create it?", "",
@@ -214,6 +228,56 @@ namespace MRMaintenance
 					frmDepartment form = new frmDepartment();
 					form.ShowDialog(this);
 				}
+			}
+		}
+		
+		
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Work order name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		
+		private void dtStartDate_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(dtStartDate.Value == null)
+			{
+				MessageBox.Show("Start date cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		
+		private void numFreq_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(numFreq.Value == null)
+			{
+				MessageBox.Show("Frequency cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		
+		private void cboInterval_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(cboInterval.Text == "" || cboInterval.Text == null)
+			{
+				MessageBox.Show("Time interval name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		
+		private void dtLastCompleted_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(dtLastCompleted.Value == null)
+			{
+				MessageBox.Show("Last completed date cannot be blank. If creating a new work order, set to the same date as the start date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

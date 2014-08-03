@@ -39,13 +39,13 @@ namespace MRMaintenance
 			stateBA = new StateBA();
 			
 			//Load and bind facilities combobox
-			cboFacilities.DataSource = facilityBA.Load();
-			cboFacilities.DisplayMember = "name";
-			cboFacilities.ValueMember = "facId";
+			cboFacility.DataSource = facilityBA.Load();
+			cboFacility.DisplayMember = "name";
+			cboFacility.ValueMember = "facId";
 			
 			//Setup event handler after loading and binding the control
 			//to prevent firing the event before the control is populated
-			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
+			this.cboFacility.SelectedIndexChanged += new System.EventHandler(this.cboFacility_SelectedIndexChanged);
 			
 			//Load and bind states combobox
 			cboState.DataSource = stateBA.Load();
@@ -58,7 +58,7 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			dt = locationBA.LoadByFacility((long)cboFacilities.SelectedValue);
+			dt = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
 			
 			//Bind departments listbox
 			listLoc.DataSource = dt;
@@ -97,10 +97,10 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnAdd_Click(object sender, MouseEventArgs e)
+		private void btnAdd_Click(object sender, MouseEventArgs e)
 		{
 			Location location = new Location();
-			location.FacilityID = (long)cboFacilities.SelectedValue;
+			location.FacilityID = (long)cboFacility.SelectedValue;
 			location.Name = txtName.Text;
 			location.Address1 = txtAddr1.Text;
 			location.Address2 = txtAddr2.Text;
@@ -117,11 +117,11 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnUpdate_Click(object sender, MouseEventArgs e)
+		private void btnUpdate_Click(object sender, MouseEventArgs e)
 		{
 			Location location = new Location();
 			location.ID = (long)listLoc.SelectedValue;
-			location.FacilityID = (long)cboFacilities.SelectedValue;
+			location.FacilityID = (long)cboFacility.SelectedValue;
 			location.Name = txtName.Text;
 			location.Address1 = txtAddr1.Text;
 			location.Address2 = txtAddr2.Text;
@@ -138,7 +138,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnRemove_Click(object sender, MouseEventArgs e)
+		private void btnRemove_Click(object sender, MouseEventArgs e)
 		{
 			Location location = new Location();
 			location.ID = (long)listLoc.SelectedValue;
@@ -150,18 +150,18 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnClose_Click(object sender, MouseEventArgs e)
+		private void btnClose_Click(object sender, MouseEventArgs e)
 		{
 			this.Hide();
 		}
 		
 		
-		void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
+		private void cboFacility_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
 				//Load locations listbox with LocationsByFacility
-				dt = locationBA.LoadByFacility((long)cboFacilities.SelectedValue);
+				dt = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
 				
 				this.ResetControlBindings();
 			}
@@ -177,6 +177,37 @@ namespace MRMaintenance
 				WinEventLog winel = new WinEventLog();
 				winel.WriteEvent(ex);
 				return;
+			}
+		}
+		
+		
+		private void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(cboFacility.Text == "" || cboFacility.Text == null)
+			{
+				MessageBox.Show("Facility cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			//Check for new values
+			if(cboFacility.SelectedText != cboFacility.Text)
+			{
+				if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					frmFacility form = new frmFacility();
+					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Location name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

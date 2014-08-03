@@ -106,5 +106,15 @@ namespace MRMaintenance
 		{
 			this.Hide();
 		}
+		
+		
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Department name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }

@@ -90,7 +90,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnAdd_Click(object sender, EventArgs e)
+		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			Vendor vendor = new Vendor();
 			vendor.Name = txtName.Text;
@@ -111,7 +111,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnUpdate_Click(object sender, EventArgs e)
+		private void btnUpdate_Click(object sender, EventArgs e)
 		{
 			Vendor vendor = new Vendor();
 			vendor.ID = (long)listVen.SelectedValue;
@@ -133,7 +133,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnRemove_Click(object sender, EventArgs e)
+		private void btnRemove_Click(object sender, EventArgs e)
 		{
 			Vendor vendor = new Vendor();
 			vendor.ID = (long)listVen.SelectedValue;
@@ -145,9 +145,19 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnClose_Click(object sender, EventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+		
+		
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Vendor name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 	}
 }

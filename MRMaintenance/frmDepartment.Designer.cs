@@ -63,7 +63,7 @@ namespace MRMaintenance
 			this.btnUpdate.Location = new System.Drawing.Point(350, 46);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 63;
+			this.btnUpdate.TabIndex = 3;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -73,7 +73,7 @@ namespace MRMaintenance
 			this.btnRemove.Location = new System.Drawing.Point(160, 147);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 62;
+			this.btnRemove.TabIndex = 1;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -83,7 +83,7 @@ namespace MRMaintenance
 			this.btnAdd.Location = new System.Drawing.Point(431, 46);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 61;
+			this.btnAdd.TabIndex = 4;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -94,14 +94,15 @@ namespace MRMaintenance
 			this.listDept.Location = new System.Drawing.Point(6, 20);
 			this.listDept.Name = "listDept";
 			this.listDept.Size = new System.Drawing.Size(229, 121);
-			this.listDept.TabIndex = 59;
+			this.listDept.TabIndex = 0;
 			// 
 			// txtName
 			// 
 			this.txtName.Location = new System.Drawing.Point(242, 20);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
-			this.txtName.TabIndex = 58;
+			this.txtName.TabIndex = 2;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
 			// 
@@ -133,7 +134,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmDepartment";

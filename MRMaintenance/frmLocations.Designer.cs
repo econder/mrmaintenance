@@ -45,7 +45,7 @@ namespace MRMaintenance
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.cboFacilities = new System.Windows.Forms.ComboBox();
+			this.cboFacility = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtAddr1 = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
@@ -118,6 +118,7 @@ namespace MRMaintenance
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 66;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
 			// 
@@ -135,13 +136,14 @@ namespace MRMaintenance
 			this.label1.TabIndex = 72;
 			this.label1.Text = "Facility";
 			// 
-			// cboFacilities
+			// cboFacility
 			// 
-			this.cboFacilities.FormattingEnabled = true;
-			this.cboFacilities.Location = new System.Drawing.Point(6, 21);
-			this.cboFacilities.Name = "cboFacilities";
-			this.cboFacilities.Size = new System.Drawing.Size(229, 21);
-			this.cboFacilities.TabIndex = 73;
+			this.cboFacility.FormattingEnabled = true;
+			this.cboFacility.Location = new System.Drawing.Point(6, 21);
+			this.cboFacility.Name = "cboFacility";
+			this.cboFacility.Size = new System.Drawing.Size(229, 21);
+			this.cboFacility.TabIndex = 73;
+			this.cboFacility.Validating += new System.ComponentModel.CancelEventHandler(this.cboFacility_Validating);
 			// 
 			// label3
 			// 
@@ -280,7 +282,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.cboFacilities);
+			this.Controls.Add(this.cboFacility);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.btnRemove);
@@ -314,7 +316,7 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox txtAddr1;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox cboFacilities;
+		private System.Windows.Forms.ComboBox cboFacility;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;

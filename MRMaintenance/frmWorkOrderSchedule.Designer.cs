@@ -88,6 +88,7 @@ namespace MRMaintenance
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 1;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// txtDescr
 			// 
@@ -107,6 +108,7 @@ namespace MRMaintenance
 			this.dtStartDate.Name = "dtStartDate";
 			this.dtStartDate.Size = new System.Drawing.Size(124, 20);
 			this.dtStartDate.TabIndex = 6;
+			this.dtStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtStartDate_Validating);
 			// 
 			// numFreq
 			// 
@@ -119,6 +121,7 @@ namespace MRMaintenance
 			this.numFreq.Name = "numFreq";
 			this.numFreq.Size = new System.Drawing.Size(67, 20);
 			this.numFreq.TabIndex = 9;
+			this.numFreq.Validating += new System.ComponentModel.CancelEventHandler(this.numFreq_Validating);
 			// 
 			// cboDept
 			// 
@@ -149,6 +152,7 @@ namespace MRMaintenance
 			this.cboInterval.Name = "cboInterval";
 			this.cboInterval.Size = new System.Drawing.Size(100, 21);
 			this.cboInterval.TabIndex = 11;
+			this.cboInterval.Validating += new System.ComponentModel.CancelEventHandler(this.cboInterval_Validating);
 			// 
 			// label7
 			// 

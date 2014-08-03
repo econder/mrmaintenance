@@ -48,12 +48,12 @@ namespace MRMaintenance
 			this.manufacturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vendorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.label1 = new System.Windows.Forms.Label();
-			this.dgview = new System.Windows.Forms.DataGridView();
-			this.cboFacilities = new System.Windows.Forms.ComboBox();
 			this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.workOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.label1 = new System.Windows.Forms.Label();
+			this.dgview = new System.Windows.Forms.DataGridView();
+			this.cboFacilities = new System.Windows.Forms.ComboBox();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
 			this.SuspendLayout();
@@ -139,6 +139,28 @@ namespace MRMaintenance
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
 			this.aboutToolStripMenuItem.Text = "About...";
 			// 
+			// reportsToolStripMenuItem
+			// 
+			this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.workOrdersToolStripMenuItem});
+			this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+			this.reportsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+			this.reportsToolStripMenuItem.Text = "&Reports";
+			// 
+			// workOrdersToolStripMenuItem
+			// 
+			this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.allToolStripMenuItem});
+			this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
+			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.workOrdersToolStripMenuItem.Text = "&Work Orders";
+			// 
+			// allToolStripMenuItem
+			// 
+			this.allToolStripMenuItem.Name = "allToolStripMenuItem";
+			this.allToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+			this.allToolStripMenuItem.Text = "&All";
+			// 
 			// label1
 			// 
 			this.label1.Location = new System.Drawing.Point(3, 36);
@@ -169,38 +191,17 @@ namespace MRMaintenance
 			this.dgview.RowHeadersVisible = false;
 			this.dgview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgview.Size = new System.Drawing.Size(686, 486);
-			this.dgview.TabIndex = 8;
+			this.dgview.TabIndex = 1;
 			this.dgview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellDoubleClick);
 			// 
 			// cboFacilities
 			// 
+			this.cboFacilities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboFacilities.FormattingEnabled = true;
 			this.cboFacilities.Location = new System.Drawing.Point(3, 52);
 			this.cboFacilities.Name = "cboFacilities";
 			this.cboFacilities.Size = new System.Drawing.Size(226, 21);
-			this.cboFacilities.TabIndex = 7;
-			// 
-			// reportsToolStripMenuItem
-			// 
-			this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.workOrdersToolStripMenuItem});
-			this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-			this.reportsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-			this.reportsToolStripMenuItem.Text = "&Reports";
-			// 
-			// workOrdersToolStripMenuItem
-			// 
-			this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.allToolStripMenuItem});
-			this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
-			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.workOrdersToolStripMenuItem.Text = "&Work Orders";
-			// 
-			// allToolStripMenuItem
-			// 
-			this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-			this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.allToolStripMenuItem.Text = "&All";
+			this.cboFacilities.TabIndex = 0;
 			// 
 			// MainForm
 			// 

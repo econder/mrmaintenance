@@ -102,6 +102,7 @@ namespace MRMaintenance
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 66;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
 			// 

@@ -237,6 +237,7 @@ namespace MRMaintenance
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 90;
+			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
 			// 
@@ -291,7 +292,7 @@ namespace MRMaintenance
 			this.label12.TabIndex = 115;
 			this.label12.Text = "Fax";
 			// 
-			// Facility
+			// frmFacility
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -328,7 +329,7 @@ namespace MRMaintenance
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "Facility";
+			this.Name = "frmFacility";
 			this.Padding = new System.Windows.Forms.Padding(3);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;

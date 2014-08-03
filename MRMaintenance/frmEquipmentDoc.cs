@@ -32,6 +32,10 @@ namespace MRMaintenance
 		}
 		
 		
+		//Properties
+		public MRMaintenance.BusinessObjects.Equipment Equipment { get; set; }
+		
+		
 		private void btnBrowse_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog dlg = new OpenFileDialog();
@@ -51,18 +55,16 @@ namespace MRMaintenance
 		
 		private void btnOK_Click(object sender, EventArgs e)
 		{
-			if(txtName.Text != null && txtLink != null)
-			{
-				EquipmentDoc equipDoc = new EquipmentDoc();
-				equipDoc.EquipmentID = this.Equipment.ID;
-				equipDoc.Name = txtName.Text;
-				equipDoc.Link = txtLink.Text;
-				
-				EquipmentDocBA equipDocBA = new EquipmentDocBA();
-				equipDocBA.Insert(equipDoc);
-				
-				this.Hide();
-			}
+			
+			EquipmentDoc equipDoc = new EquipmentDoc();
+			equipDoc.EquipmentID = this.Equipment.ID;
+			equipDoc.Name = txtName.Text;
+			equipDoc.Link = txtLink.Text;
+			
+			EquipmentDocBA equipDocBA = new EquipmentDocBA();
+			equipDocBA.Insert(equipDoc);
+			
+			this.Hide();
 		}
 		
 		
@@ -72,7 +74,22 @@ namespace MRMaintenance
 		}
 		
 		
-		//Properties
-		public MRMaintenance.BusinessObjects.Equipment Equipment { get; set; }
+		private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for null values
+			if(txtName.Text == "" || txtName.Text == null)
+			{
+				MessageBox.Show("Link name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		
+		private void txtLink_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if(txtLink.Text == "" || txtLink == null)
+			{
+				MessageBox.Show("Filename/link cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }
