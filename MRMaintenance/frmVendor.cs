@@ -97,7 +97,7 @@ namespace MRMaintenance
 			vendor.Address1 = txtAddr1.Text;
 			vendor.Address2 = txtAddr2.Text;
 			vendor.City = txtCity.Text;
-			vendor.StateID = (long)cboState.SelectedValue;
+			if(cboState.SelectedValue == null) vendor.StateID = 51; else vendor.StateID = (long)cboState.SelectedValue;
 			vendor.Zipcode = txtZip.Text;
 			vendor.Phone1 = txtPhone1.Text;
 			vendor.Phone2 = txtPhone2.Text;
@@ -119,7 +119,7 @@ namespace MRMaintenance
 			vendor.Address1 = txtAddr1.Text;
 			vendor.Address2 = txtAddr2.Text;
 			vendor.City = txtCity.Text;
-			vendor.StateID = (long)cboState.SelectedValue;
+			if(cboState.SelectedValue == null) vendor.StateID = 51; else vendor.StateID = (long)cboState.SelectedValue;
 			vendor.Zipcode = txtZip.Text;
 			vendor.Phone1 = txtPhone1.Text;
 			vendor.Phone2 = txtPhone2.Text;

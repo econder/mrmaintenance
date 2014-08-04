@@ -31,6 +31,7 @@ namespace MRMaintenance
 		private ManufacturerBA manufacturerBA;
 		private VendorBA vendorBA;
 		
+		private DataTable dtFacility;
 		private DataTable dtEquip;
 		private DataTable dtEquipDocs;
 		
@@ -62,10 +63,11 @@ namespace MRMaintenance
 			vendorBA = new VendorBA();
 			
 			//Load and bind facilities combobox
-			DataTable dtFacility = facilityBA.Load();
+			dtFacility = facilityBA.Load();
 			cboFacility.DataSource = dtFacility;
 			cboFacility.DisplayMember = "name";
 			cboFacility.ValueMember = "facId";
+			this.cboFacility.SelectedIndexChanged += new System.EventHandler(this.cboFacility_SelectedIndexChanged);
 			
 			//Load and bind manufacturers combobox
 			cboManufacturer.DataSource = manufacturerBA.Load();
@@ -152,6 +154,15 @@ namespace MRMaintenance
 			
 			//Load database and re-bind all the controls
 			dtEquipDocs = equipmentDocBA.LoadByEquipment((long)listEquip.SelectedValue);
+		}
+		
+		
+		private void cboFacility_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//Load and bind facility locations combobox
+			cboLocation.DataSource = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
+			cboLocation.DisplayMember = "name";
+			cboLocation.ValueMember = "locId";
 		}
 		
 		

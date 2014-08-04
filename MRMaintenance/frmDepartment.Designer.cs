@@ -53,7 +53,7 @@ namespace MRMaintenance
 			this.btnClose.Location = new System.Drawing.Point(432, 175);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 64;
+			this.btnClose.TabIndex = 5;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);

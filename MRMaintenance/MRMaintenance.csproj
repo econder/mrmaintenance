@@ -7,8 +7,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MRMaintenance</RootNamespace>
     <AssemblyName>MRMaintenance</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <NoWin32Manifest>False</NoWin32Manifest>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -17,6 +18,8 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <WarningLevel>4</WarningLevel>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,25 +27,42 @@
     <RegisterForComInterop>False</RegisterForComInterop>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <FileAlignment>4096</FileAlignment>
+    <Prefer32Bit>True</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
     <DebugSymbols>True</DebugSymbols>
     <DebugType>Full</DebugType>
-    <Optimize>False</Optimize>
-    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <Optimize>True</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
     <DebugSymbols>False</DebugSymbols>
     <DebugType>None</DebugType>
-    <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
+    <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.Reporting">
+      <HintPath>..\packages\SharpDevelop.Reporting.5.0.0.4516-beta5\lib\Net45\ICSharpCode.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony">
+      <HintPath>..\packages\Irony.0.9.1-net40\lib\net40\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony.Interpreter">
+      <HintPath>..\packages\Irony.Interpreter.0.9.1-net40-1\lib\net40\Irony.Interpreter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PdfSharp">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -74,6 +94,7 @@
     <Compile Include="BusinessAccess\TimeIntervalBA.cs" />
     <Compile Include="BusinessAccess\VendorBA.cs" />
     <Compile Include="BusinessAccess\VendorContactBA.cs" />
+    <Compile Include="BusinessAccess\WorkOrderHistoryBA.cs" />
     <Compile Include="BusinessAccess\WorkOrderScheduleBA.cs" />
     <Compile Include="BusinessAccess\WorkOrderViewBA.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
@@ -87,6 +108,7 @@
     <Compile Include="BusinessObjects\TimeInterval.cs" />
     <Compile Include="BusinessObjects\Vendor.cs" />
     <Compile Include="BusinessObjects\VendorContact.cs" />
+    <Compile Include="BusinessObjects\WorkOrderHistory.cs" />
     <Compile Include="BusinessObjects\WorkOrderSchedule.cs" />
     <Compile Include="BusinessObjects\WorkOrderView.cs" />
     <Compile Include="Data\DepartmentDA.cs" />
@@ -100,6 +122,7 @@
     <Compile Include="Data\TimeIntervalDA.cs" />
     <Compile Include="Data\VendorContactDA.cs" />
     <Compile Include="Data\VendorDA.cs" />
+    <Compile Include="Data\WorkOrderHistoryDA.cs" />
     <Compile Include="Data\WorkOrderScheduleDA.cs" />
     <Compile Include="Data\WorkOrderViewDA.cs" />
     <Compile Include="frmEquipmentDoc.cs" />
@@ -134,9 +157,17 @@
     <Compile Include="frmManufacturer.Designer.cs">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportViewer.cs" />
+    <Compile Include="frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVendor.cs" />
     <Compile Include="frmVendor.Designer.cs">
       <DependentUpon>frmVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWorkOrderHistory.cs" />
+    <Compile Include="frmWorkOrderHistory.Designer.cs">
+      <DependentUpon>frmWorkOrderHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmWorkOrderSchedule.cs" />
     <Compile Include="frmWorkOrderSchedule.Designer.cs">
@@ -182,6 +213,9 @@
     <EmbeddedResource Include="frmManufacturer.resx">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVendor.resx">
       <DependentUpon>frmVendor.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,8 +227,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\app.config" />
-    <None Include="Reports\Report1.srd" />
     <None Include="Reports\rptWorkOrdersAll.srd" />
     <None Include="res\minus-2x.ico" />
     <None Include="res\minus-3x.ico" />

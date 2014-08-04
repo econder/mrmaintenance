@@ -105,15 +105,23 @@ namespace MRMaintenance
 			location.Address1 = txtAddr1.Text;
 			location.Address2 = txtAddr2.Text;
 			location.City = txtCity.Text;
-			location.StateID = (long)cboState.SelectedValue;
+			if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
 			location.Zipcode = txtZip.Text;
-			location.Latitude = Convert.ToSingle(txtLat.Text);
-			location.Longitude = Convert.ToSingle(txtLong.Text);
 			
-			locationBA.Insert(location);
-			
-			//Reload data
-			this.ResetControlBindings();
+			try
+			{
+				location.Latitude = Convert.ToSingle(txtLat.Text);
+				location.Longitude = Convert.ToSingle(txtLong.Text);
+				
+				locationBA.Insert(location);
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
+			catch(Exception ex)
+			{
+				throw;
+			}
 		}
 		
 		
@@ -126,7 +134,7 @@ namespace MRMaintenance
 			location.Address1 = txtAddr1.Text;
 			location.Address2 = txtAddr2.Text;
 			location.City = txtCity.Text;
-			location.StateID = (long)cboState.SelectedValue;
+			if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
 			location.Zipcode = txtZip.Text;
 			location.Latitude = Convert.ToSingle(txtLat.Text);
 			location.Longitude = Convert.ToSingle(txtLong.Text);

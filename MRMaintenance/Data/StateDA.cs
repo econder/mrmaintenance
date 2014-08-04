@@ -27,12 +27,7 @@ namespace MRMaintenance.Data
 		
 		public StateDA()
 		{
-			ConnectionStringSettingsCollection arConnStr = ConfigurationManager.ConnectionStrings;
-			
-			if(arConnStr != null)
-			{
-				connStr = arConnStr["MRMaintenanceSQL"].ToString();
-			}
+			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
 		
 		

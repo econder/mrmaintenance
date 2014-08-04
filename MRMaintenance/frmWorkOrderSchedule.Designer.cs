@@ -71,7 +71,7 @@ namespace MRMaintenance
 			this.cboEquip.Location = new System.Drawing.Point(241, 62);
 			this.cboEquip.Name = "cboEquip";
 			this.cboEquip.Size = new System.Drawing.Size(222, 21);
-			this.cboEquip.TabIndex = 24;
+			this.cboEquip.TabIndex = 3;
 			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			// 
 			// label11
@@ -87,7 +87,7 @@ namespace MRMaintenance
 			this.txtName.Location = new System.Drawing.Point(242, 21);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
-			this.txtName.TabIndex = 1;
+			this.txtName.TabIndex = 2;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// txtDescr
@@ -97,7 +97,7 @@ namespace MRMaintenance
 			this.txtDescr.Name = "txtDescr";
 			this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtDescr.Size = new System.Drawing.Size(264, 103);
-			this.txtDescr.TabIndex = 3;
+			this.txtDescr.TabIndex = 5;
 			// 
 			// dtStartDate
 			// 
@@ -120,7 +120,7 @@ namespace MRMaintenance
 									0});
 			this.numFreq.Name = "numFreq";
 			this.numFreq.Size = new System.Drawing.Size(67, 20);
-			this.numFreq.TabIndex = 9;
+			this.numFreq.TabIndex = 7;
 			this.numFreq.Validating += new System.ComponentModel.CancelEventHandler(this.numFreq_Validating);
 			// 
 			// cboDept
@@ -131,7 +131,7 @@ namespace MRMaintenance
 			this.cboDept.Location = new System.Drawing.Point(241, 104);
 			this.cboDept.Name = "cboDept";
 			this.cboDept.Size = new System.Drawing.Size(222, 21);
-			this.cboDept.TabIndex = 18;
+			this.cboDept.TabIndex = 4;
 			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
 			// label10
@@ -151,7 +151,7 @@ namespace MRMaintenance
 			this.cboInterval.Location = new System.Drawing.Point(406, 313);
 			this.cboInterval.Name = "cboInterval";
 			this.cboInterval.Size = new System.Drawing.Size(100, 21);
-			this.cboInterval.TabIndex = 11;
+			this.cboInterval.TabIndex = 8;
 			this.cboInterval.Validating += new System.ComponentModel.CancelEventHandler(this.cboInterval_Validating);
 			// 
 			// label7
@@ -187,7 +187,7 @@ namespace MRMaintenance
 			this.dtLastCompleted.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 			this.dtLastCompleted.Name = "dtLastCompleted";
 			this.dtLastCompleted.Size = new System.Drawing.Size(124, 20);
-			this.dtLastCompleted.TabIndex = 14;
+			this.dtLastCompleted.TabIndex = 9;
 			// 
 			// label8
 			// 
@@ -229,7 +229,7 @@ namespace MRMaintenance
 			this.listWO.Location = new System.Drawing.Point(6, 21);
 			this.listWO.Name = "listWO";
 			this.listWO.Size = new System.Drawing.Size(229, 355);
-			this.listWO.TabIndex = 29;
+			this.listWO.TabIndex = 0;
 			// 
 			// label1
 			// 
@@ -244,7 +244,7 @@ namespace MRMaintenance
 			this.btnUpdate.Location = new System.Drawing.Point(350, 391);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 55;
+			this.btnUpdate.TabIndex = 10;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -254,7 +254,7 @@ namespace MRMaintenance
 			this.btnRemove.Location = new System.Drawing.Point(160, 382);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 54;
+			this.btnRemove.TabIndex = 1;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -264,7 +264,7 @@ namespace MRMaintenance
 			this.btnAdd.Location = new System.Drawing.Point(431, 391);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 53;
+			this.btnAdd.TabIndex = 12;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -276,7 +276,7 @@ namespace MRMaintenance
 			this.btnClose.Location = new System.Drawing.Point(431, 436);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 56;
+			this.btnClose.TabIndex = 13;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -310,6 +310,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmWorkOrderSchedule";

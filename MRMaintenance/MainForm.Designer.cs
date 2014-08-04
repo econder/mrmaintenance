@@ -37,8 +37,11 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.workOrderSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,28 +50,47 @@ namespace MRMaintenance
 			this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.manufacturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vendorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.workOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgview = new System.Windows.Forms.DataGridView();
+			this.menuDGView = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.markAsComplete = new System.Windows.Forms.ToolStripMenuItem();
 			this.cboFacilities = new System.Windows.Forms.ComboBox();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
+			this.menuDGView.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.fileToolStripMenuItem,
 									this.viewToolStripMenuItem,
-									this.aboutToolStripMenuItem,
-									this.reportsToolStripMenuItem});
+									this.reportsToolStripMenuItem,
+									this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(686, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.exitToolStripMenuItem});
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+			this.fileToolStripMenuItem.Text = "&File";
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exitToolStripMenuItem.Text = "E&xit";
 			// 
 			// viewToolStripMenuItem
 			// 
@@ -81,8 +103,8 @@ namespace MRMaintenance
 									this.manufacturersToolStripMenuItem,
 									this.vendorsToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-			this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-			this.viewToolStripMenuItem.Text = "&View";
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.viewToolStripMenuItem.Text = "&Edit";
 			// 
 			// workOrderSchedulesToolStripMenuItem
 			// 
@@ -133,12 +155,6 @@ namespace MRMaintenance
 			this.vendorsToolStripMenuItem.Text = "Vendors";
 			this.vendorsToolStripMenuItem.Click += new System.EventHandler(this.VendorsToolStripMenuItemClick);
 			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.aboutToolStripMenuItem.Text = "About...";
-			// 
 			// reportsToolStripMenuItem
 			// 
 			this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -152,14 +168,21 @@ namespace MRMaintenance
 			this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.allToolStripMenuItem});
 			this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
-			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.workOrdersToolStripMenuItem.Text = "&Work Orders";
 			// 
 			// allToolStripMenuItem
 			// 
 			this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-			this.allToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+			this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.allToolStripMenuItem.Text = "&All";
+			this.allToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuItemClick);
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+			this.aboutToolStripMenuItem.Text = "About...";
 			// 
 			// label1
 			// 
@@ -171,12 +194,15 @@ namespace MRMaintenance
 			// 
 			// dgview
 			// 
+			this.dgview.AllowUserToAddRows = false;
+			this.dgview.AllowUserToDeleteRows = false;
 			this.dgview.AllowUserToOrderColumns = true;
 			this.dgview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgview.ContextMenuStrip = this.menuDGView;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,6 +219,20 @@ namespace MRMaintenance
 			this.dgview.Size = new System.Drawing.Size(686, 486);
 			this.dgview.TabIndex = 1;
 			this.dgview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellDoubleClick);
+			// 
+			// menuDGView
+			// 
+			this.menuDGView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.markAsComplete});
+			this.menuDGView.Name = "menuDGView";
+			this.menuDGView.Size = new System.Drawing.Size(161, 26);
+			// 
+			// markAsComplete
+			// 
+			this.markAsComplete.Name = "markAsComplete";
+			this.markAsComplete.Size = new System.Drawing.Size(160, 22);
+			this.markAsComplete.Text = "&Mark As Complete";
+			this.markAsComplete.Click += new System.EventHandler(this.MarkAsCompleteClick);
 			// 
 			// cboFacilities
 			// 
@@ -220,9 +260,14 @@ namespace MRMaintenance
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();
+			this.menuDGView.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem markAsComplete;
+		private System.Windows.Forms.ContextMenuStrip menuDGView;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem workOrdersToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;

@@ -69,7 +69,7 @@ namespace MRMaintenance
 			this.btnClose.Location = new System.Drawing.Point(432, 317);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 71;
+			this.btnClose.TabIndex = 12;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClose_Click);
@@ -79,7 +79,7 @@ namespace MRMaintenance
 			this.btnUpdate.Location = new System.Drawing.Point(351, 263);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 70;
+			this.btnUpdate.TabIndex = 11;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdate_Click);
@@ -89,7 +89,7 @@ namespace MRMaintenance
 			this.btnRemove.Location = new System.Drawing.Point(160, 283);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 69;
+			this.btnRemove.TabIndex = 2;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRemove_Click);
@@ -99,7 +99,7 @@ namespace MRMaintenance
 			this.btnAdd.Location = new System.Drawing.Point(432, 263);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 68;
+			this.btnAdd.TabIndex = 12;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAdd_Click);
@@ -110,14 +110,14 @@ namespace MRMaintenance
 			this.listLoc.Location = new System.Drawing.Point(7, 65);
 			this.listLoc.Name = "listLoc";
 			this.listLoc.Size = new System.Drawing.Size(229, 212);
-			this.listLoc.TabIndex = 67;
+			this.listLoc.TabIndex = 1;
 			// 
 			// txtName
 			// 
 			this.txtName.Location = new System.Drawing.Point(242, 65);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
-			this.txtName.TabIndex = 66;
+			this.txtName.TabIndex = 3;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
@@ -142,7 +142,7 @@ namespace MRMaintenance
 			this.cboFacility.Location = new System.Drawing.Point(6, 21);
 			this.cboFacility.Name = "cboFacility";
 			this.cboFacility.Size = new System.Drawing.Size(229, 21);
-			this.cboFacility.TabIndex = 73;
+			this.cboFacility.TabIndex = 0;
 			this.cboFacility.Validating += new System.ComponentModel.CancelEventHandler(this.cboFacility_Validating);
 			// 
 			// label3
@@ -158,7 +158,7 @@ namespace MRMaintenance
 			this.txtAddr1.Location = new System.Drawing.Point(242, 108);
 			this.txtAddr1.Name = "txtAddr1";
 			this.txtAddr1.Size = new System.Drawing.Size(264, 20);
-			this.txtAddr1.TabIndex = 76;
+			this.txtAddr1.TabIndex = 4;
 			// 
 			// label4
 			// 
@@ -173,7 +173,7 @@ namespace MRMaintenance
 			this.txtAddr2.Location = new System.Drawing.Point(242, 151);
 			this.txtAddr2.Name = "txtAddr2";
 			this.txtAddr2.Size = new System.Drawing.Size(264, 20);
-			this.txtAddr2.TabIndex = 78;
+			this.txtAddr2.TabIndex = 5;
 			// 
 			// label5
 			// 
@@ -188,7 +188,7 @@ namespace MRMaintenance
 			this.txtCity.Location = new System.Drawing.Point(242, 194);
 			this.txtCity.Name = "txtCity";
 			this.txtCity.Size = new System.Drawing.Size(134, 20);
-			this.txtCity.TabIndex = 80;
+			this.txtCity.TabIndex = 6;
 			// 
 			// label6
 			// 
@@ -213,14 +213,14 @@ namespace MRMaintenance
 			this.cboState.Location = new System.Drawing.Point(382, 194);
 			this.cboState.Name = "cboState";
 			this.cboState.Size = new System.Drawing.Size(54, 21);
-			this.cboState.TabIndex = 82;
+			this.cboState.TabIndex = 7;
 			// 
 			// txtZip
 			// 
 			this.txtZip.Location = new System.Drawing.Point(442, 194);
 			this.txtZip.Name = "txtZip";
 			this.txtZip.Size = new System.Drawing.Size(65, 20);
-			this.txtZip.TabIndex = 84;
+			this.txtZip.TabIndex = 8;
 			// 
 			// label8
 			// 
@@ -235,7 +235,7 @@ namespace MRMaintenance
 			this.txtLat.Location = new System.Drawing.Point(242, 237);
 			this.txtLat.Name = "txtLat";
 			this.txtLat.Size = new System.Drawing.Size(119, 20);
-			this.txtLat.TabIndex = 86;
+			this.txtLat.TabIndex = 9;
 			// 
 			// label9
 			// 
@@ -250,7 +250,7 @@ namespace MRMaintenance
 			this.txtLong.Location = new System.Drawing.Point(367, 237);
 			this.txtLong.Name = "txtLong";
 			this.txtLong.Size = new System.Drawing.Size(119, 20);
-			this.txtLong.TabIndex = 88;
+			this.txtLong.TabIndex = 10;
 			// 
 			// label10
 			// 
@@ -290,6 +290,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.listLoc);
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmLocations";

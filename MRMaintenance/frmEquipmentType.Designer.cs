@@ -53,7 +53,7 @@ namespace MRMaintenance
 			this.btnClose.Location = new System.Drawing.Point(431, 175);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 72;
+			this.btnClose.TabIndex = 5;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -63,7 +63,7 @@ namespace MRMaintenance
 			this.btnUpdate.Location = new System.Drawing.Point(349, 46);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 71;
+			this.btnUpdate.TabIndex = 3;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -73,7 +73,7 @@ namespace MRMaintenance
 			this.btnRemove.Location = new System.Drawing.Point(159, 147);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 70;
+			this.btnRemove.TabIndex = 1;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -83,7 +83,7 @@ namespace MRMaintenance
 			this.btnAdd.Location = new System.Drawing.Point(430, 46);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 69;
+			this.btnAdd.TabIndex = 4;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -94,14 +94,14 @@ namespace MRMaintenance
 			this.listType.Location = new System.Drawing.Point(5, 20);
 			this.listType.Name = "listType";
 			this.listType.Size = new System.Drawing.Size(229, 121);
-			this.listType.TabIndex = 67;
+			this.listType.TabIndex = 0;
 			// 
 			// txtName
 			// 
 			this.txtName.Location = new System.Drawing.Point(241, 20);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
-			this.txtName.TabIndex = 66;
+			this.txtName.TabIndex = 2;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2

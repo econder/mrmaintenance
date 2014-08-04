@@ -26,12 +26,7 @@ namespace MRMaintenance.Data
 		
 		public LocationDA()
 		{
-			ConnectionStringSettingsCollection arConnStr = ConfigurationManager.ConnectionStrings;
-			
-			if(arConnStr != null)
-			{
-				connStr = arConnStr["MRMaintenanceSQL"].ToString();
-			}
+			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
 		
 		

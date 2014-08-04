@@ -70,7 +70,7 @@ namespace MRMaintenance
 			this.txtWeb.Location = new System.Drawing.Point(242, 280);
 			this.txtWeb.Name = "txtWeb";
 			this.txtWeb.Size = new System.Drawing.Size(264, 20);
-			this.txtWeb.TabIndex = 168;
+			this.txtWeb.TabIndex = 11;
 			// 
 			// label9
 			// 
@@ -85,7 +85,7 @@ namespace MRMaintenance
 			this.txtFax.Location = new System.Drawing.Point(242, 237);
 			this.txtFax.Name = "txtFax";
 			this.txtFax.Size = new System.Drawing.Size(100, 20);
-			this.txtFax.TabIndex = 166;
+			this.txtFax.TabIndex = 10;
 			// 
 			// label12
 			// 
@@ -100,7 +100,7 @@ namespace MRMaintenance
 			this.txtPhone2.Location = new System.Drawing.Point(348, 195);
 			this.txtPhone2.Name = "txtPhone2";
 			this.txtPhone2.Size = new System.Drawing.Size(100, 20);
-			this.txtPhone2.TabIndex = 164;
+			this.txtPhone2.TabIndex = 9;
 			// 
 			// label11
 			// 
@@ -115,7 +115,7 @@ namespace MRMaintenance
 			this.txtPhone1.Location = new System.Drawing.Point(242, 195);
 			this.txtPhone1.Name = "txtPhone1";
 			this.txtPhone1.Size = new System.Drawing.Size(100, 20);
-			this.txtPhone1.TabIndex = 162;
+			this.txtPhone1.TabIndex = 8;
 			// 
 			// label1
 			// 
@@ -130,7 +130,7 @@ namespace MRMaintenance
 			this.txtZip.Location = new System.Drawing.Point(442, 152);
 			this.txtZip.Name = "txtZip";
 			this.txtZip.Size = new System.Drawing.Size(65, 20);
-			this.txtZip.TabIndex = 160;
+			this.txtZip.TabIndex = 7;
 			// 
 			// label8
 			// 
@@ -155,14 +155,14 @@ namespace MRMaintenance
 			this.cboState.Location = new System.Drawing.Point(382, 152);
 			this.cboState.Name = "cboState";
 			this.cboState.Size = new System.Drawing.Size(54, 21);
-			this.cboState.TabIndex = 158;
+			this.cboState.TabIndex = 6;
 			// 
 			// txtCity
 			// 
 			this.txtCity.Location = new System.Drawing.Point(242, 152);
 			this.txtCity.Name = "txtCity";
 			this.txtCity.Size = new System.Drawing.Size(134, 20);
-			this.txtCity.TabIndex = 156;
+			this.txtCity.TabIndex = 5;
 			// 
 			// label6
 			// 
@@ -177,7 +177,7 @@ namespace MRMaintenance
 			this.txtAddr2.Location = new System.Drawing.Point(242, 109);
 			this.txtAddr2.Name = "txtAddr2";
 			this.txtAddr2.Size = new System.Drawing.Size(264, 20);
-			this.txtAddr2.TabIndex = 154;
+			this.txtAddr2.TabIndex = 4;
 			// 
 			// label5
 			// 
@@ -192,7 +192,7 @@ namespace MRMaintenance
 			this.txtAddr1.Location = new System.Drawing.Point(242, 66);
 			this.txtAddr1.Name = "txtAddr1";
 			this.txtAddr1.Size = new System.Drawing.Size(264, 20);
-			this.txtAddr1.TabIndex = 152;
+			this.txtAddr1.TabIndex = 3;
 			// 
 			// label4
 			// 
@@ -216,7 +216,7 @@ namespace MRMaintenance
 			this.btnClose.Location = new System.Drawing.Point(431, 350);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 149;
+			this.btnClose.TabIndex = 14;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -226,7 +226,7 @@ namespace MRMaintenance
 			this.btnUpdate.Location = new System.Drawing.Point(350, 306);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 148;
+			this.btnUpdate.TabIndex = 12;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -236,7 +236,7 @@ namespace MRMaintenance
 			this.btnRemove.Location = new System.Drawing.Point(161, 306);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 147;
+			this.btnRemove.TabIndex = 1;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -246,7 +246,7 @@ namespace MRMaintenance
 			this.btnAdd.Location = new System.Drawing.Point(431, 306);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 146;
+			this.btnAdd.TabIndex = 13;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -257,14 +257,14 @@ namespace MRMaintenance
 			this.listVen.Location = new System.Drawing.Point(7, 23);
 			this.listVen.Name = "listVen";
 			this.listVen.Size = new System.Drawing.Size(229, 277);
-			this.listVen.TabIndex = 145;
+			this.listVen.TabIndex = 0;
 			// 
 			// txtName
 			// 
 			this.txtName.Location = new System.Drawing.Point(242, 23);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
-			this.txtName.TabIndex = 144;
+			this.txtName.TabIndex = 2;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2

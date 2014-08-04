@@ -51,7 +51,7 @@ namespace MRMaintenance
 			this.txtName.Location = new System.Drawing.Point(6, 23);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(226, 20);
-			this.txtName.TabIndex = 5;
+			this.txtName.TabIndex = 0;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
@@ -67,7 +67,7 @@ namespace MRMaintenance
 			this.txtLink.Location = new System.Drawing.Point(6, 66);
 			this.txtLink.Name = "txtLink";
 			this.txtLink.Size = new System.Drawing.Size(486, 20);
-			this.txtLink.TabIndex = 7;
+			this.txtLink.TabIndex = 1;
 			this.txtLink.Validating += new System.ComponentModel.CancelEventHandler(this.txtLink_Validating);
 			// 
 			// label1
@@ -84,7 +84,7 @@ namespace MRMaintenance
 			this.btnCancel.Location = new System.Drawing.Point(449, 110);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.btnCancel.TabIndex = 66;
+			this.btnCancel.TabIndex = 4;
 			this.btnCancel.Text = "&Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -94,7 +94,7 @@ namespace MRMaintenance
 			this.btnBrowse.Location = new System.Drawing.Point(498, 64);
 			this.btnBrowse.Name = "btnBrowse";
 			this.btnBrowse.Size = new System.Drawing.Size(26, 23);
-			this.btnBrowse.TabIndex = 65;
+			this.btnBrowse.TabIndex = 2;
 			this.btnBrowse.Text = "...";
 			this.btnBrowse.UseVisualStyleBackColor = true;
 			this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -105,7 +105,7 @@ namespace MRMaintenance
 			this.btnOK.Location = new System.Drawing.Point(368, 110);
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(75, 23);
-			this.btnOK.TabIndex = 67;
+			this.btnOK.TabIndex = 3;
 			this.btnOK.Text = "&OK";
 			this.btnOK.UseVisualStyleBackColor = true;
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);

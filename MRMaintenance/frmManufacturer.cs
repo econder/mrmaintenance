@@ -97,7 +97,7 @@ namespace MRMaintenance
 			man.Address1 = txtAddr1.Text;
 			man.Address2 = txtAddr2.Text;
 			man.City = txtCity.Text;
-			if(cboState.SelectedValue != null) man.StateID = (long)cboState.SelectedValue; else man.StateID = -1;
+			if(cboState.SelectedValue == null) man.StateID = 51; else man.StateID = (long)cboState.SelectedValue;
 			man.Zipcode = txtZip.Text;
 			man.Phone1 = txtPhone1.Text;
 			man.Phone2 = txtPhone2.Text;
@@ -119,7 +119,7 @@ namespace MRMaintenance
 			man.Address1 = txtAddr1.Text;
 			man.Address2 = txtAddr2.Text;
 			man.City = txtCity.Text;
-			if(cboState.SelectedValue != null) man.StateID = (long)cboState.SelectedValue; else man.StateID = -1;
+			if(cboState.SelectedValue == null) man.StateID = 51; else man.StateID = (long)cboState.SelectedValue;
 			man.Zipcode = txtZip.Text;
 			man.Phone1 = txtPhone1.Text;
 			man.Phone2 = txtPhone2.Text;

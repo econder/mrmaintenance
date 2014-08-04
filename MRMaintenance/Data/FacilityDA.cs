@@ -22,17 +22,12 @@ namespace MRMaintenance.Data
 	/// </summary>
 	public class FacilityDA
 	{
-		//TODO: Fix connection string configuration loading
 		private string connStr;
+		
 		
 		public FacilityDA()
 		{
-			ConnectionStringSettingsCollection arConnStr = ConfigurationManager.ConnectionStrings;
-			
-			if(arConnStr != null)
-			{
-				connStr = arConnStr["MRMaintenanceSQL"].ToString();
-			}
+			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
 		
 		

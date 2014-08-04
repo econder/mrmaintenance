@@ -83,7 +83,7 @@ namespace MRMaintenance
 			this.txtName.Location = new System.Drawing.Point(252, 73);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(226, 20);
-			this.txtName.TabIndex = 3;
+			this.txtName.TabIndex = 4;
 			this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
 			// 
 			// label2
@@ -100,7 +100,7 @@ namespace MRMaintenance
 			this.cboFacility.Location = new System.Drawing.Point(252, 29);
 			this.cboFacility.Name = "cboFacility";
 			this.cboFacility.Size = new System.Drawing.Size(153, 21);
-			this.cboFacility.TabIndex = 28;
+			this.cboFacility.TabIndex = 2;
 			this.cboFacility.Validating += new System.ComponentModel.CancelEventHandler(this.cboFacility_Validating);
 			// 
 			// label3
@@ -119,7 +119,7 @@ namespace MRMaintenance
 			this.cboLocation.Location = new System.Drawing.Point(420, 29);
 			this.cboLocation.Name = "cboLocation";
 			this.cboLocation.Size = new System.Drawing.Size(153, 21);
-			this.cboLocation.TabIndex = 30;
+			this.cboLocation.TabIndex = 3;
 			this.cboLocation.Validating += new System.ComponentModel.CancelEventHandler(this.cboLocation_Validating);
 			// 
 			// label12
@@ -138,7 +138,7 @@ namespace MRMaintenance
 			this.cboEquipType.Location = new System.Drawing.Point(495, 249);
 			this.cboEquipType.Name = "cboEquipType";
 			this.cboEquipType.Size = new System.Drawing.Size(226, 21);
-			this.cboEquipType.TabIndex = 34;
+			this.cboEquipType.TabIndex = 11;
 			// 
 			// label5
 			// 
@@ -156,7 +156,7 @@ namespace MRMaintenance
 			this.cboManufacturer.Location = new System.Drawing.Point(495, 118);
 			this.cboManufacturer.Name = "cboManufacturer";
 			this.cboManufacturer.Size = new System.Drawing.Size(226, 21);
-			this.cboManufacturer.TabIndex = 36;
+			this.cboManufacturer.TabIndex = 7;
 			this.cboManufacturer.Validating += new System.ComponentModel.CancelEventHandler(this.cboManufacturer_Validating);
 			// 
 			// label6
@@ -175,7 +175,7 @@ namespace MRMaintenance
 			this.cboVendor.Location = new System.Drawing.Point(495, 161);
 			this.cboVendor.Name = "cboVendor";
 			this.cboVendor.Size = new System.Drawing.Size(226, 21);
-			this.cboVendor.TabIndex = 38;
+			this.cboVendor.TabIndex = 8;
 			this.cboVendor.Validating += new System.ComponentModel.CancelEventHandler(this.cboVendor_Validating);
 			// 
 			// label7
@@ -191,7 +191,7 @@ namespace MRMaintenance
 			this.txtSerial.Location = new System.Drawing.Point(601, 205);
 			this.txtSerial.Name = "txtSerial";
 			this.txtSerial.Size = new System.Drawing.Size(120, 20);
-			this.txtSerial.TabIndex = 40;
+			this.txtSerial.TabIndex = 10;
 			// 
 			// label8
 			// 
@@ -206,7 +206,7 @@ namespace MRMaintenance
 			this.txtModel.Location = new System.Drawing.Point(495, 205);
 			this.txtModel.Name = "txtModel";
 			this.txtModel.Size = new System.Drawing.Size(100, 20);
-			this.txtModel.TabIndex = 42;
+			this.txtModel.TabIndex = 9;
 			// 
 			// label9
 			// 
@@ -223,7 +223,7 @@ namespace MRMaintenance
 			this.txtDescr.Name = "txtDescr";
 			this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtDescr.Size = new System.Drawing.Size(226, 109);
-			this.txtDescr.TabIndex = 44;
+			this.txtDescr.TabIndex = 6;
 			// 
 			// label10
 			// 
@@ -237,20 +237,21 @@ namespace MRMaintenance
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(646, 464);
+			this.btnClose.Location = new System.Drawing.Point(646, 453);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
-			this.btnClose.TabIndex = 47;
+			this.btnClose.TabIndex = 17;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(498, 464);
+			this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnAdd.Location = new System.Drawing.Point(550, 453);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 48;
+			this.btnAdd.TabIndex = 16;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -260,7 +261,7 @@ namespace MRMaintenance
 			this.txtEquipNumber.Location = new System.Drawing.Point(252, 118);
 			this.txtEquipNumber.Name = "txtEquipNumber";
 			this.txtEquipNumber.Size = new System.Drawing.Size(153, 20);
-			this.txtEquipNumber.TabIndex = 51;
+			this.txtEquipNumber.TabIndex = 5;
 			// 
 			// label11
 			// 
@@ -272,10 +273,11 @@ namespace MRMaintenance
 			// 
 			// btnUpdate
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(417, 464);
+			this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnUpdate.Location = new System.Drawing.Point(469, 453);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 52;
+			this.btnUpdate.TabIndex = 15;
 			this.btnUpdate.Text = "&Update";
 			this.btnUpdate.UseVisualStyleBackColor = true;
 			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -283,10 +285,10 @@ namespace MRMaintenance
 			// btnRemove
 			// 
 			this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnRemove.Location = new System.Drawing.Point(160, 455);
+			this.btnRemove.Location = new System.Drawing.Point(160, 453);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 64;
+			this.btnRemove.TabIndex = 1;
 			this.btnRemove.Text = "&Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
 			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -299,15 +301,18 @@ namespace MRMaintenance
 			this.listEquip.Location = new System.Drawing.Point(6, 29);
 			this.listEquip.Name = "listEquip";
 			this.listEquip.Size = new System.Drawing.Size(229, 420);
-			this.listEquip.TabIndex = 63;
+			this.listEquip.TabIndex = 0;
 			// 
 			// listEquipDocs
 			// 
+			this.listEquipDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.listEquipDocs.FormattingEnabled = true;
 			this.listEquipDocs.Location = new System.Drawing.Point(249, 315);
 			this.listEquipDocs.Name = "listEquipDocs";
 			this.listEquipDocs.Size = new System.Drawing.Size(472, 134);
-			this.listEquipDocs.TabIndex = 65;
+			this.listEquipDocs.TabIndex = 14;
 			this.listEquipDocs.DoubleClick += new System.EventHandler(this.listEquipDocs_DoubleClick);
 			// 
 			// btnDocRemove
@@ -316,7 +321,7 @@ namespace MRMaintenance
 			this.btnDocRemove.Location = new System.Drawing.Point(663, 286);
 			this.btnDocRemove.Name = "btnDocRemove";
 			this.btnDocRemove.Size = new System.Drawing.Size(26, 23);
-			this.btnDocRemove.TabIndex = 66;
+			this.btnDocRemove.TabIndex = 12;
 			this.btnDocRemove.UseVisualStyleBackColor = true;
 			this.btnDocRemove.Click += new System.EventHandler(this.btnDocRemove_Click);
 			// 
@@ -326,7 +331,7 @@ namespace MRMaintenance
 			this.btnDocAdd.Location = new System.Drawing.Point(695, 286);
 			this.btnDocAdd.Name = "btnDocAdd";
 			this.btnDocAdd.Size = new System.Drawing.Size(26, 23);
-			this.btnDocAdd.TabIndex = 67;
+			this.btnDocAdd.TabIndex = 13;
 			this.btnDocAdd.UseVisualStyleBackColor = true;
 			this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
 			// 

@@ -17,6 +17,8 @@ using System.IO;
 using System.Windows.Forms;
 
 using MRMaintenance.BusinessAccess;
+using MRMaintenance.BusinessObjects;
+using MRMaintenance.Reports;
 
 
 namespace MRMaintenance
@@ -71,7 +73,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
+		private void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
@@ -96,59 +98,77 @@ namespace MRMaintenance
 		}
 		
 		
-		void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
+		private void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmEquipment form = new frmEquipment();
 			form.ShowDialog();
 		}
 		
 		
-		void WorkOrderSchedulesToolStripMenuItemClick(object sender, EventArgs e)
+		private void WorkOrderSchedulesToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmWorkOrderSchedule form = new frmWorkOrderSchedule();
 			form.ShowDialog();
 		}
 		
 		
-		void LocationsToolStripMenuItemClick(object sender, EventArgs e)
+		private void LocationsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmLocations form = new frmLocations();
 			form.ShowDialog();
 		}
 		
 		
-		void FacilitiesToolStripMenuItemClick(object sender, EventArgs e)
+		private void FacilitiesToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmFacility form = new frmFacility();
 			form.ShowDialog();
 		}
 		
 		
-		void DepartmentsToolStripMenuItemClick(object sender, EventArgs e)
+		private void DepartmentsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmDepartment form = new frmDepartment();
 			form.ShowDialog();
 		}
 		
 		
-		void ManufacturersToolStripMenuItemClick(object sender, EventArgs e)
+		private void ManufacturersToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmManufacturer form = new frmManufacturer();
 			form.ShowDialog();
 		}
 		
 		
-		void VendorsToolStripMenuItemClick(object sender, EventArgs e)
+		private void VendorsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmVendor form = new frmVendor();
 			form.ShowDialog();
 		}
 		
 		
-		void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			frmWorkOrderSchedule form = new frmWorkOrderSchedule((long)dgview.SelectedRows[0].Cells["ID"].Value);
 			form.ShowDialog();
+		}
+		
+		private void MarkAsCompleteClick(object sender, EventArgs e)
+		{
+			WorkOrderHistory woHistory = new WorkOrderHistory();
+			woHistory.ScheduleID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+			woHistory.Date = DateTime.Now;
+			
+			WorkOrderHistoryBA woHistoryBA = new WorkOrderHistoryBA();
+			woHistoryBA.Insert(woHistory);
+			
+			this.ResetControlBindings();
+		}
+		
+		void AllToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			frmReportViewer form = new frmReportViewer("C:/Users/mrsystems/Documents/repos/mrmaintenance/MRMaintenance/Reports/rptWorkOrdersAll.srd");
+			form.Show(this);
 		}
 	}
 }
