@@ -40,7 +40,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!descr.Value, "DataSet1")</Value>
+                <Value>=First(Fields!equipDescr.Value, "DataSet1")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -85,9 +85,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>equipNumber</rd:DefaultName>
-        <Top>1.07986in</Top>
+        <Top>1.64236in</Top>
         <Height>0.25in</Height>
-        <Width>1.46875in</Width>
+        <Width>1.85417in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -122,10 +122,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>equipSerial</rd:DefaultName>
-        <Top>1.07986in</Top>
-        <Left>1.53819in</Left>
+        <Top>2.00694in</Top>
         <Height>0.25in</Height>
-        <Width>1.3125in</Width>
+        <Width>1.85417in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -160,8 +159,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>equipModel</rd:DefaultName>
-        <Top>1.07986in</Top>
-        <Left>2.92014in</Left>
+        <Top>1.82465in</Top>
         <Height>0.25in</Height>
         <Width>1.85417in</Width>
         <ZIndex>4</ZIndex>
