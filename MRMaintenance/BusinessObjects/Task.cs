@@ -26,5 +26,6 @@ namespace MRMaintenance.BusinessObjects
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public float EstimatedDuration { get; set; }
+		public bool ShutdownRequired { get; set; }
 	}
 }

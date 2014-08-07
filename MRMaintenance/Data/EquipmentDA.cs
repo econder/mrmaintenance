@@ -64,8 +64,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, equipNumber, equipName, equipSerial, equipModel, descr)" +
-											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @equipNumber, @equipName, @equipSerial, @equipModel, @descr)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, modelId, equipNumber, equipName, descr, equipSerial, hmiRuntimeTagname, hmiCyclesTagname, equipMccLoc, equipMccPanel)" +
+											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @modelId, @equipNumber, @equipName, @descr, @equipSerial, @hmiRuntimeTagname, @hmiCyclesTagname, @equipMccLoc, @equipMccPanel)", dbConn);
 				
 				try
 				{
@@ -73,11 +73,15 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipTypeId", equipment.EquipmentTypeID);
 					cmd.Parameters.AddWithValue("@manId", equipment.ManufacturerID);
 					cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID);
+					cmd.Parameters.AddWithValue("@modelId", equipment.ModelID);
 					cmd.Parameters.AddWithValue("@equipNumber", equipment.EquipmentNumber);
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
-					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@equipModel", equipment.Model);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
+					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
+					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
+					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
+					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -100,8 +104,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE Equipment SET locId=@locId, equipTypeId=@equipTypeId, manId=@manId, vendorId=@vendorId, equipNumber=@equipNumber, equipName=@equipName," +
-				                                " equipSerial=@equipSerial, equipModel=@equipModel, descr=@descr" +
+				SqlCommand cmd = new SqlCommand("UPDATE Equipment SET locId=@locId, equipTypeId=@equipTypeId, manId=@manId, vendorId=@vendorId, modelId=@modelId, equipNumber=@equipNumber, equipName=@equipName," +
+				                                " descr=@descr, equipSerial=@equipSerial, hmiRuntimeTagname=@hmiRuntimeTagname, hmiCyclesTagname=@hmiCyclesTagname, equipMccLoc=@equipMccLoc, equipMccPanel=@equipMccPanel" +
 				                                " WHERE equipId=@equipId", dbConn);
 				
 				try
@@ -111,11 +115,15 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipTypeId", equipment.EquipmentTypeID);
 					cmd.Parameters.AddWithValue("@manId", equipment.ManufacturerID);
 					cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID);
+					cmd.Parameters.AddWithValue("@modelId", equipment.ModelID);
 					cmd.Parameters.AddWithValue("@equipNumber", equipment.EquipmentNumber);
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
-					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@equipModel", equipment.Model);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
+					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
+					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
+					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
+					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					
 					return cmd.ExecuteNonQuery();
 				}

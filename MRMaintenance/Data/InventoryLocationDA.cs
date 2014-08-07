@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	InventoryDA.cs
+ * Class:   	InventoryLocationDA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -18,14 +18,14 @@ using MRMaintenance.BusinessObjects;
 namespace MRMaintenance.Data
 {
 	/// <summary>
-	/// Description of InventoryDA.
+	/// Description of InventoryLocationDA.
 	/// </summary>
-	public class InventoryDA
+	public class InventoryLocationDA
 	{
 		private string connStr;
 		
 		
-		public InventoryDA()
+		public InventoryLocationDA()
 		{
 			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
@@ -36,9 +36,9 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Inventory", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM InventoryLocation", dbConn);
 				
-				DataTable dt = new DataTable("Inventory");
+				DataTable dt = new DataTable("InventoryLocation");
 				
 				try
 				{
@@ -60,19 +60,18 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Insert(Inventory inventory)
+		public int Insert(InventoryLocation inventoryLocation)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Inventory(invLocId, partId, qty)" +
-				                                " VALUES(@invLocId, @partId, @qty)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO InventoryLocation(facId, name)" +
+				                                " VALUES(@facId, @name)", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
-					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
-					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					cmd.Parameters.AddWithValue("@facId", inventoryLocation.FacilityID);
+					cmd.Parameters.AddWithValue("@name", inventoryLocation.Name);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -90,20 +89,19 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Update(Inventory inventory)
+		public int Update(InventoryLocation inventoryLocation)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE Inventory SET invLocId=@invLocId, partId=@partId, qty=@qty" +
-				                                " WHERE invId=@invId", dbConn);
+				SqlCommand cmd = new SqlCommand("UPDATE InventoryLocation SET fac=@facId, name=@name" +
+				                                " WHERE invLocId=@invLocId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invId", inventory.ID);
-					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
-					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
-					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					cmd.Parameters.AddWithValue("@invLocId", inventoryLocation.ID);
+					cmd.Parameters.AddWithValue("@facId", inventoryLocation.FacilityID);
+					cmd.Parameters.AddWithValue("@name", inventoryLocation.Name);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -121,16 +119,16 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Delete(Inventory inventory)
+		public int Delete(InventoryLocation inventoryLocation)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("DELETE FROM Inventory WHERE invId=@invId", dbConn);
+				SqlCommand cmd = new SqlCommand("DELETE FROM InventoryLocation WHERE invLocId=@invLocId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invId", inventory.ID);
+					cmd.Parameters.AddWithValue("@invLocId", inventoryLocation.ID);
 					
 					return cmd.ExecuteNonQuery();
 				}

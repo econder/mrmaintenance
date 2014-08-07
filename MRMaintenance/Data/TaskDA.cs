@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	InventoryDA.cs
+ * Class:   	TaskDA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -18,14 +18,14 @@ using MRMaintenance.BusinessObjects;
 namespace MRMaintenance.Data
 {
 	/// <summary>
-	/// Description of InventoryDA.
+	/// Description of TaskDA.
 	/// </summary>
-	public class InventoryDA
+	public class TaskDA
 	{
 		private string connStr;
 		
 		
-		public InventoryDA()
+		public TaskDA()
 		{
 			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
@@ -36,9 +36,9 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Inventory", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tasks", dbConn);
 				
-				DataTable dt = new DataTable("Inventory");
+				DataTable dt = new DataTable("Tasks");
 				
 				try
 				{
@@ -60,19 +60,20 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Insert(Inventory inventory)
+		public int Insert(Task task)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Inventory(invLocId, partId, qty)" +
-				                                " VALUES(@invLocId, @partId, @qty)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Tasks(taskName, taskDescr, taskEstDuration, equipShutdownRequired)" +
+				                                " VALUES(@taskName, @tasDescr, @taskEstDuration, @equipShutdownRequired)", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
-					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
-					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					cmd.Parameters.AddWithValue("@taskName", task.Name);
+					cmd.Parameters.AddWithValue("@taskDescr", task.Description);
+					cmd.Parameters.AddWithValue("@taskEstDuration", task.EstimatedDuration);
+					cmd.Parameters.AddWithValue("@equipShutdownRequired", task.ShutdownRequired);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -90,20 +91,21 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Update(Inventory inventory)
+		public int Update(Task task)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE Inventory SET invLocId=@invLocId, partId=@partId, qty=@qty" +
-				                                " WHERE invId=@invId", dbConn);
+				SqlCommand cmd = new SqlCommand("UPDATE Tasks SET taskName=@taskName, taskDescr=@taskDescr, taskEstDuration@taskEstDuration, equipShutdownRequired=@equipShutdownRequired" +
+				                                " WHERE taskId=@taskId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invId", inventory.ID);
-					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
-					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
-					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					cmd.Parameters.AddWithValue("@taskId", task.ID);
+					cmd.Parameters.AddWithValue("@taskName", task.Name);
+					cmd.Parameters.AddWithValue("@taskDescr", task.Description);
+					cmd.Parameters.AddWithValue("@taskEstDuration", task.EstimatedDuration);
+					cmd.Parameters.AddWithValue("@equipShutdownRequired", task.ShutdownRequired);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -121,16 +123,16 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Delete(Inventory inventory)
+		public int Delete(Task task)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("DELETE FROM Inventory WHERE invId=@invId", dbConn);
+				SqlCommand cmd = new SqlCommand("DELETE FROM Tasks WHERE taskId=@taskId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@invId", inventory.ID);
+					cmd.Parameters.AddWithValue("@taskId", task.ID);
 					
 					return cmd.ExecuteNonQuery();
 				}

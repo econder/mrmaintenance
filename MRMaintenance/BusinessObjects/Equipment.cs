@@ -22,15 +22,20 @@ namespace MRMaintenance.BusinessObjects
 		}
 		
 		
+		//Properties
 		public long ID { get; set; }
 		public long LocationID { get; set; }
 		public long EquipmentTypeID { get; set; }
 		public long ManufacturerID { get; set; }
 		public Nullable<long> VendorID { get; set; }
+		public Nullable<long> ModelID { get; set; }
 		public string EquipmentNumber { get; set; }
 		public string Name { get; set; }
-		public string Serial { get; set; }
-		public Nullable<long> ModelID { get; set; }
 		public string Description { get; set; }
+		public string Serial { get; set; }
+		public string HmiRuntimeTagname { get; set; }
+		public string HmiCyclesTagname { get; set; }
+		public string MccLocation { get; set; }
+		public string MccPanel { get; set; }
 	}
 }
