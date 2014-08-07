@@ -36,7 +36,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM WorkOrders ORDER BY reqName", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders", dbConn);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrders");
