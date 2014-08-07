@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderHistoryBA.cs
+ * Class:   	WorkOrderRequestBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/4/2014
+ * Created On: 	7/25/2014
  * 
  * Changes:
  * 
@@ -10,7 +10,6 @@
 using System;
 using System.Data;
 
-using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
 
@@ -18,11 +17,11 @@ using MRMaintenance.Data;
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderHistoryBA.
+	/// Description of WorkOrderRequestBA.
 	/// </summary>
-	public class WorkOrderHistoryBA
+	public class WorkOrderRequestBA
 	{
-		public WorkOrderHistoryBA()
+		public WorkOrderRequestBA()
 		{
 		}
 		
@@ -30,7 +29,7 @@ namespace MRMaintenance.BusinessAccess
 		public DataTable Load()
 		{
 
-			WorkOrderHistoryDA da = new WorkOrderHistoryDA();
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
@@ -47,13 +46,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderHistory workOrderHistory)
+		public int Insert(WorkOrderRequest workOrderRequest)
 		{
-			WorkOrderHistoryDA da = new WorkOrderHistoryDA();
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
-				return da.Insert(workOrderHistory);
+				return da.Insert(workOrderRequest);
 			}
 			catch
 			{
@@ -66,13 +65,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderHistory workOrderHistory)
+		public int Update(WorkOrderRequest workOrderRequest)
 		{
-			WorkOrderHistoryDA da = new WorkOrderHistoryDA();
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
-				return da.Update(workOrderHistory);
+				return da.Update(workOrderRequest);
 			}
 			catch
 			{
@@ -85,13 +84,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderHistory workOrderHistory)
+		public int Delete(WorkOrderRequest workOrderRequest)
 		{
-			WorkOrderHistoryDA da = new WorkOrderHistoryDA();
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
-				return da.Delete(workOrderHistory);
+				return da.Delete(workOrderRequest);
 			}
 			catch
 			{

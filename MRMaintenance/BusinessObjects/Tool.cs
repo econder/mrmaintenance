@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	Equipment.cs
+ * Class:   	Tool.cs
  * Created By: 	Eric Conder
- * Created On: 	7/24/2014
+ * Created On: 	8/6/2014
  * 
  * Changes:
  * 
@@ -12,25 +12,20 @@ using System;
 namespace MRMaintenance.BusinessObjects
 {
 	/// <summary>
-	/// Description of Equipment.
+	/// Description of Tool.
 	/// </summary>
-	[System.ComponentModel.DataObject]
-	public class Equipment
+	public class Tool
 	{
-		public Equipment()
+		public Tool()
 		{
 		}
 		
 		
+		//Properties
 		public long ID { get; set; }
-		public long LocationID { get; set; }
-		public long EquipmentTypeID { get; set; }
-		public long ManufacturerID { get; set; }
-		public Nullable<long> VendorID { get; set; }
-		public string EquipmentNumber { get; set; }
 		public string Name { get; set; }
-		public string Serial { get; set; }
-		public Nullable<long> ModelID { get; set; }
 		public string Description { get; set; }
+		public long InventoryLocationID { get; set; }
+		public int Quantity { get; set; }
 	}
 }

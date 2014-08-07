@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderHistory.cs
+ * Class:   	WorkOrder.cs
  * Created By: 	Eric Conder
- * Created On: 	8/4/2014
+ * Created On: 	8/6/2014
  * 
  * Changes:
  * 
@@ -9,22 +9,23 @@
  * *************************************************************************************************/
 using System;
 
-
 namespace MRMaintenance.BusinessObjects
 {
 	/// <summary>
-	/// Description of WorkOrderHistory.
+	/// Description of WorkOrder.
 	/// </summary>
-	public class WorkOrderHistory
+	public class WorkOrder
 	{
-		public WorkOrderHistory()
+		public WorkOrder()
 		{
 		}
 		
 		
 		//Properties
 		public long ID { get; set; }
-		public long ScheduleID { get; set; }
-		public DateTime Date { get; set; }
+		public long RequestID { get; set; }
+		public DateTime DateCreated { get; set; }
+		public DateTime DateDue { get; set; }
+		public string Notes { get; set; }
 	}
 }

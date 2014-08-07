@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderHistoryDA.cs
+ * Class:   	EquipmentModelDA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/4/2014
+ * Created On: 	2014-08-06
  * 
  * Changes:
  * 
@@ -18,13 +18,14 @@ using MRMaintenance.BusinessObjects;
 namespace MRMaintenance.Data
 {
 	/// <summary>
-	/// Description of WorkOrderHistoryDA.
+	/// Description of EquipmentModelDA.
 	/// </summary>
-	public class WorkOrderHistoryDA
+	public class EquipmentModelDA
 	{
 		private string connStr;
 		
-		public WorkOrderHistoryDA()
+		
+		public EquipmentModelDA()
 		{
 			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
 		}
@@ -35,9 +36,9 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM WOHistory ORDER BY woHistDateTime", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM EquipmentModels ORDER BY modelName", dbConn);
 				
-				DataTable dt = new DataTable("WorkOrderHistory");
+				DataTable dt = new DataTable("EquipmentModels");
 				
 				try
 				{
@@ -59,17 +60,16 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Insert(WorkOrderHistory workOrderHistory)
+		public int Insert(EquipmentModel equipmentModel)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO WOHistory(woSchedId, woHistDateTime) VALUES(@woSchedId, @woHistDateTime)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO EquipmentModels(modelName) VALUES(@modelName)", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@woSchedId", workOrderHistory.ScheduleID);
-					cmd.Parameters.AddWithValue("@woHistDateTime", workOrderHistory.Date);
+					cmd.Parameters.AddWithValue("@modelName", equipmentModel.Name);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -87,19 +87,17 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Update(WorkOrderHistory workOrderHistory)
+		public int Update(EquipmentModel equipmentModel)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WOHistory SET woSchedId=@woSchedId, woHistDateTime=@woHistDateTime" +
-				                                " WHERE woHistId=@woHistId", dbConn);
+				SqlCommand cmd = new SqlCommand("UPDATE EquipmentModels SET modelName=@modelName WHERE modelId=@modelId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@woHistId", workOrderHistory.ID);
-					cmd.Parameters.AddWithValue("@woSchedId", workOrderHistory.ScheduleID);
-					cmd.Parameters.AddWithValue("@woHistDateTime", workOrderHistory.Date);
+					cmd.Parameters.AddWithValue("@modelId", equipmentModel.ID);
+					cmd.Parameters.AddWithValue("@modelName", equipmentModel.Name);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -117,16 +115,16 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public int Delete(WorkOrderHistory workOrderHistory)
+		public int Delete(EquipmentModel equipmentModel)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("DELETE FROM WOHistory WHERE woHistId=@woHistId", dbConn);
+				SqlCommand cmd = new SqlCommand("DELETE FROM EquipmentModels WHERE modelId=@modelId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@woHistId", workOrderHistory.ID);
+					cmd.Parameters.AddWithValue("@modelId", equipmentModel.ID);
 					
 					return cmd.ExecuteNonQuery();
 				}
