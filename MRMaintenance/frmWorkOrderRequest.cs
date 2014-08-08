@@ -1,11 +1,11 @@
 ﻿/***************************************************************************************************
- * Class:   	frmWorkOrderSchedule.cs
+ * Class:   	frmWorkOrderRequest.cs
  * Created By: 	Eric Conder
  * Created On: 	7/25/2014
  * 
  * Changes:
+ * 2014-08-08	Renamed to frmWorkOrderRequest from frmWorkOrderRequest.
  * 
- *
  * *************************************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -21,9 +21,9 @@ using MRMaintenance.Data;
 namespace MRMaintenance
 {
 	/// <summary>
-	/// Description of frmWorkOrderSchedule.
+	/// Description of frmWorkOrderRequest.
 	/// </summary>
-	public partial class frmWorkOrderSchedule : Form
+	public partial class frmWorkOrderRequest : Form
 	{
 		private WorkOrderRequestBA workOrderReqBA;
 		private EquipmentBA equip;
@@ -32,7 +32,7 @@ namespace MRMaintenance
 		private DataTable dt;
 		
 		
-		public frmWorkOrderSchedule()
+		public frmWorkOrderRequest()
 		{
 			InitializeComponent();
 			
@@ -45,7 +45,7 @@ namespace MRMaintenance
 		}
 		
 		
-		public frmWorkOrderSchedule(long workOrderId)
+		public frmWorkOrderRequest(long workOrderId)
 		{
 			InitializeComponent();
 			

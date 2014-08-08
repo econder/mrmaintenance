@@ -193,9 +193,9 @@
     <Compile Include="frmWorkOrderHistory.Designer.cs">
       <DependentUpon>frmWorkOrderHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWorkOrderSchedule.cs" />
-    <Compile Include="frmWorkOrderSchedule.Designer.cs">
-      <DependentUpon>frmWorkOrderSchedule.cs</DependentUpon>
+    <Compile Include="frmWorkOrderRequest.cs" />
+    <Compile Include="frmWorkOrderRequest.Designer.cs">
+      <DependentUpon>frmWorkOrderRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
@@ -243,8 +243,8 @@
     <EmbeddedResource Include="frmVendor.resx">
       <DependentUpon>frmVendor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWorkOrderSchedule.resx">
-      <DependentUpon>frmWorkOrderSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="frmWorkOrderRequest.resx">
+      <DependentUpon>frmWorkOrderRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

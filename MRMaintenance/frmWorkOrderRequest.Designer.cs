@@ -9,7 +9,7 @@
  * *************************************************************************************************/
 namespace MRMaintenance
 {
-	partial class frmWorkOrderSchedule
+	partial class frmWorkOrderRequest
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -158,7 +158,7 @@ namespace MRMaintenance
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 20);
 			this.label2.TabIndex = 0;
-			this.label2.Text = "Work Order Name";
+			this.label2.Text = "Request Name";
 			// 
 			// label3
 			// 
@@ -205,9 +205,9 @@ namespace MRMaintenance
 			// 
 			this.label1.Location = new System.Drawing.Point(6, 6);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(100, 20);
+			this.label1.Size = new System.Drawing.Size(152, 20);
 			this.label1.TabIndex = 30;
-			this.label1.Text = "Work Order Schedules";
+			this.label1.Text = "Work Order Requests";
 			// 
 			// btnUpdate
 			// 
@@ -259,7 +259,7 @@ namespace MRMaintenance
 			this.label10.TabIndex = 17;
 			this.label10.Text = "Department Assigned";
 			// 
-			// frmWorkOrderSchedule
+			// frmWorkOrderRequest
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -289,12 +289,12 @@ namespace MRMaintenance
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmWorkOrderSchedule";
+			this.Name = "frmWorkOrderRequest";
 			this.Padding = new System.Windows.Forms.Padding(3);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Work Order Schedule";
+			this.Text = "Work Order Request";
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

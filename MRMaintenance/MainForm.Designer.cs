@@ -89,7 +89,7 @@ namespace MRMaintenance
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			// 
 			// viewToolStripMenuItem
@@ -168,13 +168,13 @@ namespace MRMaintenance
 			this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.allToolStripMenuItem});
 			this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
-			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.workOrdersToolStripMenuItem.Text = "&Work Orders";
 			// 
 			// allToolStripMenuItem
 			// 
 			this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-			this.allToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.allToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
 			this.allToolStripMenuItem.Text = "&All";
 			this.allToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuItemClick);
 			// 
@@ -216,7 +216,7 @@ namespace MRMaintenance
 			this.dgview.ReadOnly = true;
 			this.dgview.RowHeadersVisible = false;
 			this.dgview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgview.Size = new System.Drawing.Size(686, 486);
+			this.dgview.Size = new System.Drawing.Size(686, 245);
 			this.dgview.TabIndex = 1;
 			this.dgview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellDoubleClick);
 			// 

@@ -109,7 +109,7 @@ namespace MRMaintenance
 		
 		private void WorkOrderSchedulesToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmWorkOrderSchedule form = new frmWorkOrderSchedule();
+			frmWorkOrderRequest form = new frmWorkOrderRequest();
 			form.ShowDialog();
 		}
 		
@@ -151,7 +151,7 @@ namespace MRMaintenance
 		
 		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			frmWorkOrderSchedule form = new frmWorkOrderSchedule((long)dgview.SelectedRows[0].Cells["ID"].Value);
+			frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
 			form.ShowDialog();
 		}
 		
@@ -161,7 +161,7 @@ namespace MRMaintenance
 			this.ResetControlBindings();
 		}
 		
-		void AllToolStripMenuItemClick(object sender, EventArgs e)
+		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmReportViewer form = new frmReportViewer("C:/Users/mrsystems/Documents/repos/mrmaintenance/MRMaintenance/Reports/rptWorkOrdersAll.srd");
 			form.Show(this);
