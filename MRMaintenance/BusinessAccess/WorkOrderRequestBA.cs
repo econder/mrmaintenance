@@ -46,6 +46,86 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public DataTable LoadByFacility(long facilityId, int dueDateDeadband)
+		{
+
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByFacility(facilityId, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
+		{
+
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByFacility(facility.ID, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
+		{
+
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByEquipment(equipmentId, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public DataTable LoadByEquipment(Equipment equipment, int dueDateDeadband)
+		{
+
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByEquipment(equipment.ID, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
 		public int Insert(WorkOrderRequest workOrderRequest)
 		{
 			WorkOrderRequestDA da = new WorkOrderRequestDA();

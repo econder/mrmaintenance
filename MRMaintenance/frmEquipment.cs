@@ -365,7 +365,7 @@ namespace MRMaintenance
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
 				{
 					EquipmentModel equipmentModel = new EquipmentModel();
-					equipmentModel.Name = cboModel.SelectedValue;
+					equipmentModel.Name = cboModel.Text;
 					equipmentModelBA.Insert(equipmentModel);
 				}
 			}

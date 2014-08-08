@@ -147,7 +147,6 @@ namespace MRMaintenance
 			this.label5.Size = new System.Drawing.Size(84, 20);
 			this.label5.TabIndex = 33;
 			this.label5.Text = "Equipment Type";
-			this.label5.Click += new System.EventHandler(this.Label5Click);
 			// 
 			// cboManufacturer
 			// 
@@ -193,7 +192,6 @@ namespace MRMaintenance
 			this.txtSerial.Name = "txtSerial";
 			this.txtSerial.Size = new System.Drawing.Size(226, 20);
 			this.txtSerial.TabIndex = 10;
-			this.txtSerial.TextChanged += new System.EventHandler(this.TxtSerialTextChanged);
 			// 
 			// label8
 			// 
@@ -202,7 +200,6 @@ namespace MRMaintenance
 			this.label8.Size = new System.Drawing.Size(100, 20);
 			this.label8.TabIndex = 39;
 			this.label8.Text = "Serial #";
-			this.label8.Click += new System.EventHandler(this.Label8Click);
 			// 
 			// label9
 			// 

@@ -12,9 +12,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+
 using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
+
 
 namespace MRMaintenance
 {
@@ -34,7 +36,7 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			workOrderReqBA = new WorkOrderScheduleBA();
+			workOrderReqBA = new WorkOrderRequestBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
 			timeInterval = new TimeIntervalBA();
@@ -47,7 +49,7 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			workOrderReqBA = new WorkOrderScheduleBA();
+			workOrderReqBA = new WorkOrderRequestBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
 			timeInterval = new TimeIntervalBA();
@@ -75,7 +77,7 @@ namespace MRMaintenance
 			//Bind work order schedules listbox
 			listWO.DataSource = dt;
 			listWO.DisplayMember = "name";
-			listWO.ValueMember = "woSchedId";
+			listWO.ValueMember = "reqId";
 			
 			//Bind work order name textbox
 			txtName.DataBindings.Add("Text", dt, "name", true, DataSourceUpdateMode.Never, "");
@@ -108,9 +110,6 @@ namespace MRMaintenance
 			
 			//Bind interval combobox
 			cboInterval.DataBindings.Add("SelectedValue", dt, "intId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
-			
-			//Bind last completed datetimepicker
-			dtLastCompleted.DataBindings.Add("Value", dt, "lastCompleted", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
 		}
 		
 		
@@ -124,7 +123,6 @@ namespace MRMaintenance
 			dtStartDate.DataBindings.Clear();
 			numFreq.DataBindings.Clear();
 			cboInterval.DataBindings.Clear();
-			dtLastCompleted.DataBindings.Clear();
 			
 			//Clear and reload datatable
 			dt.Clear();
@@ -136,17 +134,14 @@ namespace MRMaintenance
 		
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
-			workOrderSchedule.Name = this.txtName.Text;
-			workOrderSchedule.Description = this.txtDescr.Text;
-			workOrderSchedule.EquipmentID = (long)this.cboEquip.SelectedValue;
-			workOrderSchedule.DepartmentID = (long)this.cboDept.SelectedValue;
-			workOrderSchedule.StartDate = dtStartDate.Value;
-			workOrderSchedule.TimeFrequency = (int)numFreq.Value;
-			workOrderSchedule.TimeIntervalID = (long)cboInterval.SelectedValue;
-			workOrderSchedule.LastCompleted = dtLastCompleted.Value;
+			WorkOrderRequest woReq = new WorkOrderRequest();
+			woReq.Description = this.txtDescr.Text;
+			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
+			woReq.StartDate = dtStartDate.Value;
+			woReq.TimeFrequency = (int)numFreq.Value;
+			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
 			
-			workOrderReqBA.Insert(workOrderSchedule);
+			workOrderReqBA.Insert(woReq);
 			
 			//Reload data
 			this.ResetControlBindings();
@@ -155,18 +150,15 @@ namespace MRMaintenance
 		
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
-			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
-			workOrderSchedule.ID = (long)this.listWO.SelectedValue;
-			workOrderSchedule.Name = this.txtName.Text;
-			workOrderSchedule.Description = this.txtDescr.Text;
-			workOrderSchedule.EquipmentID = (long)this.cboEquip.SelectedValue;
-			workOrderSchedule.DepartmentID = (long)this.cboDept.SelectedValue;
-			workOrderSchedule.StartDate = dtStartDate.Value;
-			workOrderSchedule.TimeFrequency = (int)numFreq.Value;
-			workOrderSchedule.TimeIntervalID = (long)cboInterval.SelectedValue;
-			workOrderSchedule.LastCompleted = dtLastCompleted.Value;
+			WorkOrderRequest woReq = new WorkOrderRequest();
+			woReq.ID = (long)this.listWO.SelectedValue;
+			woReq.Description = this.txtDescr.Text;
+			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
+			woReq.StartDate = dtStartDate.Value;
+			woReq.TimeFrequency = (int)numFreq.Value;
+			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
 			
-			workOrderReqBA.Update(workOrderSchedule);
+			workOrderReqBA.Update(woReq);
 			
 			//Reload data
 			this.ResetControlBindings();
@@ -175,10 +167,10 @@ namespace MRMaintenance
 		
 		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
-			workOrderSchedule.ID = (long)this.listWO.SelectedValue;
+			WorkOrderRequest woReq = new WorkOrderRequest();
+			woReq.ID = (long)this.listWO.SelectedValue;
 			
-			workOrderReqBA.Delete(workOrderSchedule);
+			workOrderReqBA.Delete(woReq);
 			
 			//Reload data
 			this.ResetControlBindings();
@@ -252,32 +244,12 @@ namespace MRMaintenance
 		}
 		
 		
-		private void numFreq_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			//Check for null values
-			if(numFreq.Value == null)
-			{
-				MessageBox.Show("Frequency cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-		
-		
 		private void cboInterval_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			//Check for null values
 			if(cboInterval.Text == "" || cboInterval.Text == null)
 			{
 				MessageBox.Show("Time interval name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-		
-		
-		private void dtLastCompleted_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			//Check for null values
-			if(dtLastCompleted.Value == null)
-			{
-				MessageBox.Show("Last completed date cannot be blank. If creating a new work order, set to the same date as the start date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

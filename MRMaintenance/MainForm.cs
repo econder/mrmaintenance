@@ -157,13 +157,7 @@ namespace MRMaintenance
 		
 		private void MarkAsCompleteClick(object sender, EventArgs e)
 		{
-			WorkOrderHistory woHistory = new WorkOrderHistory();
-			woHistory.ScheduleID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
-			woHistory.Date = DateTime.Now;
-			
-			WorkOrderHistoryBA woHistoryBA = new WorkOrderHistoryBA();
-			woHistoryBA.Insert(woHistory);
-			
+			workOrderBA.MarkComplete((long)dgview.SelectedRows[0].Cells["ID"].Value);
 			this.ResetControlBindings();
 		}
 		

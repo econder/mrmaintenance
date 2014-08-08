@@ -61,12 +61,17 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId)
+		public DataTable LoadByFacility(long facilityId, int dueDateDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrderRequestsRtCycDue WHERE facId=@facId ORDER BY reqName", dbConn);
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByFacility", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facilityId", facilityId);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrderRequestsByFacility");
@@ -91,12 +96,87 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByEquipment(long equipmentId)
+		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrderRequestsRtCycDue WHERE equipId=@equipId ORDER BY reqName", dbConn);
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByFacility", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrderRequestsByFacility");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByEquipment", dbConn);
+				
+				cmd.Parameters.AddWithValue("@equipId", equipmentId);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrderRequestsByEquipment");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByEquipment(Equipment equipment, int dueDateDeadband)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByEquipment", dbConn);
+				
+				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
+				cmd.Parameters.AddWithValue("dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrderRequestsByEquipment");

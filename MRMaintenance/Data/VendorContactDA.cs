@@ -22,7 +22,6 @@ namespace MRMaintenance.Data
 	/// </summary>
 	public class VendorContactDA
 	{
-		//TODO: Fix connection string configuration loading
 		private string connStr;
 		
 		public VendorContactDA()

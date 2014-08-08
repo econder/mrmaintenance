@@ -224,7 +224,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue, woNotes=@woNotes" +
+				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue, woNotes=@woNotes, woCompleted=@woComplete, woDateCompleted=@woDateCompleted" +
 				                                " WHERE woId=@woId", dbConn);
 				
 				try
@@ -234,6 +234,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@woDateCreated", workOrder.DateCreated);
 					cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
 					cmd.Parameters.AddWithValue("@woNotes", workOrder.Notes);
+					cmd.Parameters.AddWithValue("@woComplete", workOrder.Complete);
+					cmd.Parameters.AddWithValue("@woDateCompleted", workOrder.DateCompleted);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -261,6 +263,64 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@woId", workOrder.ID);
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public int MarkComplete(WorkOrder workOrder)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderMarkComplete", dbConn);
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@workOrderId", workOrder.ID);
+					
+					cmd.CommandType = CommandType.StoredProcedure;
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public int MarkComplete(long workOrderId)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderMarkComplete", dbConn);
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@workOrderId", workOrderId);
+					
+					cmd.CommandType = CommandType.StoredProcedure;
 					
 					return cmd.ExecuteNonQuery();
 				}

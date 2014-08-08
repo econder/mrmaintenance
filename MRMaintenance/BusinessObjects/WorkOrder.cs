@@ -27,5 +27,7 @@ namespace MRMaintenance.BusinessObjects
 		public DateTime DateCreated { get; set; }
 		public DateTime DateDue { get; set; }
 		public string Notes { get; set; }
+		public bool Complete { get; set; }
+		public DateTime DateCompleted { get; set; }
 	}
 }

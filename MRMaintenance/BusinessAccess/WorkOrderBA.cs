@@ -180,5 +180,43 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+		
+		
+		public int MarkComplete(WorkOrder workOrder)
+		{
+			WorkOrderDA da = new WorkOrderDA();
+			
+			try
+			{
+				return da.MarkComplete(workOrder);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public int MarkComplete(long workOrderId)
+		{
+			WorkOrderDA da = new WorkOrderDA();
+			
+			try
+			{
+				return da.MarkComplete(workOrderId);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
 	}
 }

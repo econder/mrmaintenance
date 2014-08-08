@@ -44,13 +44,10 @@ namespace MRMaintenance
 			this.dtStartDate = new System.Windows.Forms.DateTimePicker();
 			this.numFreq = new System.Windows.Forms.NumericUpDown();
 			this.cboDept = new System.Windows.Forms.ComboBox();
-			this.label10 = new System.Windows.Forms.Label();
 			this.cboInterval = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.dtLastCompleted = new System.Windows.Forms.DateTimePicker();
-			this.label8 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -60,6 +57,7 @@ namespace MRMaintenance
 			this.btnRemove = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.btnClose = new System.Windows.Forms.Button();
+			this.label10 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -121,7 +119,6 @@ namespace MRMaintenance
 			this.numFreq.Name = "numFreq";
 			this.numFreq.Size = new System.Drawing.Size(67, 20);
 			this.numFreq.TabIndex = 7;
-			this.numFreq.Validating += new System.ComponentModel.CancelEventHandler(this.numFreq_Validating);
 			// 
 			// cboDept
 			// 
@@ -133,14 +130,6 @@ namespace MRMaintenance
 			this.cboDept.Size = new System.Drawing.Size(222, 21);
 			this.cboDept.TabIndex = 4;
 			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
-			// 
-			// label10
-			// 
-			this.label10.Location = new System.Drawing.Point(241, 90);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(120, 20);
-			this.label10.TabIndex = 17;
-			this.label10.Text = "Department Assigned";
 			// 
 			// cboInterval
 			// 
@@ -178,25 +167,6 @@ namespace MRMaintenance
 			this.label3.Size = new System.Drawing.Size(100, 20);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Work Description";
-			// 
-			// dtLastCompleted
-			// 
-			this.dtLastCompleted.CustomFormat = "";
-			this.dtLastCompleted.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtLastCompleted.Location = new System.Drawing.Point(382, 356);
-			this.dtLastCompleted.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
-			this.dtLastCompleted.Name = "dtLastCompleted";
-			this.dtLastCompleted.Size = new System.Drawing.Size(124, 20);
-			this.dtLastCompleted.TabIndex = 9;
-			// 
-			// label8
-			// 
-			this.label8.Location = new System.Drawing.Point(242, 356);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(83, 20);
-			this.label8.TabIndex = 13;
-			this.label8.Text = "Last Completed";
-			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label4
 			// 
@@ -241,7 +211,7 @@ namespace MRMaintenance
 			// 
 			// btnUpdate
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(350, 391);
+			this.btnUpdate.Location = new System.Drawing.Point(351, 340);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
 			this.btnUpdate.TabIndex = 10;
@@ -261,7 +231,7 @@ namespace MRMaintenance
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(431, 391);
+			this.btnAdd.Location = new System.Drawing.Point(432, 340);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
 			this.btnAdd.TabIndex = 12;
@@ -273,7 +243,7 @@ namespace MRMaintenance
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(431, 436);
+			this.btnClose.Location = new System.Drawing.Point(432, 403);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 13;
@@ -281,12 +251,20 @@ namespace MRMaintenance
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
+			// label10
+			// 
+			this.label10.Location = new System.Drawing.Point(241, 90);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(120, 20);
+			this.label10.TabIndex = 17;
+			this.label10.Text = "Department Assigned";
+			// 
 			// frmWorkOrderSchedule
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
-			this.ClientSize = new System.Drawing.Size(513, 465);
+			this.ClientSize = new System.Drawing.Size(513, 431);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.btnRemove);
@@ -299,9 +277,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.dtStartDate);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.numFreq);
-			this.Controls.Add(this.label8);
 			this.Controls.Add(this.cboDept);
-			this.Controls.Add(this.dtLastCompleted);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.cboInterval);
@@ -332,8 +308,6 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.DateTimePicker dtLastCompleted;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label7;
