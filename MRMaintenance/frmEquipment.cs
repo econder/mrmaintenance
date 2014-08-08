@@ -26,6 +26,7 @@ namespace MRMaintenance
 		private FacilityBA facilityBA;
 		private LocationBA locationBA;
 		private EquipmentBA equipmentBA;
+		private EquipmentModelBA equipmentModelBA;
 		private EquipmentDocBA equipmentDocBA;
 		private EquipmentTypeBA equipmentTypeBA;
 		private ManufacturerBA manufacturerBA;
@@ -55,6 +56,7 @@ namespace MRMaintenance
 			InitializeComponent();
 			
 			equipmentBA = new EquipmentBA();
+			equipmentModelBA = new EquipmentModelBA();
 			equipmentDocBA = new EquipmentDocBA();
 			equipmentTypeBA = new EquipmentTypeBA();
 			facilityBA = new FacilityBA();
@@ -78,6 +80,11 @@ namespace MRMaintenance
 			cboVendor.DataSource = vendorBA.Load();
 			cboVendor.DisplayMember = "name";
 			cboVendor.ValueMember = "venId";
+			
+			//Load and bind vendors combobox
+			cboModel.DataSource = equipmentModelBA.Load();
+			cboModel.DisplayMember = "modelName";
+			cboModel.ValueMember = "modelId";
 			
 			//Load and bind equipment types combobox
 			cboEquipType.DataSource = equipmentTypeBA.Load();
@@ -116,7 +123,6 @@ namespace MRMaintenance
 			txtDescr.DataBindings.Add("Text", dtEquip, "descr", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind model & serial #'s textboxes
-			txtModel.DataBindings.Add("Text", dtEquip, "equipModel", true, DataSourceUpdateMode.Never, "");
 			txtSerial.DataBindings.Add("Text", dtEquip, "equipSerial", true, DataSourceUpdateMode.Never, "");
 		}
 		
@@ -132,7 +138,7 @@ namespace MRMaintenance
 			txtDescr.DataBindings.Clear();
 			cboManufacturer.DataBindings.Clear();
 			cboVendor.DataBindings.Clear();
-			txtModel.DataBindings.Clear();
+			cboModel.DataBindings.Clear();
 			txtSerial.DataBindings.Clear();
 			cboEquipType.DataBindings.Clear();
 			
@@ -194,11 +200,11 @@ namespace MRMaintenance
 			equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
 			equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
 			equipment.VendorID = (long)cboVendor.SelectedValue;
+			equipment.ModelID = (long)cboModel.SelectedValue;
 			equipment.EquipmentNumber = txtEquipNumber.Text;
 			equipment.Name = txtName.Text;
 			equipment.Description = txtDescr.Text;
 			equipment.Serial = txtSerial.Text;
-			equipment.Model = txtModel.Text;
 			
 			equipmentBA.Insert(equipment);
 			
@@ -214,11 +220,11 @@ namespace MRMaintenance
 			equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
 			equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
 			equipment.VendorID = (long)cboVendor.SelectedValue;
+			equipment.ModelID = (long)cboModel.SelectedValue;
 			equipment.EquipmentNumber = txtEquipNumber.Text;
 			equipment.Name = txtName.Text;
 			equipment.Description = txtDescr.Text;
 			equipment.Serial = txtSerial.Text;
-			equipment.Model = txtModel.Text;
 			
 			equipmentBA.Update(equipment);
 			
@@ -340,11 +346,27 @@ namespace MRMaintenance
 			//Check for new values
 			if(cboVendor.SelectedText != cboVendor.Text)
 			{
-				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
+				if(MessageBox.Show("Vendor does not exist. Would you like to create it?", "",
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
 				{
 					frmVendor form = new frmVendor();
 					form.ShowDialog(this);
+				}
+			}
+		}
+		
+		
+		void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			//Check for new values
+			if(cboModel.SelectedText != cboModel.Text)
+			{
+				if(MessageBox.Show("Model does not exist. Would you like to create it?", "",
+				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				{
+					EquipmentModel equipmentModel = new EquipmentModel();
+					equipmentModel.Name = cboModel.SelectedValue;
+					equipmentModelBA.Insert(equipmentModel);
 				}
 			}
 		}

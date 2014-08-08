@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	SizeUnitBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -13,15 +13,14 @@ using System.Data;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
 
-
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of SizeUnitBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class SizeUnitBA
 	{
-		public WorkOrderRequestBA()
+		public SizeUnitBA()
 		{
 		}
 		
@@ -29,7 +28,7 @@ namespace MRMaintenance.BusinessAccess
 		public DataTable Load()
 		{
 
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			SizeUnitDA da = new SizeUnitDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(SizeUnit sizeUnit)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			SizeUnitDA da = new SizeUnitDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(sizeUnit);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(SizeUnit sizeUnit)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			SizeUnitDA da = new SizeUnitDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(sizeUnit);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(SizeUnit sizeUnit)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			SizeUnitDA da = new SizeUnitDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(sizeUnit);
 			}
 			catch
 			{

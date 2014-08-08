@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	EquipmentModelBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -10,26 +10,25 @@
 using System;
 using System.Data;
 
-using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
+using MRMaintenance.BusinessObjects;
 
 
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of EquipmentModelBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class EquipmentModelBA
 	{
-		public WorkOrderRequestBA()
+		public EquipmentModelBA()
 		{
 		}
 		
 		
 		public DataTable Load()
 		{
-
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			EquipmentModelDA da = new EquipmentModelDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(EquipmentModel equipmentModel)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			EquipmentModelDA da = new EquipmentModelDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(equipmentModel);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(EquipmentModel equipmentModel)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			EquipmentModelDA da = new EquipmentModelDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(equipmentModel);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(EquipmentModel equipmentModel)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			EquipmentModelDA da = new EquipmentModelDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(equipmentModel);
 			}
 			catch
 			{

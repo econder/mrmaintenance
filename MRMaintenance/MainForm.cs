@@ -29,7 +29,8 @@ namespace MRMaintenance
 	public partial class MainForm : Form
 	{
 		private FacilityBA facility;
-		private WorkOrderViewBA woView;
+		private WorkOrderRequestBA workOrderReqBA;
+		private WorkOrderBA workOrderBA;
 		
 		private DataTable dt;
 		
@@ -39,7 +40,8 @@ namespace MRMaintenance
 			InitializeComponent();
 			
 			facility = new FacilityBA();
-			woView = new WorkOrderViewBA();
+			workOrderReqBA = new WorkOrderRequestBA();
+			workOrderBA = new WorkOrderBA();
 			
 			//Load and bind facilities combobox
 			DataTable dtFacility = facility.Load();
@@ -58,7 +60,7 @@ namespace MRMaintenance
 		private void FillData()
 		{	
 			//Load DataGridView with WorkOrdersDueByFacility
-			dt = woView.LoadByFacility((long)this.cboFacilities.SelectedValue, 300);
+			dt = workOrderReqBA.LoadByFacility((long)this.cboFacilities.SelectedValue, 300);
 			this.dgview.DataSource = dt;
 		}
 		
@@ -78,7 +80,7 @@ namespace MRMaintenance
 			try
 			{
 				//Load locations listbox with LocationsByFacility
-				dt = woView.LoadByFacility((long)cboFacilities.SelectedValue, 7);
+				dt = workOrderReqBA.LoadByFacility((long)cboFacilities.SelectedValue, 7);
 				
 				this.ResetControlBindings();
 			}

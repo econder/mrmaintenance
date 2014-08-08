@@ -25,6 +25,7 @@ namespace MRMaintenance.BusinessObjects
 		public long ID { get; set; }
 		public long EquipmentModelID { get; set; }
 		public long TaskID { get; set; }
+		public int StepNumber { get; set; }
 		public bool Complete { get; set; }
 		public DateTime DateCompleted { get; set; }
 		public float Duration { get; set; }

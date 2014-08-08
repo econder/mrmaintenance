@@ -24,15 +24,9 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class frmWorkOrderHistory : Form
 	{
-		private WorkOrderHistoryBA woHistoryBA;
-		
-		
 		public frmWorkOrderHistory()
 		{
 			InitializeComponent();
 		}
-		
-		
-		
 	}
 }

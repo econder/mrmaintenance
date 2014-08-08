@@ -53,7 +53,6 @@ namespace MRMaintenance
 			this.label7 = new System.Windows.Forms.Label();
 			this.txtSerial = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.txtModel = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.txtDescr = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@ namespace MRMaintenance
 			this.btnDocRemove = new System.Windows.Forms.Button();
 			this.btnDocAdd = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
+			this.cboModel = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -135,18 +135,19 @@ namespace MRMaintenance
 			this.cboEquipType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.cboEquipType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboEquipType.FormattingEnabled = true;
-			this.cboEquipType.Location = new System.Drawing.Point(495, 249);
+			this.cboEquipType.Location = new System.Drawing.Point(495, 294);
 			this.cboEquipType.Name = "cboEquipType";
 			this.cboEquipType.Size = new System.Drawing.Size(226, 21);
 			this.cboEquipType.TabIndex = 11;
 			// 
 			// label5
 			// 
-			this.label5.Location = new System.Drawing.Point(495, 232);
+			this.label5.Location = new System.Drawing.Point(495, 277);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(84, 20);
 			this.label5.TabIndex = 33;
 			this.label5.Text = "Equipment Type";
+			this.label5.Click += new System.EventHandler(this.Label5Click);
 			// 
 			// cboManufacturer
 			// 
@@ -188,25 +189,20 @@ namespace MRMaintenance
 			// 
 			// txtSerial
 			// 
-			this.txtSerial.Location = new System.Drawing.Point(601, 205);
+			this.txtSerial.Location = new System.Drawing.Point(495, 249);
 			this.txtSerial.Name = "txtSerial";
-			this.txtSerial.Size = new System.Drawing.Size(120, 20);
+			this.txtSerial.Size = new System.Drawing.Size(226, 20);
 			this.txtSerial.TabIndex = 10;
+			this.txtSerial.TextChanged += new System.EventHandler(this.TxtSerialTextChanged);
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(601, 189);
+			this.label8.Location = new System.Drawing.Point(495, 233);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(100, 20);
 			this.label8.TabIndex = 39;
 			this.label8.Text = "Serial #";
-			// 
-			// txtModel
-			// 
-			this.txtModel.Location = new System.Drawing.Point(495, 205);
-			this.txtModel.Name = "txtModel";
-			this.txtModel.Size = new System.Drawing.Size(100, 20);
-			this.txtModel.TabIndex = 9;
+			this.label8.Click += new System.EventHandler(this.Label8Click);
 			// 
 			// label9
 			// 
@@ -222,7 +218,7 @@ namespace MRMaintenance
 			this.txtDescr.Multiline = true;
 			this.txtDescr.Name = "txtDescr";
 			this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.txtDescr.Size = new System.Drawing.Size(226, 109);
+			this.txtDescr.Size = new System.Drawing.Size(226, 154);
 			this.txtDescr.TabIndex = 6;
 			// 
 			// label10
@@ -237,7 +233,7 @@ namespace MRMaintenance
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(646, 453);
+			this.btnClose.Location = new System.Drawing.Point(646, 499);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 17;
@@ -248,7 +244,7 @@ namespace MRMaintenance
 			// btnAdd
 			// 
 			this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnAdd.Location = new System.Drawing.Point(550, 453);
+			this.btnAdd.Location = new System.Drawing.Point(550, 499);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
 			this.btnAdd.TabIndex = 16;
@@ -274,7 +270,7 @@ namespace MRMaintenance
 			// btnUpdate
 			// 
 			this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnUpdate.Location = new System.Drawing.Point(469, 453);
+			this.btnUpdate.Location = new System.Drawing.Point(469, 499);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
 			this.btnUpdate.TabIndex = 15;
@@ -285,7 +281,7 @@ namespace MRMaintenance
 			// btnRemove
 			// 
 			this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnRemove.Location = new System.Drawing.Point(160, 453);
+			this.btnRemove.Location = new System.Drawing.Point(160, 499);
 			this.btnRemove.Name = "btnRemove";
 			this.btnRemove.Size = new System.Drawing.Size(75, 23);
 			this.btnRemove.TabIndex = 1;
@@ -300,7 +296,7 @@ namespace MRMaintenance
 			this.listEquip.FormattingEnabled = true;
 			this.listEquip.Location = new System.Drawing.Point(6, 29);
 			this.listEquip.Name = "listEquip";
-			this.listEquip.Size = new System.Drawing.Size(229, 420);
+			this.listEquip.Size = new System.Drawing.Size(229, 459);
 			this.listEquip.TabIndex = 0;
 			// 
 			// listEquipDocs
@@ -309,16 +305,16 @@ namespace MRMaintenance
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.listEquipDocs.FormattingEnabled = true;
-			this.listEquipDocs.Location = new System.Drawing.Point(249, 315);
+			this.listEquipDocs.Location = new System.Drawing.Point(249, 367);
 			this.listEquipDocs.Name = "listEquipDocs";
-			this.listEquipDocs.Size = new System.Drawing.Size(472, 134);
+			this.listEquipDocs.Size = new System.Drawing.Size(472, 121);
 			this.listEquipDocs.TabIndex = 14;
 			this.listEquipDocs.DoubleClick += new System.EventHandler(this.listEquipDocs_DoubleClick);
 			// 
 			// btnDocRemove
 			// 
 			this.btnDocRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnDocRemove.Image")));
-			this.btnDocRemove.Location = new System.Drawing.Point(663, 286);
+			this.btnDocRemove.Location = new System.Drawing.Point(663, 338);
 			this.btnDocRemove.Name = "btnDocRemove";
 			this.btnDocRemove.Size = new System.Drawing.Size(26, 23);
 			this.btnDocRemove.TabIndex = 12;
@@ -328,7 +324,7 @@ namespace MRMaintenance
 			// btnDocAdd
 			// 
 			this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
-			this.btnDocAdd.Location = new System.Drawing.Point(695, 286);
+			this.btnDocAdd.Location = new System.Drawing.Point(695, 338);
 			this.btnDocAdd.Name = "btnDocAdd";
 			this.btnDocAdd.Size = new System.Drawing.Size(26, 23);
 			this.btnDocAdd.TabIndex = 13;
@@ -337,18 +333,30 @@ namespace MRMaintenance
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(249, 298);
+			this.label4.Location = new System.Drawing.Point(249, 349);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(125, 20);
 			this.label4.TabIndex = 68;
 			this.label4.Text = "Documentation && Links";
+			// 
+			// cboModel
+			// 
+			this.cboModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cboModel.FormattingEnabled = true;
+			this.cboModel.Location = new System.Drawing.Point(495, 209);
+			this.cboModel.Name = "cboModel";
+			this.cboModel.Size = new System.Drawing.Size(226, 21);
+			this.cboModel.TabIndex = 69;
+			this.cboModel.Validating += new System.ComponentModel.CancelEventHandler(this.cboModel_Validating);
 			// 
 			// frmEquipment
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
-			this.ClientSize = new System.Drawing.Size(727, 493);
+			this.ClientSize = new System.Drawing.Size(727, 539);
+			this.Controls.Add(this.cboModel);
 			this.Controls.Add(this.btnDocAdd);
 			this.Controls.Add(this.btnDocRemove);
 			this.Controls.Add(this.listEquipDocs);
@@ -361,7 +369,6 @@ namespace MRMaintenance
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.txtDescr);
 			this.Controls.Add(this.label10);
-			this.Controls.Add(this.txtModel);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.txtSerial);
 			this.Controls.Add(this.label8);
@@ -391,6 +398,7 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ComboBox cboModel;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnDocAdd;
 		private System.Windows.Forms.Button btnDocRemove;
@@ -405,7 +413,6 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txtDescr;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox txtModel;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.TextBox txtSerial;
 		private System.Windows.Forms.Label label7;

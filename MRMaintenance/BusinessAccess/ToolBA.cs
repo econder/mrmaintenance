@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	ToolBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	7/24/2014
  * 
  * Changes:
  * 
@@ -13,15 +13,14 @@ using System.Data;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
 
-
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of ToolBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class ToolBA
 	{
-		public WorkOrderRequestBA()
+		public ToolBA()
 		{
 		}
 		
@@ -29,7 +28,7 @@ namespace MRMaintenance.BusinessAccess
 		public DataTable Load()
 		{
 
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			ToolDA da = new ToolDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(Tool tool)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			ToolDA da = new ToolDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(tool);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(Tool tool)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			ToolDA da = new ToolDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(tool);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(Tool tool)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			ToolDA da = new ToolDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(tool);
 			}
 			catch
 			{

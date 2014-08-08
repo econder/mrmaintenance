@@ -36,7 +36,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders ORDER BY woDateDue", dbConn);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrders");
@@ -66,7 +66,41 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrdersRtCycDue WHERE facId=@facId ORDER BY reqName", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE facId=@facId ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facId", facilityId);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrdersByFacility");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByFacility(Facility facility)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE facId=@facId ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facId", facility.ID);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrdersByFacility");
@@ -96,7 +130,41 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrdersRtCycDue WHERE equipId=@equipId ORDER BY reqName", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE equipId=@equipId ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@equipId", equipmentId);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrdersByEquipment");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByEquipment(Equipment equipment)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE equipId=@equipId ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrdersByEquipment");
@@ -130,13 +198,8 @@ namespace MRMaintenance.Data
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@reqName", workOrder.Name);
-					cmd.Parameters.AddWithValue("@reqDescr", workOrder.Description);
-					cmd.Parameters.AddWithValue("@equipId", workOrder.EquipmentID);
-					//cmd.Parameters.AddWithValue("@deptId", workOrder.DepartmentID);
-					cmd.Parameters.AddWithValue("@reqStartDate", workOrder.StartDate);
-					cmd.Parameters.AddWithValue("@timeFreq", workOrder.TimeFrequency);
-					cmd.Parameters.AddWithValue("@intId", workOrder.TimeIntervalID);
+					cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
+					cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
 					
 					cmd.CommandType = CommandType.StoredProcedure;
 					
@@ -161,22 +224,16 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId, reqDateSubmitted=@reqDateSubmitted," +
-				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enadbled=@enabled" +
-				                                " WHERE reqId=@reqId", dbConn);
+				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue, woNotes=@woNotes" +
+				                                " WHERE woId=@woId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@reqId", workOrder.ID);
-					cmd.Parameters.AddWithValue("@reqName", workOrder.Name);
-					cmd.Parameters.AddWithValue("@reqDescr", workOrder.Description);
-					cmd.Parameters.AddWithValue("@equipId", workOrder.EquipmentID);
-					//cmd.Parameters.AddWithValue("@deptId", workOrder.DepartmentID);
-					cmd.Parameters.AddWithValue("@reqDateSubmitted", workOrder.DateSubmitted);
-					cmd.Parameters.AddWithValue("@reqStartDate", workOrder.StartDate);
-					cmd.Parameters.AddWithValue("@timeFreq", workOrder.TimeFrequency);
-					cmd.Parameters.AddWithValue("@intId", workOrder.TimeIntervalID);
-					cmd.Parameters.AddWithValue("@enabled", workOrder.Enabled);
+					cmd.Parameters.AddWithValue("@woId", workOrder.ID);
+					cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
+					cmd.Parameters.AddWithValue("@woDateCreated", workOrder.DateCreated);
+					cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
+					cmd.Parameters.AddWithValue("@woNotes", workOrder.Notes);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -199,11 +256,11 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("DELETE FROM WorkOrders WHERE reqId=@reqId", dbConn);
+				SqlCommand cmd = new SqlCommand("DELETE FROM WorkOrders WHERE woId=@woId", dbConn);
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("@reqId", workOrder.ID);
+					cmd.Parameters.AddWithValue("@woId", workOrder.ID);
 					
 					return cmd.ExecuteNonQuery();
 				}

@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	InventoryBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -10,26 +10,25 @@
 using System;
 using System.Data;
 
-using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
+using MRMaintenance.BusinessObjects;
 
 
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of InventoryBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class InventoryBA
 	{
-		public WorkOrderRequestBA()
+		public InventoryBA()
 		{
 		}
 		
 		
 		public DataTable Load()
 		{
-
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryDA da = new InventoryDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(Inventory inventory)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryDA da = new InventoryDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(inventory);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(Inventory inventory)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryDA da = new InventoryDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(inventory);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(Inventory inventory)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryDA da = new InventoryDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(inventory);
 			}
 			catch
 			{

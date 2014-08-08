@@ -23,7 +23,7 @@ namespace MRMaintenance.BusinessObjects
 		
 		//Properties
 		public long ID { get; set; }
-		public long ManufacturerID { get; set; }
+		public Nullable<long> ManufacturerID { get; set; }
 		public Nullable<long> VendorID { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }

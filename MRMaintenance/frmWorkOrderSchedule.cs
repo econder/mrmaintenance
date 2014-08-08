@@ -23,7 +23,7 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class frmWorkOrderSchedule : Form
 	{
-		private WorkOrderScheduleBA workOrderSchedBA;
+		private WorkOrderRequestBA workOrderReqBA;
 		private EquipmentBA equip;
 		private DepartmentBA dept;
 		private TimeIntervalBA timeInterval;
@@ -34,7 +34,7 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			workOrderSchedBA = new WorkOrderScheduleBA();
+			workOrderReqBA = new WorkOrderScheduleBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
 			timeInterval = new TimeIntervalBA();
@@ -47,7 +47,7 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			workOrderSchedBA = new WorkOrderScheduleBA();
+			workOrderReqBA = new WorkOrderScheduleBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
 			timeInterval = new TimeIntervalBA();
@@ -70,7 +70,7 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			dt = workOrderSchedBA.Load();
+			dt = workOrderReqBA.Load();
 			
 			//Bind work order schedules listbox
 			listWO.DataSource = dt;
@@ -146,7 +146,7 @@ namespace MRMaintenance
 			workOrderSchedule.TimeIntervalID = (long)cboInterval.SelectedValue;
 			workOrderSchedule.LastCompleted = dtLastCompleted.Value;
 			
-			workOrderSchedBA.Insert(workOrderSchedule);
+			workOrderReqBA.Insert(workOrderSchedule);
 			
 			//Reload data
 			this.ResetControlBindings();
@@ -166,7 +166,7 @@ namespace MRMaintenance
 			workOrderSchedule.TimeIntervalID = (long)cboInterval.SelectedValue;
 			workOrderSchedule.LastCompleted = dtLastCompleted.Value;
 			
-			workOrderSchedBA.Update(workOrderSchedule);
+			workOrderReqBA.Update(workOrderSchedule);
 			
 			//Reload data
 			this.ResetControlBindings();
@@ -178,7 +178,7 @@ namespace MRMaintenance
 			WorkOrderSchedule workOrderSchedule = new WorkOrderSchedule();
 			workOrderSchedule.ID = (long)this.listWO.SelectedValue;
 			
-			workOrderSchedBA.Delete(workOrderSchedule);
+			workOrderReqBA.Delete(workOrderSchedule);
 			
 			//Reload data
 			this.ResetControlBindings();

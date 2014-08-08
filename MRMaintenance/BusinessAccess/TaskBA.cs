@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	TaskBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -13,15 +13,14 @@ using System.Data;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
 
-
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of TaskBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class TaskBA
 	{
-		public WorkOrderRequestBA()
+		public TaskBA()
 		{
 		}
 		
@@ -29,7 +28,7 @@ namespace MRMaintenance.BusinessAccess
 		public DataTable Load()
 		{
 
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			TaskDA da = new TaskDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(Task task)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			TaskDA da = new TaskDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(task);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(Task task)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			TaskDA da = new TaskDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(task);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(Task task)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			TaskDA da = new TaskDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(task);
 			}
 			catch
 			{

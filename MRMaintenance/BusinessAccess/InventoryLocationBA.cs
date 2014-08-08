@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	WorkOrderRequestBA.cs
+ * Class:   	InventoryLocationBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/6/2014
+ * Created On: 	8/7/2014
  * 
  * Changes:
  * 
@@ -10,26 +10,25 @@
 using System;
 using System.Data;
 
-using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
+using MRMaintenance.BusinessObjects;
 
 
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of WorkOrderRequestBA.
+	/// Description of InventoryLocationBA.
 	/// </summary>
-	public class WorkOrderRequestBA
+	public class InventoryLocationBA
 	{
-		public WorkOrderRequestBA()
+		public InventoryLocationBA()
 		{
 		}
 		
 		
 		public DataTable Load()
 		{
-
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryLocationDA da = new InventoryLocationDA();
 			
 			try
 			{
@@ -46,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(WorkOrderRequest workOrderRequest)
+		public int Insert(InventoryLocation inventoryLocation)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryLocationDA da = new InventoryLocationDA();
 			
 			try
 			{
-				return da.Insert(workOrderRequest);
+				return da.Insert(inventoryLocation);
 			}
 			catch
 			{
@@ -65,13 +64,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(WorkOrderRequest workOrderRequest)
+		public int Update(InventoryLocation inventoryLocation)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryLocationDA da = new InventoryLocationDA();
 			
 			try
 			{
-				return da.Update(workOrderRequest);
+				return da.Update(inventoryLocation);
 			}
 			catch
 			{
@@ -84,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(WorkOrderRequest workOrderRequest)
+		public int Delete(InventoryLocation inventoryLocation)
 		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			InventoryLocationDA da = new InventoryLocationDA();
 			
 			try
 			{
-				return da.Delete(workOrderRequest);
+				return da.Delete(inventoryLocation);
 			}
 			catch
 			{

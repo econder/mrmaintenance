@@ -86,15 +86,25 @@
     <Compile Include="BusinessAccess\DepartmentBA.cs" />
     <Compile Include="BusinessAccess\EquipmentBA.cs" />
     <Compile Include="BusinessAccess\EquipmentDocBA.cs" />
+    <Compile Include="BusinessAccess\EquipmentModelBA.cs" />
     <Compile Include="BusinessAccess\EquipmentTypeBA.cs" />
     <Compile Include="BusinessAccess\FacilityBA.cs" />
+    <Compile Include="BusinessAccess\InventoryBA.cs" />
+    <Compile Include="BusinessAccess\InventoryLocationBA.cs" />
     <Compile Include="BusinessAccess\LocationBA.cs" />
     <Compile Include="BusinessAccess\ManufacturerBA.cs" />
+    <Compile Include="BusinessAccess\PartBA.cs" />
+    <Compile Include="BusinessAccess\SizeUnitBA.cs" />
     <Compile Include="BusinessAccess\StateBA.cs" />
+    <Compile Include="BusinessAccess\TaskBA.cs" />
+    <Compile Include="BusinessAccess\TaskPartBA.cs" />
     <Compile Include="BusinessAccess\TimeIntervalBA.cs" />
+    <Compile Include="BusinessAccess\ToolBA.cs" />
     <Compile Include="BusinessAccess\VendorBA.cs" />
     <Compile Include="BusinessAccess\VendorContactBA.cs" />
+    <Compile Include="BusinessAccess\WorkOrderBA.cs" />
     <Compile Include="BusinessAccess\WorkOrderRequestBA.cs" />
+    <Compile Include="BusinessAccess\WorkOrderTaskBA.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
     <Compile Include="BusinessObjects\Equipment.cs" />
     <Compile Include="BusinessObjects\EquipmentDoc.cs" />
@@ -138,6 +148,7 @@
     <Compile Include="Data\VendorDA.cs" />
     <Compile Include="Data\WorkOrderDA.cs" />
     <Compile Include="Data\WorkOrderRequestDA.cs" />
+    <Compile Include="Data\WorkOrderTaskDA.cs" />
     <Compile Include="frmEquipmentDoc.cs" />
     <Compile Include="frmEquipmentDoc.Designer.cs">
       <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
