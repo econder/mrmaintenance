@@ -58,6 +58,7 @@ namespace MRMaintenance
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.btnClose = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
+			this.chkEnabled = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -66,15 +67,15 @@ namespace MRMaintenance
 			this.cboEquip.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboEquip.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboEquip.FormattingEnabled = true;
-			this.cboEquip.Location = new System.Drawing.Point(241, 62);
+			this.cboEquip.Location = new System.Drawing.Point(241, 76);
 			this.cboEquip.Name = "cboEquip";
-			this.cboEquip.Size = new System.Drawing.Size(222, 21);
+			this.cboEquip.Size = new System.Drawing.Size(265, 21);
 			this.cboEquip.TabIndex = 3;
 			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			// 
 			// label11
 			// 
-			this.label11.Location = new System.Drawing.Point(241, 48);
+			this.label11.Location = new System.Drawing.Point(241, 62);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(104, 20);
 			this.label11.TabIndex = 23;
@@ -82,7 +83,7 @@ namespace MRMaintenance
 			// 
 			// txtName
 			// 
-			this.txtName.Location = new System.Drawing.Point(242, 21);
+			this.txtName.Location = new System.Drawing.Point(242, 35);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(264, 20);
 			this.txtName.TabIndex = 2;
@@ -90,7 +91,7 @@ namespace MRMaintenance
 			// 
 			// txtDescr
 			// 
-			this.txtDescr.Location = new System.Drawing.Point(242, 147);
+			this.txtDescr.Location = new System.Drawing.Point(242, 161);
 			this.txtDescr.Multiline = true;
 			this.txtDescr.Name = "txtDescr";
 			this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -101,7 +102,7 @@ namespace MRMaintenance
 			// 
 			this.dtStartDate.CustomFormat = "";
 			this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtStartDate.Location = new System.Drawing.Point(382, 269);
+			this.dtStartDate.Location = new System.Drawing.Point(382, 283);
 			this.dtStartDate.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
 			this.dtStartDate.Name = "dtStartDate";
 			this.dtStartDate.Size = new System.Drawing.Size(124, 20);
@@ -110,7 +111,7 @@ namespace MRMaintenance
 			// 
 			// numFreq
 			// 
-			this.numFreq.Location = new System.Drawing.Point(333, 314);
+			this.numFreq.Location = new System.Drawing.Point(333, 328);
 			this.numFreq.Maximum = new decimal(new int[] {
 									999999999,
 									0,
@@ -125,9 +126,9 @@ namespace MRMaintenance
 			this.cboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.cboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboDept.FormattingEnabled = true;
-			this.cboDept.Location = new System.Drawing.Point(241, 104);
+			this.cboDept.Location = new System.Drawing.Point(241, 118);
 			this.cboDept.Name = "cboDept";
-			this.cboDept.Size = new System.Drawing.Size(222, 21);
+			this.cboDept.Size = new System.Drawing.Size(265, 21);
 			this.cboDept.TabIndex = 4;
 			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
@@ -137,7 +138,7 @@ namespace MRMaintenance
 			this.cboInterval.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboInterval.FormattingEnabled = true;
-			this.cboInterval.Location = new System.Drawing.Point(406, 313);
+			this.cboInterval.Location = new System.Drawing.Point(406, 327);
 			this.cboInterval.Name = "cboInterval";
 			this.cboInterval.Size = new System.Drawing.Size(100, 21);
 			this.cboInterval.TabIndex = 8;
@@ -145,7 +146,7 @@ namespace MRMaintenance
 			// 
 			// label7
 			// 
-			this.label7.Location = new System.Drawing.Point(242, 306);
+			this.label7.Location = new System.Drawing.Point(242, 320);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(83, 32);
 			this.label7.TabIndex = 12;
@@ -154,7 +155,7 @@ namespace MRMaintenance
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(242, 6);
+			this.label2.Location = new System.Drawing.Point(242, 20);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 20);
 			this.label2.TabIndex = 0;
@@ -162,7 +163,7 @@ namespace MRMaintenance
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(242, 132);
+			this.label3.Location = new System.Drawing.Point(242, 146);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(100, 20);
 			this.label3.TabIndex = 2;
@@ -170,7 +171,7 @@ namespace MRMaintenance
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(242, 269);
+			this.label4.Location = new System.Drawing.Point(242, 283);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(107, 20);
 			this.label4.TabIndex = 4;
@@ -179,7 +180,7 @@ namespace MRMaintenance
 			// 
 			// label5
 			// 
-			this.label5.Location = new System.Drawing.Point(333, 299);
+			this.label5.Location = new System.Drawing.Point(333, 313);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(100, 20);
 			this.label5.TabIndex = 7;
@@ -187,7 +188,7 @@ namespace MRMaintenance
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(406, 299);
+			this.label6.Location = new System.Drawing.Point(406, 313);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(84, 20);
 			this.label6.TabIndex = 10;
@@ -211,7 +212,7 @@ namespace MRMaintenance
 			// 
 			// btnUpdate
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(351, 340);
+			this.btnUpdate.Location = new System.Drawing.Point(351, 354);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
 			this.btnUpdate.TabIndex = 10;
@@ -231,7 +232,7 @@ namespace MRMaintenance
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(432, 340);
+			this.btnAdd.Location = new System.Drawing.Point(432, 354);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
 			this.btnAdd.TabIndex = 12;
@@ -253,11 +254,20 @@ namespace MRMaintenance
 			// 
 			// label10
 			// 
-			this.label10.Location = new System.Drawing.Point(241, 90);
+			this.label10.Location = new System.Drawing.Point(241, 104);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(120, 20);
 			this.label10.TabIndex = 17;
 			this.label10.Text = "Department Assigned";
+			// 
+			// chkEnabled
+			// 
+			this.chkEnabled.Location = new System.Drawing.Point(439, 6);
+			this.chkEnabled.Name = "chkEnabled";
+			this.chkEnabled.Size = new System.Drawing.Size(67, 24);
+			this.chkEnabled.TabIndex = 31;
+			this.chkEnabled.Text = "Enabled";
+			this.chkEnabled.UseVisualStyleBackColor = true;
 			// 
 			// frmWorkOrderRequest
 			// 
@@ -265,6 +275,7 @@ namespace MRMaintenance
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(513, 431);
+			this.Controls.Add(this.chkEnabled);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.btnRemove);
@@ -299,6 +310,7 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.CheckBox chkEnabled;
 		private System.Windows.Forms.Button btnClose;
 		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.Button btnRemove;

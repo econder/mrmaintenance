@@ -131,6 +131,9 @@ namespace MRMaintenance.Data
 		}
 		
 		
+		
+		
+		
 		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
@@ -145,6 +148,76 @@ namespace MRMaintenance.Data
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrderRequestsByEquipment");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByFacilityBrief(long facilityId, int dueDateDeadband)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByFacilityBrief", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facilityId", facilityId);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrderRequestsByFacilityBrief");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByFacilityBrief", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("WorkOrderRequestsByFacilityBrief");
 				
 				try
 				{
@@ -241,8 +314,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId, reqDateSubmitted=@reqDateSubmitted," +
-				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enadbled=@enabled" +
+				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId," +
+				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enabled=@enabled" +
 				                                " WHERE reqId=@reqId", dbConn);
 				
 				try
@@ -252,7 +325,6 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@reqDescr", workOrderRequest.Description);
 					cmd.Parameters.AddWithValue("@equipId", workOrderRequest.EquipmentID);
 					//cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
-					cmd.Parameters.AddWithValue("@reqDateSubmitted", workOrderRequest.DateSubmitted);
 					cmd.Parameters.AddWithValue("@reqStartDate", workOrderRequest.StartDate);
 					cmd.Parameters.AddWithValue("@timeFreq", workOrderRequest.TimeFrequency);
 					cmd.Parameters.AddWithValue("@intId", workOrderRequest.TimeIntervalID);
@@ -284,6 +356,36 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public int CreateWorkOrder(WorkOrderRequest workOrderRequest)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("spCreateWorkOrder", dbConn);
+				
+				cmd.CommandType = CommandType.StoredProcedure;
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
+					cmd.Parameters.AddWithValue("@woDateDue", workOrderRequest.NextDue);
 					
 					return cmd.ExecuteNonQuery();
 				}

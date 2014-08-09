@@ -27,7 +27,6 @@ namespace MRMaintenance.BusinessAccess
 		
 		public DataTable Load()
 		{
-
 			TimeIntervalDA da = new TimeIntervalDA();
 			
 			try

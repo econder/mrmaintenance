@@ -1,0 +1,44 @@
+8/9/2014 4:48:54 PM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 160
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection(Int32 columnIndexException, Int32 rowIndexException, Boolean selectExceptionElement)
+   at System.Windows.Forms.DataGridView.SetAndSelectCurrentCellAddress(Int32 columnIndex, Int32 rowIndex, Boolean setAnchorCellAddress, Boolean validateCurrentCell, Boolean throughMouseClick, Boolean clearSelection, Boolean forceCurrentCellSelection)
+   at System.Windows.Forms.DataGridView.MakeFirstDisplayedCellCurrentCell(Boolean includeNewRow)
+   at System.Windows.Forms.DataGridView.OnRowCollectionChanged_PostNotification(Boolean recreateNewRow, Boolean allowSettingCurrentCell, CollectionChangeAction cca, DataGridViewRow dataGridViewRow, Int32 rowIndex)
+   at System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PostNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow dataGridViewRow, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   at System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount)
+   at System.Windows.Forms.DataGridViewRowCollection.AddInternal(DataGridViewRow dataGridViewRow)
+   at System.Windows.Forms.DataGridView.RefreshRows(Boolean scrollIntoView)
+   at System.Windows.Forms.DataGridView.RefreshColumnsAndRows()
+   at System.Windows.Forms.DataGridView.OnDataSourceChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 69
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 79
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 90
+TargetSite:	Void dgview_SelectionChanged(System.Object, System.EventArgs)
+
+8/9/2014 4:49:44 PM
+Message:	Object reference not set to an instance of an object.
+Source:		MRMaintenance
+StackTrace:	   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 160
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection(Int32 columnIndexException, Int32 rowIndexException, Boolean selectExceptionElement)
+   at System.Windows.Forms.DataGridView.SetAndSelectCurrentCellAddress(Int32 columnIndex, Int32 rowIndex, Boolean setAnchorCellAddress, Boolean validateCurrentCell, Boolean throughMouseClick, Boolean clearSelection, Boolean forceCurrentCellSelection)
+   at System.Windows.Forms.DataGridView.MakeFirstDisplayedCellCurrentCell(Boolean includeNewRow)
+   at System.Windows.Forms.DataGridView.OnRowCollectionChanged_PostNotification(Boolean recreateNewRow, Boolean allowSettingCurrentCell, CollectionChangeAction cca, DataGridViewRow dataGridViewRow, Int32 rowIndex)
+   at System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PostNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow dataGridViewRow, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   at System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount)
+   at System.Windows.Forms.DataGridViewRowCollection.AddInternal(DataGridViewRow dataGridViewRow)
+   at System.Windows.Forms.DataGridView.RefreshRows(Boolean scrollIntoView)
+   at System.Windows.Forms.DataGridView.RefreshColumnsAndRows()
+   at System.Windows.Forms.DataGridView.OnDataSourceChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 69
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 79
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 90
+TargetSite:	Void dgview_SelectionChanged(System.Object, System.EventArgs)
+

@@ -45,7 +45,7 @@ namespace MRMaintenance
 		}
 		
 		
-		public frmWorkOrderRequest(long workOrderId)
+		public frmWorkOrderRequest(long workOrderRequestId)
 		{
 			InitializeComponent();
 			
@@ -58,7 +58,7 @@ namespace MRMaintenance
 			{
 				this.FillData();
 				
-				listWO.SelectedValue = workOrderId;
+				listWO.SelectedValue = workOrderRequestId;
 			}
 			catch(InvalidOperationException ex)
 			{
@@ -74,13 +74,16 @@ namespace MRMaintenance
 		{
 			dt = workOrderReqBA.Load();
 			
-			//Bind work order schedules listbox
+			//Bind work order requests listbox
 			listWO.DataSource = dt;
-			listWO.DisplayMember = "name";
+			listWO.DisplayMember = "reqName";
 			listWO.ValueMember = "reqId";
 			
-			//Bind work order name textbox
-			txtName.DataBindings.Add("Text", dt, "name", true, DataSourceUpdateMode.Never, "");
+			//Bind work order request enabled checkbox
+			chkEnabled.DataBindings.Add("Checked", dt, "enabled", false, DataSourceUpdateMode.Never, 0);
+			
+			//Bind work order request name textbox
+			txtName.DataBindings.Add("Text", dt, "reqName", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind equipment combobox
 			cboEquip.DataSource = equip.Load();
@@ -100,10 +103,10 @@ namespace MRMaintenance
 			cboInterval.ValueMember = "intId";
 			
 			//Bind work order description textbox
-			txtDescr.DataBindings.Add("Text", dt, "descr", true, DataSourceUpdateMode.Never, "");
+			txtDescr.DataBindings.Add("Text", dt, "reqDescr", true, DataSourceUpdateMode.Never, "");
 			
 			//Bind start date datetimepicker 
-			dtStartDate.DataBindings.Add("Value", dt, "startDate", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
+			dtStartDate.DataBindings.Add("Value", dt, "reqStartDate", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Parse("1/1/1980"));
 			
 			//Bind frequency numeric control
 			numFreq.DataBindings.Add("Value", dt, "timeFreq", true, DataSourceUpdateMode.OnPropertyChanged, 0);
@@ -116,6 +119,7 @@ namespace MRMaintenance
 		private void ResetControlBindings()
 		{
 			//Clear existing databindings for each control
+			chkEnabled.DataBindings.Clear();
 			txtName.DataBindings.Clear();
 			txtDescr.DataBindings.Clear();
 			cboEquip.DataBindings.Clear();
@@ -135,6 +139,8 @@ namespace MRMaintenance
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			WorkOrderRequest woReq = new WorkOrderRequest();
+			woReq.Name = this.txtName.Text;
+			woReq.Enabled = this.chkEnabled.Checked;
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;
@@ -152,6 +158,8 @@ namespace MRMaintenance
 		{
 			WorkOrderRequest woReq = new WorkOrderRequest();
 			woReq.ID = (long)this.listWO.SelectedValue;
+			woReq.Name = this.txtName.Text;
+			woReq.Enabled = this.chkEnabled.Checked;
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;

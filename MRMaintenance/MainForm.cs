@@ -33,7 +33,9 @@ namespace MRMaintenance
 		private WorkOrderBA workOrderBA;
 		
 		private DataTable dt;
+		private DataTable dtWorkOrders;
 		
+		private WorkOrderRequest workOrderReq;
 		
 		public MainForm()
 		{
@@ -42,6 +44,10 @@ namespace MRMaintenance
 			facility = new FacilityBA();
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
+			
+			//Create work order request object to hold datagridview 
+			//information as row selection changes
+			workOrderReq = new WorkOrderRequest();
 			
 			//Load and bind facilities combobox
 			DataTable dtFacility = facility.Load();
@@ -60,8 +66,12 @@ namespace MRMaintenance
 		private void FillData()
 		{	
 			//Load DataGridView with WorkOrdersDueByFacility
-			dt = workOrderReqBA.LoadByFacility((long)this.cboFacilities.SelectedValue, 300);
+			dt = workOrderReqBA.LoadByFacilityBrief((long)this.cboFacilities.SelectedValue, 300);
 			this.dgview.DataSource = dt;
+			
+			//Load WorkOrders
+			dtWorkOrders = workOrderBA.LoadByFacility((long)this.cboFacilities.SelectedValue);
+			this.dgviewWO.DataSource = dtWorkOrders;
 		}
 		
 		
@@ -80,7 +90,7 @@ namespace MRMaintenance
 			try
 			{
 				//Load locations listbox with LocationsByFacility
-				dt = workOrderReqBA.LoadByFacility((long)cboFacilities.SelectedValue, 7);
+				dt = workOrderReqBA.LoadByFacilityBrief((long)cboFacilities.SelectedValue, 7);
 				
 				this.ResetControlBindings();
 			}
@@ -107,7 +117,7 @@ namespace MRMaintenance
 		}
 		
 		
-		private void WorkOrderSchedulesToolStripMenuItemClick(object sender, EventArgs e)
+		private void WorkOrderRequestsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmWorkOrderRequest form = new frmWorkOrderRequest();
 			form.ShowDialog();
@@ -149,17 +159,38 @@ namespace MRMaintenance
 		}
 		
 		
+		//Populated workOrderRequest class properties on selection change
+		void dgview_SelectionChanged(object sender, EventArgs e)
+		{
+			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
+			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
+			workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
+			workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+		}
+		
+		
 		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
 			form.ShowDialog();
 		}
 		
+		
+		//Create Work Order from Work Order Request
+		void CreateWorkOrderFromRequest(object sender, EventArgs e)
+		{
+			workOrderReqBA.CreateWorkOrder(workOrderReq);
+		}
+		
+		
+		//Mark Work Order as Complete
 		private void MarkAsCompleteClick(object sender, EventArgs e)
 		{
 			workOrderBA.MarkComplete((long)dgview.SelectedRows[0].Cells["ID"].Value);
 			this.ResetControlBindings();
 		}
+		
 		
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{

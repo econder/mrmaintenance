@@ -28,7 +28,6 @@ namespace MRMaintenance.BusinessAccess
 		
 		public DataTable Load()
 		{
-
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
@@ -48,7 +47,6 @@ namespace MRMaintenance.BusinessAccess
 		
 		public DataTable LoadByFacility(long facilityId, int dueDateDeadband)
 		{
-
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
@@ -68,7 +66,6 @@ namespace MRMaintenance.BusinessAccess
 		
 		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
 		{
-
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
@@ -86,9 +83,46 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public DataTable LoadByFacilityBrief(long facilityId, int dueDateDeadband)
+		{
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByFacilityBrief(facilityId, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband)
+		{
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.LoadByFacilityBrief(facility.ID, dueDateDeadband);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
 		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
 		{
-
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
@@ -108,7 +142,6 @@ namespace MRMaintenance.BusinessAccess
 		
 		public DataTable LoadByEquipment(Equipment equipment, int dueDateDeadband)
 		{
-
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
@@ -171,6 +204,25 @@ namespace MRMaintenance.BusinessAccess
 			try
 			{
 				return da.Delete(workOrderRequest);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public int CreateWorkOrder(WorkOrderRequest workOrderRequest)
+		{
+			WorkOrderRequestDA da = new WorkOrderRequestDA();
+			
+			try
+			{
+				return da.CreateWorkOrder(workOrderRequest);
 			}
 			catch
 			{
