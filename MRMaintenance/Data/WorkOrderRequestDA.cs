@@ -286,7 +286,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@reqName", workOrderRequest.Name);
 					cmd.Parameters.AddWithValue("@reqDescr", workOrderRequest.Description);
 					cmd.Parameters.AddWithValue("@equipId", workOrderRequest.EquipmentID);
-					//cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
+					cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
 					cmd.Parameters.AddWithValue("@reqStartDate", workOrderRequest.StartDate);
 					cmd.Parameters.AddWithValue("@timeFreq", workOrderRequest.TimeFrequency);
 					cmd.Parameters.AddWithValue("@intId", workOrderRequest.TimeIntervalID);
@@ -314,7 +314,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId," +
+				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId, deptId=@deptId," +
 				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enabled=@enabled" +
 				                                " WHERE reqId=@reqId", dbConn);
 				
@@ -324,7 +324,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@reqName", workOrderRequest.Name);
 					cmd.Parameters.AddWithValue("@reqDescr", workOrderRequest.Description);
 					cmd.Parameters.AddWithValue("@equipId", workOrderRequest.EquipmentID);
-					//cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
+					cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
 					cmd.Parameters.AddWithValue("@reqStartDate", workOrderRequest.StartDate);
 					cmd.Parameters.AddWithValue("@timeFreq", workOrderRequest.TimeFrequency);
 					cmd.Parameters.AddWithValue("@intId", workOrderRequest.TimeIntervalID);

@@ -96,6 +96,7 @@ namespace MRMaintenance
 			cboDept.DataSource = dept.Load();
 			cboDept.DisplayMember = "name";
 			cboDept.ValueMember = "deptId";
+			cboDept.DataBindings.Add("SelectedValue", dt, "deptId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
 			
 			//Load and bind time intervals combobox
 			cboInterval.DataSource = timeInterval.Load();
@@ -143,6 +144,7 @@ namespace MRMaintenance
 			woReq.Enabled = this.chkEnabled.Checked;
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
+			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;
 			woReq.TimeFrequency = (int)numFreq.Value;
 			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
@@ -162,6 +164,7 @@ namespace MRMaintenance
 			woReq.Enabled = this.chkEnabled.Checked;
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
+			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;
 			woReq.TimeFrequency = (int)numFreq.Value;
 			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
