@@ -15,7 +15,6 @@ namespace MRMaintenance.Data
 	/// <summary>
 	/// Description of Facilities.
 	/// </summary>
-	[System.ComponentModel.DataObject]
 	public class Facility
 	{
 		public Facility()

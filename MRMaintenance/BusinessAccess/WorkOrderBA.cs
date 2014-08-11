@@ -45,26 +45,6 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId)
-		{
-
-			WorkOrderDA da = new WorkOrderDA();
-			
-			try
-			{
-				return da.LoadByFacility(facilityId);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
 		public DataTable LoadByFacility(Facility facility)
 		{
 
@@ -72,7 +52,7 @@ namespace MRMaintenance.BusinessAccess
 			
 			try
 			{
-				return da.LoadByFacility(facility.ID);
+				return da.LoadByFacility(facility);
 			}
 			catch
 			{
@@ -85,34 +65,14 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadByEquipment(long equipmentId)
+		public DataTable LoadOpenByFacility(Facility facility)
 		{
 
 			WorkOrderDA da = new WorkOrderDA();
 			
 			try
 			{
-				return da.LoadByEquipment(equipmentId);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
-		public DataTable LoadByEquipment(Equipment equipment)
-		{
-
-			WorkOrderDA da = new WorkOrderDA();
-			
-			try
-			{
-				return da.LoadByEquipment(equipment);
+				return da.LoadOpenByFacility(facility);
 			}
 			catch
 			{
@@ -189,25 +149,6 @@ namespace MRMaintenance.BusinessAccess
 			try
 			{
 				return da.MarkComplete(workOrder);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
-		public int MarkComplete(long workOrderId)
-		{
-			WorkOrderDA da = new WorkOrderDA();
-			
-			try
-			{
-				return da.MarkComplete(workOrderId);
 			}
 			catch
 			{

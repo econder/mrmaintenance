@@ -222,7 +222,15 @@ namespace MRMaintenance.BusinessAccess
 			
 			try
 			{
-				return da.CreateWorkOrder(workOrderRequest);
+				if(da.OpenWorkOrdersCount(workOrderRequest) == 0)
+				{
+					return da.CreateWorkOrder(workOrderRequest);
+				}
+				else
+				{
+					//A work order already exists, so return -1
+					return -1;
+				}
 			}
 			catch
 			{

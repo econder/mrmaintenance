@@ -131,9 +131,6 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		
-		
-		
 		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
@@ -371,6 +368,36 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+		
+		
+		public int OpenWorkOrdersCount(WorkOrderRequest workOrderRequest)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM WorkOrders WHERE reqId=@reqId AND woComplete=0", dbConn);
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
+					
+					return (int)cmd.ExecuteScalar();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		
 		
 		
 		public int CreateWorkOrder(WorkOrderRequest workOrderRequest)

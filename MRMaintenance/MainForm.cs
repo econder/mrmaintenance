@@ -15,11 +15,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
 using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
+using MRMaintenance.Data;
 using MRMaintenance.Reports;
-
 
 namespace MRMaintenance
 {
@@ -28,7 +27,7 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		private FacilityBA facility;
+		private FacilityBA facilityBA;
 		private WorkOrderRequestBA workOrderReqBA;
 		private WorkOrderBA workOrderBA;
 		
@@ -41,7 +40,7 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
-			facility = new FacilityBA();
+			facilityBA = new FacilityBA();
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
 			
@@ -50,7 +49,7 @@ namespace MRMaintenance
 			workOrderReq = new WorkOrderRequest();
 			
 			//Load and bind facilities combobox
-			DataTable dtFacility = facility.Load();
+			DataTable dtFacility = facilityBA.Load();
 			cboFacilities.DataSource = dtFacility;
 			cboFacilities.DisplayMember = "name";
 			cboFacilities.ValueMember = "facId";
@@ -64,14 +63,21 @@ namespace MRMaintenance
 		
 		
 		private void FillData()
-		{	
+		{
+			Facility facility = new Facility();
+			facility.ID = (long)this.cboFacilities.SelectedValue;
+			
+			
 			//Load DataGridView with WorkOrdersDueByFacility
-			dt = workOrderReqBA.LoadByFacilityBrief((long)this.cboFacilities.SelectedValue, 300);
+			dt = workOrderReqBA.LoadByFacilityBrief(facility, 300);
 			this.dgview.DataSource = dt;
 			
 			//Load WorkOrders
-			dtWorkOrders = workOrderBA.LoadByFacility((long)this.cboFacilities.SelectedValue);
+			dtWorkOrders = workOrderBA.LoadOpenByFacility(facility);
 			this.dgviewWO.DataSource = dtWorkOrders;
+			
+			//Update work order request row colors
+			this.dgViewUpdateRowColors();
 		}
 		
 		
@@ -87,10 +93,13 @@ namespace MRMaintenance
 		
 		private void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			Facility facility = new Facility();
+			
 			try
 			{
 				//Load locations listbox with LocationsByFacility
-				dt = workOrderReqBA.LoadByFacilityBrief((long)cboFacilities.SelectedValue, 7);
+				facility.ID = (long)this.cboFacilities.SelectedValue;
+				dt = workOrderReqBA.LoadByFacilityBrief(facility, 7);
 				
 				this.ResetControlBindings();
 			}
@@ -160,7 +169,7 @@ namespace MRMaintenance
 		
 		
 		//Populated workOrderRequest class properties on selection change
-		void dgview_SelectionChanged(object sender, EventArgs e)
+		private void dgview_SelectionChanged(object sender, EventArgs e)
 		{
 			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
 			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
@@ -170,6 +179,7 @@ namespace MRMaintenance
 		}
 		
 		
+		//Show work order request form
 		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
@@ -177,17 +187,33 @@ namespace MRMaintenance
 		}
 		
 		
-		//Create Work Order from Work Order Request
-		void CreateWorkOrderFromRequest(object sender, EventArgs e)
+		//Changed work order request row color if request has open an work order 
+		private void dgViewUpdateRowColors()
 		{
-			workOrderReqBA.CreateWorkOrder(workOrderReq);
+			for(int i = 0; i < dgview.RowCount; i++)
+			{
+				if((int)dgview.Rows[i].Cells["Open Work Orders"].Value > 0)
+				{
+					dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+				}
+			}
+		}
+		
+		
+		//Create Work Order from Work Order Request
+		private void CreateWorkOrderFromRequest(object sender, EventArgs e)
+		{
+			if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
+				MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		
 		
 		//Mark Work Order as Complete
 		private void MarkAsCompleteClick(object sender, EventArgs e)
 		{
-			workOrderBA.MarkComplete((long)dgview.SelectedRows[0].Cells["ID"].Value);
+			WorkOrder workOrder = new WorkOrder();
+			workOrder.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+			workOrderBA.MarkComplete(workOrder);
 			this.ResetControlBindings();
 		}
 		

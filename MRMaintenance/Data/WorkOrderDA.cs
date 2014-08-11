@@ -61,17 +61,15 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId)
+		public DataTable LoadBrief()
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE facId=@facId ORDER BY woDateDue", dbConn);
-				
-				cmd.Parameters.AddWithValue("@facId", facilityId);
+				SqlCommand cmd = new SqlCommand("SELECT woId, woDateDue FROM v_WorkOrders ORDER BY woDateDue", dbConn);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable("WorkOrdersByFacility");
+				DataTable dt = new DataTable("WorkOrders");
 				
 				try
 				{
@@ -125,49 +123,17 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByEquipment(long equipmentId)
+		public DataTable LoadOpenByFacility(Facility facility)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE equipId=@equipId ORDER BY woDateDue", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE facId=@facId AND woComplete=0 ORDER BY woDateDue", dbConn);
 				
-				cmd.Parameters.AddWithValue("@equipId", equipmentId);
-				
-				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable("WorkOrdersByEquipment");
-				
-				try
-				{
-					da.Fill(dt);
-					return dt;
-				}
-				catch
-				{
-					throw;
-				}
-				finally
-				{
-					dt.Dispose();
-					da.Dispose();
-					dbConn.Close();
-					dbConn.Dispose();
-				}
-			}
-		}
-		
-		
-		public DataTable LoadByEquipment(Equipment equipment)
-		{
-			using(SqlConnection dbConn = new SqlConnection(connStr))
-			{
-				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE equipId=@equipId ORDER BY woDateDue", dbConn);
-				
-				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
+				cmd.Parameters.AddWithValue("@facId", facility.ID);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable("WorkOrdersByEquipment");
+				DataTable dt = new DataTable("OpenWorkOrdersByFacility");
 				
 				try
 				{
@@ -290,35 +256,6 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@workOrderId", workOrder.ID);
-					
-					cmd.CommandType = CommandType.StoredProcedure;
-					
-					return cmd.ExecuteNonQuery();
-				}
-				catch
-				{
-					throw;
-				}
-				finally
-				{
-					cmd.Dispose();
-					dbConn.Close();
-					dbConn.Dispose();
-				}
-			}
-		}
-		
-		
-		public int MarkComplete(long workOrderId)
-		{
-			using(SqlConnection dbConn = new SqlConnection(connStr))
-			{
-				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("spWorkOrderMarkComplete", dbConn);
-				
-				try
-				{
-					cmd.Parameters.AddWithValue("@workOrderId", workOrderId);
 					
 					cmd.CommandType = CommandType.StoredProcedure;
 					
