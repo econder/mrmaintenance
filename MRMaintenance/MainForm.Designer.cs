@@ -57,17 +57,20 @@ namespace MRMaintenance
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgview = new System.Windows.Forms.DataGridView();
-			this.menuDGView = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.menuWorkOrderReq = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.createWorkOrder = new System.Windows.Forms.ToolStripMenuItem();
 			this.cboFacilities = new System.Windows.Forms.ComboBox();
 			this.dgviewWO = new System.Windows.Forms.DataGridView();
+			this.menuWorkOrders = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
-			this.menuDGView.SuspendLayout();
+			this.menuWorkOrderReq.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgviewWO)).BeginInit();
+			this.menuWorkOrders.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -212,7 +215,6 @@ namespace MRMaintenance
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgview.ContextMenuStrip = this.menuDGView;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,14 +231,15 @@ namespace MRMaintenance
 			this.dgview.Size = new System.Drawing.Size(676, 217);
 			this.dgview.TabIndex = 1;
 			this.dgview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellDoubleClick);
+			this.dgview.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgview_CellMouseDown);
 			this.dgview.SelectionChanged += new System.EventHandler(this.dgview_SelectionChanged);
 			// 
-			// menuDGView
+			// menuWorkOrderReq
 			// 
-			this.menuDGView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuWorkOrderReq.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.createWorkOrder});
-			this.menuDGView.Name = "menuDGView";
-			this.menuDGView.Size = new System.Drawing.Size(167, 26);
+			this.menuWorkOrderReq.Name = "menuDGView";
+			this.menuWorkOrderReq.Size = new System.Drawing.Size(167, 26);
 			// 
 			// createWorkOrder
 			// 
@@ -264,7 +267,6 @@ namespace MRMaintenance
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgviewWO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgviewWO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgviewWO.ContextMenuStrip = this.menuDGView;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -280,6 +282,21 @@ namespace MRMaintenance
 			this.dgviewWO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgviewWO.Size = new System.Drawing.Size(676, 214);
 			this.dgviewWO.TabIndex = 6;
+			this.dgviewWO.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgviewWO_CellMouseDown);
+			// 
+			// menuWorkOrders
+			// 
+			this.menuWorkOrders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.toolStripMenuItem1});
+			this.menuWorkOrders.Name = "menuWorkOrders";
+			this.menuWorkOrders.Size = new System.Drawing.Size(137, 26);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItem1.Text = "&Show Report";
+			this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1Click);
 			// 
 			// splitContainer1
 			// 
@@ -331,7 +348,6 @@ namespace MRMaintenance
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.cboFacilities);
 			this.Controls.Add(this.menuStrip1);
-			this.MainMenuStrip = this.menuStrip1;
 			this.MinimumSize = new System.Drawing.Size(700, 600);
 			this.Name = "MainForm";
 			this.Padding = new System.Windows.Forms.Padding(3);
@@ -339,8 +355,9 @@ namespace MRMaintenance
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();
-			this.menuDGView.ResumeLayout(false);
+			this.menuWorkOrderReq.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgviewWO)).EndInit();
+			this.menuWorkOrders.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -348,12 +365,14 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ContextMenuStrip menuWorkOrders;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.DataGridView dgviewWO;
 		private System.Windows.Forms.ToolStripMenuItem createWorkOrder;
-		private System.Windows.Forms.ContextMenuStrip menuDGView;
+		private System.Windows.Forms.ContextMenuStrip menuWorkOrderReq;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;

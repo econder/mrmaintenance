@@ -244,7 +244,7 @@ namespace MRMaintenance.Data
 				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByEquipment", dbConn);
 				
 				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
-				cmd.Parameters.AddWithValue("dueDateDeadband", dueDateDeadband);
+				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
 				
 				cmd.CommandType = CommandType.StoredProcedure;
 				
@@ -281,6 +281,7 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqName", workOrderRequest.Name);
+					cmd.Parameters.AddWithValue("@enabled", workOrderRequest.Enabled);
 					cmd.Parameters.AddWithValue("@reqDescr", workOrderRequest.Description);
 					cmd.Parameters.AddWithValue("@equipId", workOrderRequest.EquipmentID);
 					cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);

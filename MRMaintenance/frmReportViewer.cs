@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
  * Class:   	frmReportViewer.cs
  * Created By: 	Eric Conder
- * Created On: 	8/4/2014
+ * Created On: 	8/12/2014
  * 
  * Changes:
  * 
@@ -10,32 +10,21 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ICSharpCode.Reporting;
-using ICSharpCode.Reporting.Items;
-using ICSharpCode.Reporting.Pdf;
 
-namespace MRMaintenance.Reports
+namespace MRMaintenance
 {
 	/// <summary>
 	/// Description of frmReportViewer.
 	/// </summary>
 	public partial class frmReportViewer : Form
 	{
-		private ReportSettings reportSettings;
-		
-		
-		public frmReportViewer()
-		{
-			InitializeComponent();
-		}
-		
-		
 		public frmReportViewer(string reportFileName)
 		{
 			InitializeComponent();
 			
-			ReportSettings rs = new ReportSettings();
-			rs.FileName = reportFileName;
+			rptView.ServerReport.ReportPath = string.Format("/{0}", reportFileName);
+			rptView.ServerReport.ReportServerUrl = new Uri("http://ecvm-ww2014/reportserver");
+			rptView.RefreshReport();
 		}
 	}
 }

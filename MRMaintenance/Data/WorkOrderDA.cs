@@ -155,6 +155,38 @@ namespace MRMaintenance.Data
 		}
 		
 		
+		public DataTable LoadOpenByFacilityBrief(Facility facility)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT woID AS [ID], woDateCreated AS [Date Created], woDateDue AS [Date Due] FROM v_WorkOrders WHERE facId=@facId AND woComplete=0 ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@facId", facility.ID);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("OpenWorkOrdersByFacilityBrief");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
 		public int Insert(WorkOrder workOrder)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))

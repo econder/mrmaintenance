@@ -1,14 +1,13 @@
 ﻿/***************************************************************************************************
  * Class:   MRDbConnection.cs
  * Created By: Eric Conder
- * Created On: 8/4/2014
+ * Created On: 8/12/2014
  * 
  * Changes:
  * 
  *
  * *************************************************************************************************/
- 
-namespace MRMaintenance.Reports
+namespace MRMaintenance
 {
 	partial class frmReportViewer
 	{
@@ -39,36 +38,32 @@ namespace MRMaintenance.Reports
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportViewer));
-			this.reportPreview = new PdfSharp.Forms.PagePreview();
+			this.rptView = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.SuspendLayout();
 			// 
-			// reportPreview
+			// rptView
 			// 
-			this.reportPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.reportPreview.DesktopColor = System.Drawing.SystemColors.ControlDark;
-			this.reportPreview.Location = new System.Drawing.Point(6, 6);
-			this.reportPreview.Name = "reportPreview";
-			this.reportPreview.PageColor = System.Drawing.Color.GhostWhite;
-			this.reportPreview.PageSize = ((PdfSharp.Drawing.XSize)(resources.GetObject("reportPreview.PageSize")));
-			this.reportPreview.PageSizeF = new System.Drawing.Size(595, 842);
-			this.reportPreview.Size = new System.Drawing.Size(526, 396);
-			this.reportPreview.TabIndex = 1;
-			this.reportPreview.ZoomPercent = 32;
+			this.rptView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.rptView.Location = new System.Drawing.Point(3, 3);
+			this.rptView.Name = "rptView";
+			this.rptView.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
+			this.rptView.Size = new System.Drawing.Size(472, 385);
+			this.rptView.TabIndex = 0;
 			// 
 			// frmReportViewer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(538, 408);
-			this.Controls.Add(this.reportPreview);
+			this.ClientSize = new System.Drawing.Size(478, 391);
+			this.Controls.Add(this.rptView);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmReportViewer";
 			this.Padding = new System.Windows.Forms.Padding(3);
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "MR Maintenance Report Viewer";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.ResumeLayout(false);
 		}
-		private PdfSharp.Forms.PagePreview reportPreview;
+		private Microsoft.Reporting.WinForms.ReportViewer rptView;
 	}
 }

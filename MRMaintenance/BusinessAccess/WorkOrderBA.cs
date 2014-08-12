@@ -85,6 +85,26 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public DataTable LoadOpenByFacilityBrief(Facility facility)
+		{
+
+			WorkOrderDA da = new WorkOrderDA();
+			
+			try
+			{
+				return da.LoadOpenByFacilityBrief(facility);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
 		public int Insert(WorkOrder workOrder)
 		{
 			WorkOrderDA da = new WorkOrderDA();

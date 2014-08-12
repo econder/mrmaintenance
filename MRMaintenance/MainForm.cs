@@ -12,13 +12,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
 using MRMaintenance.Data;
-using MRMaintenance.Reports;
+
 
 namespace MRMaintenance
 {
@@ -31,7 +32,7 @@ namespace MRMaintenance
 		private WorkOrderRequestBA workOrderReqBA;
 		private WorkOrderBA workOrderBA;
 		
-		private DataTable dt;
+		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
 		
 		private WorkOrderRequest workOrderReq;
@@ -69,22 +70,24 @@ namespace MRMaintenance
 			
 			
 			//Load DataGridView with WorkOrdersDueByFacility
-			dt = workOrderReqBA.LoadByFacilityBrief(facility, 300);
-			this.dgview.DataSource = dt;
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 300);
+			this.dgview.DataSource = dtWorkOrderRequests;
 			
 			//Load WorkOrders
-			dtWorkOrders = workOrderBA.LoadOpenByFacility(facility);
+			dtWorkOrders = workOrderBA.LoadOpenByFacilityBrief(facility);
 			this.dgviewWO.DataSource = dtWorkOrders;
 			
 			//Update work order request row colors
-			this.dgViewUpdateRowColors();
+			//this.dgViewUpdateRowColors();
 		}
 		
 		
 		private void ResetControlBindings()
 		{
-			//Clear and reload datatable
-			dt.Clear();
+			
+			//Clear and reload datatables
+			dtWorkOrderRequests.Clear();
+			dtWorkOrders.Clear();
 			
 			//Load database and re-bind all the controls
 			this.FillData();
@@ -99,7 +102,7 @@ namespace MRMaintenance
 			{
 				//Load locations listbox with LocationsByFacility
 				facility.ID = (long)this.cboFacilities.SelectedValue;
-				dt = workOrderReqBA.LoadByFacilityBrief(facility, 7);
+				dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
 				
 				this.ResetControlBindings();
 			}
@@ -190,12 +193,41 @@ namespace MRMaintenance
 		//Changed work order request row color if request has open an work order 
 		private void dgViewUpdateRowColors()
 		{
-			for(int i = 0; i < dgview.RowCount; i++)
+			if(dgview.RowCount > 0)
 			{
-				if((int)dgview.Rows[i].Cells["Open Work Orders"].Value > 0)
+				for(int i = 0; i < dgview.RowCount; i++)
 				{
-					dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+					if((int)dgview.Rows[i].Cells["Open Work Orders"].Value > 0)
+					{
+						dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+					}
 				}
+			}
+		}
+		
+		
+		//Select row and display context menu on right-click
+		void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
+			{
+				dgview.Rows[e.RowIndex].Selected = true;
+				Rectangle r = dgview.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+				menuWorkOrderReq.Show((Control)sender, r.Left + e.X, r.Top + e.Y);
+			}
+		}
+		
+		
+		//Select row and display context menu on right-click
+		void dgviewWO_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
+			{
+				dgviewWO.Rows[e.RowIndex].Selected = true;
+				Rectangle r = dgviewWO.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+				menuWorkOrders.Show((Control)sender, r.Left + e.X, r.Top + e.Y);
 			}
 		}
 		
@@ -218,9 +250,24 @@ namespace MRMaintenance
 		}
 		
 		
+		
+		/********************************************************************
+		 * Display Reports
+		 ********************************************************************/
+		
+		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmReportViewer form = new frmReportViewer("C:/Users/mrsystems/Documents/repos/mrmaintenance/MRMaintenance/Reports/rptWorkOrdersAll.srd");
+			frmReportViewer form = new frmReportViewer("WorkOrdersAll");
+			form.Show(this);
+		}
+		
+		
+		//Show Work Order Detail Report
+		void ToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			int id = (int)dgviewWO.SelectedRows[0].Cells["ID"].Value;
+			frmReportViewer form = new frmReportViewer(string.Format("WorkOrderDetailsByID?workOrderId={0}", id));
 			form.Show(this);
 		}
 	}
