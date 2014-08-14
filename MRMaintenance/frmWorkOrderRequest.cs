@@ -29,6 +29,8 @@ namespace MRMaintenance
 		private EquipmentBA equip;
 		private DepartmentBA dept;
 		private TimeIntervalBA timeInterval;
+		private PriorityBA priorityBA;
+		
 		private DataTable dt;
 		
 		
@@ -39,6 +41,7 @@ namespace MRMaintenance
 			workOrderReqBA = new WorkOrderRequestBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
+			priorityBA = new PriorityBA();
 			timeInterval = new TimeIntervalBA();
 			
 			this.FillData();
@@ -52,6 +55,7 @@ namespace MRMaintenance
 			workOrderReqBA = new WorkOrderRequestBA();
 			equip = new EquipmentBA();
 			dept = new DepartmentBA();
+			priorityBA = new PriorityBA();
 			timeInterval = new TimeIntervalBA();
 			
 			try
@@ -94,9 +98,15 @@ namespace MRMaintenance
 			
 			//Load and bind departments combobox
 			cboDept.DataSource = dept.Load();
-			cboDept.DisplayMember = "name";
+			cboDept.DisplayMember = "deptName";
 			cboDept.ValueMember = "deptId";
 			cboDept.DataBindings.Add("SelectedValue", dt, "deptId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+			
+			//Load and bind priorities combobox
+			cboPriority.DataSource = priorityBA.Load();
+			cboPriority.DisplayMember = "priorityName";
+			cboPriority.ValueMember = "priorityId";
+			cboPriority.DataBindings.Add("SelectedValue", dt, "priorityId", false, DataSourceUpdateMode.Never, 1);
 			
 			//Load and bind time intervals combobox
 			cboInterval.DataSource = timeInterval.Load();
@@ -125,6 +135,7 @@ namespace MRMaintenance
 			txtDescr.DataBindings.Clear();
 			cboEquip.DataBindings.Clear();
 			cboDept.DataBindings.Clear();
+			cboPriority.DataBindings.Clear();
 			dtStartDate.DataBindings.Clear();
 			numFreq.DataBindings.Clear();
 			cboInterval.DataBindings.Clear();
@@ -145,6 +156,7 @@ namespace MRMaintenance
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
 			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
+			woReq.Priority = (int)this.cboPriority.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;
 			woReq.TimeFrequency = (int)numFreq.Value;
 			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
@@ -165,6 +177,7 @@ namespace MRMaintenance
 			woReq.Description = this.txtDescr.Text;
 			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
 			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
+			woReq.Priority = (int)this.cboPriority.SelectedValue;
 			woReq.StartDate = dtStartDate.Value;
 			woReq.TimeFrequency = (int)numFreq.Value;
 			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
@@ -262,6 +275,11 @@ namespace MRMaintenance
 			{
 				MessageBox.Show("Time interval name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+		
+		private void BtnOKClick(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

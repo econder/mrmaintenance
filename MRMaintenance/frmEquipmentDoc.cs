@@ -82,14 +82,5 @@ namespace MRMaintenance
 				MessageBox.Show("Link name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		
-		
-		private void txtLink_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			if(txtLink.Text == "" || txtLink == null)
-			{
-				MessageBox.Show("Filename/link cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
 	}
 }

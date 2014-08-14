@@ -32,10 +32,14 @@ namespace MRMaintenance
 		private WorkOrderRequestBA workOrderReqBA;
 		private WorkOrderBA workOrderBA;
 		
+		private Facility facility;
+		private WorkOrderRequest workOrderReq;
+		
 		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
 		
-		private WorkOrderRequest workOrderReq;
+		
+		
 		
 		public MainForm()
 		{
@@ -45,7 +49,9 @@ namespace MRMaintenance
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
 			
-			//Create work order request object to hold datagridview 
+			facility = new Facility();
+			
+			//Create work order request object to hold datagridview
 			//information as row selection changes
 			workOrderReq = new WorkOrderRequest();
 			
@@ -54,6 +60,12 @@ namespace MRMaintenance
 			cboFacilities.DataSource = dtFacility;
 			cboFacilities.DisplayMember = "name";
 			cboFacilities.ValueMember = "facId";
+			
+			if(cboFacilities.Items.Count > 0)
+			{
+				cboFacilities.SelectedIndex = 0;
+				facility.ID = (long)cboFacilities.SelectedValue;
+			}
 			
 			//Setup event handler after loading and binding the control
 			//to prevent firing the event before the control is populated
@@ -65,25 +77,30 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			Facility facility = new Facility();
-			facility.ID = (long)this.cboFacilities.SelectedValue;
-			
-			
 			//Load DataGridView with WorkOrdersDueByFacility
 			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 300);
-			this.dgview.DataSource = dtWorkOrderRequests;
+			if(dtWorkOrderRequests.Rows.Count > 0)
+			{
+				this.dgview.DataSource = dtWorkOrderRequests;
+				
+				//Update work order request row colors
+				this.dgViewUpdateRowColors();
+			}
 			
 			//Load WorkOrders
 			dtWorkOrders = workOrderBA.LoadOpenByFacilityBrief(facility);
-			this.dgviewWO.DataSource = dtWorkOrders;
-			
-			//Update work order request row colors
-			//this.dgViewUpdateRowColors();
+			if(dtWorkOrders.Rows.Count > 0)
+			{
+				this.dgviewWO.DataSource = dtWorkOrders;
+			}
 		}
 		
 		
 		private void ResetControlBindings()
 		{
+			//Clear databindings
+			dgview.DataBindings.Clear();
+			dgviewWO.DataBindings.Clear();
 			
 			//Clear and reload datatables
 			dtWorkOrderRequests.Clear();
@@ -96,28 +113,27 @@ namespace MRMaintenance
 		
 		private void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Facility facility = new Facility();
-			
 			try
 			{
+				facility = new Facility();
+				
 				//Load locations listbox with LocationsByFacility
 				facility.ID = (long)this.cboFacilities.SelectedValue;
 				dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
 				
 				this.ResetControlBindings();
 			}
-			catch(InvalidCastException ex)
-			{
-				//Catch null datetimepicker values but ignore them since they are ok.
-				//Caught in its own catch block to prevent filling up the
-				//log file with useless errors that are unpreventable at this point.
-				return;
-			}
 			catch(Exception ex)
 			{
-				WinEventLog winel = new WinEventLog();
-				winel.WriteEvent(ex);
-				return;
+				//Catch null datetimepicker values and invalid indexes for emtpy datatables
+				//but ignore them since they are ok.
+				//Caught in its own catch block to prevent filling up the
+				//log file with useless errors that are unpreventable at this point.
+				throw;
+			}
+			finally
+			{
+				facility = null;
 			}
 		}
 		
@@ -125,7 +141,7 @@ namespace MRMaintenance
 		private void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmEquipment form = new frmEquipment();
-			form.ShowDialog();
+			form.Show();
 		}
 		
 		
@@ -185,8 +201,11 @@ namespace MRMaintenance
 		//Show work order request form
 		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
-			form.ShowDialog();
+			if(e.RowIndex >= 0)
+			{
+				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
+				form.ShowDialog();
+			}
 		}
 		
 		

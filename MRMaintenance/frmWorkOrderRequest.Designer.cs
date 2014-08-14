@@ -59,6 +59,9 @@ namespace MRMaintenance
 			this.btnClose = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
 			this.chkEnabled = new System.Windows.Forms.CheckBox();
+			this.cboPriority = new System.Windows.Forms.ComboBox();
+			this.label8 = new System.Windows.Forms.Label();
+			this.btnOK = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -123,18 +126,18 @@ namespace MRMaintenance
 			// 
 			// cboDept
 			// 
-			this.cboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboDept.FormattingEnabled = true;
 			this.cboDept.Location = new System.Drawing.Point(241, 118);
 			this.cboDept.Name = "cboDept";
-			this.cboDept.Size = new System.Drawing.Size(265, 21);
+			this.cboDept.Size = new System.Drawing.Size(135, 21);
 			this.cboDept.TabIndex = 4;
 			this.cboDept.Validating += new System.ComponentModel.CancelEventHandler(this.cboDept_Validating);
 			// 
 			// cboInterval
 			// 
-			this.cboInterval.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboInterval.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboInterval.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboInterval.FormattingEnabled = true;
@@ -269,12 +272,45 @@ namespace MRMaintenance
 			this.chkEnabled.Text = "Enabled";
 			this.chkEnabled.UseVisualStyleBackColor = true;
 			// 
+			// cboPriority
+			// 
+			this.cboPriority.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.cboPriority.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cboPriority.FormattingEnabled = true;
+			this.cboPriority.Location = new System.Drawing.Point(382, 118);
+			this.cboPriority.Name = "cboPriority";
+			this.cboPriority.Size = new System.Drawing.Size(124, 21);
+			this.cboPriority.TabIndex = 32;
+			// 
+			// label8
+			// 
+			this.label8.Location = new System.Drawing.Point(382, 104);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(120, 20);
+			this.label8.TabIndex = 33;
+			this.label8.Text = "Priority Level";
+			// 
+			// btnOK
+			// 
+			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnOK.Location = new System.Drawing.Point(351, 402);
+			this.btnOK.Name = "btnOK";
+			this.btnOK.Size = new System.Drawing.Size(75, 23);
+			this.btnOK.TabIndex = 34;
+			this.btnOK.Text = "&OK";
+			this.btnOK.UseVisualStyleBackColor = true;
+			this.btnOK.Click += new System.EventHandler(this.BtnOKClick);
+			// 
 			// frmWorkOrderRequest
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(513, 431);
+			this.Controls.Add(this.btnOK);
+			this.Controls.Add(this.cboPriority);
+			this.Controls.Add(this.label8);
 			this.Controls.Add(this.chkEnabled);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnUpdate);
@@ -310,6 +346,9 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnOK;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.ComboBox cboPriority;
 		private System.Windows.Forms.CheckBox chkEnabled;
 		private System.Windows.Forms.Button btnClose;
 		private System.Windows.Forms.Button btnAdd;

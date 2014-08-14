@@ -192,14 +192,12 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("spCreateWorkOrder", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO dbo.WorkOrders(reqId, woDateCreated, woDateDue) VALUES(@reqId, GETDATE(), @woDateDue)", dbConn);
 				
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
 					cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
-					
-					cmd.CommandType = CommandType.StoredProcedure;
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -222,7 +220,8 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue, woNotes=@woNotes, woCompleted=@woComplete, woDateCompleted=@woDateCompleted" +
+				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue," + 
+				                                " woNotes=@woNotes, woCompleted=@woComplete, woDateCompleted=@woDateCompleted, woCompletedBy=@woCompletedBy" +
 				                                " WHERE woId=@woId", dbConn);
 				
 				try
@@ -234,6 +233,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@woNotes", workOrder.Notes);
 					cmd.Parameters.AddWithValue("@woComplete", workOrder.Complete);
 					cmd.Parameters.AddWithValue("@woDateCompleted", workOrder.DateCompleted);
+					cmd.Parameters.AddWithValue("@woCompletedBy", workOrder.CompletedBy);
 					
 					return cmd.ExecuteNonQuery();
 				}

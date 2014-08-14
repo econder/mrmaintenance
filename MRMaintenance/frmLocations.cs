@@ -27,6 +27,9 @@ namespace MRMaintenance
 		private FacilityBA facilityBA;
 		private LocationBA locationBA;
 		private StateBA stateBA;
+		
+		private Facility facility;
+		
 		private DataTable dt;
 		
 		
@@ -37,6 +40,8 @@ namespace MRMaintenance
 			facilityBA = new FacilityBA();
 			locationBA = new LocationBA();
 			stateBA = new StateBA();
+			
+			facility = new Facility();
 			
 			//Load and bind facilities combobox
 			cboFacility.DataSource = facilityBA.Load();
@@ -58,7 +63,7 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			dt = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
+			dt = locationBA.LoadByFacility(facility);
 			
 			//Bind departments listbox
 			listLoc.DataSource = dt;
@@ -169,7 +174,8 @@ namespace MRMaintenance
 			try
 			{
 				//Load locations listbox with LocationsByFacility
-				dt = locationBA.LoadByFacility((long)cboFacility.SelectedValue);
+				facility.ID = (long)cboFacility.SelectedValue;
+				dt = locationBA.LoadByFacility(facility);
 				
 				this.ResetControlBindings();
 			}

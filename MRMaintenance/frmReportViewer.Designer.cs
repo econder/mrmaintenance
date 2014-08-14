@@ -59,6 +59,7 @@ namespace MRMaintenance
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmReportViewer";
 			this.Padding = new System.Windows.Forms.Padding(3);
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "MR Maintenance Report Viewer";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

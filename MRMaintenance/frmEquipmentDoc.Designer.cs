@@ -68,7 +68,6 @@ namespace MRMaintenance
 			this.txtLink.Name = "txtLink";
 			this.txtLink.Size = new System.Drawing.Size(486, 20);
 			this.txtLink.TabIndex = 1;
-			this.txtLink.Validating += new System.ComponentModel.CancelEventHandler(this.txtLink_Validating);
 			// 
 			// label1
 			// 

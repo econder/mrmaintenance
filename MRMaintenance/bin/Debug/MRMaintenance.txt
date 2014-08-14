@@ -297,3 +297,105 @@ StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
    at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 107
 TargetSite:	System.Object get_Item(Int32)
 
+8/13/2014 12:55:03 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 177
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 74
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 93
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 107
+TargetSite:	System.Object get_Item(Int32)
+
+8/13/2014 12:55:17 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 177
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 74
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 93
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 107
+TargetSite:	System.Object get_Item(Int32)
+
+8/13/2014 1:56:17 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 177
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 74
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 93
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 107
+TargetSite:	System.Object get_Item(Int32)
+
+8/13/2014 10:06:26 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 178
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 75
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 94
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 108
+TargetSite:	System.Object get_Item(Int32)
+
+8/13/2014 10:07:59 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 178
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 75
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 94
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 108
+TargetSite:	System.Object get_Item(Int32)
+
+8/13/2014 10:12:07 PM
+Message:	Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+Source:		mscorlib
+StackTrace:	   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Windows.Forms.DataGridViewSelectedRowCollection.get_Item(Int32 index)
+   at MRMaintenance.MainForm.dgview_SelectionChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 177
+   at System.Windows.Forms.DataGridView.OnSelectionChanged(EventArgs e)
+   at System.Windows.Forms.DataGridView.FlushSelectionChanged()
+   at System.Windows.Forms.DataGridView.ClearSelection()
+   at System.Windows.Forms.DataGridView.set_CurrentCell(DataGridViewCell value)
+   at System.Windows.Forms.DataGridView.set_DataSource(Object value)
+   at MRMaintenance.MainForm.FillData() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 75
+   at MRMaintenance.MainForm.ResetControlBindings() in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 97
+   at MRMaintenance.MainForm.cboFacilities_SelectedIndexChanged(Object sender, EventArgs e) in c:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\MainForm.cs:line 111
+TargetSite:	System.Object get_Item(Int32)
+

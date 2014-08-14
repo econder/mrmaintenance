@@ -46,14 +46,14 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId)
+		public DataTable LoadByFacility(Facility facility)
 		{
 
 			LocationDA da = new LocationDA();
 			
 			try
 			{
-				return da.LoadByFacility(facilityId);
+				return da.LoadByFacility(facility);
 			}
 			catch
 			{

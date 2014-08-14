@@ -126,6 +126,33 @@ namespace MRMaintenance.Data
 		}
 		
 		
+		public string GetLink(EquipmentDoc equipmentDoc)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT equipDocLink FROM EquipmentDocs WHERE equipDocId=@equipDocId", dbConn);
+				
+				cmd.Parameters.AddWithValue("@equipDocId", equipmentDoc.ID);
+				
+				try
+				{
+					string sLink = Convert.ToString(cmd.ExecuteScalar());
+					return sLink;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
 		public int Insert(EquipmentDoc equipmentDoc)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))

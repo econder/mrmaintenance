@@ -83,6 +83,20 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public string GetLink(EquipmentDoc equipmentDoc)
+		{
+			EquipmentDocDA da = new EquipmentDocDA();
+			try
+			{
+				return da.GetLink(equipmentDoc);
+			}
+			catch
+			{
+				throw;
+			}
+		}
+		
+		
 		public int Insert(EquipmentDoc equipmentDoc)
 		{
 			EquipmentDocDA da = new EquipmentDocDA();

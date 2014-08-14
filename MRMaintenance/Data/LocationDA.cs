@@ -59,13 +59,13 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId)
+		public DataTable LoadByFacility(Facility facility)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("SELECT * FROM Locations WHERE facId=@facId ORDER BY name", dbConn);
-				cmd.Parameters.AddWithValue("@facId", facilityId);
+				cmd.Parameters.AddWithValue("@facId", facility.ID);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("FacilityLocations");

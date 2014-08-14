@@ -45,51 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadByFacility(long facilityId, int dueDateDeadband)
-		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
-			
-			try
-			{
-				return da.LoadByFacility(facilityId, dueDateDeadband);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
 		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
 		{
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
-				return da.LoadByFacility(facility.ID, dueDateDeadband);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
-		public DataTable LoadByFacilityBrief(long facilityId, int dueDateDeadband)
-		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
-			
-			try
-			{
-				return da.LoadByFacilityBrief(facilityId, dueDateDeadband);
+				return da.LoadByFacility(facility, dueDateDeadband);
 			}
 			catch
 			{
@@ -108,26 +70,7 @@ namespace MRMaintenance.BusinessAccess
 			
 			try
 			{
-				return da.LoadByFacilityBrief(facility.ID, dueDateDeadband);
-			}
-			catch
-			{
-				throw;
-			}
-			finally
-			{
-				da = null;
-			}
-		}
-		
-		
-		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
-		{
-			WorkOrderRequestDA da = new WorkOrderRequestDA();
-			
-			try
-			{
-				return da.LoadByEquipment(equipmentId, dueDateDeadband);
+				return da.LoadByFacilityBrief(facility, dueDateDeadband);
 			}
 			catch
 			{
@@ -146,7 +89,7 @@ namespace MRMaintenance.BusinessAccess
 			
 			try
 			{
-				return da.LoadByEquipment(equipment.ID, dueDateDeadband);
+				return da.LoadByEquipment(equipment, dueDateDeadband);
 			}
 			catch
 			{

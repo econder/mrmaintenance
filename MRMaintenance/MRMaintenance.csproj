@@ -105,6 +105,7 @@
     <Compile Include="BusinessAccess\LocationBA.cs" />
     <Compile Include="BusinessAccess\ManufacturerBA.cs" />
     <Compile Include="BusinessAccess\PartBA.cs" />
+    <Compile Include="BusinessAccess\PriorityBA.cs" />
     <Compile Include="BusinessAccess\SizeUnitBA.cs" />
     <Compile Include="BusinessAccess\StateBA.cs" />
     <Compile Include="BusinessAccess\TaskBA.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="BusinessObjects\Location.cs" />
     <Compile Include="BusinessObjects\Manufacturer.cs" />
     <Compile Include="BusinessObjects\Part.cs" />
+    <Compile Include="BusinessObjects\Priority.cs" />
     <Compile Include="BusinessObjects\State.cs" />
     <Compile Include="BusinessObjects\Task.cs" />
     <Compile Include="BusinessObjects\TaskPart.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Data\LocationDA.cs" />
     <Compile Include="Data\ManufacturerDA.cs" />
     <Compile Include="Data\PartDA.cs" />
+    <Compile Include="Data\PriorityDA.cs" />
     <Compile Include="Data\StateDA.cs" />
     <Compile Include="Data\TaskDA.cs" />
     <Compile Include="Data\TaskPartDA.cs" />

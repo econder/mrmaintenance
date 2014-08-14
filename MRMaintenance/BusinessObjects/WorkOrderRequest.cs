@@ -37,5 +37,6 @@ namespace MRMaintenance.BusinessObjects
 		public long TimeIntervalID { get; set; }
 		public bool Enabled { get; set; }
 		public DateTime NextDue { get; set; }
+		public int Priority { get; set; }
 	}
 }

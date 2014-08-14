@@ -35,7 +35,11 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Equipment ORDER BY equipName", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT dbo.Equipment.equipId, dbo.Equipment.locId, dbo.Equipment.equipTypeId, dbo.Equipment.manId, dbo.Equipment.vendorId," + 
+														" dbo.Equipment.modelId, dbo.Equipment.equipNumber, dbo.Equipment.equipName, dbo.Equipment.descr, dbo.Equipment.equipSerial," +  
+                      									" dbo.Equipment.hmiRuntimeTagname, dbo.Equipment.hmiCyclesTagname, dbo.Equipment.equipMccLoc, dbo.Equipment.equipMccPanel" + 
+														" FROM dbo.Equipment" + 
+														" ORDER BY dbo.Equipment.equipName", dbConn);
 				
 				DataTable dt = new DataTable("Equipment");
 				
