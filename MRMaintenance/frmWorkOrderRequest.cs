@@ -70,7 +70,6 @@ namespace MRMaintenance
 				winel.WriteEvent(ex);
 				return;
 			}
-				
 		}
 		
 		
@@ -98,7 +97,7 @@ namespace MRMaintenance
 			
 			//Load and bind departments combobox
 			cboDept.DataSource = dept.Load();
-			cboDept.DisplayMember = "deptName";
+			cboDept.DisplayMember = "name";
 			cboDept.ValueMember = "deptId";
 			cboDept.DataBindings.Add("SelectedValue", dt, "deptId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
 			

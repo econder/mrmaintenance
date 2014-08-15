@@ -68,8 +68,6 @@ namespace MRMaintenance
 			// cboEquip
 			// 
 			this.cboEquip.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboEquip.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboEquip.FormattingEnabled = true;
 			this.cboEquip.Location = new System.Drawing.Point(241, 76);
 			this.cboEquip.Name = "cboEquip";
 			this.cboEquip.Size = new System.Drawing.Size(265, 21);
@@ -127,8 +125,6 @@ namespace MRMaintenance
 			// cboDept
 			// 
 			this.cboDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboDept.FormattingEnabled = true;
 			this.cboDept.Location = new System.Drawing.Point(241, 118);
 			this.cboDept.Name = "cboDept";
 			this.cboDept.Size = new System.Drawing.Size(135, 21);
@@ -140,7 +136,6 @@ namespace MRMaintenance
 			this.cboInterval.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboInterval.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cboInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboInterval.FormattingEnabled = true;
 			this.cboInterval.Location = new System.Drawing.Point(406, 327);
 			this.cboInterval.Name = "cboInterval";
 			this.cboInterval.Size = new System.Drawing.Size(100, 21);
@@ -276,7 +271,7 @@ namespace MRMaintenance
 			// 
 			this.cboPriority.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cboPriority.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboPriority.FormattingEnabled = true;
+			this.cboPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboPriority.Location = new System.Drawing.Point(382, 118);
 			this.cboPriority.Name = "cboPriority";
 			this.cboPriority.Size = new System.Drawing.Size(124, 21);

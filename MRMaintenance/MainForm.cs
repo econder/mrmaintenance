@@ -32,13 +32,10 @@ namespace MRMaintenance
 		private WorkOrderRequestBA workOrderReqBA;
 		private WorkOrderBA workOrderBA;
 		
-		private Facility facility;
 		private WorkOrderRequest workOrderReq;
 		
 		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
-		
-		
 		
 		
 		public MainForm()
@@ -49,7 +46,7 @@ namespace MRMaintenance
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
 			
-			facility = new Facility();
+			Facility facility = new Facility();
 			
 			//Create work order request object to hold datagridview
 			//information as row selection changes
@@ -77,6 +74,9 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
+			Facility facility = new Facility();
+			facility.ID = (long)cboFacilities.SelectedValue;
+			
 			//Load DataGridView with WorkOrdersDueByFacility
 			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 300);
 			if(dtWorkOrderRequests.Rows.Count > 0)
@@ -113,28 +113,10 @@ namespace MRMaintenance
 		
 		private void cboFacilities_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			try
-			{
-				facility = new Facility();
-				
-				//Load locations listbox with LocationsByFacility
-				facility.ID = (long)this.cboFacilities.SelectedValue;
-				dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
-				
-				this.ResetControlBindings();
-			}
-			catch(Exception ex)
-			{
-				//Catch null datetimepicker values and invalid indexes for emtpy datatables
-				//but ignore them since they are ok.
-				//Caught in its own catch block to prevent filling up the
-				//log file with useless errors that are unpreventable at this point.
-				throw;
-			}
-			finally
-			{
-				facility = null;
-			}
+			//Load locations listbox with LocationsByFacility
+			//facility.ID = (long)this.cboFacilities.SelectedValue;
+			//dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
+			this.ResetControlBindings();
 		}
 		
 		
@@ -148,53 +130,42 @@ namespace MRMaintenance
 		private void WorkOrderRequestsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmWorkOrderRequest form = new frmWorkOrderRequest();
-			form.ShowDialog();
+			form.ShowDialog(this);
 		}
 		
 		
 		private void LocationsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmLocations form = new frmLocations();
-			form.ShowDialog();
+			form.ShowDialog(this);
 		}
 		
 		
 		private void FacilitiesToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmFacility form = new frmFacility();
-			form.ShowDialog();
+			form.ShowDialog(this);
 		}
 		
 		
 		private void DepartmentsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmDepartment form = new frmDepartment();
-			form.ShowDialog();
+			form.ShowDialog(this);
 		}
 		
 		
 		private void ManufacturersToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmManufacturer form = new frmManufacturer();
-			form.ShowDialog();
+			form.ShowDialog(this);
 		}
 		
 		
 		private void VendorsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			frmVendor form = new frmVendor();
-			form.ShowDialog();
-		}
-		
-		
-		//Populated workOrderRequest class properties on selection change
-		private void dgview_SelectionChanged(object sender, EventArgs e)
-		{
-			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
-			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
-			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
-			workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
-			workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+			form.ShowDialog(this);
 		}
 		
 		
@@ -204,7 +175,10 @@ namespace MRMaintenance
 			if(e.RowIndex >= 0)
 			{
 				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
-				form.ShowDialog();
+				if(form.ShowDialog(this) == DialogResult.OK)
+				{
+					this.ResetControlBindings();
+				}
 			}
 		}
 		
@@ -216,9 +190,12 @@ namespace MRMaintenance
 			{
 				for(int i = 0; i < dgview.RowCount; i++)
 				{
-					if((int)dgview.Rows[i].Cells["Open Work Orders"].Value > 0)
+					if(dgview.Rows[i].Cells["Open Work Orders"].Value != DBNull.Value)
 					{
-						dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+						if(Convert.ToInt32(dgview.Rows[i].Cells["Open Work Orders"].Value) > 0)
+						{
+							dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+						}
 					}
 				}
 			}
@@ -228,7 +205,19 @@ namespace MRMaintenance
 		//Select row and display context menu on right-click
 		void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
+			//Handle left-click
+			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
+			{
+				//Populated workOrderRequest class properties on selection change
+				workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+				workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
+				workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
+				workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
+				workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+			}
+			
+			//Handle right-click
+			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
 			{
 				dgview.Rows[e.RowIndex].Selected = true;
 				Rectangle r = dgview.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
@@ -269,11 +258,9 @@ namespace MRMaintenance
 		}
 		
 		
-		
 		/********************************************************************
 		 * Display Reports
 		 ********************************************************************/
-		
 		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{

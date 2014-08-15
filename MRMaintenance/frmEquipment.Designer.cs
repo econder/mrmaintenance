@@ -103,7 +103,6 @@ namespace MRMaintenance
 			// cboFacility
 			// 
 			this.cboFacility.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboFacility.FormattingEnabled = true;
 			this.cboFacility.Location = new System.Drawing.Point(252, 29);
 			this.cboFacility.Name = "cboFacility";
 			this.cboFacility.Size = new System.Drawing.Size(153, 21);
@@ -121,8 +120,6 @@ namespace MRMaintenance
 			// cboLocation
 			// 
 			this.cboLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboLocation.FormattingEnabled = true;
 			this.cboLocation.Location = new System.Drawing.Point(420, 29);
 			this.cboLocation.Name = "cboLocation";
 			this.cboLocation.Size = new System.Drawing.Size(153, 21);
@@ -140,8 +137,6 @@ namespace MRMaintenance
 			// cboEquipType
 			// 
 			this.cboEquipType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboEquipType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboEquipType.FormattingEnabled = true;
 			this.cboEquipType.Location = new System.Drawing.Point(495, 294);
 			this.cboEquipType.Name = "cboEquipType";
 			this.cboEquipType.Size = new System.Drawing.Size(226, 21);
@@ -158,8 +153,6 @@ namespace MRMaintenance
 			// cboManufacturer
 			// 
 			this.cboManufacturer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboManufacturer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboManufacturer.FormattingEnabled = true;
 			this.cboManufacturer.Location = new System.Drawing.Point(495, 118);
 			this.cboManufacturer.Name = "cboManufacturer";
 			this.cboManufacturer.Size = new System.Drawing.Size(226, 21);
@@ -177,8 +170,6 @@ namespace MRMaintenance
 			// cboVendor
 			// 
 			this.cboVendor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboVendor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboVendor.FormattingEnabled = true;
 			this.cboVendor.Location = new System.Drawing.Point(495, 161);
 			this.cboVendor.Name = "cboVendor";
 			this.cboVendor.Size = new System.Drawing.Size(226, 21);
@@ -334,8 +325,6 @@ namespace MRMaintenance
 			// cboModel
 			// 
 			this.cboModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cboModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cboModel.FormattingEnabled = true;
 			this.cboModel.Location = new System.Drawing.Point(495, 209);
 			this.cboModel.Name = "cboModel";
 			this.cboModel.Size = new System.Drawing.Size(226, 21);
@@ -460,7 +449,6 @@ namespace MRMaintenance
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Equipment";
-			this.TopMost = true;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}

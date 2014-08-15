@@ -233,7 +233,6 @@ namespace MRMaintenance
 			this.dgview.TabIndex = 1;
 			this.dgview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgview_CellDoubleClick);
 			this.dgview.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgview_CellMouseDown);
-			this.dgview.SelectionChanged += new System.EventHandler(this.dgview_SelectionChanged);
 			// 
 			// menuWorkOrderReq
 			// 

@@ -46,7 +46,7 @@ namespace MRMaintenance
 			dlg.Title = "Select file...";
 			dlg.Filter = "All files (*.*)|*.*";
 			
-			if(dlg.ShowDialog() == DialogResult.OK)
+			if(dlg.ShowDialog(this) == DialogResult.OK)
 			{
 				txtLink.Text = dlg.FileName;
 			}

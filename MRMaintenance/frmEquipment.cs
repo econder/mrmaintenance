@@ -163,6 +163,21 @@ namespace MRMaintenance
 		}
 		
 		
+		private void ResetWorkOrderRequestListBindings()
+		{
+			
+			Equipment equipment = new Equipment();
+			equipment.ID = (long)listEquip.SelectedValue;
+			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
+			listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
+			listWorkOrderReq.DisplayMember = "reqName";
+			listWorkOrderReq.ValueMember = "reqId";
+			listWorkOrderReq.DataBindings.Clear();
+			listWorkOrderReq.DataBindings.Add("SelectedValue", dtWorkOrderReq, "reqId", false, DataSourceUpdateMode.Never, -1);
+		}
+		
+		
 		private void cboFacility_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//Load and bind facility locations combobox
@@ -178,9 +193,10 @@ namespace MRMaintenance
 		
 		private void listEquip_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//Load and bind docs/links listbox
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
+			
+			//Load and bind docs/links listbox
 			EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
 			dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
 			listEquipDocs.DataSource = dtEquipDocs;
@@ -188,13 +204,14 @@ namespace MRMaintenance
 			listEquipDocs.ValueMember = "equipDocId";
 			
 			//Load and bind work order requests listbox
-			Facility facility = new Facility();
-			facility.ID = (long)cboFacility.SelectedValue;
+			/*
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderReq = workOrderReqBA.LoadByFacility(facility, 7);
+			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
 			listWorkOrderReq.DataSource = dtWorkOrderReq;
 			listWorkOrderReq.DisplayMember = "reqName";
 			listWorkOrderReq.ValueMember = "reqId";
+			*/
+			this.ResetWorkOrderRequestListBindings();
 		}
 		
 		
@@ -428,21 +445,24 @@ namespace MRMaintenance
 		void btnWORAdd_Click(object sender, EventArgs e)
 		{
 			frmWorkOrderRequest form = new frmWorkOrderRequest();
-			if(form.ShowDialog() == DialogResult.OK)
+			if(form.ShowDialog(this) == DialogResult.OK)
 			{
 				if(listWorkOrderReq.Items.Count > 0)
 				{
 					listWorkOrderReq.DataBindings.Clear();
 					dtWorkOrderReq.Clear();
 				}
-				
-				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+				/*
 				Equipment equipment = new Equipment();
 				equipment.ID = (long)listEquip.SelectedValue;
+				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+				dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
 				listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
 				listWorkOrderReq.DisplayMember = "reqName";
 				listWorkOrderReq.ValueMember = "reqId";
 				listWorkOrderReq.DataBindings.Add("SelectedValue", dtWorkOrderReq, "reqId", false, DataSourceUpdateMode.Never, -1);
+				*/
+				this.ResetWorkOrderRequestListBindings();
 			}
 		}
 		
@@ -454,6 +474,8 @@ namespace MRMaintenance
 			
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
 			workOrderReqBA.Delete(workOrderRequest);
+			
+			this.ResetWorkOrderRequestListBindings();
 		}
 	}
 }

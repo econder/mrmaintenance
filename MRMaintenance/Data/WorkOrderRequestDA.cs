@@ -141,12 +141,12 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDueByEquipment", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrderRequests" + 
+												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
+												" AND v_WorkOrderRequests.equipId = @equipId", dbConn);
 				
 				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
-				
-				cmd.CommandType = CommandType.StoredProcedure;
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("WorkOrderRequestsByEquipment");
@@ -181,8 +181,8 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqName", workOrderRequest.Name);
-					cmd.Parameters.AddWithValue("@enabled", workOrderRequest.Enabled);
 					cmd.Parameters.AddWithValue("@reqDescr", workOrderRequest.Description);
+					cmd.Parameters.AddWithValue("@enabled", workOrderRequest.Enabled);
 					cmd.Parameters.AddWithValue("@equipId", workOrderRequest.EquipmentID);
 					cmd.Parameters.AddWithValue("@deptId", workOrderRequest.DepartmentID);
 					cmd.Parameters.AddWithValue("@reqStartDate", workOrderRequest.StartDate);
