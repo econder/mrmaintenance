@@ -2249,7 +2249,7 @@ WHERE     (v_WorkOrders.woID = @workOrderId)</CommandText>
   <ReportParameters>
     <ReportParameter Name="workOrderId">
       <DataType>String</DataType>
-      <Prompt>work Order Id</Prompt>
+      <Prompt>Work Order ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <Language>en-US</Language>

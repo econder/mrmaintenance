@@ -23,7 +23,7 @@ namespace MRMaintenance
 			InitializeComponent();
 			
 			rptView.ServerReport.ReportPath = string.Format("/{0}", reportFileName);
-			rptView.ServerReport.ReportServerUrl = new Uri("http://ecvm-ww2014/reportserver");
+			rptView.ServerReport.ReportServerUrl = new Uri("http://ecvm-ww2014/reportserver/");
 			rptView.RefreshReport();
 		}
 	}

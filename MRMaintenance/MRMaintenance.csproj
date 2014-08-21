@@ -195,6 +195,10 @@
     <Compile Include="frmManufacturer.Designer.cs">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPart.cs" />
+    <Compile Include="frmPart.Designer.cs">
+      <DependentUpon>frmPart.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportViewer.cs" />
     <Compile Include="frmReportViewer.Designer.cs">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
@@ -251,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManufacturer.resx">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPart.resx">
+      <DependentUpon>frmPart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>

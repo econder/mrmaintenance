@@ -4,7 +4,7 @@
  * Created On: 	7/9/2014
  * 
  * Changes:
- * 
+ * 2014-08-21	Fixed bug that crashed app when right-clicking on WorkOrder to view report.
  *
  * *************************************************************************************************/
 using System;
@@ -272,8 +272,8 @@ namespace MRMaintenance
 		//Show Work Order Detail Report
 		void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			int id = (int)dgviewWO.SelectedRows[0].Cells["ID"].Value;
-			frmReportViewer form = new frmReportViewer(string.Format("WorkOrderDetailsByID?workOrderId={0}", id));
+			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
+			frmReportViewer form = new frmReportViewer(string.Format("z{0}", id));
 			form.Show(this);
 		}
 	}
