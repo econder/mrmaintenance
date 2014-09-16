@@ -67,6 +67,7 @@ namespace MRMaintenance
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.partsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
 			this.menuWorkOrderReq.SuspendLayout();
@@ -115,7 +116,8 @@ namespace MRMaintenance
 									this.facilitiesToolStripMenuItem,
 									this.departmentsToolStripMenuItem,
 									this.manufacturersToolStripMenuItem,
-									this.vendorsToolStripMenuItem});
+									this.vendorsToolStripMenuItem,
+									this.partsToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.viewToolStripMenuItem.Text = "&Edit";
@@ -339,6 +341,13 @@ namespace MRMaintenance
 			this.label3.TabIndex = 7;
 			this.label3.Text = "Work Orders Due";
 			// 
+			// partsToolStripMenuItem
+			// 
+			this.partsToolStripMenuItem.Name = "partsToolStripMenuItem";
+			this.partsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.partsToolStripMenuItem.Text = "&Parts";
+			this.partsToolStripMenuItem.Click += new System.EventHandler(this.PartsToolStripMenuItemClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +375,7 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem partsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ContextMenuStrip menuWorkOrders;
 		private System.Windows.Forms.Label label3;

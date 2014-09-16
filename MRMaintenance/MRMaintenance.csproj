@@ -112,6 +112,7 @@
     <Compile Include="BusinessAccess\TaskPartBA.cs" />
     <Compile Include="BusinessAccess\TimeIntervalBA.cs" />
     <Compile Include="BusinessAccess\ToolBA.cs" />
+    <Compile Include="BusinessAccess\UnitBA.cs" />
     <Compile Include="BusinessAccess\VendorBA.cs" />
     <Compile Include="BusinessAccess\VendorContactBA.cs" />
     <Compile Include="BusinessAccess\WorkOrderBA.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="BusinessObjects\TimeInterval.cs" />
     <Compile Include="BusinessObjects\Tool.cs" />
     <Compile Include="BusinessObjects\SizeUnit.cs" />
+    <Compile Include="BusinessObjects\Unit.cs" />
     <Compile Include="BusinessObjects\Vendor.cs" />
     <Compile Include="BusinessObjects\VendorContact.cs" />
     <Compile Include="BusinessObjects\WorkOrder.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="Data\TimeIntervalDA.cs" />
     <Compile Include="Data\ToolDA.cs" />
     <Compile Include="Data\SizeUnitDA.cs" />
+    <Compile Include="Data\UnitDA.cs" />
     <Compile Include="Data\VendorContactDA.cs" />
     <Compile Include="Data\VendorDA.cs" />
     <Compile Include="Data\WorkOrderDA.cs" />

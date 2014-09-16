@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   	PartBA.cs
+ * Class:   	UnitBA.cs
  * Created By: 	Eric Conder
- * Created On: 	8/7/2014
+ * Created On: 	8/15/2014
  * 
  * Changes:
  * 
@@ -16,11 +16,11 @@ using MRMaintenance.Data;
 namespace MRMaintenance.BusinessAccess
 {
 	/// <summary>
-	/// Description of PartBA.
+	/// Description of UnitBA.
 	/// </summary>
-	public class PartBA
+	public class UnitBA
 	{
-		public PartBA()
+		public UnitBA()
 		{
 		}
 		
@@ -28,7 +28,7 @@ namespace MRMaintenance.BusinessAccess
 		public DataTable Load()
 		{
 
-			PartDA da = new PartDA();
+			UnitDA da = new UnitDA();
 			
 			try
 			{
@@ -45,13 +45,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Insert(Part part)
+		public int Insert(Unit unit)
 		{
-			PartDA da = new PartDA();
+			UnitDA da = new UnitDA();
 			
 			try
 			{
-				return da.Insert(part);
+				return da.Insert(unit);
 			}
 			catch
 			{
@@ -64,17 +64,17 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Update(Part part)
+		public int Update(Unit unit)
 		{
-			PartDA da = new PartDA();
+			UnitDA da = new UnitDA();
 			
 			try
 			{
-				return da.Update(part);
+				return da.Update(unit);
 			}
 			catch
 			{
-					throw;
+				throw;
 			}
 			finally
 			{
@@ -83,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public int Delete(Part part)
+		public int Delete(Unit unit)
 		{
-			PartDA da = new PartDA();
+			UnitDA da = new UnitDA();
 			
 			try
 			{
-				return da.Delete(part);
+				return da.Delete(unit);
 			}
 			catch
 			{

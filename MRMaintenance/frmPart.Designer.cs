@@ -39,7 +39,7 @@ namespace MRMaintenance
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPart));
 			this.btnOK = new System.Windows.Forms.Button();
-			this.btnEquipNew = new System.Windows.Forms.Button();
+			this.btnPartNew = new System.Windows.Forms.Button();
 			this.btnPartRemove = new System.Windows.Forms.Button();
 			this.listParts = new System.Windows.Forms.ListBox();
 			this.btnUpdate = new System.Windows.Forms.Button();
@@ -70,22 +70,23 @@ namespace MRMaintenance
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(75, 23);
 			this.btnOK.TabIndex = 104;
-			this.btnOK.Text = "&OK";
+			this.btnOK.Text = "&Save";
 			this.btnOK.UseVisualStyleBackColor = true;
 			// 
-			// btnEquipNew
+			// btnPartNew
 			// 
-			this.btnEquipNew.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipNew.Image")));
-			this.btnEquipNew.Location = new System.Drawing.Point(209, 293);
-			this.btnEquipNew.Name = "btnEquipNew";
-			this.btnEquipNew.Size = new System.Drawing.Size(26, 23);
-			this.btnEquipNew.TabIndex = 103;
-			this.btnEquipNew.UseVisualStyleBackColor = true;
+			this.btnPartNew.Image = ((System.Drawing.Image)(resources.GetObject("btnPartNew.Image")));
+			this.btnPartNew.Location = new System.Drawing.Point(177, 293);
+			this.btnPartNew.Name = "btnPartNew";
+			this.btnPartNew.Size = new System.Drawing.Size(26, 23);
+			this.btnPartNew.TabIndex = 103;
+			this.btnPartNew.UseVisualStyleBackColor = true;
+			this.btnPartNew.Click += new System.EventHandler(this.btnPartNew_Click);
 			// 
 			// btnPartRemove
 			// 
 			this.btnPartRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnPartRemove.Image")));
-			this.btnPartRemove.Location = new System.Drawing.Point(177, 293);
+			this.btnPartRemove.Location = new System.Drawing.Point(209, 293);
 			this.btnPartRemove.Name = "btnPartRemove";
 			this.btnPartRemove.Size = new System.Drawing.Size(26, 23);
 			this.btnPartRemove.TabIndex = 102;
@@ -266,7 +267,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.numSize);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.btnOK);
-			this.Controls.Add(this.btnEquipNew);
+			this.Controls.Add(this.btnPartNew);
 			this.Controls.Add(this.btnPartRemove);
 			this.Controls.Add(this.listParts);
 			this.Controls.Add(this.btnUpdate);
@@ -316,7 +317,7 @@ namespace MRMaintenance
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.ListBox listParts;
 		private System.Windows.Forms.Button btnPartRemove;
-		private System.Windows.Forms.Button btnEquipNew;
+		private System.Windows.Forms.Button btnPartNew;
 		private System.Windows.Forms.Button btnOK;
 	}
 }

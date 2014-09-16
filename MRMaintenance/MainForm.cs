@@ -169,6 +169,13 @@ namespace MRMaintenance
 		}
 		
 		
+		void PartsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			frmPart form = new frmPart();
+			form.ShowDialog(this);
+		}
+		
+		
 		//Show work order request form
 		private void dgview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -270,7 +277,7 @@ namespace MRMaintenance
 		
 		
 		//Show Work Order Detail Report
-		void ToolStripMenuItem1Click(object sender, EventArgs e)
+		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
 			frmReportViewer form = new frmReportViewer(string.Format("z{0}", id));

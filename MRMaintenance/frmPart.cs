@@ -25,11 +25,9 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class frmPart : Form
 	{
-		public frmPart()
+		public 	frmPart()
 		{
-			this.Initialize();
-			
-			partBA = new PartBA();
+			this.Initialize(null);
 		}
 		
 		
@@ -45,6 +43,11 @@ namespace MRMaintenance
 		{
 			InitializeComponent();
 			
+			// Select part if specified
+			if(partId != null)
+			{
+				listParts.SelectedItem = partId;
+			}
 			
 			/** Load and bind controls linked tables **/
 			
@@ -65,6 +68,8 @@ namespace MRMaintenance
 			cboUnits.DataSource = unitBA.Load();
 			cboUnits.DisplayMember = "unitName";
 			cboUnits.ValueMember = "unitId";
+			
+			this.FillData();
 		}
 		
 		
@@ -82,14 +87,11 @@ namespace MRMaintenance
 			//Load and bind part name textbox
 			txtName.DataBindings.Add("Text", dtParts, "partName", false, DataSourceUpdateMode.Never, "");
 			
-			//Load and bind part number textbox
-			txtPartNumber.DataBindings.Add("Text", dtParts, "partNumber", false, DataSourceUpdateMode.Never, "");
-			
 			//Load and bind part description textbox
 			txtDescr.DataBindings.Add("Text", dtParts, "partDescr", false, DataSourceUpdateMode.Never, "");
 			
-			//Load and bind part name textbox
-			txtName.DataBindings.Add("Text", dtParts, "partName", false, DataSourceUpdateMode.Never, "");
+			//Load and bind part number textbox
+			txtPartNumber.DataBindings.Add("Text", dtParts, "partNumber", false, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind size numeric control
 			numSize.DataBindings.Add("Value", dtParts, "partSize", false, DataSourceUpdateMode.Never, 0);
@@ -138,7 +140,38 @@ namespace MRMaintenance
 		
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
+			Part part = new Part();
+			part.Name = txtName.Text;
+			part.Description = txtDescr.Text;
+			part.PartNumber = txtPartNumber.Text;
+			if(cboManufacturer.SelectedValue != null)
+				part.ManufacturerID = (long)cboManufacturer.SelectedValue;
+			if(cboVendor.SelectedValue != null)
+				part.VendorID = (long)cboVendor.SelectedValue;
+			part.Size = (float)numSize.Value;
+			if(cboUnits.SelectedValue != null)
+				part.SizeUnit = (long)cboUnits.SelectedValue;
 			
+			PartBA partBA = new PartBA();
+			partBA.Update(part);
+			
+			this.ResetControlBindings();
+		}
+		
+		
+		private void btnPartNew_Click(object sender, EventArgs e)
+		{
+			//Deselect selected item in listbox
+			listParts.SelectedIndex = -1;
+			
+			//Clear out controls
+			txtName.Clear();
+			txtPartNumber.Clear();
+			txtDescr.Clear();
+			cboManufacturer.SelectedIndex = -1;
+			cboVendor.SelectedIndex = -1;
+			numSize.Value = 0;
+			cboUnits.SelectedIndex = -1;
 		}
 	}
 }

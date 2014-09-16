@@ -36,7 +36,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Parts", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Parts ORDER BY partName", dbConn);
 				
 				DataTable dt = new DataTable("Parts");
 				
@@ -65,7 +65,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Parts(manId, venId, name, descr, number, size, unitId)" +
+				SqlCommand cmd = new SqlCommand("INSERT INTO Parts(manId, venId, partName, partDescr, partNumber, partSize, unitId)" +
 				                                " VALUES(@manId, @venId, @name, @descr, @number, @size, @unitId)", dbConn);
 				
 				try
@@ -99,7 +99,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE Parts SET manId=@manId, venId=@venId, name=@name, descr=@descr, number=@number, size=@size, unitId=@unitId" +
+				SqlCommand cmd = new SqlCommand("UPDATE Parts SET manId=@manId, venId=@venId, partName=@name, partDescr=@descr, partNumber=@number, partSize=@size, unitId=@unitId" +
 				                                " WHERE partId=@partId", dbConn);
 				
 				try
