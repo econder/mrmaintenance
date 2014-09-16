@@ -85,21 +85,21 @@ namespace MRMaintenance
 			listParts.ValueMember = "partId";
 			
 			//Load and bind part name textbox
-			txtName.DataBindings.Add("Text", dtParts, "partName", false, DataSourceUpdateMode.Never, "");
+			txtName.DataBindings.Add("Text", dtParts, "partName", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind part description textbox
-			txtDescr.DataBindings.Add("Text", dtParts, "partDescr", false, DataSourceUpdateMode.Never, "");
+			txtDescr.DataBindings.Add("Text", dtParts, "partDescr", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind part number textbox
-			txtPartNumber.DataBindings.Add("Text", dtParts, "partNumber", false, DataSourceUpdateMode.Never, "");
+			txtPartNumber.DataBindings.Add("Text", dtParts, "partNumber", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind size numeric control
-			numSize.DataBindings.Add("Value", dtParts, "partSize", false, DataSourceUpdateMode.Never, 0);
+			numSize.DataBindings.Add("Value", dtParts, "partSize", true, DataSourceUpdateMode.Never, 0);
 			
 			//Add databindings to linked table controls
-			cboManufacturer.DataBindings.Add("SelectedValue", dtParts, "manId", false, DataSourceUpdateMode.Never, -1);
-			cboVendor.DataBindings.Add("SelectedValue", dtParts, "venId", false, DataSourceUpdateMode.Never, -1);
-			cboUnits.DataBindings.Add("SelectedValue", dtParts, "unitId", false, DataSourceUpdateMode.Never, -1);
+			cboManufacturer.DataBindings.Add("SelectedValue", dtParts, "manId", true, DataSourceUpdateMode.Never, -1);
+			cboVendor.DataBindings.Add("SelectedValue", dtParts, "venId", true, DataSourceUpdateMode.Never, -1);
+			cboUnits.DataBindings.Add("SelectedValue", dtParts, "unitId", true, DataSourceUpdateMode.Never, -1);
 		}
 		
 		
@@ -138,27 +138,6 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			Part part = new Part();
-			part.Name = txtName.Text;
-			part.Description = txtDescr.Text;
-			part.PartNumber = txtPartNumber.Text;
-			if(cboManufacturer.SelectedValue != null)
-				part.ManufacturerID = (long)cboManufacturer.SelectedValue;
-			if(cboVendor.SelectedValue != null)
-				part.VendorID = (long)cboVendor.SelectedValue;
-			part.Size = (float)numSize.Value;
-			if(cboUnits.SelectedValue != null)
-				part.SizeUnit = (long)cboUnits.SelectedValue;
-			
-			PartBA partBA = new PartBA();
-			partBA.Update(part);
-			
-			this.ResetControlBindings();
-		}
-		
-		
 		private void btnPartNew_Click(object sender, EventArgs e)
 		{
 			//Deselect selected item in listbox
@@ -172,6 +151,40 @@ namespace MRMaintenance
 			cboVendor.SelectedIndex = -1;
 			numSize.Value = 0;
 			cboUnits.SelectedIndex = -1;
+		}
+		
+		
+		void btnSave_Click(object sender, EventArgs e)
+		{
+			Part part = new Part();
+			part.Name = txtName.Text;
+			part.Description = txtDescr.Text;
+			part.PartNumber = txtPartNumber.Text;
+			
+			if(cboManufacturer.SelectedValue != null)
+				part.ManufacturerID = (long)cboManufacturer.SelectedValue;
+			
+			if(cboVendor.SelectedValue != null)
+				part.VendorID = (long)cboVendor.SelectedValue;
+			
+			part.Size = (float)numSize.Value;
+			
+			if(cboUnits.SelectedValue != null)
+				part.SizeUnit = (long)cboUnits.SelectedValue;
+			
+			PartBA partBA = new PartBA();
+			
+			if(listParts.SelectedIndex == -1)
+			{
+				partBA.Insert(part);
+			}
+			else
+			{
+				part.ID = (long)listParts.SelectedValue;
+				partBA.Update(part);
+			}
+			
+			this.ResetControlBindings();
 		}
 	}
 }

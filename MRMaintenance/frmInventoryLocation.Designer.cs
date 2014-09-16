@@ -1,7 +1,7 @@
 ﻿/***************************************************************************************************
- * Class:   MRDbConnection.cs
- * Created By: Eric Conder
- * Created On: 7/25/2014
+ * Class:   	frmInventoryLocation.cs
+ * Created By: 	Eric Conder
+ * Created On: 8/16/2014
  * 
  * Changes:
  * 
@@ -9,7 +9,7 @@
  * *************************************************************************************************/
 namespace MRMaintenance
 {
-	partial class frmDepartment
+	partial class frmInventoryLocation
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -37,14 +37,15 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventoryLocation));
 			this.btnClose = new System.Windows.Forms.Button();
-			this.btnUpdate = new System.Windows.Forms.Button();
-			this.btnRemove = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
 			this.listLoc = new System.Windows.Forms.ListBox();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.btnNew = new System.Windows.Forms.Button();
+			this.btnRemove = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnClose
@@ -57,36 +58,6 @@ namespace MRMaintenance
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Location = new System.Drawing.Point(350, 46);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 3;
-			this.btnUpdate.Text = "&Update";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-			// 
-			// btnRemove
-			// 
-			this.btnRemove.Location = new System.Drawing.Point(160, 147);
-			this.btnRemove.Name = "btnRemove";
-			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 1;
-			this.btnRemove.Text = "&Remove";
-			this.btnRemove.UseVisualStyleBackColor = true;
-			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Location = new System.Drawing.Point(431, 46);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 4;
-			this.btnAdd.Text = "&Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// listLoc
 			// 
@@ -110,7 +81,7 @@ namespace MRMaintenance
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 20);
 			this.label2.TabIndex = 57;
-			this.label2.Text = "Department Name";
+			this.label2.Text = "Location Name";
 			// 
 			// label1
 			// 
@@ -118,18 +89,48 @@ namespace MRMaintenance
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(100, 20);
 			this.label1.TabIndex = 60;
-			this.label1.Text = "Departments";
+			this.label1.Text = "Inventory Locations";
 			// 
-			// frmDepartment
+			// btnSave
+			// 
+			this.btnSave.Location = new System.Drawing.Point(351, 175);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.TabIndex = 107;
+			this.btnSave.Text = "&Save";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// btnNew
+			// 
+			this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+			this.btnNew.Location = new System.Drawing.Point(177, 147);
+			this.btnNew.Name = "btnNew";
+			this.btnNew.Size = new System.Drawing.Size(26, 23);
+			this.btnNew.TabIndex = 106;
+			this.btnNew.UseVisualStyleBackColor = true;
+			this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+			// 
+			// btnRemove
+			// 
+			this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+			this.btnRemove.Location = new System.Drawing.Point(209, 147);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(26, 23);
+			this.btnRemove.TabIndex = 105;
+			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			// 
+			// frmInventoryLocation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(513, 204);
-			this.Controls.Add(this.btnClose);
-			this.Controls.Add(this.btnUpdate);
+			this.Controls.Add(this.btnSave);
+			this.Controls.Add(this.btnNew);
 			this.Controls.Add(this.btnRemove);
-			this.Controls.Add(this.btnAdd);
+			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.listLoc);
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
@@ -137,23 +138,23 @@ namespace MRMaintenance
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmDepartment";
+			this.Name = "frmInventoryLocation";
 			this.Padding = new System.Windows.Forms.Padding(3);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Departments";
+			this.Text = "Inventory Locations";
 			this.TopMost = true;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Button btnNew;
+		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.ListBox listLoc;
-		private System.Windows.Forms.Button btnAdd;
-		private System.Windows.Forms.Button btnRemove;
-		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Button btnClose;
 	}
 }

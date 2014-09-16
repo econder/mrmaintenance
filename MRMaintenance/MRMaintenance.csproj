@@ -190,6 +190,14 @@
     <Compile Include="frmEquipment.Designer.cs">
       <DependentUpon>frmEquipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInventory.cs" />
+    <Compile Include="frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventoryLocation.cs" />
+    <Compile Include="frmInventoryLocation.Designer.cs">
+      <DependentUpon>frmInventoryLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLocations.cs" />
     <Compile Include="frmLocations.Designer.cs">
       <DependentUpon>frmLocations.cs</DependentUpon>
@@ -252,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacility.resx">
       <DependentUpon>frmFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryLocation.resx">
+      <DependentUpon>frmInventoryLocation.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLocations.resx">
       <DependentUpon>frmLocations.cs</DependentUpon>
