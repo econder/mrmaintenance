@@ -45,6 +45,25 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public DataTable LoadCountByLocation(Inventory inventory)
+		{
+			InventoryDA da = new InventoryDA();
+			
+			try
+			{
+				return da.LoadCountByLocation(inventory);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
 		public int Insert(Inventory inventory)
 		{
 			InventoryDA da = new InventoryDA();

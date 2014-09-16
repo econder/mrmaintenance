@@ -60,6 +60,41 @@ namespace MRMaintenance.Data
 		}
 		
 		
+		public DataTable LoadCountByLocation(Inventory inventory)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT InventoryLocations.name, Inventory.qty" + 
+				                                       " FROM Inventory INNER JOIN InventoryLocations" +
+				                                       " ON InventoryLocations.invLocId=Inventory.invId" +
+				                                       " WHERE Inventory.partId=@partId", dbConn);
+				
+				cmd.Parameters.AddWithValue("partId", inventory.PartID);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("InventoryPartsCount");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
 		public int Insert(Inventory inventory)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))

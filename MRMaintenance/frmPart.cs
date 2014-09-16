@@ -25,7 +25,9 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class frmPart : Form
 	{
-		public 	frmPart()
+		private DataTable dtPartsInv;
+		
+		public frmPart()
 		{
 			this.Initialize(null);
 		}
@@ -68,6 +70,9 @@ namespace MRMaintenance
 			cboUnits.DataSource = unitBA.Load();
 			cboUnits.DisplayMember = "unitName";
 			cboUnits.ValueMember = "unitId";
+			
+			//Initialize dtPartsInv
+			this.dtPartsInv = new DataTable();
 			
 			this.FillData();
 		}
@@ -122,7 +127,27 @@ namespace MRMaintenance
 		
 		private void listParts_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//Not needed unless querying for linked data on each part change
+			//Load parts table data
+			Inventory inv = new Inventory();
+			inv.PartID = (long)listParts.SelectedValue;
+			InventoryBA invBA = new InventoryBA();
+			this.dtPartsInv = invBA.LoadCountByLocation(inv);
+			
+			//Load and bind parts listbox
+			listInvLoc.DataSource = dtPartsInv;
+			listInvLoc.DisplayMember = "name";
+			listInvLoc.ValueMember = "invLocId";
+			
+			//Bind count labels to dtPartsInv datatable
+			
+		}
+		
+		
+		private void listInvLoc_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//Load inventory counts
+			lblLocCount.DataBindings.Add("Text", this.dtPartsInv, "qty", true, DataSourceUpdateMode.Never, "");
+			
 		}
 		
 		
