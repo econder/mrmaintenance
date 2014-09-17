@@ -194,6 +194,10 @@
     <Compile Include="frmInventory.Designer.cs">
       <DependentUpon>frmInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInventoryEdit.cs" />
+    <Compile Include="frmInventoryEdit.Designer.cs">
+      <DependentUpon>frmInventoryEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInventoryLocation.cs" />
     <Compile Include="frmInventoryLocation.Designer.cs">
       <DependentUpon>frmInventoryLocation.cs</DependentUpon>
@@ -263,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryEdit.resx">
+      <DependentUpon>frmInventoryEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventoryLocation.resx">
       <DependentUpon>frmInventoryLocation.Designer.cs</DependentUpon>

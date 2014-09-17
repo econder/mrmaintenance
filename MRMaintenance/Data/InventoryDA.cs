@@ -60,7 +60,7 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadCountByLocation(Inventory inventory)
+		public DataTable LoadLocationsByPart(Inventory inventory)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
@@ -68,14 +68,52 @@ namespace MRMaintenance.Data
 				SqlCommand cmd = new SqlCommand("SELECT Inventory.invLocId, InventoryLocations.name, Inventory.qty" +
 				                                " FROM Inventory INNER JOIN InventoryLocations" +
 				                                " ON InventoryLocations.invLocId=Inventory.invId" +
-				                                " WHERE Inventory.partId=@partId", dbConn);
+				                                " WHERE Inventory.partId=@partId" + 
+				                                " ORDER BY InventoryLocations.name", dbConn);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable("InventoryPartsCount");
+				DataTable dt = new DataTable("InventoryLocationsByPart");
 				
 				try
 				{
-					cmd.Parameters.AddWithValue("partId", inventory.PartID);
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
+					
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public DataTable LoadPartQtyByLocation(Inventory inventory)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT Inventory.invId, Inventory.invLocId, Parts.partName, Inventory.qty" +
+				                                " FROM Inventory INNER JOIN Parts" +
+				                                " ON Parts.partId=Inventory.partId" +
+				                                " WHERE Inventory.invLocId=@invLocId" + 
+				                                " AND Inventory.partId=@partId", dbConn);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("InventoryPartQtyByLocation");
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
 					
 					da.Fill(dt);
 					return dt;
@@ -139,6 +177,37 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
 					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
 					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		public int UpdateLocationPartQty(Inventory inventory)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("UPDATE Inventory SET qty=@qty" +
+				                                " WHERE invLocId=@invLocId" + 
+				                                " AND partId=@partId", dbConn);
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@qty", inventory.Quantity);
+					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
 					
 					return cmd.ExecuteNonQuery();
 				}

@@ -420,7 +420,9 @@ namespace MRMaintenance
 		
 		private void cboEquipType_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if(cboEquipType.SelectedText != cboEquipType.Text)
+			int i =  cboEquipType.FindStringExact(cboEquipType.Text);
+			
+			if(i == -1)
 			{
 				if(MessageBox.Show("Equipment type does not exist. Would you like to create it?", "",
 				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -428,6 +430,10 @@ namespace MRMaintenance
 					frmEquipmentType form = new frmEquipmentType();
 					form.ShowDialog(this);
 				}
+			}
+			else if(i == 0)
+			{
+				MessageBox.Show("Must select an equipment type.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 		}
 		

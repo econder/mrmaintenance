@@ -36,9 +36,9 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM InventoryLocation", dbConn);
+				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM InventoryLocations ORDER BY name", dbConn);
 				
-				DataTable dt = new DataTable("InventoryLocation");
+				DataTable dt = new DataTable("InventoryLocations");
 				
 				try
 				{

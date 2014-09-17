@@ -106,6 +106,10 @@ namespace MRMaintenance
 			cboManufacturer.DataBindings.Add("SelectedValue", dtParts, "manId", true, DataSourceUpdateMode.Never, -1);
 			cboVendor.DataBindings.Add("SelectedValue", dtParts, "venId", true, DataSourceUpdateMode.Never, -1);
 			cboUnits.DataBindings.Add("SelectedValue", dtParts, "unitId", true, DataSourceUpdateMode.Never, -1);
+			
+			//Select first part in list
+			if(listParts.Items.Count > 0)
+				listParts.SelectedItem = 0;
 		}
 		
 		
@@ -132,7 +136,7 @@ namespace MRMaintenance
 			Inventory inv = new Inventory();
 			inv.PartID = (long)listParts.SelectedValue;
 			InventoryBA invBA = new InventoryBA();
-			this.dtPartsInv = invBA.LoadCountByLocation(inv);
+			this.dtPartsInv = invBA.LoadLocationsByPart(inv);
 			
 			//Clear location inventory count
 			lblLocCount.Text = "--";
@@ -149,7 +153,24 @@ namespace MRMaintenance
 			
 			//Automatically select first inventory location in list
 			if(listInvLoc.Items.Count > 0)
+			{
 				listInvLoc.SelectedIndex = 0;
+				btnInvEdit.Enabled = true;
+				
+				if(listInvLoc.Items.Count > 1)
+				{
+					btnInvXfer.Enabled = true;
+				}
+				else
+				{
+					btnInvXfer.Enabled = false;
+				}
+				
+			}
+			else
+			{
+				btnInvEdit.Enabled = false;
+			}
 		}
 		
 		
@@ -189,7 +210,39 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnSave_Click(object sender, EventArgs e)
+		private void btnInvXfer_Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		
+		private void btnInvEdit_Click(object sender, EventArgs e)
+		{
+			Inventory inv = new Inventory();
+			inv.PartID = (long)listParts.SelectedValue;
+			inv.LocationID = (long)listInvLoc.SelectedValue;
+			
+			frmInventoryEdit form = new frmInventoryEdit(inv);
+			
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				//Clear previous data & bindings
+				dtPartsInv.Clear();
+				listInvLoc.DataBindings.Clear();
+				
+				//Load parts table data
+				InventoryBA invBA = new InventoryBA();
+				this.dtPartsInv = invBA.LoadLocationsByPart(inv);
+				
+				//Load and bind parts listbox
+				listInvLoc.DataSource = dtPartsInv;
+				listInvLoc.DisplayMember = "name";
+				listInvLoc.ValueMember = "invLocId";
+			}
+		}
+		
+		
+		private void btnSave_Click(object sender, EventArgs e)
 		{
 			Part part = new Part();
 			part.Name = txtName.Text;
@@ -220,6 +273,12 @@ namespace MRMaintenance
 			}
 			
 			this.ResetControlBindings();
+		}
+		
+		
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

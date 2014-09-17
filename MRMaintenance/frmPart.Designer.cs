@@ -64,12 +64,14 @@ namespace MRMaintenance
 			this.lblLocCount = new System.Windows.Forms.Label();
 			this.lblTotalCount = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
+			this.btnInvXfer = new System.Windows.Forms.Button();
+			this.btnInvEdit = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numSize)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(562, 630);
+			this.btnSave.Location = new System.Drawing.Point(563, 441);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
 			this.btnSave.TabIndex = 104;
@@ -123,12 +125,13 @@ namespace MRMaintenance
 			// btnClose
 			// 
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(643, 630);
+			this.btnClose.Location = new System.Drawing.Point(644, 441);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 91;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// txtDescr
 			// 
@@ -296,12 +299,34 @@ namespace MRMaintenance
 			this.label13.Text = "Total Count";
 			this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
+			// btnInvXfer
+			// 
+			this.btnInvXfer.Image = ((System.Drawing.Image)(resources.GetObject("btnInvXfer.Image")));
+			this.btnInvXfer.Location = new System.Drawing.Point(423, 384);
+			this.btnInvXfer.Name = "btnInvXfer";
+			this.btnInvXfer.Size = new System.Drawing.Size(26, 23);
+			this.btnInvXfer.TabIndex = 118;
+			this.btnInvXfer.UseVisualStyleBackColor = true;
+			this.btnInvXfer.Visible = false;
+			// 
+			// btnInvEdit
+			// 
+			this.btnInvEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnInvEdit.Image")));
+			this.btnInvEdit.Location = new System.Drawing.Point(455, 384);
+			this.btnInvEdit.Name = "btnInvEdit";
+			this.btnInvEdit.Size = new System.Drawing.Size(26, 23);
+			this.btnInvEdit.TabIndex = 120;
+			this.btnInvEdit.UseVisualStyleBackColor = true;
+			this.btnInvEdit.Click += new System.EventHandler(this.btnInvEdit_Click);
+			// 
 			// frmPart
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(728, 676);
+			this.Controls.Add(this.btnInvEdit);
+			this.Controls.Add(this.btnInvXfer);
 			this.Controls.Add(this.lblTotalCount);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.lblLocCount);
@@ -341,6 +366,8 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnInvEdit;
+		private System.Windows.Forms.Button btnInvXfer;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label lblTotalCount;
 		private System.Windows.Forms.Label lblLocCount;

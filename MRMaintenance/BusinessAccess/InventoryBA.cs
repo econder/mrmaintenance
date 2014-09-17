@@ -45,13 +45,32 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadCountByLocation(Inventory inventory)
+		public DataTable LoadLocationsByPart(Inventory inventory)
 		{
 			InventoryDA da = new InventoryDA();
 			
 			try
 			{
-				return da.LoadCountByLocation(inventory);
+				return da.LoadLocationsByPart(inventory);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public DataTable LoadPartQtyByLocation(Inventory inventory)
+		{
+			InventoryDA da = new InventoryDA();
+			
+			try
+			{
+				return da.LoadPartQtyByLocation(inventory);
 			}
 			catch
 			{
@@ -90,6 +109,25 @@ namespace MRMaintenance.BusinessAccess
 			try
 			{
 				return da.Update(inventory);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
+		public int UpdateLocationPartQty(Inventory inventory)
+		{
+			InventoryDA da = new InventoryDA();
+			
+			try
+			{
+				return da.UpdateLocationPartQty(inventory);
 			}
 			catch
 			{
