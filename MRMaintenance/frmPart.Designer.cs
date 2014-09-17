@@ -104,7 +104,6 @@ namespace MRMaintenance
 			this.listParts.Name = "listParts";
 			this.listParts.Size = new System.Drawing.Size(229, 355);
 			this.listParts.TabIndex = 78;
-			this.listParts.SelectedIndexChanged += new System.EventHandler(this.listParts_SelectedIndexChanged);
 			// 
 			// txtPartNumber
 			// 
@@ -248,7 +247,6 @@ namespace MRMaintenance
 			this.listInvLoc.Name = "listInvLoc";
 			this.listInvLoc.Size = new System.Drawing.Size(229, 173);
 			this.listInvLoc.TabIndex = 111;
-			this.listInvLoc.SelectedIndexChanged += new System.EventHandler(this.listInvLoc_SelectedIndexChanged);
 			// 
 			// label5
 			// 

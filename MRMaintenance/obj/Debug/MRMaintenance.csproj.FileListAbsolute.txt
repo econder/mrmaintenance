@@ -23,3 +23,5 @@ C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\Microso
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\Microsoft.Windows.Design.Extensibility.xml
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
+C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventory.resources
+C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryLocation.resources

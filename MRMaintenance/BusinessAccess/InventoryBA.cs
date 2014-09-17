@@ -119,5 +119,24 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+		
+		
+		public float PartCount(Inventory inventory)
+		{
+			InventoryDA da = new InventoryDA();
+			
+			try
+			{
+				return da.PartCount(inventory);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
 	}
 }

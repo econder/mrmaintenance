@@ -88,6 +88,7 @@ namespace MRMaintenance
 			listParts.DataSource = dtParts;
 			listParts.DisplayMember = "partName";
 			listParts.ValueMember = "partId";
+			this.listParts.SelectedIndexChanged += new System.EventHandler(this.listParts_SelectedIndexChanged);
 			
 			//Load and bind part name textbox
 			txtName.DataBindings.Add("Text", dtParts, "partName", true, DataSourceUpdateMode.Never, "");
@@ -133,21 +134,30 @@ namespace MRMaintenance
 			InventoryBA invBA = new InventoryBA();
 			this.dtPartsInv = invBA.LoadCountByLocation(inv);
 			
+			//Clear location inventory count
+			lblLocCount.Text = "--";
+			
+			//Load total inventory count
+			lblTotalCount.Text = string.Format("{0:N}", invBA.PartCount(inv));
+			
+			
 			//Load and bind parts listbox
 			listInvLoc.DataSource = dtPartsInv;
 			listInvLoc.DisplayMember = "name";
 			listInvLoc.ValueMember = "invLocId";
+			this.listInvLoc.SelectedIndexChanged += new System.EventHandler(this.listInvLoc_SelectedIndexChanged);
 			
-			//Bind count labels to dtPartsInv datatable
-			
+			//Automatically select first inventory location in list
+			if(listInvLoc.Items.Count > 0)
+				listInvLoc.SelectedIndex = 0;
 		}
 		
 		
 		private void listInvLoc_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//Load inventory counts
-			lblLocCount.DataBindings.Add("Text", this.dtPartsInv, "qty", true, DataSourceUpdateMode.Never, "");
-			
+			//Load inventory location count
+			lblLocCount.DataBindings.Clear();
+			lblLocCount.DataBindings.Add("Text", this.dtPartsInv, "qty", true, DataSourceUpdateMode.Never, "", "0,000.00");
 		}
 		
 		

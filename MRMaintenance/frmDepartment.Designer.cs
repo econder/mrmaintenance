@@ -41,7 +41,7 @@ namespace MRMaintenance
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.btnRemove = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
-			this.listLoc = new System.Windows.Forms.ListBox();
+			this.listDept = new System.Windows.Forms.ListBox();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -88,13 +88,13 @@ namespace MRMaintenance
 			this.btnAdd.UseVisualStyleBackColor = true;
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// listLoc
+			// listDept
 			// 
-			this.listLoc.FormattingEnabled = true;
-			this.listLoc.Location = new System.Drawing.Point(6, 20);
-			this.listLoc.Name = "listLoc";
-			this.listLoc.Size = new System.Drawing.Size(229, 121);
-			this.listLoc.TabIndex = 0;
+			this.listDept.FormattingEnabled = true;
+			this.listDept.Location = new System.Drawing.Point(6, 20);
+			this.listDept.Name = "listDept";
+			this.listDept.Size = new System.Drawing.Size(229, 121);
+			this.listDept.TabIndex = 0;
 			// 
 			// txtName
 			// 
@@ -130,7 +130,7 @@ namespace MRMaintenance
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.btnAdd);
-			this.Controls.Add(this.listLoc);
+			this.Controls.Add(this.listDept);
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -150,7 +150,7 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;
-		private System.Windows.Forms.ListBox listLoc;
+		private System.Windows.Forms.ListBox listDept;
 		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.Button btnRemove;
 		private System.Windows.Forms.Button btnUpdate;

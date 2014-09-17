@@ -65,18 +65,18 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT InventoryLocations.name, Inventory.qty" + 
-				                                       " FROM Inventory INNER JOIN InventoryLocations" +
-				                                       " ON InventoryLocations.invLocId=Inventory.invId" +
-				                                       " WHERE Inventory.partId=@partId", dbConn);
-				
-				cmd.Parameters.AddWithValue("partId", inventory.PartID);
+				SqlCommand cmd = new SqlCommand("SELECT Inventory.invLocId, InventoryLocations.name, Inventory.qty" +
+				                                " FROM Inventory INNER JOIN InventoryLocations" +
+				                                " ON InventoryLocations.invLocId=Inventory.invId" +
+				                                " WHERE Inventory.partId=@partId", dbConn);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable("InventoryPartsCount");
 				
 				try
 				{
+					cmd.Parameters.AddWithValue("partId", inventory.PartID);
+					
 					da.Fill(dt);
 					return dt;
 				}
@@ -168,6 +168,42 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@invId", inventory.ID);
 					
 					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}	
+			}
+		}
+		
+		
+		public float PartCount(Inventory inventory)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT SUM(qty) FROM Inventory WHERE partId=@partId", dbConn);
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
+					
+					object o = cmd.ExecuteScalar();
+					
+					if(o == DBNull.Value)
+					{
+						return 0;
+					}
+					else
+					{
+						return Convert.ToSingle(o);
+					}
 				}
 				catch
 				{
