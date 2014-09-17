@@ -367,20 +367,22 @@ namespace MRMaintenance
 		
 		private void cboManufacturer_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboManufacturer.Text == "" || cboManufacturer.Text == null)
-			{
-				MessageBox.Show("Manufacturer cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboManufacturer.FindStringExact(cboManufacturer.Text);
 			
-			//Check for new values
-			if(cboManufacturer.SelectedText != cboManufacturer.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Manufacturer does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboManufacturer.Text.Length > 0)
 				{
-					frmManufacturer form = new frmManufacturer();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Equipment manufacturer does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmManufacturer form = new frmManufacturer();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Equpment manufacturer cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -388,14 +390,22 @@ namespace MRMaintenance
 		
 		private void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for new values
-			if(cboVendor.SelectedText != cboVendor.Text)
+			int i =  cboVendor.FindStringExact(cboVendor.Text);
+			
+			if(i == -1)
 			{
-				if(MessageBox.Show("Vendor does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboVendor.Text.Length > 0)
 				{
-					frmVendor form = new frmVendor();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Equipment vendor does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmVendor form = new frmVendor();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Equpment vendor cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -403,16 +413,22 @@ namespace MRMaintenance
 		
 		void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for new values
-			if(cboModel.SelectedText != cboModel.Text)
+			int i =  cboModel.FindStringExact(cboModel.Text);
+			
+			if(i == -1)
 			{
-				if(MessageBox.Show("Model does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboModel.Text.Length > 0)
 				{
-					EquipmentModel equipmentModel = new EquipmentModel();
-					equipmentModel.Name = cboModel.Text;
-					EquipmentModelBA equipmentModelBA = new EquipmentModelBA();
-					equipmentModelBA.Insert(equipmentModel);
+					if(MessageBox.Show("Equipment model does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmEquipmentModel form = new frmEquipmentModel();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Equpment model cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -424,16 +440,20 @@ namespace MRMaintenance
 			
 			if(i == -1)
 			{
-				if(MessageBox.Show("Equipment type does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboEquipType.Text.Length > 0)
 				{
-					frmEquipmentType form = new frmEquipmentType();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Equipment type does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmEquipmentType form = new frmEquipmentType();
+						form.ShowDialog(this);
+					}
 				}
-			}
-			else if(i == 0)
-			{
-				MessageBox.Show("Must select an equipment type.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				else
+				{
+					MessageBox.Show("Equpment type cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+				
 			}
 		}
 		

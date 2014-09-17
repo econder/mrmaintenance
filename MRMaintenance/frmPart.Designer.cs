@@ -307,7 +307,7 @@ namespace MRMaintenance
 			this.btnInvXfer.Size = new System.Drawing.Size(26, 23);
 			this.btnInvXfer.TabIndex = 118;
 			this.btnInvXfer.UseVisualStyleBackColor = true;
-			this.btnInvXfer.Visible = false;
+			this.btnInvXfer.Click += new System.EventHandler(this.BtnInvXferClick);
 			// 
 			// btnInvEdit
 			// 

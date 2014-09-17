@@ -141,6 +141,7 @@ namespace MRMaintenance
 			this.cboEquipType.Name = "cboEquipType";
 			this.cboEquipType.Size = new System.Drawing.Size(226, 21);
 			this.cboEquipType.TabIndex = 11;
+			this.cboEquipType.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquipType_Validating);
 			// 
 			// label5
 			// 

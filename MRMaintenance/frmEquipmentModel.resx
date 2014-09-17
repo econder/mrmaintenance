@@ -117,36 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPartNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAA7SURBVDhPY2DADf4DpZAxHqXYpUYNQA1AUHjgBOiBRSof
-        JapI1Qx2GTmaUNIHxQbgCpzRhERCQqIoEAEGdm+RwqZi6QAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnPartRemove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAhSURBVDhPY2AYBYMjBP4DnUEJpkgzyOJBYMDgiImR7AoA
-        Kf8/wU7kxW0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnInvXfer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAACPSURBVDhPtVKxDcAgDGPmAPgBjoLP4AIGboFTmFMZWqFu
-        CVWRGJBsE9tRSnhCCDTGICHtBSfnHPXel0gphYwxeIiu1ppSSqROyPgMAjnnOcXzM9cWee+3BalAjPFz
-        iNxJhTh0i44FtJ1da212e+fB1Vh4dIlKpHsAvLX2XADkWuuyjLU8sPC2ehAiN6ufcRe1VoSplt2KCwAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnInvEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAABYSURBVDhPY2AgAdTX1/8HYRK0IJRCNYI0k2cIsgH0MwSb
-        n4n2Cj6FBAMT3b8k+RmbZpABRBmCTzNBA4aoZmhCBQcQNkxsuqdIM8gRGAYQazMsq6EYQKpmAMzMlzlq
-        goZFAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

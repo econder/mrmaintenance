@@ -27,10 +27,14 @@ namespace MRMaintenance
 	{
 		private DataTable dtPartsInv;
 		private Inventory m_inventory;
+		private string m_partName;
 		
-		public frmInventoryEdit(Inventory inventory)
+		public frmInventoryEdit(string partName, Inventory inventory)
 		{
+			m_partName = partName;
 			m_inventory = inventory;
+			
+			lblPartName.Text = m_partName;
 			
 			Initialize();
 		}
@@ -57,20 +61,6 @@ namespace MRMaintenance
 			
 			//Bind quantity numberic control
 			numQty.DataBindings.Add("Value", dtPartsInv, "qty", true, DataSourceUpdateMode.Never, 0);
-		}
-		
-		
-		private void ResetControlBindings()
-		{
-			//Clear existing databindings for each control
-			//cboInvLoc.DataBindings.Clear();
-			//numQty.DataBindings.Clear();
-			
-			//Clear and reload datatable
-			//dtPartsInv.Clear();
-			
-			//Load database and re-bind all the controls
-			//this.FillData();
 		}
 		
 		

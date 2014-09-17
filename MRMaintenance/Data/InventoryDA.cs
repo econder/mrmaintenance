@@ -286,5 +286,122 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+		
+		
+		public int Transfer(Inventory inventorySource, Inventory inventoryDestination, float quantity)
+		{
+			try
+			{
+				int xferSub = this.TransferSubract(inventorySource, quantity);
+				int xferAdd = this.TransferAdd(inventoryDestination, quantity);
+				
+				return xferSub + xferAdd;
+			}
+			catch
+			{
+				throw;
+			}
+		}
+		
+		
+		private int TransferSubract(Inventory inventory, float quantity)
+		{
+			float count = this.PartCount(inventory);
+			
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				
+				//Subtract inventory from source location
+				SqlCommand cmd = new SqlCommand();
+				
+				if(count - quantity == 0)
+				{
+					cmd.CommandText = "DELETE FROM Inventory" +
+					                   " WHERE invLocId=@invLocId" +
+					                   " AND partId=@partId";
+					
+					cmd.Connection = dbConn;
+				}
+				else
+				{
+					cmd.CommandText = "UPDATE Inventory" +
+						" SET Inventory.qty=Inventory.qty-@qty" +
+						" WHERE invLocId=@invLocId" +
+						" AND partId=@partId";
+					
+					cmd.Parameters.AddWithValue("@qty", quantity);
+					cmd.Connection = dbConn;
+				}
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
+		private int TransferAdd(Inventory inventory, float quantity)
+		{
+			float count = this.PartCount(inventory);
+			
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				
+				//Add inventory to destination location
+				SqlCommand cmd = new SqlCommand();
+				
+				if(count > 0)
+				{
+					cmd.CommandText = "UPDATE Inventory" +
+									  " SET Inventory.qty=Inventory.qty+@qty" +
+									  " WHERE invLocId=@invLocId" +
+									  " AND partId=@partId";
+					
+					cmd.Connection = dbConn;
+				}
+				else
+				{
+					cmd.CommandText = "INSERT INTO Inventory(invLocId, partId, qty)" +
+									  " VALUES(@invLocId, @partId, @qtyInventory.qty)";
+					
+					cmd.Connection = dbConn;
+				}
+				
+				try
+				{
+					cmd.Parameters.AddWithValue("@quantity", quantity);
+					cmd.Parameters.AddWithValue("@invLocId", inventory.LocationID);
+					cmd.Parameters.AddWithValue("@partId", inventory.PartID);
+					
+					return cmd.ExecuteNonQuery();
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					cmd.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
 	}
 }

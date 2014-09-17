@@ -26,3 +26,5 @@ C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaint
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventory.resources
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryLocation.resources
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryEdit.resources
+C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentModel.resources
+C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryXfer.resources

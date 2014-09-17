@@ -212,7 +212,27 @@ namespace MRMaintenance
 		
 		private void btnInvXfer_Click(object sender, EventArgs e)
 		{
+			Inventory inv = new Inventory();
+			inv.PartID = (long)listParts.SelectedValue;
+			inv.LocationID = (long)listInvLoc.SelectedValue;
 			
+			frmInventoryEdit form = new frmInventoryEdit(listParts.Items[listParts.SelectedIndex].ToString(), inv);
+			
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				//Clear previous data & bindings
+				dtPartsInv.Clear();
+				listInvLoc.DataBindings.Clear();
+				
+				//Load parts table data
+				InventoryBA invBA = new InventoryBA();
+				this.dtPartsInv = invBA.LoadLocationsByPart(inv);
+				
+				//Load and bind parts listbox
+				listInvLoc.DataSource = dtPartsInv;
+				listInvLoc.DisplayMember = "name";
+				listInvLoc.ValueMember = "invLocId";
+			}
 		}
 		
 		
@@ -222,7 +242,7 @@ namespace MRMaintenance
 			inv.PartID = (long)listParts.SelectedValue;
 			inv.LocationID = (long)listInvLoc.SelectedValue;
 			
-			frmInventoryEdit form = new frmInventoryEdit(inv);
+			frmInventoryEdit form = new frmInventoryEdit(listParts.Items[listParts.SelectedIndex].ToString(), inv);
 			
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
@@ -279,6 +299,11 @@ namespace MRMaintenance
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
+		}
+		
+		void BtnInvXferClick(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }
