@@ -27,14 +27,10 @@ namespace MRMaintenance
 	{
 		private DataTable dtPartsInv;
 		private Inventory m_inventory;
-		private string m_partName;
 		
-		public frmInventoryEdit(string partName, Inventory inventory)
+		public frmInventoryEdit(Inventory inventory)
 		{
-			m_partName = partName;
 			m_inventory = inventory;
-			
-			lblPartName.Text = m_partName;
 			
 			Initialize();
 		}
@@ -59,6 +55,9 @@ namespace MRMaintenance
 			//Initialize dtPartsInv
 			this.dtPartsInv = invBA.LoadPartQtyByLocation(m_inventory);
 			
+			//Bind part name label
+			lblPartName.DataBindings.Add("Text", cboInvLoc.DataSource, "partName", true, DataSourceUpdateMode.Never, "");
+			
 			//Bind quantity numberic control
 			numQty.DataBindings.Add("Value", dtPartsInv, "qty", true, DataSourceUpdateMode.Never, 0);
 		}
@@ -70,6 +69,29 @@ namespace MRMaintenance
 			
 			InventoryBA invBA = new InventoryBA();
 			invBA.UpdateLocationPartQty(m_inventory);
+		}
+		
+		
+		private void cboInvLoc_Valdiating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			int i =  cboInvLoc.FindStringExact(cboInvLoc.Text);
+			
+			if(i == -1)
+			{
+				if(cboInvLoc.Text.Length > 0)
+				{
+					if(MessageBox.Show("Inventory location does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmInventoryLocation form = new frmInventoryLocation();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Inventory location cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+			}
 		}
 	}
 }

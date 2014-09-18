@@ -176,5 +176,24 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+		
+		
+		public int Transfer(Inventory inventorySource, Inventory inventoryDestination, float quantity)
+		{
+			InventoryDA da = new InventoryDA();
+			
+			try
+			{
+				return da.Transfer(inventorySource, inventoryDestination, quantity);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
 	}
 }

@@ -325,20 +325,22 @@ namespace MRMaintenance
 		
 		private void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboFacility.Text == "" || cboFacility.Text == null)
-			{
-				MessageBox.Show("Facility cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboFacility.FindStringExact(cboFacility.Text);
 			
-			//Check for new values
-			if(cboFacility.SelectedText != cboFacility.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboFacility.Text.Length > 0)
 				{
-					frmFacility form = new frmFacility();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmFacility form = new frmFacility();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Facility cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -346,20 +348,22 @@ namespace MRMaintenance
 		
 		private void cboLocation_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboLocation.Text == "" || cboLocation.Text == null)
-			{
-				MessageBox.Show("Location cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboLocation.FindStringExact(cboLocation.Text);
 			
-			//Check for new values
-			if(cboLocation.SelectedText != cboLocation.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Location does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboLocation.Text.Length > 0)
 				{
-					frmLocations form = new frmLocations();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Location does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmLocations form = new frmLocations();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Location cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -453,7 +457,6 @@ namespace MRMaintenance
 				{
 					MessageBox.Show("Equpment type cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
-				
 			}
 		}
 		

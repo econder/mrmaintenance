@@ -157,7 +157,7 @@ namespace MRMaintenance
 				listInvLoc.SelectedIndex = 0;
 				btnInvEdit.Enabled = true;
 				
-				if(listInvLoc.Items.Count > 1)
+				if(listInvLoc.Items.Count > 0)
 				{
 					btnInvXfer.Enabled = true;
 				}
@@ -216,7 +216,33 @@ namespace MRMaintenance
 			inv.PartID = (long)listParts.SelectedValue;
 			inv.LocationID = (long)listInvLoc.SelectedValue;
 			
-			frmInventoryEdit form = new frmInventoryEdit(listParts.Items[listParts.SelectedIndex].ToString(), inv);
+			frmInventoryEdit form = new frmInventoryEdit(inv);
+			
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				//Clear previous data & bindings
+				dtPartsInv.Clear();
+				listInvLoc.DataBindings.Clear();
+				
+				//Load parts table data
+				InventoryBA invBA = new InventoryBA();
+				this.dtPartsInv = invBA.LoadLocationsByPart(inv);
+				
+				//Load and bind parts listbox
+				listInvLoc.DataSource = dtPartsInv;
+				listInvLoc.DisplayMember = "name";
+				listInvLoc.ValueMember = "invLocId";
+			}
+		}
+		
+		
+		private void BtnInvXferClick(object sender, EventArgs e)
+		{
+			Inventory inv = new Inventory();
+			inv.PartID = (long)listParts.SelectedValue;
+			inv.LocationID = (long)listInvLoc.SelectedValue;
+			
+			frmInventoryXfer form = new frmInventoryXfer(inv);
 			
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
@@ -242,7 +268,7 @@ namespace MRMaintenance
 			inv.PartID = (long)listParts.SelectedValue;
 			inv.LocationID = (long)listInvLoc.SelectedValue;
 			
-			frmInventoryEdit form = new frmInventoryEdit(listParts.Items[listParts.SelectedIndex].ToString(), inv);
+			frmInventoryEdit form = new frmInventoryEdit(inv);
 			
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
@@ -299,11 +325,6 @@ namespace MRMaintenance
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-		}
-		
-		void BtnInvXferClick(object sender, EventArgs e)
-		{
-			
 		}
 	}
 }

@@ -55,6 +55,7 @@ namespace MRMaintenance
 			this.cboInvLoc.Name = "cboInvLoc";
 			this.cboInvLoc.Size = new System.Drawing.Size(226, 21);
 			this.cboInvLoc.TabIndex = 120;
+			this.cboInvLoc.Validating += new System.ComponentModel.CancelEventHandler(this.cboInvLoc_Valdiating);
 			// 
 			// label6
 			// 

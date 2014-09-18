@@ -65,9 +65,10 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT Inventory.invLocId, InventoryLocations.name, Inventory.qty" +
+				SqlCommand cmd = new SqlCommand("SELECT Inventory.invLocId, InventoryLocations.name, Inventory.qty, Parts.partName" +
 				                                " FROM Inventory INNER JOIN InventoryLocations" +
-				                                " ON InventoryLocations.invLocId=Inventory.invId" +
+				                                " ON InventoryLocations.invLocId=Inventory.invId INNER JOIN Parts" +
+				                                " ON Parts.partId=Inventory.partId" +
 				                                " WHERE Inventory.partId=@partId" + 
 				                                " ORDER BY InventoryLocations.name", dbConn);
 				

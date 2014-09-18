@@ -71,7 +71,7 @@ namespace MRMaintenance
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(563, 441);
+			this.btnSave.Location = new System.Drawing.Point(562, 413);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
 			this.btnSave.TabIndex = 104;
@@ -125,7 +125,7 @@ namespace MRMaintenance
 			// btnClose
 			// 
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(644, 441);
+			this.btnClose.Location = new System.Drawing.Point(643, 413);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 91;
@@ -307,6 +307,7 @@ namespace MRMaintenance
 			this.btnInvXfer.Size = new System.Drawing.Size(26, 23);
 			this.btnInvXfer.TabIndex = 118;
 			this.btnInvXfer.UseVisualStyleBackColor = true;
+			this.btnInvXfer.Visible = false;
 			this.btnInvXfer.Click += new System.EventHandler(this.BtnInvXferClick);
 			// 
 			// btnInvEdit
@@ -324,7 +325,7 @@ namespace MRMaintenance
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
-			this.ClientSize = new System.Drawing.Size(728, 676);
+			this.ClientSize = new System.Drawing.Size(724, 442);
 			this.Controls.Add(this.btnInvEdit);
 			this.Controls.Add(this.btnInvXfer);
 			this.Controls.Add(this.lblTotalCount);

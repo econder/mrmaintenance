@@ -25,15 +25,11 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class frmInventoryXfer : Form
 	{
-		private string m_partName;
 		private Inventory m_inventory;
 		
-		public frmInventoryXfer(string partName, Inventory inventory)
+		public frmInventoryXfer(Inventory inventory)
 		{
-			m_partName = partName;
 			m_inventory = inventory;
-			
-			lblPartName.Text = m_partName;
 			
 			Initialize();
 		}
@@ -49,36 +45,44 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			//Load and bind inventory locations comboboxes
+			//Bind part name label
+			lblPartName.DataBindings.Add("Text", m_inventory, "partName", true, DataSourceUpdateMode.Never, "");
+			
+			//Load and bind inventory locations for the current part in source comboboxes
 			InventoryBA invSrcBA = new InventoryBA();
 			cboInvLocSrc.DataSource = invSrcBA.LoadLocationsByPart(m_inventory);
 			cboInvLocSrc.DisplayMember = "name";
 			cboInvLocSrc.ValueMember = "invLocId";
 			
 			//Bind source quantity label
-			lblQtySrc.DataBindings.Add("Text", invSrcBA, "qty", true, DataSourceUpdateMode.Never, -1);
+			lblQtySrc.DataBindings.Add("Text", cboInvLocSrc.DataSource, "qty", true, DataSourceUpdateMode.Never, "", "0,000.00");
 			
-			InventoryBA invDstBA = new InventoryBA();
-			cboInvLocDst.DataSource = invDstBA.LoadLocationsByPart(m_inventory);
+			//Load and bind inventory locations in destination combobox
+			InventoryLocationBA invLocBA = new InventoryLocationBA();
+			cboInvLocDst.DataSource = invLocBA.Load();
 			cboInvLocDst.DisplayMember = "name";
-			cboInvLocDst.ValueMember = "invLocid";
+			cboInvLocDst.ValueMember = "invLocId";
 			
 			//Bind destination quantity label
-			lblQtyDst.DataBindings.Add("Text", invDstBA, "qty", true, DataSourceUpdateMode.Never, -1);
+			lblQtyDst.DataBindings.Add("Text", cboInvLocDst.DataSource, "qty", true, DataSourceUpdateMode.Never, "", "0,000.00");
 			
 			//Bind numeric control min/max values based
 			//on source & destination quantities
 			numQty.Minimum = 0;
-			numQty.DataBindings.Add("Maximum", invSrcBA, "qty", true, DataSourceUpdateMode.Never, 0);
+			numQty.DataBindings.Add("Maximum", cboInvLocSrc.DataSource, "qty", true, DataSourceUpdateMode.Never, 0);
 		}
 		
 		
 		private void btnSave_Click(object sender, EventArgs e)
 		{
-			m_inventory.Quantity = Convert.ToSingle(numQty.Value);
+			Inventory invSrc = new Inventory();
+			invSrc.LocationID = (long)cboInvLocSrc.SelectedValue;
+			
+			Inventory invDst = new Inventory();
+			invDst.LocationID = (long)cboInvLocDst.SelectedValue;
 			
 			InventoryBA invBA = new InventoryBA();
-			invBA.UpdateLocationPartQty(m_inventory);
+			invBA.Transfer(invSrc, invDst, Convert.ToSingle(numQty.Value));
 		}
 	}
 }

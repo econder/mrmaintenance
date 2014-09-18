@@ -210,7 +210,7 @@ namespace MRMaintenance
 		
 		
 		//Select row and display context menu on right-click
-		void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		private void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			//Handle left-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
@@ -235,7 +235,7 @@ namespace MRMaintenance
 		
 		
 		//Select row and display context menu on right-click
-		void dgviewWO_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		private void dgviewWO_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
 			{
@@ -280,7 +280,7 @@ namespace MRMaintenance
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
-			frmReportViewer form = new frmReportViewer(string.Format("z{0}", id));
+			frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
 			form.Show(this);
 		}
 	}

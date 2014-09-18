@@ -52,6 +52,7 @@ namespace MRMaintenance
 			this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.manufacturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vendorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.partsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.workOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,10 +65,10 @@ namespace MRMaintenance
 			this.dgviewWO = new System.Windows.Forms.DataGridView();
 			this.menuWorkOrders = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.markCompleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.partsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
 			this.menuWorkOrderReq.SuspendLayout();
@@ -170,6 +171,13 @@ namespace MRMaintenance
 			this.vendorsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
 			this.vendorsToolStripMenuItem.Text = "Vendors";
 			this.vendorsToolStripMenuItem.Click += new System.EventHandler(this.VendorsToolStripMenuItemClick);
+			// 
+			// partsToolStripMenuItem
+			// 
+			this.partsToolStripMenuItem.Name = "partsToolStripMenuItem";
+			this.partsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.partsToolStripMenuItem.Text = "&Parts";
+			this.partsToolStripMenuItem.Click += new System.EventHandler(this.PartsToolStripMenuItemClick);
 			// 
 			// reportsToolStripMenuItem
 			// 
@@ -289,16 +297,24 @@ namespace MRMaintenance
 			// menuWorkOrders
 			// 
 			this.menuWorkOrders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.toolStripMenuItem1});
+									this.toolStripMenuItem1,
+									this.markCompleteToolStripMenuItem});
 			this.menuWorkOrders.Name = "menuWorkOrders";
-			this.menuWorkOrders.Size = new System.Drawing.Size(137, 26);
+			this.menuWorkOrders.Size = new System.Drawing.Size(153, 70);
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.toolStripMenuItem1.Text = "&Show Report";
 			this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1Click);
+			// 
+			// markCompleteToolStripMenuItem
+			// 
+			this.markCompleteToolStripMenuItem.Name = "markCompleteToolStripMenuItem";
+			this.markCompleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.markCompleteToolStripMenuItem.Text = "&Mark Complete";
+			this.markCompleteToolStripMenuItem.Click += new System.EventHandler(this.MarkAsCompleteClick);
 			// 
 			// splitContainer1
 			// 
@@ -341,13 +357,6 @@ namespace MRMaintenance
 			this.label3.TabIndex = 7;
 			this.label3.Text = "Work Orders Due";
 			// 
-			// partsToolStripMenuItem
-			// 
-			this.partsToolStripMenuItem.Name = "partsToolStripMenuItem";
-			this.partsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-			this.partsToolStripMenuItem.Text = "&Parts";
-			this.partsToolStripMenuItem.Click += new System.EventHandler(this.PartsToolStripMenuItemClick);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +384,7 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem markCompleteToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem partsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ContextMenuStrip menuWorkOrders;
