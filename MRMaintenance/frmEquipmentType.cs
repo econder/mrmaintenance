@@ -8,13 +8,12 @@
  *
  * *************************************************************************************************/
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-
 using MRMaintenance.BusinessAccess;
 using MRMaintenance.BusinessObjects;
-
 
 namespace MRMaintenance
 {
@@ -71,61 +70,48 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			EquipmentType type = new EquipmentType();
-			type.Name = txtName.Text;
-			
-			try
-			{
-				typeBA.Insert(type);
-				
-				//Reload data
-				this.ResetControlBindings();
-			}
-			catch
-			{
-				throw;
-			}
-		}
-		
-		
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			EquipmentType type = new EquipmentType();
-			type.ID = (long)listType.SelectedValue;
-			type.Name = txtName.Text;
-			
-			try
-			{
-				typeBA.Update(type);
-				
-				//Reload data
-				this.ResetControlBindings();
-			}
-			catch
-			{
-				throw;
-			}
+			listType.SelectedIndex = -1;
+			txtName.Clear();
 		}
 		
 		
 		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			EquipmentType type = new EquipmentType();
-			type.ID = (long)listType.SelectedValue;
-			type.Name = txtName.Text;
-			
-			try
+			if(listType.SelectedIndex >= 0)
 			{
+				EquipmentType type = new EquipmentType();
+				type.ID = (long)listType.SelectedValue;
+				type.Name = txtName.Text;
+				
 				typeBA.Delete(type);
 				
 				//Reload data
 				this.ResetControlBindings();
 			}
-			catch
+		}
+		
+		
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			if(txtName.Text != "" && txtName.Text != null)
 			{
-				throw;
+				EquipmentType type = new EquipmentType();
+				type.Name = txtName.Text;
+				
+				if(listType.SelectedIndex == -1)
+				{
+					type.ID = (long)listType.SelectedValue;
+					typeBA.Insert(type);
+				}
+				else
+				{
+					typeBA.Update(type);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
 			}
 		}
 		

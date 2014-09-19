@@ -215,6 +215,24 @@ namespace MRMaintenance
 		}
 		
 		
+		private void btnEquipNew_Click(object sender, EventArgs e)
+		{
+			listEquip.SelectedIndex = -1;
+			cboFacility.SelectedIndex = -1;
+			cboLocation.SelectedIndex = -1;
+			txtName.Clear();
+			txtEquipNumber.Clear();
+			txtDescr.Clear();
+			cboManufacturer.SelectedIndex = -1;
+			cboVendor.SelectedIndex = -1;
+			cboModel.SelectedIndex = -1;
+			txtSerial.Clear();
+			cboEquipType.SelectedIndex = -1;
+			listEquipDocs.DataBindings.Clear();
+			listWorkOrderReq.DataBindings.Clear();
+		}
+		
+		
 		private void btnEquipRemove_Click(object sender, EventArgs e)
 		{
 			Equipment equipment = new Equipment();
@@ -227,27 +245,7 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnEquipAdd_Click(object sender, EventArgs e)
-		{
-			Equipment equipment = new Equipment();
-			equipment.LocationID = (long)cboLocation.SelectedValue;
-			equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
-			equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
-			equipment.VendorID = (long)cboVendor.SelectedValue;
-			equipment.ModelID = (long)cboModel.SelectedValue;
-			equipment.EquipmentNumber = txtEquipNumber.Text;
-			equipment.Name = txtName.Text;
-			equipment.Description = txtDescr.Text;
-			equipment.Serial = txtSerial.Text;
-			
-			EquipmentBA equipmentBA = new EquipmentBA();
-			equipmentBA.Insert(equipment);
-			
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnEquipUpdate_Click(object sender, EventArgs e)
+		private void btnEquipSave_Click(object sender, EventArgs e)
 		{
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
@@ -265,22 +263,6 @@ namespace MRMaintenance
 			equipmentBA.Update(equipment);
 			
 			this.ResetControlBindings();
-		}
-		
-		
-		private void btnDocRemove_Click(object sender, EventArgs e)
-		{
-			EquipmentDoc equipmentDoc = new EquipmentDoc();
-			equipmentDoc.ID = (long)listEquipDocs.SelectedValue;
-			
-			EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
-			equipmentDocBA.Delete(equipmentDoc);
-			
-			this.ResetDocControlBindings();
-			
-			listEquipDocs.DataSource = dtEquipDocs;
-			listEquipDocs.DisplayMember = "equipDocName";
-			listEquipDocs.ValueMember = "equipDocId";
 		}
 		
 		
@@ -303,6 +285,25 @@ namespace MRMaintenance
 		}
 		
 		
+		private void btnDocRemove_Click(object sender, EventArgs e)
+		{
+			if(listEquipDocs.SelectedIndex >= 0)
+			{
+				EquipmentDoc equipmentDoc = new EquipmentDoc();
+				equipmentDoc.ID = (long)listEquipDocs.SelectedValue;
+				
+				EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
+				equipmentDocBA.Delete(equipmentDoc);
+				
+				this.ResetDocControlBindings();
+				
+				listEquipDocs.DataSource = dtEquipDocs;
+				listEquipDocs.DisplayMember = "equipDocName";
+				listEquipDocs.ValueMember = "equipDocId";
+			}
+		}
+		
+		
 		private void listEquipDocs_DoubleClick(object sender, EventArgs e)
 		{
 			EquipmentDoc equipmentDoc = new EquipmentDoc();
@@ -313,6 +314,46 @@ namespace MRMaintenance
 			if(sLink != null && sLink != "")
 			{
 				Process.Start(sLink);
+			}
+		}
+		
+		
+		private void btnWORAdd_Click(object sender, EventArgs e)
+		{
+			frmWorkOrderRequest form = new frmWorkOrderRequest();
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				if(listWorkOrderReq.Items.Count > 0)
+				{
+					listWorkOrderReq.DataBindings.Clear();
+					dtWorkOrderReq.Clear();
+				}
+				/*
+				Equipment equipment = new Equipment();
+				equipment.ID = (long)listEquip.SelectedValue;
+				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+				dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
+				listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
+				listWorkOrderReq.DisplayMember = "reqName";
+				listWorkOrderReq.ValueMember = "reqId";
+				listWorkOrderReq.DataBindings.Add("SelectedValue", dtWorkOrderReq, "reqId", false, DataSourceUpdateMode.Never, -1);
+				*/
+				this.ResetWorkOrderRequestListBindings();
+			}
+		}
+		
+		
+		private void btnWORemove_Click(object sender, EventArgs e)
+		{
+			if(listWorkOrderReq.SelectedIndex >= 0)
+			{
+				WorkOrderRequest workOrderRequest = new WorkOrderRequest();
+				workOrderRequest.ID = (long)listWorkOrderReq.SelectedValue;
+				
+				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+				workOrderReqBA.Delete(workOrderRequest);
+				
+				this.ResetWorkOrderRequestListBindings();
 			}
 		}
 		
@@ -415,7 +456,7 @@ namespace MRMaintenance
 		}
 		
 		
-		void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		private void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			int i =  cboModel.FindStringExact(cboModel.Text);
 			
@@ -468,43 +509,6 @@ namespace MRMaintenance
 			{
 				MessageBox.Show("Equipment name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-		}
-		
-		
-		void btnWORAdd_Click(object sender, EventArgs e)
-		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest();
-			if(form.ShowDialog(this) == DialogResult.OK)
-			{
-				if(listWorkOrderReq.Items.Count > 0)
-				{
-					listWorkOrderReq.DataBindings.Clear();
-					dtWorkOrderReq.Clear();
-				}
-				/*
-				Equipment equipment = new Equipment();
-				equipment.ID = (long)listEquip.SelectedValue;
-				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-				dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
-				listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
-				listWorkOrderReq.DisplayMember = "reqName";
-				listWorkOrderReq.ValueMember = "reqId";
-				listWorkOrderReq.DataBindings.Add("SelectedValue", dtWorkOrderReq, "reqId", false, DataSourceUpdateMode.Never, -1);
-				*/
-				this.ResetWorkOrderRequestListBindings();
-			}
-		}
-		
-		
-		void btnWORemove_Click(object sender, EventArgs e)
-		{
-			WorkOrderRequest workOrderRequest = new WorkOrderRequest();
-			workOrderRequest.ID = (long)listWorkOrderReq.SelectedValue;
-			
-			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			workOrderReqBA.Delete(workOrderRequest);
-			
-			this.ResetWorkOrderRequestListBindings();
 		}
 	}
 }

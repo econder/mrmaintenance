@@ -57,10 +57,9 @@ namespace MRMaintenance
 			this.txtDescr = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.btnClose = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
 			this.txtEquipNumber = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.btnUpdate = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
 			this.listEquip = new System.Windows.Forms.ListBox();
 			this.listEquipDocs = new System.Windows.Forms.ListBox();
 			this.btnDocRemove = new System.Windows.Forms.Button();
@@ -73,7 +72,6 @@ namespace MRMaintenance
 			this.label13 = new System.Windows.Forms.Label();
 			this.btnEquipNew = new System.Windows.Forms.Button();
 			this.btnEquipRemove = new System.Windows.Forms.Button();
-			this.btnOK = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -229,24 +227,13 @@ namespace MRMaintenance
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(649, 499);
+			this.btnClose.Location = new System.Drawing.Point(649, 510);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 17;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnAdd.Location = new System.Drawing.Point(358, 494);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 16;
-			this.btnAdd.Text = "&Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new System.EventHandler(this.btnEquipAdd_Click);
 			// 
 			// txtEquipNumber
 			// 
@@ -263,16 +250,16 @@ namespace MRMaintenance
 			this.label11.TabIndex = 50;
 			this.label11.Text = "Equipment Number";
 			// 
-			// btnUpdate
+			// btnSave
 			// 
-			this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnUpdate.Location = new System.Drawing.Point(277, 494);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 15;
-			this.btnUpdate.Text = "&Update";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnEquipUpdate_Click);
+			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnSave.Location = new System.Drawing.Point(568, 510);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.TabIndex = 15;
+			this.btnSave.Text = "&Save";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnEquipSave_Click);
 			// 
 			// listEquip
 			// 
@@ -298,7 +285,7 @@ namespace MRMaintenance
 			// btnDocRemove
 			// 
 			this.btnDocRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnDocRemove.Image")));
-			this.btnDocRemove.Location = new System.Drawing.Point(423, 344);
+			this.btnDocRemove.Location = new System.Drawing.Point(455, 341);
 			this.btnDocRemove.Name = "btnDocRemove";
 			this.btnDocRemove.Size = new System.Drawing.Size(26, 23);
 			this.btnDocRemove.TabIndex = 12;
@@ -308,7 +295,7 @@ namespace MRMaintenance
 			// btnDocAdd
 			// 
 			this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
-			this.btnDocAdd.Location = new System.Drawing.Point(455, 344);
+			this.btnDocAdd.Location = new System.Drawing.Point(423, 341);
 			this.btnDocAdd.Name = "btnDocAdd";
 			this.btnDocAdd.Size = new System.Drawing.Size(26, 23);
 			this.btnDocAdd.TabIndex = 13;
@@ -335,7 +322,7 @@ namespace MRMaintenance
 			// btnWORAdd
 			// 
 			this.btnWORAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnWORAdd.Image")));
-			this.btnWORAdd.Location = new System.Drawing.Point(698, 344);
+			this.btnWORAdd.Location = new System.Drawing.Point(663, 341);
 			this.btnWORAdd.Name = "btnWORAdd";
 			this.btnWORAdd.Size = new System.Drawing.Size(26, 23);
 			this.btnWORAdd.TabIndex = 71;
@@ -345,7 +332,7 @@ namespace MRMaintenance
 			// btnWORRemove
 			// 
 			this.btnWORRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnWORRemove.Image")));
-			this.btnWORRemove.Location = new System.Drawing.Point(666, 344);
+			this.btnWORRemove.Location = new System.Drawing.Point(695, 341);
 			this.btnWORRemove.Name = "btnWORRemove";
 			this.btnWORRemove.Size = new System.Drawing.Size(26, 23);
 			this.btnWORRemove.TabIndex = 70;
@@ -359,7 +346,7 @@ namespace MRMaintenance
 			this.listWorkOrderReq.FormattingEnabled = true;
 			this.listWorkOrderReq.Location = new System.Drawing.Point(495, 367);
 			this.listWorkOrderReq.Name = "listWorkOrderReq";
-			this.listWorkOrderReq.Size = new System.Drawing.Size(229, 121);
+			this.listWorkOrderReq.Size = new System.Drawing.Size(226, 121);
 			this.listWorkOrderReq.TabIndex = 72;
 			// 
 			// label13
@@ -373,32 +360,22 @@ namespace MRMaintenance
 			// btnEquipNew
 			// 
 			this.btnEquipNew.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipNew.Image")));
-			this.btnEquipNew.Location = new System.Drawing.Point(209, 494);
+			this.btnEquipNew.Location = new System.Drawing.Point(177, 494);
 			this.btnEquipNew.Name = "btnEquipNew";
 			this.btnEquipNew.Size = new System.Drawing.Size(26, 23);
 			this.btnEquipNew.TabIndex = 75;
 			this.btnEquipNew.UseVisualStyleBackColor = true;
+			this.btnEquipNew.Click += new System.EventHandler(this.btnEquipNew_Click);
 			// 
 			// btnEquipRemove
 			// 
 			this.btnEquipRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipRemove.Image")));
-			this.btnEquipRemove.Location = new System.Drawing.Point(177, 494);
+			this.btnEquipRemove.Location = new System.Drawing.Point(209, 494);
 			this.btnEquipRemove.Name = "btnEquipRemove";
 			this.btnEquipRemove.Size = new System.Drawing.Size(26, 23);
 			this.btnEquipRemove.TabIndex = 74;
 			this.btnEquipRemove.UseVisualStyleBackColor = true;
 			this.btnEquipRemove.Click += new System.EventHandler(this.btnEquipRemove_Click);
-			// 
-			// btnOK
-			// 
-			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOK.Location = new System.Drawing.Point(568, 499);
-			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
-			this.btnOK.TabIndex = 76;
-			this.btnOK.Text = "&OK";
-			this.btnOK.UseVisualStyleBackColor = true;
 			// 
 			// frmEquipment
 			// 
@@ -406,7 +383,6 @@ namespace MRMaintenance
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(730, 539);
-			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.btnEquipNew);
 			this.Controls.Add(this.btnEquipRemove);
 			this.Controls.Add(this.btnWORAdd);
@@ -418,10 +394,9 @@ namespace MRMaintenance
 			this.Controls.Add(this.btnDocRemove);
 			this.Controls.Add(this.listEquipDocs);
 			this.Controls.Add(this.listEquip);
-			this.Controls.Add(this.btnUpdate);
+			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.txtEquipNumber);
 			this.Controls.Add(this.label11);
-			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.txtDescr);
 			this.Controls.Add(this.label10);
@@ -453,7 +428,6 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.Button btnOK;
 		private System.Windows.Forms.Button btnEquipRemove;
 		private System.Windows.Forms.Button btnEquipNew;
 		private System.Windows.Forms.Label label13;
@@ -466,10 +440,9 @@ namespace MRMaintenance
 		private System.Windows.Forms.Button btnDocRemove;
 		private System.Windows.Forms.ListBox listEquipDocs;
 		private System.Windows.Forms.ListBox listEquip;
-		private System.Windows.Forms.Button btnUpdate;
+		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.TextBox txtEquipNumber;
-		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.Button btnClose;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txtDescr;

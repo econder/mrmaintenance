@@ -71,61 +71,48 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			EquipmentModel model = new EquipmentModel();
-			model.Name = txtName.Text;
-			
-			try
-			{
-				modelBA.Insert(model);
-				
-				//Reload data
-				this.ResetControlBindings();
-			}
-			catch
-			{
-				throw;
-			}
+			listModel.SelectedIndex = -1;
+			txtName.Clear();
 		}
 		
 		
-		private void btnUpdate_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
 		{
-			EquipmentModel model = new EquipmentModel();
-			model.ID = (long)listModel.SelectedValue;
-			model.Name = txtName.Text;
-			
-			try
+			if(txtName.Text == "" || txtName.Text == null)
 			{
-				modelBA.Update(model);
+				EquipmentModel model = new EquipmentModel();
+				model.Name = txtName.Text;
+				
+				if(listModel.SelectedIndex == -1)
+				{
+					model.ID = (long)listModel.SelectedValue;
+					modelBA.Insert(model);
+				}
+				else
+				{
+					modelBA.Update(model);
+				}
 				
 				//Reload data
 				this.ResetControlBindings();
-			}
-			catch
-			{
-				throw;
 			}
 		}
 		
 		
 		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			EquipmentModel model = new EquipmentModel();
-			model.ID = (long)listModel.SelectedValue;
-			model.Name = txtName.Text;
-			
-			try
+			if(listModel.SelectedIndex >= 0)
 			{
+				EquipmentModel model = new EquipmentModel();
+				model.ID = (long)listModel.SelectedValue;
+				model.Name = txtName.Text;
+				
 				modelBA.Delete(model);
 				
 				//Reload data
 				this.ResetControlBindings();
-			}
-			catch
-			{
-				throw;
 			}
 		}
 		
