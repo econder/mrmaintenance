@@ -37,6 +37,7 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWorkOrderRequest));
 			this.cboEquip = new System.Windows.Forms.ComboBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.txtName = new System.Windows.Forms.TextBox();
@@ -53,15 +54,14 @@ namespace MRMaintenance
 			this.label6 = new System.Windows.Forms.Label();
 			this.listWO = new System.Windows.Forms.ListBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.btnUpdate = new System.Windows.Forms.Button();
-			this.btnRemove = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
 			this.btnClose = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
 			this.chkEnabled = new System.Windows.Forms.CheckBox();
 			this.cboPriority = new System.Windows.Forms.ComboBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.btnOK = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.btnNew = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -208,36 +208,6 @@ namespace MRMaintenance
 			this.label1.TabIndex = 30;
 			this.label1.Text = "Work Order Requests";
 			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Location = new System.Drawing.Point(351, 354);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 10;
-			this.btnUpdate.Text = "&Update";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-			// 
-			// btnRemove
-			// 
-			this.btnRemove.Location = new System.Drawing.Point(160, 382);
-			this.btnRemove.Name = "btnRemove";
-			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 1;
-			this.btnRemove.Text = "&Remove";
-			this.btnRemove.UseVisualStyleBackColor = true;
-			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Location = new System.Drawing.Point(432, 354);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 12;
-			this.btnAdd.Text = "&Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-			// 
 			// btnClose
 			// 
 			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -285,17 +255,35 @@ namespace MRMaintenance
 			this.label8.TabIndex = 33;
 			this.label8.Text = "Priority Level";
 			// 
-			// btnOK
+			// btnSave
 			// 
-			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOK.Location = new System.Drawing.Point(351, 411);
-			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
-			this.btnOK.TabIndex = 34;
-			this.btnOK.Text = "&OK";
-			this.btnOK.UseVisualStyleBackColor = true;
-			this.btnOK.Click += new System.EventHandler(this.BtnOKClick);
+			this.btnSave.Location = new System.Drawing.Point(351, 411);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.TabIndex = 125;
+			this.btnSave.Text = "&Save";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// btnNew
+			// 
+			this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+			this.btnNew.Location = new System.Drawing.Point(177, 382);
+			this.btnNew.Name = "btnNew";
+			this.btnNew.Size = new System.Drawing.Size(26, 23);
+			this.btnNew.TabIndex = 124;
+			this.btnNew.UseVisualStyleBackColor = true;
+			this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+			// 
+			// button1
+			// 
+			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+			this.button1.Location = new System.Drawing.Point(209, 382);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(26, 23);
+			this.button1.TabIndex = 123;
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.btnRemove_Click);
 			// 
 			// frmWorkOrderRequest
 			// 
@@ -303,14 +291,13 @@ namespace MRMaintenance
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(513, 440);
-			this.Controls.Add(this.btnOK);
+			this.Controls.Add(this.btnSave);
+			this.Controls.Add(this.btnNew);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.cboPriority);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.chkEnabled);
 			this.Controls.Add(this.btnClose);
-			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.btnRemove);
-			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.listWO);
 			this.Controls.Add(this.cboEquip);
 			this.Controls.Add(this.label11);
@@ -341,14 +328,13 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.Button btnOK;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnNew;
+		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.ComboBox cboPriority;
 		private System.Windows.Forms.CheckBox chkEnabled;
 		private System.Windows.Forms.Button btnClose;
-		private System.Windows.Forms.Button btnAdd;
-		private System.Windows.Forms.Button btnRemove;
-		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ListBox listWO;
 		private System.Windows.Forms.Label label6;

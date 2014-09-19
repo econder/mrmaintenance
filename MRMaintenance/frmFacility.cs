@@ -92,60 +92,72 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
 		{
-			Facility facility = new Facility();
-			facility.Name = txtName.Text;
-			facility.Address1 = txtAddr1.Text;
-			facility.Address2 = txtAddr2.Text;
-			facility.City = txtCity.Text;
-			facility.StateID = (long)cboState.SelectedValue;
-			facility.Zipcode = txtZip.Text;
-			facility.Latitude = Convert.ToSingle(txtLat.Text);
-			facility.Longitude = Convert.ToSingle(txtLong.Text);
-			facility.Phone1 = txtPhone1.Text;
-			facility.Phone2 = txtPhone2.Text;
-			facility.Fax = txtFax.Text;
-			
-			facilityBA.Insert(facility);
-			
-			//Reload data
-			this.ResetControlBindings();
+			if(txtName.Text != "" && txtName.Text != null)
+			{
+				Facility facility = new Facility();
+				facility.Name = txtName.Text;
+				facility.Address1 = txtAddr1.Text;
+				facility.Address2 = txtAddr2.Text;
+				facility.City = txtCity.Text;
+				facility.StateID = (long)cboState.SelectedValue;
+				facility.Zipcode = txtZip.Text;
+				facility.Latitude = Convert.ToSingle(txtLat.Text);
+				facility.Longitude = Convert.ToSingle(txtLong.Text);
+				facility.Phone1 = txtPhone1.Text;
+				facility.Phone2 = txtPhone2.Text;
+				facility.Fax = txtFax.Text;
+				
+				if(listFac.SelectedIndex == -1)
+				{
+					facilityBA.Insert(facility);
+				}
+				else
+				{
+					facility.ID = (long)listFac.SelectedValue;
+					facilityBA.Update(facility);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
+			else
+			{
+				return;
+			}
 		}
 		
 		
-		private void btnUpdate_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			Facility facility = new Facility();
-			facility.ID = (long)listFac.SelectedValue;
-			facility.Name = txtName.Text;
-			facility.Address1 = txtAddr1.Text;
-			facility.Address2 = txtAddr2.Text;
-			facility.City = txtCity.Text;
-			facility.StateID = (long)cboState.SelectedValue;
-			facility.Zipcode = txtZip.Text;
-			facility.Latitude = Convert.ToSingle(txtLat.Text);
-			facility.Longitude = Convert.ToSingle(txtLong.Text);
-			facility.Phone1 = txtPhone1.Text;
-			facility.Phone2 = txtPhone2.Text;
-			facility.Fax = txtFax.Text;
-			
-			facilityBA.Update(facility);
-			
-			//Reload data
-			this.ResetControlBindings();
+			listFac.SelectedIndex = -1;
+			txtName.Text = "";
+			txtAddr1.Text = "";
+			txtAddr2.Text = "";
+			txtCity.Text = "";
+			cboState.SelectedIndex = -1;
+			txtZip.Text = "";
+			txtLat.Text = "";
+			txtLong.Text = "";
+			txtPhone1.Text = "";
+			txtPhone2.Text = "";
+			txtFax.Text = "";
 		}
 		
 		
 		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			Facility facility = new Facility();
-			facility.ID = (long)listFac.SelectedValue;
-			
-			facilityBA.Delete(facility);
-			
-			//Reload data
-			this.ResetControlBindings();
+			if(listFac.SelectedIndex >= 0)
+			{
+				Facility facility = new Facility();
+				facility.ID = (long)listFac.SelectedValue;
+				
+				facilityBA.Delete(facility);
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
 		}
 		
 		

@@ -92,44 +92,17 @@ namespace MRMaintenance
 		
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			Manufacturer man = new Manufacturer();
-			man.Name = txtName.Text;
-			man.Address1 = txtAddr1.Text;
-			man.Address2 = txtAddr2.Text;
-			man.City = txtCity.Text;
-			if(cboState.SelectedValue == null) man.StateID = 51; else man.StateID = (long)cboState.SelectedValue;
-			man.Zipcode = txtZip.Text;
-			man.Phone1 = txtPhone1.Text;
-			man.Phone2 = txtPhone2.Text;
-			man.Fax = txtFax.Text;
-			man.Website = txtWeb.Text;
-			
-			manBA.Insert(man);
-			
-			//Reload data
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			Manufacturer man = new Manufacturer();
-			man.ID = (long)listMan.SelectedValue;
-			man.Name = txtName.Text;
-			man.Address1 = txtAddr1.Text;
-			man.Address2 = txtAddr2.Text;
-			man.City = txtCity.Text;
-			if(cboState.SelectedValue == null) man.StateID = 51; else man.StateID = (long)cboState.SelectedValue;
-			man.Zipcode = txtZip.Text;
-			man.Phone1 = txtPhone1.Text;
-			man.Phone2 = txtPhone2.Text;
-			man.Fax = txtFax.Text;
-			man.Website = txtWeb.Text;
-			
-			manBA.Update(man);
-			
-			//Reload data
-			this.ResetControlBindings();
+			listMan.SelectedIndex = -1;
+			txtName.Clear();
+			txtAddr1.Clear();
+			txtAddr2.Clear();
+			txtCity.Clear();
+			cboState.SelectedIndex = -1;
+			txtZip.Clear();
+			txtPhone1.Clear();
+			txtPhone2.Clear();
+			txtFax.Clear();
+			txtWeb.Clear();
 		}
 		
 		
@@ -142,6 +115,38 @@ namespace MRMaintenance
 			
 			//Reload data
 			this.ResetControlBindings();
+		}
+		
+		
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			if(txtName.Text != "" && txtName.Text != null)
+			{
+				Manufacturer man = new Manufacturer();
+				man.Name = txtName.Text;
+				man.Address1 = txtAddr1.Text;
+				man.Address2 = txtAddr2.Text;
+				man.City = txtCity.Text;
+				if(cboState.SelectedValue == null) man.StateID = 51; else man.StateID = (long)cboState.SelectedValue;
+				man.Zipcode = txtZip.Text;
+				man.Phone1 = txtPhone1.Text;
+				man.Phone2 = txtPhone2.Text;
+				man.Fax = txtFax.Text;
+				man.Website = txtWeb.Text;
+				
+				if(listMan.SelectedIndex == -1)
+				{
+					man.ID = (long)listMan.SelectedValue;
+					manBA.Insert(man);
+				}
+				else
+				{
+					manBA.Update(man);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
 		}
 		
 		

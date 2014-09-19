@@ -147,44 +147,18 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			WorkOrderRequest woReq = new WorkOrderRequest();
-			woReq.Name = this.txtName.Text;
-			woReq.Enabled = this.chkEnabled.Checked;
-			woReq.Description = this.txtDescr.Text;
-			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
-			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
-			woReq.Priority = (int)this.cboPriority.SelectedValue;
-			woReq.StartDate = dtStartDate.Value;
-			woReq.TimeFrequency = (int)numFreq.Value;
-			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
-			
-			workOrderReqBA.Insert(woReq);
-			
-			//Reload data
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			WorkOrderRequest woReq = new WorkOrderRequest();
-			woReq.ID = (long)this.listWO.SelectedValue;
-			woReq.Name = this.txtName.Text;
-			woReq.Enabled = this.chkEnabled.Checked;
-			woReq.Description = this.txtDescr.Text;
-			woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
-			woReq.DepartmentID = (long)this.cboDept.SelectedValue;
-			woReq.Priority = (int)this.cboPriority.SelectedValue;
-			woReq.StartDate = dtStartDate.Value;
-			woReq.TimeFrequency = (int)numFreq.Value;
-			woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
-			
-			workOrderReqBA.Update(woReq);
-			
-			//Reload data
-			this.ResetControlBindings();
+			listWO.SelectedIndex = -1;
+			chkEnabled.Checked = true;
+			txtName.Clear();
+			cboEquip.SelectedIndex = -1;
+			cboDept.SelectedIndex = -1;
+			cboPriority.SelectedIndex = -1;
+			txtDescr.Clear();
+			dtStartDate.Value = DateTime.Now;
+			numFreq.Value = 1;
+			cboInterval.SelectedIndex = -1;
 		}
 		
 		
@@ -199,6 +173,39 @@ namespace MRMaintenance
 			this.ResetControlBindings();
 		}
 		
+		
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			if(txtName.Text != "" && txtName.Text != null && cboEquip.SelectedIndex >= 0 && dtStartDate.Value != null && 
+			   numFreq.Value >= 0 && cboInterval.SelectedIndex >= 0 && cboPriority.SelectedIndex >= 0)
+			{
+				WorkOrderRequest woReq = new WorkOrderRequest();
+				woReq.Name = this.txtName.Text;
+				woReq.Enabled = this.chkEnabled.Checked;
+				woReq.Description = this.txtDescr.Text;
+				woReq.EquipmentID = (long)this.cboEquip.SelectedValue;
+				woReq.DepartmentID = (long)this.cboDept.SelectedValue;
+				woReq.Priority = (int)this.cboPriority.SelectedValue;
+				woReq.StartDate = dtStartDate.Value;
+				woReq.TimeFrequency = (int)numFreq.Value;
+				woReq.TimeIntervalID = (long)cboInterval.SelectedValue;
+				
+				if(listWO.SelectedIndex == -1)
+				{
+					woReq.ID = (long)this.listWO.SelectedValue;
+					workOrderReqBA.Insert(woReq);
+				}
+				else
+				{
+					workOrderReqBA.Update(woReq);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
+		}
+		
+		
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
@@ -207,20 +214,22 @@ namespace MRMaintenance
 		
 		private void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboEquip.Text == "" || cboEquip.Text == null)
-			{
-				MessageBox.Show("Equipment name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboEquip.FindStringExact(cboEquip.Text);
 			
-			//Check for new values
-			if(cboEquip.SelectedText != cboEquip.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Equipment does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboEquip.Text.Length > 0)
 				{
-					frmEquipment form = new frmEquipment();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Equipment does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmLocations form = new frmLocations();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Equipment cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -228,21 +237,34 @@ namespace MRMaintenance
 		
 		private void cboDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboDept.Text == "" || cboDept.Text == null)
-			{
-				MessageBox.Show("Department name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboDept.FindStringExact(cboDept.Text);
 			
-			//Check for new values
-			if(cboDept.SelectedText != cboDept.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Department does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboDept.Text.Length > 0)
 				{
-					frmDepartment form = new frmDepartment();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Department does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmLocations form = new frmLocations();
+						form.ShowDialog(this);
+					}
 				}
+				else
+				{
+					MessageBox.Show("Department cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+			}
+		}
+		
+		
+		private void cboPriority_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			int i =  cboPriority.FindStringExact(cboPriority.Text);
+			
+			if(cboPriority.SelectedIndex == -1)
+			{
+				MessageBox.Show("Priority cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 		}
 		
@@ -252,7 +274,7 @@ namespace MRMaintenance
 			//Check for null values
 			if(txtName.Text == "" || txtName.Text == null)
 			{
-				MessageBox.Show("Work order name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Work order name cannot be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		
@@ -262,7 +284,7 @@ namespace MRMaintenance
 			//Check for null values
 			if(dtStartDate.Value == null)
 			{
-				MessageBox.Show("Start date cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Start date cannot be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		
@@ -272,13 +294,8 @@ namespace MRMaintenance
 			//Check for null values
 			if(cboInterval.Text == "" || cboInterval.Text == null)
 			{
-				MessageBox.Show("Time interval name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Time interval name cannot be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-		}
-		
-		private void BtnOKClick(object sender, EventArgs e)
-		{
-			this.Hide();
 		}
 	}
 }

@@ -37,10 +37,8 @@ namespace MRMaintenance
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocations));
 			this.btnClose = new System.Windows.Forms.Button();
-			this.btnUpdate = new System.Windows.Forms.Button();
-			this.btnRemove = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
 			this.listLoc = new System.Windows.Forms.ListBox();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -61,48 +59,21 @@ namespace MRMaintenance
 			this.label9 = new System.Windows.Forms.Label();
 			this.txtLong = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.btnNew = new System.Windows.Forms.Button();
+			this.btnRemove = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnClose
 			// 
 			this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnClose.Location = new System.Drawing.Point(432, 317);
+			this.btnClose.Location = new System.Drawing.Point(432, 310);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(75, 23);
 			this.btnClose.TabIndex = 12;
 			this.btnClose.Text = "&Close";
 			this.btnClose.UseVisualStyleBackColor = true;
-			this.btnClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClose_Click);
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Location = new System.Drawing.Point(351, 263);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-			this.btnUpdate.TabIndex = 11;
-			this.btnUpdate.Text = "&Update";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdate_Click);
-			// 
-			// btnRemove
-			// 
-			this.btnRemove.Location = new System.Drawing.Point(160, 283);
-			this.btnRemove.Name = "btnRemove";
-			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 2;
-			this.btnRemove.Text = "&Remove";
-			this.btnRemove.UseVisualStyleBackColor = true;
-			this.btnRemove.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRemove_Click);
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Location = new System.Drawing.Point(432, 263);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 12;
-			this.btnAdd.Text = "&Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAdd_Click);
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// listLoc
 			// 
@@ -208,7 +179,7 @@ namespace MRMaintenance
 			// 
 			// cboState
 			// 
-			this.cboState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboState.FormattingEnabled = true;
 			this.cboState.Location = new System.Drawing.Point(382, 194);
 			this.cboState.Name = "cboState";
@@ -260,12 +231,45 @@ namespace MRMaintenance
 			this.label10.TabIndex = 87;
 			this.label10.Text = "Longitude";
 			// 
+			// btnSave
+			// 
+			this.btnSave.Location = new System.Drawing.Point(351, 310);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.TabIndex = 122;
+			this.btnSave.Text = "&Save";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// btnNew
+			// 
+			this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+			this.btnNew.Location = new System.Drawing.Point(178, 283);
+			this.btnNew.Name = "btnNew";
+			this.btnNew.Size = new System.Drawing.Size(26, 23);
+			this.btnNew.TabIndex = 121;
+			this.btnNew.UseVisualStyleBackColor = true;
+			this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+			// 
+			// btnRemove
+			// 
+			this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+			this.btnRemove.Location = new System.Drawing.Point(210, 283);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(26, 23);
+			this.btnRemove.TabIndex = 120;
+			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			// 
 			// frmLocations
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnClose;
-			this.ClientSize = new System.Drawing.Size(513, 346);
+			this.ClientSize = new System.Drawing.Size(513, 339);
+			this.Controls.Add(this.btnSave);
+			this.Controls.Add(this.btnNew);
+			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.txtLong);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.txtLat);
@@ -284,9 +288,6 @@ namespace MRMaintenance
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.cboFacility);
 			this.Controls.Add(this.btnClose);
-			this.Controls.Add(this.btnUpdate);
-			this.Controls.Add(this.btnRemove);
-			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.listLoc);
 			this.Controls.Add(this.txtName);
 			this.Controls.Add(this.label2);
@@ -302,6 +303,9 @@ namespace MRMaintenance
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Button btnNew;
+		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox txtLong;
 		private System.Windows.Forms.Label label9;
@@ -322,9 +326,6 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.ListBox listLoc;
-		private System.Windows.Forms.Button btnAdd;
-		private System.Windows.Forms.Button btnRemove;
-		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Button btnClose;
 	}
 }

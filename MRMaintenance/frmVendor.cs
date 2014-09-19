@@ -90,46 +90,19 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			Vendor vendor = new Vendor();
-			vendor.Name = txtName.Text;
-			vendor.Address1 = txtAddr1.Text;
-			vendor.Address2 = txtAddr2.Text;
-			vendor.City = txtCity.Text;
-			if(cboState.SelectedValue == null) vendor.StateID = 51; else vendor.StateID = (long)cboState.SelectedValue;
-			vendor.Zipcode = txtZip.Text;
-			vendor.Phone1 = txtPhone1.Text;
-			vendor.Phone2 = txtPhone2.Text;
-			vendor.Fax = txtFax.Text;
-			vendor.Website = txtWeb.Text;
-			
-			vendorBA.Insert(vendor);
-			
-			//Reload data
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			Vendor vendor = new Vendor();
-			vendor.ID = (long)listVen.SelectedValue;
-			vendor.Name = txtName.Text;
-			vendor.Address1 = txtAddr1.Text;
-			vendor.Address2 = txtAddr2.Text;
-			vendor.City = txtCity.Text;
-			if(cboState.SelectedValue == null) vendor.StateID = 51; else vendor.StateID = (long)cboState.SelectedValue;
-			vendor.Zipcode = txtZip.Text;
-			vendor.Phone1 = txtPhone1.Text;
-			vendor.Phone2 = txtPhone2.Text;
-			vendor.Fax = txtFax.Text;
-			vendor.Website = txtWeb.Text;
-			
-			vendorBA.Update(vendor);
-			
-			//Reload data
-			this.ResetControlBindings();
+			listVen.SelectedIndex = -1;
+			txtName.Clear();
+			txtAddr1.Clear();
+			txtAddr2.Clear();
+			txtCity.Clear();
+			cboState.SelectedValue = -1;
+			txtZip.Clear();
+			txtPhone1.Clear();
+			txtPhone2.Clear();
+			txtFax.Clear();
+			txtWeb.Clear();
 		}
 		
 		
@@ -142,6 +115,38 @@ namespace MRMaintenance
 			
 			//Reload data
 			this.ResetControlBindings();
+		}
+		
+		
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			if(txtName.Text != "" && txtName.Text != null)
+			{
+				Vendor vendor = new Vendor();
+				vendor.Name = txtName.Text;
+				vendor.Address1 = txtAddr1.Text;
+				vendor.Address2 = txtAddr2.Text;
+				vendor.City = txtCity.Text;
+				if(cboState.SelectedValue == null) vendor.StateID = 51; else vendor.StateID = (long)cboState.SelectedValue;
+				vendor.Zipcode = txtZip.Text;
+				vendor.Phone1 = txtPhone1.Text;
+				vendor.Phone2 = txtPhone2.Text;
+				vendor.Fax = txtFax.Text;
+				vendor.Website = txtWeb.Text;
+				
+				if(listVen.SelectedIndex == -1)
+				{
+					vendor.ID = (long)listVen.SelectedValue;
+					vendorBA.Insert(vendor);
+				}
+				else
+				{
+					vendorBA.Update(vendor);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
 		}
 		
 		

@@ -290,35 +290,35 @@ namespace MRMaintenance
 		
 		private void btnSave_Click(object sender, EventArgs e)
 		{
-			Part part = new Part();
-			part.Name = txtName.Text;
-			part.Description = txtDescr.Text;
-			part.PartNumber = txtPartNumber.Text;
-			
-			if(cboManufacturer.SelectedValue != null)
-				part.ManufacturerID = (long)cboManufacturer.SelectedValue;
-			
-			if(cboVendor.SelectedValue != null)
-				part.VendorID = (long)cboVendor.SelectedValue;
-			
-			part.Size = (float)numSize.Value;
-			
-			if(cboUnits.SelectedValue != null)
-				part.SizeUnit = (long)cboUnits.SelectedValue;
-			
-			PartBA partBA = new PartBA();
-			
-			if(listParts.SelectedIndex == -1)
+			if(cboManufacturer.SelectedValue != null && cboVendor.SelectedValue != null && cboUnits.SelectedValue != null)
 			{
-				partBA.Insert(part);
+				Part part = new Part();
+				part.Name = txtName.Text;
+				part.Description = txtDescr.Text;
+				part.PartNumber = txtPartNumber.Text;
+				part.ManufacturerID = (long)cboManufacturer.SelectedValue;
+				part.VendorID = (long)cboVendor.SelectedValue;
+				part.SizeUnit = (long)cboUnits.SelectedValue;
+				part.Size = (float)numSize.Value;
+				
+				PartBA partBA = new PartBA();
+				
+				if(listParts.SelectedIndex == -1)
+				{
+					partBA.Insert(part);
+				}
+				else
+				{
+					part.ID = (long)listParts.SelectedValue;
+					partBA.Update(part);
+				}
+				
+				this.ResetControlBindings();
 			}
 			else
 			{
-				part.ID = (long)listParts.SelectedValue;
-				partBA.Update(part);
+				return;
 			}
-			
-			this.ResetControlBindings();
 		}
 		
 		

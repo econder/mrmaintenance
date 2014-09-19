@@ -102,68 +102,67 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnAdd_Click(object sender, MouseEventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
 		{
-			Location location = new Location();
-			location.FacilityID = (long)cboFacility.SelectedValue;
-			location.Name = txtName.Text;
-			location.Address1 = txtAddr1.Text;
-			location.Address2 = txtAddr2.Text;
-			location.City = txtCity.Text;
-			if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
-			location.Zipcode = txtZip.Text;
-			
-			try
+			if(cboFacility.SelectedIndex >= 0 && txtName.Text != "" && txtName.Text != null)
 			{
+				Location location = new Location();
+				location.FacilityID = (long)cboFacility.SelectedValue;
+				location.Name = txtName.Text;
+				location.Address1 = txtAddr1.Text;
+				location.Address2 = txtAddr2.Text;
+				location.City = txtCity.Text;
+				if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
+				location.Zipcode = txtZip.Text;
 				location.Latitude = Convert.ToSingle(txtLat.Text);
 				location.Longitude = Convert.ToSingle(txtLong.Text);
 				
-				locationBA.Insert(location);
+				if(listLoc.SelectedIndex == -1)
+				{
+					location.ID = (long)listLoc.SelectedValue;
+					locationBA.Insert(location);
+				}
+				else
+				{
+					locationBA.Update(location);
+				}
 				
 				//Reload data
 				this.ResetControlBindings();
 			}
-			catch(Exception ex)
+		}
+		
+		
+		private void btnNew_Click(object sender, EventArgs e)
+		{
+			listLoc.SelectedIndex = -1;
+			txtName.Clear();
+			txtAddr1.Clear();
+			txtAddr2.Clear();
+			txtCity.Clear();
+			cboState.SelectedIndex = -1;
+			txtZip.Clear();
+			txtLat.Clear();
+			txtLong.Clear();
+		}
+		
+		
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+			if(listLoc.SelectedIndex >= 0)
 			{
-				throw;
+				Location location = new Location();
+				location.ID = (long)listLoc.SelectedValue;
+				
+				locationBA.Delete(location);
+				
+				//Reload data
+				this.ResetControlBindings();
 			}
 		}
 		
 		
-		private void btnUpdate_Click(object sender, MouseEventArgs e)
-		{
-			Location location = new Location();
-			location.ID = (long)listLoc.SelectedValue;
-			location.FacilityID = (long)cboFacility.SelectedValue;
-			location.Name = txtName.Text;
-			location.Address1 = txtAddr1.Text;
-			location.Address2 = txtAddr2.Text;
-			location.City = txtCity.Text;
-			if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
-			location.Zipcode = txtZip.Text;
-			location.Latitude = Convert.ToSingle(txtLat.Text);
-			location.Longitude = Convert.ToSingle(txtLong.Text);
-			
-			locationBA.Update(location);
-			
-			//Reload data
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnRemove_Click(object sender, MouseEventArgs e)
-		{
-			Location location = new Location();
-			location.ID = (long)listLoc.SelectedValue;
-			
-			locationBA.Delete(location);
-			
-			//Reload data
-			this.ResetControlBindings();
-		}
-		
-		
-		private void btnClose_Click(object sender, MouseEventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 		}

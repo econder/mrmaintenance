@@ -64,45 +64,53 @@ namespace MRMaintenance
 		}
 		
 		
-		void btnAdd_Click(object sender, EventArgs e)
+		private void btnNew_Click(object sender, EventArgs e)
 		{
-			Department department = new Department();
-			department.Name = txtName.Text;
-			
-			departmentBA.Insert(department);
-			
-			//Reload data
-			this.ResetControlBindings();
+			listDept.SelectedIndex = -1;
+			txtName.Clear();
 		}
 		
 		
-		void btnUpdate_Click(object sender, EventArgs e)
+		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			Department department = new Department();
-			department.ID = (long)listDept.SelectedValue;
-			department.Name = txtName.Text;
-			
-			departmentBA.Update(department);
-			
-			//Reload data
-			this.ResetControlBindings();
+			if(listDept.SelectedIndex >= 0)
+			{
+				Department department = new Department();
+				department.ID = (long)listDept.SelectedValue;
+				department.Name = txtName.Text;
+				
+				departmentBA.Delete(department);
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
 		}
 		
 		
-		void btnRemove_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
 		{
-			Department department = new Department();
-			department.ID = (long)listDept.SelectedValue;
-			department.Name = txtName.Text;
-			
-			departmentBA.Delete(department);
-			
-			//Reload data
-			this.ResetControlBindings();
+			if(txtName.Text != "" && txtName.Text != null)
+			{
+				Department department = new Department();
+				department.Name = txtName.Text;
+				
+				if(listDept.SelectedIndex == -1)
+				{
+					department.ID = (long)listDept.SelectedValue;
+					departmentBA.Insert(department);
+				}
+				else
+				{
+					departmentBA.Update(department);
+				}
+				
+				//Reload data
+				this.ResetControlBindings();
+			}
 		}
 		
 		
-		void btnClose_Click(object sender, EventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 		}
