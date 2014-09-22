@@ -83,7 +83,7 @@ namespace MRMaintenance
 			listWO.ValueMember = "reqId";
 			
 			//Bind work order request enabled checkbox
-			chkEnabled.DataBindings.Add("Checked", dt, "enabled", false, DataSourceUpdateMode.Never, 0);
+			chkEnabled.DataBindings.Add("Checked", dt, "enabled", true, DataSourceUpdateMode.Never, false);
 			
 			//Bind work order request name textbox
 			txtName.DataBindings.Add("Text", dt, "reqName", true, DataSourceUpdateMode.Never, "");
@@ -105,7 +105,7 @@ namespace MRMaintenance
 			cboPriority.DataSource = priorityBA.Load();
 			cboPriority.DisplayMember = "priorityName";
 			cboPriority.ValueMember = "priorityId";
-			cboPriority.DataBindings.Add("SelectedValue", dt, "priorityId", false, DataSourceUpdateMode.Never, 1);
+			cboPriority.DataBindings.Add("SelectedValue", dt, "priorityId", true, DataSourceUpdateMode.Never, 1);
 			
 			//Load and bind time intervals combobox
 			cboInterval.DataSource = timeInterval.Load();
@@ -192,11 +192,11 @@ namespace MRMaintenance
 				
 				if(listWO.SelectedIndex == -1)
 				{
-					woReq.ID = (long)this.listWO.SelectedValue;
 					workOrderReqBA.Insert(woReq);
 				}
 				else
 				{
+					woReq.ID = (long)this.listWO.SelectedValue;
 					workOrderReqBA.Update(woReq);
 				}
 				

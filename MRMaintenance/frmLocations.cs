@@ -119,11 +119,11 @@ namespace MRMaintenance
 				
 				if(listLoc.SelectedIndex == -1)
 				{
-					location.ID = (long)listLoc.SelectedValue;
 					locationBA.Insert(location);
 				}
 				else
 				{
+					location.ID = (long)listLoc.SelectedValue;
 					locationBA.Update(location);
 				}
 				

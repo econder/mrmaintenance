@@ -136,11 +136,11 @@ namespace MRMaintenance
 				
 				if(listVen.SelectedIndex == -1)
 				{
-					vendor.ID = (long)listVen.SelectedValue;
 					vendorBA.Insert(vendor);
 				}
 				else
 				{
+					vendor.ID = (long)listVen.SelectedValue;
 					vendorBA.Update(vendor);
 				}
 				

@@ -136,11 +136,11 @@ namespace MRMaintenance
 				
 				if(listMan.SelectedIndex == -1)
 				{
-					man.ID = (long)listMan.SelectedValue;
 					manBA.Insert(man);
 				}
 				else
 				{
+					man.ID = (long)listMan.SelectedValue;
 					manBA.Update(man);
 				}
 				

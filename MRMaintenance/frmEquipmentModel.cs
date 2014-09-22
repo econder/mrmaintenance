@@ -87,11 +87,11 @@ namespace MRMaintenance
 				
 				if(listModel.SelectedIndex == -1)
 				{
-					model.ID = (long)listModel.SelectedValue;
 					modelBA.Insert(model);
 				}
 				else
 				{
+					model.ID = (long)listModel.SelectedValue;
 					modelBA.Update(model);
 				}
 				

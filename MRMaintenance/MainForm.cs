@@ -212,16 +212,19 @@ namespace MRMaintenance
 		//Select row and display context menu on right-click
 		private void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
+			//Populated workOrderRequest class properties on selection change
+			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
+			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
+			workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
+			workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+			
 			//Handle left-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
 			{
-				//Populated workOrderRequest class properties on selection change
-				workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
-				workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
-				workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
-				workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
-				workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+				
 			}
+			
 			
 			//Handle right-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)

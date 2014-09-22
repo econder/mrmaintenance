@@ -247,22 +247,34 @@ namespace MRMaintenance
 		
 		private void btnEquipSave_Click(object sender, EventArgs e)
 		{
-			Equipment equipment = new Equipment();
-			equipment.ID = (long)listEquip.SelectedValue;
-			equipment.LocationID = (long)cboLocation.SelectedValue;
-			equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
-			equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
-			equipment.VendorID = (long)cboVendor.SelectedValue;
-			equipment.ModelID = (long)cboModel.SelectedValue;
-			equipment.EquipmentNumber = txtEquipNumber.Text;
-			equipment.Name = txtName.Text;
-			equipment.Description = txtDescr.Text;
-			equipment.Serial = txtSerial.Text;
-			
-			EquipmentBA equipmentBA = new EquipmentBA();
-			equipmentBA.Update(equipment);
-			
-			this.ResetControlBindings();
+			if(cboLocation.SelectedIndex >= 0 && cboEquipType.SelectedIndex >= 0 && cboManufacturer.SelectedIndex >= 0 &&
+			   txtName.Text != "" && txtName.Text != null)
+			{
+				Equipment equipment = new Equipment();
+				equipment.LocationID = (long)cboLocation.SelectedValue;
+				equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
+				equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
+				equipment.VendorID = (long)cboVendor.SelectedValue;
+				equipment.ModelID = (long)cboModel.SelectedValue;
+				equipment.EquipmentNumber = txtEquipNumber.Text;
+				equipment.Name = txtName.Text;
+				equipment.Description = txtDescr.Text;
+				equipment.Serial = txtSerial.Text;
+				
+				EquipmentBA equipmentBA = new EquipmentBA();
+				
+				if(listWorkOrderReq.SelectedIndex == -1)
+				{
+					equipmentBA.Insert(equipment);
+				}
+				else
+				{
+					equipment.ID = (long)listEquip.SelectedValue;
+					equipmentBA.Update(equipment);
+				}
+				
+				this.ResetControlBindings();
+			}
 		}
 		
 		

@@ -102,11 +102,11 @@ namespace MRMaintenance
 				
 				if(listType.SelectedIndex == -1)
 				{
-					type.ID = (long)listType.SelectedValue;
 					typeBA.Insert(type);
 				}
 				else
 				{
+					type.ID = (long)listType.SelectedValue;
 					typeBA.Update(type);
 				}
 				
