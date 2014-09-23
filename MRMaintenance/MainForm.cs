@@ -274,17 +274,23 @@ namespace MRMaintenance
 		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmReportViewer form = new frmReportViewer("WorkOrdersAll");
-			form.Show(this);
+			//frmReportViewer form = new frmReportViewer("WorkOrdersAll");
+			//form.Show(this);
+			
+			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
+			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", rptServer));
 		}
 		
 		
 		//Show Work Order Detail Report
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
+			//frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
+			//form.Show(this);
+			
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
-			frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
-			form.Show(this);
+			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
+			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
 		}
 	}
 }
