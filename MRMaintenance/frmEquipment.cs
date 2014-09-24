@@ -180,38 +180,44 @@ namespace MRMaintenance
 		
 		private void cboFacility_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//Load and bind facility locations combobox
-			cboLocation.DataBindings.Clear();
-			Facility facility = new Facility();
-			facility.ID = (long)cboFacility.SelectedValue;
-			LocationBA locationBA = new LocationBA();
-			cboLocation.DataSource = locationBA.LoadByFacility(facility);
-			cboLocation.DisplayMember = "name";
-			cboLocation.ValueMember = "locId";
+			if(cboFacility.SelectedIndex > -1)
+			{
+				//Load and bind facility locations combobox
+				cboLocation.DataBindings.Clear();
+				Facility facility = new Facility();
+				facility.ID = (long)cboFacility.SelectedValue;
+				LocationBA locationBA = new LocationBA();
+				cboLocation.DataSource = locationBA.LoadByFacility(facility);
+				cboLocation.DisplayMember = "name";
+				cboLocation.ValueMember = "locId";
+			}
 		}
 		
 		
 		private void listEquip_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Equipment equipment = new Equipment();
-			equipment.ID = (long)listEquip.SelectedValue;
-			
-			//Load and bind docs/links listbox
-			EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
-			dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
-			listEquipDocs.DataSource = dtEquipDocs;
-			listEquipDocs.DisplayMember = "equipDocName";
-			listEquipDocs.ValueMember = "equipDocId";
-			
-			//Load and bind work order requests listbox
-			/*
+			if(listEquip.SelectedIndex > -1)
+			{
+				Equipment equipment = new Equipment();
+				equipment.ID = (long)listEquip.SelectedValue;
+				
+				//Load and bind docs/links listbox
+				EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
+				dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
+				listEquipDocs.DataSource = dtEquipDocs;
+				listEquipDocs.DisplayMember = "equipDocName";
+				listEquipDocs.ValueMember = "equipDocId";
+				
+				//Load and bind work order requests listbox
+				/*
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
 			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
 			listWorkOrderReq.DataSource = dtWorkOrderReq;
 			listWorkOrderReq.DisplayMember = "reqName";
 			listWorkOrderReq.ValueMember = "reqId";
-			*/
-			this.ResetWorkOrderRequestListBindings();
+				 */
+				this.ResetWorkOrderRequestListBindings();
+			}
 		}
 		
 		

@@ -78,7 +78,7 @@ namespace MRMaintenance
 			facility.ID = (long)cboFacilities.SelectedValue;
 			
 			//Load DataGridView with WorkOrdersDueByFacility
-			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 300);
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
 				this.dgview.DataSource = dtWorkOrderRequests;

@@ -85,6 +85,25 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
+		public DataTable LoadOpenByRequestBrief(WorkOrderRequest workOrderRequest)
+		{
+			WorkOrderDA da = new WorkOrderDA();
+			
+			try
+			{
+				return da.LoadOpenByRequestBrief(workOrderRequest);
+			}
+			catch
+			{
+				throw;
+			}
+			finally
+			{
+				da = null;
+			}
+		}
+		
+		
 		public DataTable LoadOpenByFacilityBrief(Facility facility)
 		{
 

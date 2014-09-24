@@ -35,6 +35,12 @@ namespace MRMaintenance
 		
 		public frmLocations()
 		{
+			this.Initialize();
+		}
+		
+		
+		private void Initialize()
+		{
 			InitializeComponent();
 			
 			facilityBA = new FacilityBA();
@@ -196,20 +202,22 @@ namespace MRMaintenance
 		
 		private void cboFacility_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			//Check for null values
-			if(cboFacility.Text == "" || cboFacility.Text == null)
-			{
-				MessageBox.Show("Facility cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			int i =  cboFacility.FindStringExact(cboFacility.Text);
 			
-			//Check for new values
-			if(cboFacility.SelectedText != cboFacility.Text)
+			if(i == -1)
 			{
-				if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
-				                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+				if(cboFacility.Text.Length > 0)
 				{
-					frmFacility form = new frmFacility();
-					form.ShowDialog(this);
+					if(MessageBox.Show("Facility does not exist. Would you like to create it?", "",
+					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+					{
+						frmFacility form = new frmFacility();
+						form.ShowDialog(this);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Facility cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}

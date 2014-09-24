@@ -101,6 +101,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
+				
 				SqlCommand cmd = new SqlCommand("SELECT v_WorkOrderRequests.reqId AS [ID], v_WorkOrderRequests.reqName AS [Name], v_WorkOrderRequests.reqDateSubmitted AS [Date Submitted]," +
 												" v_WorkOrderRequests.nextDue AS [Due By], v_WorkOrderRequests.locName AS [Location], v_WorkOrderRequests.equipId AS [Equipment ID]," +
 												" v_WorkOrderRequests.equipName AS [Equipment Name], v_WorkOrderRequests.priorityName AS [Priority], v_WorkOrderRequests.woCount AS [Open Work Orders]" +
@@ -110,11 +111,13 @@ namespace MRMaintenance.Data
 												" AND v_WorkOrderRequests.enabled = 1" + 
 												" ORDER BY v_WorkOrderRequests.nextDue DESC, priorityId DESC", dbConn);
 				
+				//SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDue", dbConn);
 				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+				//cmd.CommandType = CommandType.StoredProcedure;
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
-				DataTable dt = new DataTable("WorkOrderRequestsByFacilityBrief");
+				DataTable dt = new DataTable("WorkOrderRequestsDueByFacility");
 				
 				try
 				{
@@ -278,13 +281,14 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM WorkOrders WHERE reqId=@reqId AND woComplete=0", dbConn);
+				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM WorkOrders WHERE woId=@reqId AND woComplete=0", dbConn);
 				
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
 					
-					return (int)cmd.ExecuteScalar();
+					int i = (int)cmd.ExecuteScalar();
+					return i;
 				}
 				catch
 				{

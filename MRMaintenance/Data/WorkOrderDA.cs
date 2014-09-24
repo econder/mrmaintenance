@@ -187,6 +187,38 @@ namespace MRMaintenance.Data
 		}
 		
 		
+		public DataTable LoadOpenByRequestBrief(WorkOrderRequest workOrderRequest)
+		{
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+				dbConn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT woID AS [ID], woDateCreated AS [Date Created], woDateDue AS [Date Due] FROM v_WorkOrders WHERE reqId=@reqId AND woComplete=0 ORDER BY woDateDue", dbConn);
+				
+				cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
+				
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable("OpenWorkOrdersByRequestBrief");
+				
+				try
+				{
+					da.Fill(dt);
+					return dt;
+				}
+				catch
+				{
+					throw;
+				}
+				finally
+				{
+					dt.Dispose();
+					da.Dispose();
+					dbConn.Close();
+					dbConn.Dispose();
+				}
+			}
+		}
+		
+		
 		public int Insert(WorkOrder workOrder)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
