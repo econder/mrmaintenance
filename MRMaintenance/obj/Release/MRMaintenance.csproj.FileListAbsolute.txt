@@ -19,3 +19,4 @@ C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Release\MRMai
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.MainForm.resources
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
+C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache

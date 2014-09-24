@@ -7,7 +7,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MRMaintenance</RootNamespace>
     <AssemblyName>MRMaintenance</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -24,6 +24,7 @@
     <SourceAnalysisOverrideSettingsFile>C:\Users\mrsystems\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
     <StartupObject>MRMaintenance.Program</StartupObject>
     <ApplicationIcon>res\MR_Systems_Icon.ico</ApplicationIcon>
+    <ReferencePath>C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -281,8 +282,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="Properties\app.config" />
     <None Include="res\minus-2x.ico" />
     <None Include="res\minus-3x.ico" />
     <None Include="res\MR_Systems_Icon.ico" />

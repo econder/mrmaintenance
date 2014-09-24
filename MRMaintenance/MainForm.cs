@@ -40,6 +40,12 @@ namespace MRMaintenance
 		
 		public MainForm()
 		{
+			Initialize();
+		}
+		
+		
+		private void Initialize()
+		{
 			InitializeComponent();
 			
 			facilityBA = new FacilityBA();

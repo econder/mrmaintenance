@@ -11,6 +11,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 using MRMaintenance.BusinessObjects;
 
@@ -27,15 +28,25 @@ namespace MRMaintenance.Data
 		
 		public FacilityDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
+			/*
+			try
+			{
+				connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString.ToString();
+			}
+			catch
+			{
+				throw;
+			}
+			*/
 		}
 		
 		
 		public DataTable Load()
 		{
-			using(SqlConnection dbConn = new SqlConnection(connStr))
-			{
-				dbConn.Open();
+			//using(SqlConnection dbConn = new SqlConnection(connStr))
+			//{
+				SqlConnection dbConn = new SqlConnection("Server=.;Database=MRMaintenance;User Id=mrsystems;Password=Reggie123;");
+			
 				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Facilities", dbConn);
 				
 				DataTable dt = new DataTable("Facilities");
@@ -45,9 +56,10 @@ namespace MRMaintenance.Data
 					da.Fill(dt);
 					return dt;
 				}
-				catch
+				catch(Exception ex)
 				{
-					throw;
+					Debug.Print(Convert.ToString(ex.HResult));
+					return null;
 				}
 				finally
 				{
@@ -56,7 +68,7 @@ namespace MRMaintenance.Data
 					dbConn.Close();
 					dbConn.Dispose();
 				}
-			}
+			//}
 		}
 		
 		
