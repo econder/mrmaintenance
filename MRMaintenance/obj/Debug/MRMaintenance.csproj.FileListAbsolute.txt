@@ -1,4 +1,3 @@
-C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.config
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
