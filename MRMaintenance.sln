@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 # SharpDevelop 4.4
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRMaintenance", "MRMaintenance\MRMaintenance.csproj", "{C7B311E8-89FF-4D6E-9A79-D518D77731AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRMaintenance", "MRMaintenance\MRMaintenance.csproj", "{18431E8D-8ED5-4C18-8195-B8230573B68C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,9 +10,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C7B311E8-89FF-4D6E-9A79-D518D77731AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7B311E8-89FF-4D6E-9A79-D518D77731AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7B311E8-89FF-4D6E-9A79-D518D77731AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7B311E8-89FF-4D6E-9A79-D518D77731AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18431E8D-8ED5-4C18-8195-B8230573B68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18431E8D-8ED5-4C18-8195-B8230573B68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18431E8D-8ED5-4C18-8195-B8230573B68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18431E8D-8ED5-4C18-8195-B8230573B68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 EndGlobal
