@@ -145,75 +145,105 @@
     <Compile Include="Data\WorkOrderDA.cs" />
     <Compile Include="Data\WorkOrderRequestDA.cs" />
     <Compile Include="Data\WorkOrderTaskDA.cs" />
-    <Compile Include="frmEquipmentDoc.cs" />
+    <Compile Include="frmEquipmentDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEquipmentDoc.Designer.cs">
       <DependentUpon>frmEquipmentDoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipmentModel.cs" />
+    <Compile Include="frmEquipmentModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEquipmentModel.Designer.cs">
       <DependentUpon>frmEquipmentModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipmentType.cs" />
+    <Compile Include="frmEquipmentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEquipmentType.Designer.cs">
       <DependentUpon>frmEquipmentType.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacility.cs" />
+    <Compile Include="frmFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFacility.Designer.cs">
       <DependentUpon>frmFacility.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAbout.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDepartment.cs" />
+    <Compile Include="frmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipment.cs" />
+    <Compile Include="frmEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEquipment.Designer.cs">
       <DependentUpon>frmEquipment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventoryEdit.cs" />
+    <Compile Include="frmInventoryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInventoryEdit.Designer.cs">
       <DependentUpon>frmInventoryEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventoryLocation.cs" />
+    <Compile Include="frmInventoryLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInventoryLocation.Designer.cs">
       <DependentUpon>frmInventoryLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventoryXfer.cs" />
+    <Compile Include="frmInventoryXfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInventoryXfer.Designer.cs">
       <DependentUpon>frmInventoryXfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLocations.cs" />
+    <Compile Include="frmLocations.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLocations.Designer.cs">
       <DependentUpon>frmLocations.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManufacturer.cs" />
+    <Compile Include="frmManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmManufacturer.Designer.cs">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPart.cs" />
+    <Compile Include="frmPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPart.Designer.cs">
       <DependentUpon>frmPart.cs</DependentUpon>
     </Compile>
-    <None Include="frmReportViewer.cs" />
-    <None Include="frmReportViewer.Designer.cs">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
-    </None>
-    <Compile Include="frmVendor.cs" />
+    <Compile Include="frmVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmVendor.Designer.cs">
       <DependentUpon>frmVendor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWorkOrderHistory.cs" />
+    <Compile Include="frmWorkOrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWorkOrderHistory.Designer.cs">
       <DependentUpon>frmWorkOrderHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWorkOrderRequest.cs" />
+    <Compile Include="frmWorkOrderRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWorkOrderRequest.Designer.cs">
       <DependentUpon>frmWorkOrderRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
@@ -222,10 +252,7 @@
     <Compile Include="WinEventLog.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data" />
-    <Folder Include="BusinessObjects" />
-    <Folder Include="BusinessAccess" />
-    <Folder Include="res" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
@@ -266,9 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPart.resx">
       <DependentUpon>frmPart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmReportViewer.resx">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVendor.resx">
       <DependentUpon>frmVendor.cs</DependentUpon>
