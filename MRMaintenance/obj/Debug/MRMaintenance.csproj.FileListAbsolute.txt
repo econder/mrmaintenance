@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.config
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmAbout.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmDepartment.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipment.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentDoc.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentModel.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentType.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmFacility.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryEdit.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryLocation.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmInventoryXfer.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmLocations.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmManufacturer.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmPart.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmReportViewer.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmVendor.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmWorkOrderRequest.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.MainForm.resources
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.CodeAnalysisLog.xml
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.lastcodeanalysissucceeded
-C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
-=======
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
@@ -49,4 +21,5 @@ C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaint
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\mrsystems\Documents\repos\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
->>>>>>> origin/master
+C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
+C:\Users\mrsystems\repos\MRMaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb

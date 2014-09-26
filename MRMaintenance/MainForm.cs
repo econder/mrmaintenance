@@ -40,37 +40,6 @@ namespace MRMaintenance
 		
 		public MainForm()
 		{
-<<<<<<< HEAD
-            InitializeComponent();
-
-            facilityBA = new FacilityBA();
-            workOrderReqBA = new WorkOrderRequestBA();
-            workOrderBA = new WorkOrderBA();
-
-            Facility facility = new Facility();
-
-            //Create work order request object to hold datagridview
-            //information as row selection changes
-            workOrderReq = new WorkOrderRequest();
-
-            //Load and bind facilities combobox
-            DataTable dtFacility = facilityBA.Load();
-            cboFacilities.DataSource = dtFacility;
-            cboFacilities.DisplayMember = "name";
-            cboFacilities.ValueMember = "facId";
-
-            if (cboFacilities.Items.Count > 0)
-            {
-                cboFacilities.SelectedIndex = 0;
-                facility.ID = (long)cboFacilities.SelectedValue;
-            }
-
-            //Setup event handler after loading and binding the control
-            //to prevent firing the event before the control is populated
-            this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
-
-            this.FillData();
-=======
 			Initialize();
 		}
 		
@@ -106,7 +75,6 @@ namespace MRMaintenance
 			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
 			
 			this.FillData();
->>>>>>> origin/master
 		}
 		
 		
@@ -312,12 +280,9 @@ namespace MRMaintenance
 		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
-<<<<<<< HEAD
-=======
 			//frmReportViewer form = new frmReportViewer("WorkOrdersAll");
 			//form.Show(this);
 			
->>>>>>> origin/master
 			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
 			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", rptServer));
 		}
@@ -326,12 +291,9 @@ namespace MRMaintenance
 		//Show Work Order Detail Report
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-<<<<<<< HEAD
-=======
 			//frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
 			//form.Show(this);
 			
->>>>>>> origin/master
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
 			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
 			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
