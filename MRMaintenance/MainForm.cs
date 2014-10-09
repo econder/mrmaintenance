@@ -259,8 +259,10 @@ namespace MRMaintenance
 		//Create Work Order from Work Order Request
 		private void CreateWorkOrderFromRequest(object sender, EventArgs e)
 		{
-			if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
-				MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            workOrderReqBA.CreateWorkOrder(workOrderReq);
+
+			//if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
+			//	MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		
 		
