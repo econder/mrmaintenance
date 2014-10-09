@@ -27,7 +27,7 @@ namespace MRMaintenance.Data
 		
 		public ToolDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
+			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
 		}
 		
 		

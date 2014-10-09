@@ -26,7 +26,7 @@ namespace MRMaintenance.Data
 		
 		public DepartmentDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
+			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
 		}
 		
 		

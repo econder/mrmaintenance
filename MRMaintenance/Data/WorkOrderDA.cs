@@ -27,7 +27,7 @@ namespace MRMaintenance.Data
 		
 		public WorkOrderDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString;
+            connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
 		}
 		
 		
@@ -160,7 +160,11 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT woID AS [ID], woDateCreated AS [Date Created], woDateDue AS [Date Due] FROM v_WorkOrders WHERE facId=@facId AND woComplete=0 ORDER BY woDateDue", dbConn);
+                SqlCommand cmd = new SqlCommand("SELECT woID AS [Work Order ID], reqId AS [Work Request ID], reqName AS [Name], equipName AS [Equipment], locName AS [Location], woDateCreated AS [Date Created], woDateDue AS [Date Due]" +
+                                                " FROM v_WorkOrders" +
+                                                " WHERE facId=@facId" +
+                                                " AND woComplete=0" +
+                                                " ORDER BY woDateDue", dbConn);
 				
 				cmd.Parameters.AddWithValue("@facId", facility.ID);
 				

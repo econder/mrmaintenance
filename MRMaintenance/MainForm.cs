@@ -268,7 +268,7 @@ namespace MRMaintenance
 		private void MarkAsCompleteClick(object sender, EventArgs e)
 		{
 			WorkOrder workOrder = new WorkOrder();
-			workOrder.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+			workOrder.ID = (long)dgviewWO.SelectedRows[0].Cells["Work Order ID"].Value;
 			workOrderBA.MarkComplete(workOrder);
 			this.ResetControlBindings();
 		}
