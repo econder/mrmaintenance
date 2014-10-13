@@ -28,25 +28,22 @@ namespace MRMaintenance.Data
 		
 		public FacilityDA()
 		{
-			/*
 			try
 			{
-				connStr = ConfigurationManager.ConnectionStrings["MRMaintenanceSQL"].ConnectionString.ToString();
+                connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
 			}
 			catch
 			{
 				throw;
 			}
-			*/
 		}
 		
 		
 		public DataTable Load()
 		{
-			//using(SqlConnection dbConn = new SqlConnection(connStr))
-			//{
-				SqlConnection dbConn = new SqlConnection("Server=.;Database=MRMaintenance;User Id=mrsystems;Password=Reggie123;");
-			
+			using(SqlConnection dbConn = new SqlConnection(connStr))
+			{
+                dbConn.Open();
 				SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Facilities", dbConn);
 				
 				DataTable dt = new DataTable("Facilities");
@@ -68,7 +65,7 @@ namespace MRMaintenance.Data
 					dbConn.Close();
 					dbConn.Dispose();
 				}
-			//}
+			}
 		}
 		
 		

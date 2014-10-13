@@ -254,11 +254,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Settings1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings1.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="WinEventLog.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -327,10 +323,6 @@
     <None Include="res\plus-3x.ico" />
     <None Include="res\x-2x.ico" />
     <None Include="res\x-3x.ico" />
-    <None Include="Settings1.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

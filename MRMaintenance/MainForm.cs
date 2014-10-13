@@ -274,6 +274,16 @@ namespace MRMaintenance
 			workOrderBA.MarkComplete(workOrder);
 			this.ResetControlBindings();
 		}
+
+
+        /********************************************************************
+		 * File Menu
+		 ********************************************************************/
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
 		
 		
 		/********************************************************************
