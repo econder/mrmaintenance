@@ -229,6 +229,12 @@
     <Compile Include="frmVendor.Designer.cs">
       <DependentUpon>frmVendor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWorkOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWorkOrder.Designer.cs">
+      <DependentUpon>frmWorkOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWorkOrderHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVendor.resx">
       <DependentUpon>frmVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkOrder.resx">
+      <DependentUpon>frmWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkOrderRequest.resx">
       <DependentUpon>frmWorkOrderRequest.cs</DependentUpon>

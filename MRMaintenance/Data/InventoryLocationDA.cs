@@ -65,7 +65,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO InventoryLocation(facId, name)" +
+				SqlCommand cmd = new SqlCommand("INSERT INTO InventoryLocations(facId, name)" +
 				                                " VALUES(@facId, @name)", dbConn);
 				
 				try
