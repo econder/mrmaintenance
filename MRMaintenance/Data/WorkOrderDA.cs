@@ -59,6 +59,38 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable Load(long workOrderId)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE woId=@woId ORDER BY woDateDue", dbConn);
+
+                cmd.Parameters.AddWithValue("@woId", workOrderId);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("WorkOrders");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public DataTable LoadBrief()
@@ -257,7 +289,7 @@ namespace MRMaintenance.Data
 			{
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue," + 
-				                                " woNotes=@woNotes, woCompleted=@woComplete, woDateCompleted=@woDateCompleted, woCompletedBy=@woCompletedBy" +
+				                                " woNotes=@woNotes, woComplete=@woComplete, woDateCompleted=@woDateCompleted, woCompletedBy=@woCompletedBy" +
 				                                " WHERE woId=@woId", dbConn);
 				
 				try

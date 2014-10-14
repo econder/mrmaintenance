@@ -65,7 +65,6 @@ namespace MRMaintenance
             this.dgviewWO = new System.Windows.Forms.DataGridView();
             this.menuWorkOrders = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.markCompleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -105,7 +104,7 @@ namespace MRMaintenance
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -293,29 +292,22 @@ namespace MRMaintenance
             this.dgviewWO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgviewWO.Size = new System.Drawing.Size(676, 214);
             this.dgviewWO.TabIndex = 6;
+            this.dgviewWO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewWO_CellDoubleClick);
             this.dgviewWO.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgviewWO_CellMouseDown);
             // 
             // menuWorkOrders
             // 
             this.menuWorkOrders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.markCompleteToolStripMenuItem});
+            this.toolStripMenuItem1});
             this.menuWorkOrders.Name = "menuWorkOrders";
-            this.menuWorkOrders.Size = new System.Drawing.Size(157, 48);
+            this.menuWorkOrders.Size = new System.Drawing.Size(153, 48);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "&Show Report";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1Click);
-            // 
-            // markCompleteToolStripMenuItem
-            // 
-            this.markCompleteToolStripMenuItem.Name = "markCompleteToolStripMenuItem";
-            this.markCompleteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.markCompleteToolStripMenuItem.Text = "&Mark Complete";
-            this.markCompleteToolStripMenuItem.Click += new System.EventHandler(this.MarkAsCompleteClick);
             // 
             // splitContainer1
             // 
@@ -385,8 +377,7 @@ namespace MRMaintenance
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
-		private System.Windows.Forms.ToolStripMenuItem markCompleteToolStripMenuItem;
+        }
 		private System.Windows.Forms.ToolStripMenuItem partsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ContextMenuStrip menuWorkOrders;

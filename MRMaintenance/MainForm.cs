@@ -255,7 +255,27 @@ namespace MRMaintenance
 			}
 		}
 		
+
+        //Show work order request form
+        private void dgviewWO_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                WorkOrder wo = new WorkOrder();
+                wo.ID = (long)dgviewWO.SelectedRows[0].Cells["Work Order ID"].Value;
+                wo.RequestID = (long)dgviewWO.SelectedRows[0].Cells["Work Request ID"].Value;
+                wo.DateCreated = Convert.ToDateTime(dgviewWO.SelectedRows[0].Cells["Date Created"].Value);
+                wo.DateDue = Convert.ToDateTime(dgviewWO.SelectedRows[0].Cells["Date Due"].Value);
+
+                frmWorkOrder form = new frmWorkOrder(wo);
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.ResetControlBindings();
+                }
+            }
+        }
 		
+
 		//Create Work Order from Work Order Request
 		private void CreateWorkOrderFromRequest(object sender, EventArgs e)
 		{
@@ -267,6 +287,7 @@ namespace MRMaintenance
 		
 		
 		//Mark Work Order as Complete
+        /*
 		private void MarkAsCompleteClick(object sender, EventArgs e)
 		{
 			WorkOrder workOrder = new WorkOrder();
@@ -274,7 +295,7 @@ namespace MRMaintenance
 			workOrderBA.MarkComplete(workOrder);
 			this.ResetControlBindings();
 		}
-
+        */
 
         /********************************************************************
 		 * File Menu

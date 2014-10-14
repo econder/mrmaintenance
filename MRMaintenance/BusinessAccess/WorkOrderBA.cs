@@ -43,6 +43,26 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+
+
+        public DataTable Load(long workOrderId)
+        {
+
+            WorkOrderDA da = new WorkOrderDA();
+
+            try
+            {
+                return da.Load(workOrderId);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                da = null;
+            }
+        }
 		
 		
 		public DataTable LoadByFacility(Facility facility)
