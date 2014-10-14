@@ -41,7 +41,7 @@
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.43in</Height>
+                                <Height>0.25in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -532,8 +532,8 @@
                           </TablixRowHierarchy>
                           <DataSetName>WorkOrders</DataSetName>
                           <Top>0.45833in</Top>
-                          <Height>0.64in</Height>
-                          <Width>10in</Width>
+                          <Height>0.46in</Height>
+                          <Width>10.00001in</Width>
                           <Style />
                         </Tablix>
                         <Textbox Name="facName">
@@ -572,6 +572,7 @@
                       <KeepTogether>true</KeepTogether>
                       <Style />
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

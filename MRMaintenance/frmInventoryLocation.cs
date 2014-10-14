@@ -4,8 +4,8 @@
  * Created On: 	8/16/2014
  * 
  * Changes:
+ * 2014-10-13 - Fixed databinding bugs with incorrect column names.
  * 
- *
  * *************************************************************************************************/
 using System;
 using System.Data;
@@ -24,30 +24,38 @@ namespace MRMaintenance
 	public partial class frmInventoryLocation : Form
 	{
 		private InventoryLocationBA inventoryLocBA;
-		private DataTable dt;
-		
-		
-		public frmInventoryLocation()
-		{
-			InitializeComponent();
-			
-			inventoryLocBA = new InventoryLocationBA();
-			
-			this.FillData();
-		}
-		
-		
+        private DataTable dtInvLoc;
+
+
+        public frmInventoryLocation()
+        {
+            InitializeComponent();
+
+            inventoryLocBA = new InventoryLocationBA();
+
+            FacilityBA facilityBA = new FacilityBA();
+            DataTable dtFac = facilityBA.Load();
+
+            cboFacility.DataSource = dtFac;
+            cboFacility.DisplayMember = "name";
+            cboFacility.ValueMember = "facId";
+            this.cboFacility.SelectedIndexChanged += new System.EventHandler(this.cboFacility_SelectedIndexChanged);
+
+            this.FillData();
+        }
+
+
 		private void FillData()
 		{
-			dt = inventoryLocBA.Load();
+            dtInvLoc = inventoryLocBA.Load();
 			
 			//Bind inventoryLocs listbox
-			listLoc.DataSource = dt;
+			listLoc.DataSource = dtInvLoc;
 			listLoc.DisplayMember = "name";
-			listLoc.ValueMember = "deptId";
+			listLoc.ValueMember = "invLocId";
 			
 			//Bind inventoryLoc name textbox
-			txtName.DataBindings.Add("Text", dt, "name", true, DataSourceUpdateMode.Never, "");
+			txtName.DataBindings.Add("Text", dtInvLoc, "name", true, DataSourceUpdateMode.Never, "");
 		}
 		
 		
@@ -57,7 +65,7 @@ namespace MRMaintenance
 			txtName.DataBindings.Clear();
 			
 			//Clear and reload datatable
-			dt.Clear();
+			dtInvLoc.Clear();
 			
 			//Load database and re-bind all the controls
 			this.FillData();
@@ -88,6 +96,7 @@ namespace MRMaintenance
 		{
 			InventoryLocation inventoryLoc = new InventoryLocation();
 			inventoryLoc.Name = txtName.Text;
+            inventoryLoc.FacilityID = (long)cboFacility.SelectedValue;
 			
 			//If new then insert, otherwise update
 			if(listLoc.SelectedIndex == -1)
@@ -119,5 +128,11 @@ namespace MRMaintenance
 				MessageBox.Show("InventoryLocation name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+
+        private void cboFacility_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ResetControlBindings();
+        }
 	}
 }

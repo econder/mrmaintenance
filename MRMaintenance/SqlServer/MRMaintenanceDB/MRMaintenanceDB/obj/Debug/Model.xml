@@ -11,16 +11,16 @@
 			<Metadata Name="CompatibilityMode" Value="110" />
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
-			<Metadata Name="LogicalName" Value="MRMaintenanceDB.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\MRSYSTEMS\REPOS\MRMAINTENANCE\MRMAINTENANCE\SQLSERVER\MRMAINTENANCEDB\MRMAINTENANCEDB\OBJ\DEBUG\MRMAINTENANCEDB.DLL" />
-			<Metadata Name="AssemblyName" Value="MRMaintenanceDB" />
+			<Metadata Name="LogicalName" Value="MRMaintenance.dll" />
+			<Metadata Name="FileName" Value="C:\USERS\MRSYSTEMS\REPOS\MRMAINTENANCE\MRMAINTENANCE\SQLSERVER\MRMAINTENANCEDB\MRMAINTENANCEDB\OBJ\DEBUG\MRMAINTENANCE.DLL" />
+			<Metadata Name="AssemblyName" Value="MRMaintenance" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
 			<Metadata Name="GenerateSqlClrDdl" Value="True" />
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenanceDB.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

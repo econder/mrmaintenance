@@ -120,9 +120,24 @@ namespace MRMaintenance
 				location.City = txtCity.Text;
 				if(cboState.SelectedValue == null) location.StateID = 51; else location.StateID = (long)cboState.SelectedValue;
 				location.Zipcode = txtZip.Text;
-				location.Latitude = Convert.ToSingle(txtLat.Text);
-				location.Longitude = Convert.ToSingle(txtLong.Text);
-				
+                if (txtLat.Text == "")
+                {
+                    location.Latitude = 0;
+                }
+                else
+                {
+                    location.Latitude = Convert.ToSingle(txtLat.Text);
+                }
+
+                if (txtLong.Text == "")
+                {
+                    location.Longitude = 0;
+                }
+                else
+                {
+                    location.Longitude = Convert.ToSingle(txtLong.Text);
+                }
+
 				if(listLoc.SelectedIndex == -1)
 				{
 					locationBA.Insert(location);
