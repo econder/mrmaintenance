@@ -331,5 +331,11 @@ namespace MRMaintenance
 			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
 			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
 		}
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout form = new frmAbout();
+            form.ShowDialog(this);
+        }
 	}
 }

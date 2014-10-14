@@ -68,3 +68,4 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.c
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmWorkOrder.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.Properties.Resources.resources
