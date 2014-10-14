@@ -292,7 +292,7 @@ namespace MRMaintenance
             this.dgviewWO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgviewWO.Size = new System.Drawing.Size(676, 214);
             this.dgviewWO.TabIndex = 6;
-            this.dgviewWO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewWO_CellDoubleClick);
+            this.dgviewWO.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgviewWO_CellDoubleClick);
             this.dgviewWO.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgviewWO_CellMouseDown);
             // 
             // menuWorkOrders
@@ -300,12 +300,12 @@ namespace MRMaintenance
             this.menuWorkOrders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.menuWorkOrders.Name = "menuWorkOrders";
-            this.menuWorkOrders.Size = new System.Drawing.Size(153, 48);
+            this.menuWorkOrders.Size = new System.Drawing.Size(142, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem1.Text = "&Show Report";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1Click);
             // 
