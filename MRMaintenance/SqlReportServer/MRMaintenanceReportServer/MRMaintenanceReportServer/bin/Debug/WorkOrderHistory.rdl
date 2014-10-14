@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>10in</Width>
+              <Width>10.00146in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -24,10 +24,10 @@
                                 <Width>0.94904in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>3.00784in</Width>
+                                <Width>2.84117in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1in</Width>
+                                <Width>1.16666in</Width>
                               </TablixColumn>
                               <TablixColumn>
                                 <Width>1in</Width>
@@ -130,7 +130,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Created On</Value>
+                                                <Value>Completed On</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -169,7 +169,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Due By</Value>
+                                                <Value>Completed By</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -364,14 +364,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="woDateCreated">
+                                      <Textbox Name="woDateCompleted">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!woDateCreated.Value</Value>
+                                                <Value>=Fields!woDateCompleted.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <Format>M/dd/yyyy</Format>
@@ -383,7 +383,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>woDateCreated</rd:DefaultName>
+                                        <rd:DefaultName>woDateCompleted</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -399,14 +399,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="woDateDue">
+                                      <Textbox Name="woCompletedBy">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!woDateDue.Value</Value>
+                                                <Value>=Fields!woCompletedBy.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <Format>M/dd/yyyy</Format>
@@ -418,7 +418,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>woDateDue</rd:DefaultName>
+                                        <rd:DefaultName>woCompletedBy</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -533,7 +533,7 @@
                           <DataSetName>WorkOrders</DataSetName>
                           <Top>0.45833in</Top>
                           <Height>0.46in</Height>
-                          <Width>10.00001in</Width>
+                          <Width>10in</Width>
                           <Style />
                         </Tablix>
                         <Textbox Name="facName">
@@ -612,7 +612,7 @@
         <Top>0.10833in</Top>
         <Left>0.01042in</Left>
         <Height>7.375in</Height>
-        <Width>10in</Width>
+        <Width>10.00146in</Width>
         <Style>
           <FontFamily>Tahoma</FontFamily>
           <FontSize>14pt</FontSize>
@@ -623,7 +623,7 @@
     <Height>7.60833in</Height>
     <Style />
   </Body>
-  <Width>10.01042in</Width>
+  <Width>10.01188in</Width>
   <Page>
     <PageHeader>
       <Height>0.5in</Height>
@@ -637,7 +637,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Scheduled Work Orders</Value>
+                  <Value>Work Order History</Value>
                   <Style>
                     <FontFamily>Tahoma</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -780,9 +780,9 @@
     <DataSet Name="WorkOrders">
       <Query>
         <DataSourceName>MRMaintenance</DataSourceName>
-        <CommandText>SELECT     reqId, facName, woID, woDateCreated, woDateDue, reqName, reqDescr, equipName, equipNumber, locName
+        <CommandText>SELECT     reqId, facName, woID, reqName, reqDescr, woDateCompleted, woCompletedBy, equipName, equipNumber, locName
 FROM         v_WorkOrders
-WHERE     (v_WorkOrders.woComplete = 0)</CommandText>
+WHERE     (woComplete = 1)</CommandText>
       </Query>
       <Fields>
         <Field Name="reqId">
@@ -797,16 +797,16 @@ WHERE     (v_WorkOrders.woComplete = 0)</CommandText>
           <DataField>woID</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
-        <Field Name="woDateCreated">
-          <DataField>woDateCreated</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="woDateDue">
-          <DataField>woDateDue</DataField>
+        <Field Name="woDateCompleted">
+          <DataField>woDateCompleted</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="reqName">
           <DataField>reqName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="woCompletedBy">
+          <DataField>woCompletedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="reqDescr">

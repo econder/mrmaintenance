@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>10in</Width>
+              <Width>10.00146in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -21,25 +21,69 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>0.94904in</Width>
+                                <Width>0.92647in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>3.00784in</Width>
+                                <Width>1.14409in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1in</Width>
+                                <Width>0.97743in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1in</Width>
+                                <Width>2.57152in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>2.59409in</Width>
-                              </TablixColumn>
-                              <TablixColumn>
-                                <Width>1.44904in</Width>
+                                <Width>1.42647in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
+                              <TablixRow>
+                                <Height>0.3125in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox2">
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=First(Fields!reqName.Value, "WorkOrders")</Value>
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Color>SlateGray</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox2</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <VerticalAlign>Top</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                      <ColSpan>5</ColSpan>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell />
+                                  <TablixCell />
+                                  <TablixCell />
+                                  <TablixCell />
+                                </TablixCells>
+                              </TablixRow>
                               <TablixRow>
                                 <Height>0.25in</Height>
                                 <TablixCells>
@@ -84,45 +128,6 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="textbox5">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>Name</Value>
-                                                <Style>
-                                                  <FontFamily>Calibri</FontFamily>
-                                                  <FontSize>11pt</FontSize>
-                                                  <FontWeight>Bold</FontWeight>
-                                                  <Color>White</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>textbox5</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <BackgroundColor>SteelBlue</BackgroundColor>
-                                          <VerticalAlign>Bottom</VerticalAlign>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
                                       <Textbox Name="textbox7">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
@@ -130,7 +135,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Created On</Value>
+                                                <Value>Completed On</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -169,7 +174,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Due By</Value>
+                                                <Value>Completed By</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -318,37 +323,26 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="reqName">
+                                      <Textbox Name="woDateCompleted">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!reqName.Value</Value>
+                                                <Value>=Fields!woDateCompleted.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
+                                                  <Format>M/dd/yyyy</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>reqName</rd:DefaultName>
-                                        <ActionInfo>
-                                          <Actions>
-                                            <Action>
-                                              <Drillthrough>
-                                                <ReportName>WorkOrderDetailsByID</ReportName>
-                                                <Parameters>
-                                                  <Parameter Name="workOrderId">
-                                                    <Value>=Fields!woID.Value</Value>
-                                                  </Parameter>
-                                                </Parameters>
-                                              </Drillthrough>
-                                            </Action>
-                                          </Actions>
-                                        </ActionInfo>
+                                        <rd:DefaultName>woDateCompleted</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -364,14 +358,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="woDateCreated">
+                                      <Textbox Name="woCompletedBy">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!woDateCreated.Value</Value>
+                                                <Value>=Fields!woCompletedBy.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <Format>M/dd/yyyy</Format>
@@ -383,42 +377,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>woDateCreated</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="woDateDue">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>=Fields!woDateDue.Value</Value>
-                                                <Style>
-                                                  <FontFamily>Tahoma</FontFamily>
-                                                  <Format>M/dd/yyyy</Format>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Right</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>woDateDue</rd:DefaultName>
+                                        <rd:DefaultName>woCompletedBy</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -507,11 +466,14 @@
                               <TablixMember />
                               <TablixMember />
                               <TablixMember />
-                              <TablixMember />
                             </TablixMembers>
                           </TablixColumnHierarchy>
                           <TablixRowHierarchy>
                             <TablixMembers>
+                              <TablixMember>
+                                <KeepWithGroup>After</KeepWithGroup>
+                                <RepeatOnNewPage>true</RepeatOnNewPage>
+                              </TablixMember>
                               <TablixMember>
                                 <KeepWithGroup>After</KeepWithGroup>
                                 <RepeatOnNewPage>true</RepeatOnNewPage>
@@ -532,8 +494,9 @@
                           </TablixRowHierarchy>
                           <DataSetName>WorkOrders</DataSetName>
                           <Top>0.45833in</Top>
-                          <Height>0.46in</Height>
-                          <Width>10.00001in</Width>
+                          <Left>0.13542in</Left>
+                          <Height>0.7725in</Height>
+                          <Width>7.04598in</Width>
                           <Style />
                         </Tablix>
                         <Textbox Name="facName">
@@ -612,7 +575,7 @@
         <Top>0.10833in</Top>
         <Left>0.01042in</Left>
         <Height>7.375in</Height>
-        <Width>10in</Width>
+        <Width>10.00146in</Width>
         <Style>
           <FontFamily>Tahoma</FontFamily>
           <FontSize>14pt</FontSize>
@@ -623,7 +586,7 @@
     <Height>7.60833in</Height>
     <Style />
   </Body>
-  <Width>10.01042in</Width>
+  <Width>10.01188in</Width>
   <Page>
     <PageHeader>
       <Height>0.5in</Height>
@@ -637,7 +600,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Scheduled Work Orders</Value>
+                  <Value>Work Order History</Value>
                   <Style>
                     <FontFamily>Tahoma</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -780,9 +743,14 @@
     <DataSet Name="WorkOrders">
       <Query>
         <DataSourceName>MRMaintenance</DataSourceName>
-        <CommandText>SELECT     reqId, facName, woID, woDateCreated, woDateDue, reqName, reqDescr, equipName, equipNumber, locName
+        <QueryParameters>
+          <QueryParameter Name="@woReqId">
+            <Value>=Parameters!woReqId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT     reqId, facName, woID, reqName, reqDescr, woDateCompleted, woCompletedBy, equipName, equipNumber, locName
 FROM         v_WorkOrders
-WHERE     (v_WorkOrders.woComplete = 0)</CommandText>
+WHERE     (woComplete = 1) AND (reqId = @woReqId)</CommandText>
       </Query>
       <Fields>
         <Field Name="reqId">
@@ -797,16 +765,16 @@ WHERE     (v_WorkOrders.woComplete = 0)</CommandText>
           <DataField>woID</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
-        <Field Name="woDateCreated">
-          <DataField>woDateCreated</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="woDateDue">
-          <DataField>woDateDue</DataField>
+        <Field Name="woDateCompleted">
+          <DataField>woDateCompleted</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="reqName">
           <DataField>reqName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="woCompletedBy">
+          <DataField>woCompletedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="reqDescr">
@@ -827,7 +795,37 @@ WHERE     (v_WorkOrders.woComplete = 0)</CommandText>
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="WorkOrderRequests">
+      <Query>
+        <DataSourceName>MRMaintenance</DataSourceName>
+        <CommandText>SELECT     reqId, reqName
+FROM         WorkOrderRequests</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="reqId">
+          <DataField>reqId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="reqName">
+          <DataField>reqName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="woReqId">
+      <DataType>Integer</DataType>
+      <Prompt>Work Order Request ID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>WorkOrderRequests</DataSetName>
+          <ValueField>reqId</ValueField>
+          <LabelField>reqName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

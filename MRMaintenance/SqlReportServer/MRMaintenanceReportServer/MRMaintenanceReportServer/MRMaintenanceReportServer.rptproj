@@ -10,12 +10,24 @@
   <DataSets />
   <Reports>
     <ProjectItem>
+      <Name>WorkOrderDetailsByID.rdl</Name>
+      <FullPath>WorkOrderDetailsByID.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>WorkOrdersAll.rdl</Name>
       <FullPath>WorkOrdersAll.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>WorkOrderDetailsByID.rdl</Name>
-      <FullPath>WorkOrderDetailsByID.rdl</FullPath>
+      <Name>WorkOrderHistory.rdl</Name>
+      <FullPath>WorkOrderHistory.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkOrderRequestHistory.rdl</Name>
+      <FullPath>WorkOrderRequestHistory.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkOrderRequestHistoryByRequest.rdl</Name>
+      <FullPath>WorkOrderRequestHistoryByRequest.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
