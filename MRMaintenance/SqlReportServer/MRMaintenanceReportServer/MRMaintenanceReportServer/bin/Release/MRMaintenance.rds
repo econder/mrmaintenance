@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MRMaintenance">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=.;Initial Catalog=MRMaintenance</ConnectString>
+    <Prompt>Specify a user name and password for data source MRMaintenance:</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>b5321848-167f-48ad-8ce7-d3aaf912b109</DataSourceID>
+</RptDataSource>
