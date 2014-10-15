@@ -26,8 +26,8 @@ namespace MRMaintenance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.36.144;Initial Catalog=MRMaintenance;User ID=mrsystems;Passwo" +
-            "rd=Reggie123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=OWS-1;Initial Catalog=MRMaintenance;User ID=mrsystems;Password=Reggie" +
+            "123")]
         public string MRMaintenanceSql {
             get {
                 return ((string)(this["MRMaintenanceSql"]));

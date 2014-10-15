@@ -28,12 +28,12 @@ namespace MRMaintenance.Data
 		public string Address1 { get; set; }
 		public string Address2 { get; set; }
 		public string City { get; set; }
-		public long StateID { get; set; }
+		public Nullable<long> StateID { get; set; }
 		public string Zipcode { get; set; }
 		public string Phone1 { get; set; }
 		public string Phone2 { get; set; }
 		public string Fax { get; set; }
-		public float Latitude { get; set; }
-		public float Longitude { get; set; }
+		public Nullable<float> Latitude { get; set; }
+		public Nullable<float> Longitude { get; set; }
 	}
 }

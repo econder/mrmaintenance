@@ -63,18 +63,21 @@ namespace MRMaintenance
 			cboFacilities.DataSource = dtFacility;
 			cboFacilities.DisplayMember = "name";
 			cboFacilities.ValueMember = "facId";
-			
-			if(cboFacilities.Items.Count > 0)
-			{
-				cboFacilities.SelectedIndex = 0;
-				facility.ID = (long)cboFacilities.SelectedValue;
-			}
-			
-			//Setup event handler after loading and binding the control
-			//to prevent firing the event before the control is populated
-			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
-			
-			this.FillData();
+
+            if (dtFacility.Rows.Count > 0)
+            {
+                if (cboFacilities.Items.Count > 0)
+                {
+                    cboFacilities.SelectedIndex = 0;
+                    facility.ID = (long)cboFacilities.SelectedValue;
+                }
+
+                //Setup event handler after loading and binding the control
+                //to prevent firing the event before the control is populated
+                this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
+
+                this.FillData();
+            }
 		}
 		
 		
