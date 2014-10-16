@@ -43,11 +43,11 @@ namespace MRMaintenance
 			
 			//Bind types listbox
 			listModel.DataSource = dt;
-			listModel.DisplayMember = "typeName";
-			listModel.ValueMember = "typeId";
+			listModel.DisplayMember = "modelName";
+			listModel.ValueMember = "modelId";
 			
 			//Bind type name textbox
-			txtName.DataBindings.Add("Text", dt, "typeName", true, DataSourceUpdateMode.Never, "");
+			txtName.DataBindings.Add("Text", dt, "modelName", true, DataSourceUpdateMode.Never, "");
 		}
 		
 		
@@ -80,7 +80,7 @@ namespace MRMaintenance
 		
 		private void btnSave_Click(object sender, EventArgs e)
 		{
-			if(txtName.Text == "" || txtName.Text == null)
+			if(txtName.Text != "" && txtName.Text != null)
 			{
 				EquipmentModel model = new EquipmentModel();
 				model.Name = txtName.Text;

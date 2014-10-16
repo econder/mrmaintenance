@@ -85,7 +85,7 @@ namespace MRMaintenance
 			cboEquipType.DataSource = equipmentTypeBA.Load();
 			cboEquipType.DisplayMember = "typeName";
 			cboEquipType.ValueMember = "typeId";
-			
+
 			this.FillData();
 			
 			//Setup event handler after loading and binding the control
@@ -123,6 +123,14 @@ namespace MRMaintenance
 			
 			//Load and bind model & serial #'s textboxes
 			txtSerial.DataBindings.Add("Text", dtEquip, "equipSerial", true, DataSourceUpdateMode.Never, "");
+
+            //Load and bind hmi runtimes/cycles tagnames textboxes
+            txtRuntimeTagname.DataBindings.Add("Text", dtEquip, "hmiRuntimeTagname", true, DataSourceUpdateMode.Never, "");
+            txtCyclesTagname.DataBindings.Add("Text", dtEquip, "hmiCyclesTagname", true, DataSourceUpdateMode.Never, "");
+
+            //Load and bind MCC Panel textboxes
+            txtMccPanel.DataBindings.Add("Text", dtEquip, "equipMccPanel", true, DataSourceUpdateMode.Never, "");
+            txtMccLocation.DataBindings.Add("Text", dtEquip, "equipMccLoc", true, DataSourceUpdateMode.Never, "");
 		}
 		
 		
@@ -139,6 +147,10 @@ namespace MRMaintenance
 			cboVendor.DataBindings.Clear();
 			cboModel.DataBindings.Clear();
 			txtSerial.DataBindings.Clear();
+            txtRuntimeTagname.DataBindings.Clear();
+            txtCyclesTagname.DataBindings.Clear();
+            txtMccPanel.DataBindings.Clear();
+            txtMccLocation.DataBindings.Clear();
 			cboEquipType.DataBindings.Clear();
 			
 			//Clear and reload datatable
@@ -196,28 +208,29 @@ namespace MRMaintenance
 		
 		private void listEquip_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if(listEquip.SelectedIndex > -1)
-			{
-				Equipment equipment = new Equipment();
-				equipment.ID = (long)listEquip.SelectedValue;
-				
-				//Load and bind docs/links listbox
-				EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
-				dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
-				listEquipDocs.DataSource = dtEquipDocs;
-				listEquipDocs.DisplayMember = "equipDocName";
-				listEquipDocs.ValueMember = "equipDocId";
-				
-				//Load and bind work order requests listbox
-				/*
-			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
-			listWorkOrderReq.DataSource = dtWorkOrderReq;
-			listWorkOrderReq.DisplayMember = "reqName";
-			listWorkOrderReq.ValueMember = "reqId";
-				 */
-				this.ResetWorkOrderRequestListBindings();
-			}
+            if (listEquip.SelectedIndex > -1)
+            {
+                Equipment equipment = new Equipment();
+                equipment.ID = (long)listEquip.SelectedValue;
+
+                //Load and bind docs/links listbox
+                EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
+                dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
+                listEquipDocs.DataSource = dtEquipDocs;
+                listEquipDocs.DisplayMember = "equipDocName";
+                listEquipDocs.ValueMember = "equipDocId";
+
+                //Load and bind work order requests listbox
+                /*
+                WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+                dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
+                listWorkOrderReq.DataSource = dtWorkOrderReq;
+                listWorkOrderReq.DisplayMember = "reqName";
+                listWorkOrderReq.ValueMember = "reqId";
+                 */
+                
+                this.ResetWorkOrderRequestListBindings();
+            }
 		}
 		
 		
@@ -233,6 +246,10 @@ namespace MRMaintenance
 			cboVendor.SelectedIndex = -1;
 			cboModel.SelectedIndex = -1;
 			txtSerial.Clear();
+            txtRuntimeTagname.Clear();
+            txtCyclesTagname.Clear();
+            txtMccLocation.Clear();
+            txtMccPanel.Clear();
 			cboEquipType.SelectedIndex = -1;
 			listEquipDocs.DataBindings.Clear();
 			listWorkOrderReq.DataBindings.Clear();
@@ -266,10 +283,14 @@ namespace MRMaintenance
 				equipment.Name = txtName.Text;
 				equipment.Description = txtDescr.Text;
 				equipment.Serial = txtSerial.Text;
+                equipment.HmiRuntimeTagname = txtRuntimeTagname.Text;
+                equipment.HmiCyclesTagname = txtCyclesTagname.Text;
+                equipment.MccPanel = txtMccPanel.Text;
+                equipment.MccLocation = txtMccLocation.Text;
 				
 				EquipmentBA equipmentBA = new EquipmentBA();
 				
-				if(listWorkOrderReq.SelectedIndex == -1)
+				if(listEquip.SelectedIndex == -1)
 				{
 					equipmentBA.Insert(equipment);
 				}

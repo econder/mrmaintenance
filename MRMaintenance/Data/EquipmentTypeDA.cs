@@ -63,12 +63,11 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO EquipmentTypes(typeName, typeDesc) VALUES(@typeName, @typeDesc)", dbConn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO EquipmentTypes(typeName) VALUES(@typeName)", dbConn);
 				
 				try
 				{
 					cmd.Parameters.AddWithValue("@typeName", equipmentType.Name);
-					cmd.Parameters.AddWithValue("@typeDesc", equipmentType.Description);
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -91,13 +90,12 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE EquipmentTypes SET typeName=@typeName, typeDesc=@typeDesc WHERE typeId=@typeId", dbConn);
+				SqlCommand cmd = new SqlCommand("UPDATE EquipmentTypes SET typeName=@typeName WHERE typeId=@typeId", dbConn);
 				
 				try
 				{
 					cmd.Parameters.AddWithValue("@typeId", equipmentType.ID);
 					cmd.Parameters.AddWithValue("@typeName", equipmentType.Name);
-					cmd.Parameters.AddWithValue("@typeDesc", equipmentType.Description);
 					
 					return cmd.ExecuteNonQuery();
 				}

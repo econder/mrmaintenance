@@ -63,3 +63,5 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrder.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.Properties.Resources.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDbConnectionSettings.resources

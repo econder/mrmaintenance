@@ -104,8 +104,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@name", location.Name);
 					cmd.Parameters.AddWithValue("@addr1", location.Address1);
 					cmd.Parameters.AddWithValue("@addr2", location.Address2);
+                    cmd.Parameters.AddWithValue("@city", location.City);
                     if (location.StateID != null) { cmd.Parameters.AddWithValue("@stateId", location.StateID); } else { cmd.Parameters.AddWithValue("stateId", DBNull.Value); }
-					cmd.Parameters.AddWithValue("@stateId", location.StateID);
 					cmd.Parameters.AddWithValue("@zip", location.Zipcode);
                     if (location.Latitude != null) { cmd.Parameters.AddWithValue("@lat", location.Latitude); } else { cmd.Parameters.AddWithValue("@lat", DBNull.Value); }
                     if (location.Longitude != null) { cmd.Parameters.AddWithValue("@long", location.Longitude); } else { cmd.Parameters.AddWithValue("@long", DBNull.Value); }
@@ -141,8 +141,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@name", location.Name);
 					cmd.Parameters.AddWithValue("@addr1", location.Address1);
 					cmd.Parameters.AddWithValue("@addr2", location.Address2);
+                    cmd.Parameters.AddWithValue("@city", location.City);
                     if (location.StateID != null) { cmd.Parameters.AddWithValue("@stateId", location.StateID); } else { cmd.Parameters.AddWithValue("stateId", DBNull.Value); }
-                    cmd.Parameters.AddWithValue("@stateId", location.StateID);
                     cmd.Parameters.AddWithValue("@zip", location.Zipcode);
                     if (location.Latitude != null) { cmd.Parameters.AddWithValue("@lat", location.Latitude); } else { cmd.Parameters.AddWithValue("@lat", DBNull.Value); }
                     if (location.Longitude != null) { cmd.Parameters.AddWithValue("@long", location.Longitude); } else { cmd.Parameters.AddWithValue("@long", DBNull.Value); }
