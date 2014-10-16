@@ -26,6 +26,7 @@ namespace MRMaintenance
 	public partial class frmEquipment : Form
 	{
 		private DataTable dtFacility;
+        private DataTable dtLocation;
 		private DataTable dtEquip;
 		private DataTable dtEquipDocs;
 		private DataTable dtWorkOrderReq;
@@ -65,6 +66,12 @@ namespace MRMaintenance
 			cboFacility.DisplayMember = "name";
 			cboFacility.ValueMember = "facId";
 			this.cboFacility.SelectedIndexChanged += new System.EventHandler(this.cboFacility_SelectedIndexChanged);
+
+            //Load and bind facilities combobox
+            dtLocation = locationBA.Load();
+            cboLocation.DataSource = dtLocation;
+            cboLocation.DisplayMember = "name";
+            cboLocation.ValueMember = "locId";
 			
 			//Load and bind manufacturers combobox
 			cboManufacturer.DataSource = manufacturerBA.Load();
@@ -104,13 +111,17 @@ namespace MRMaintenance
 			listEquip.DisplayMember = "equipName";
 			listEquip.ValueMember = "equipId";
 			
-			//Load and bind facility locations combobox
+			//Load and bind facility combobox
 			Facility facility = new Facility();
 			facility.ID = (long)cboFacility.SelectedValue;
-			LocationBA locationBA = new LocationBA();
+            cboFacility.DataBindings.Add("SelectedValue", dtEquip, "facId", true, DataSourceUpdateMode.Never, -1);
+			
+            //Load and bind Locations combobox
+            LocationBA locationBA = new LocationBA();
 			cboLocation.DataSource = locationBA.LoadByFacility(facility);
 			cboLocation.DisplayMember = "name";
 			cboLocation.ValueMember = "locId";
+            cboLocation.DataBindings.Add("SelectedValue", dtEquip, "locId", true, DataSourceUpdateMode.Never, -1);
 			
 			//Load and bind equipment name textbox
 			txtName.DataBindings.Add("Text", dtEquip, "equipName", true, DataSourceUpdateMode.Never, "");
@@ -120,9 +131,19 @@ namespace MRMaintenance
 			
 			//Load and bind equipment description textbox
 			txtDescr.DataBindings.Add("Text", dtEquip, "descr", true, DataSourceUpdateMode.Never, "");
-			
+		    
+            //Bind manufacturer combobox
+            cboManufacturer.DataBindings.Add("SelectedValue", dtEquip, "manId", true, DataSourceUpdateMode.Never, -1);
+
+            //Bind vendor combobox
+            cboVendor.DataBindings.Add("SelectedValue", dtEquip, "vendorId", true, DataSourceUpdateMode.Never, -1);
+
 			//Load and bind model & serial #'s textboxes
+            cboModel.DataBindings.Add("SelectedValue", dtEquip, "modelId", true, DataSourceUpdateMode.Never, -1);
 			txtSerial.DataBindings.Add("Text", dtEquip, "equipSerial", true, DataSourceUpdateMode.Never, "");
+
+            //Bind equipment type combobox
+            cboEquipType.DataBindings.Add("SelectedValue", dtEquip, "equipTypeId", true, DataSourceUpdateMode.Never, -1);
 
             //Load and bind hmi runtimes/cycles tagnames textboxes
             txtRuntimeTagname.DataBindings.Add("Text", dtEquip, "hmiRuntimeTagname", true, DataSourceUpdateMode.Never, "");
@@ -180,6 +201,7 @@ namespace MRMaintenance
 			
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
+
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
 			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
 			listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
@@ -277,8 +299,8 @@ namespace MRMaintenance
 				equipment.LocationID = (long)cboLocation.SelectedValue;
 				equipment.EquipmentTypeID = (long)cboEquipType.SelectedValue;
 				equipment.ManufacturerID = (long)cboManufacturer.SelectedValue;
-				equipment.VendorID = (long)cboVendor.SelectedValue;
-				equipment.ModelID = (long)cboModel.SelectedValue;
+                if (cboVendor.SelectedIndex > -1) { equipment.VendorID = (long)cboVendor.SelectedValue; } else { equipment.VendorID = null; }
+                if (cboModel.SelectedIndex > -1) { equipment.ModelID = (long)cboModel.SelectedValue; } else { equipment.ModelID = null; }
 				equipment.EquipmentNumber = txtEquipNumber.Text;
 				equipment.Name = txtName.Text;
 				equipment.Description = txtDescr.Text;
@@ -474,6 +496,7 @@ namespace MRMaintenance
 		
 		private void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+            /*
 			int i =  cboVendor.FindStringExact(cboVendor.Text);
 			
 			if(i == -1)
@@ -492,11 +515,13 @@ namespace MRMaintenance
 					MessageBox.Show("Equpment vendor cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
+            */
 		}
 		
 		
 		private void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+            /*
 			int i =  cboModel.FindStringExact(cboModel.Text);
 			
 			if(i == -1)
@@ -515,6 +540,7 @@ namespace MRMaintenance
 					MessageBox.Show("Equpment model cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
+            */
 		}
 		
 		

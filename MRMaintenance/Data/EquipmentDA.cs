@@ -35,10 +35,10 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlDataAdapter da = new SqlDataAdapter("SELECT dbo.Equipment.equipId, dbo.Equipment.locId, dbo.Equipment.equipTypeId, dbo.Equipment.manId, dbo.Equipment.vendorId," + 
+				SqlDataAdapter da = new SqlDataAdapter("SELECT dbo.Equipment.equipId, dbo.Locations.facId, dbo.Equipment.locId, dbo.Equipment.equipTypeId, dbo.Equipment.manId, dbo.Equipment.vendorId," + 
 														" dbo.Equipment.modelId, dbo.Equipment.equipNumber, dbo.Equipment.equipName, dbo.Equipment.descr, dbo.Equipment.equipSerial," +  
                       									" dbo.Equipment.hmiRuntimeTagname, dbo.Equipment.hmiCyclesTagname, dbo.Equipment.equipMccLoc, dbo.Equipment.equipMccPanel" + 
-														" FROM dbo.Equipment" + 
+														" FROM dbo.Equipment INNER JOIN Locations ON Locations.locId = Equipment.locId" + 
 														" ORDER BY dbo.Equipment.equipName", dbConn);
 				
 				DataTable dt = new DataTable("Equipment");
@@ -76,8 +76,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@locId", equipment.LocationID);
 					cmd.Parameters.AddWithValue("@equipTypeId", equipment.EquipmentTypeID);
 					cmd.Parameters.AddWithValue("@manId", equipment.ManufacturerID);
-					cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID);
-					cmd.Parameters.AddWithValue("@modelId", equipment.ModelID);
+                    if (equipment.VendorID != null) { cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID); } else { cmd.Parameters.AddWithValue("@vendorId", DBNull.Value); }
+                    if (equipment.ModelID != null) { cmd.Parameters.AddWithValue("@modelId", equipment.ModelID); } else { cmd.Parameters.AddWithValue("modelId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipNumber", equipment.EquipmentNumber);
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
@@ -118,8 +118,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@locId", equipment.LocationID);
 					cmd.Parameters.AddWithValue("@equipTypeId", equipment.EquipmentTypeID);
 					cmd.Parameters.AddWithValue("@manId", equipment.ManufacturerID);
-					cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID);
-					cmd.Parameters.AddWithValue("@modelId", equipment.ModelID);
+                    if (equipment.VendorID != null) { cmd.Parameters.AddWithValue("@vendorId", equipment.VendorID); } else { cmd.Parameters.AddWithValue("@vendorId", DBNull.Value); }
+                    if (equipment.ModelID != null) { cmd.Parameters.AddWithValue("@modelId", equipment.ModelID); } else { cmd.Parameters.AddWithValue("modelId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipNumber", equipment.EquipmentNumber);
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);

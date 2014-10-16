@@ -44,6 +44,7 @@ C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.c
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe.config
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmAbout.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDbConnectionSettings.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDepartment.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipment.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipmentDoc.resources
@@ -57,11 +58,10 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmManufacturer.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmPart.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmVendor.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrder.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrderRequest.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.MainForm.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.Properties.Resources.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrder.resources
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.Properties.Resources.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDbConnectionSettings.resources
