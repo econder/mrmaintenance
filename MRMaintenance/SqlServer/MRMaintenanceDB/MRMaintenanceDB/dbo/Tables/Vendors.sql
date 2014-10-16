@@ -11,6 +11,6 @@
     [fax]     VARCHAR (10)    NULL,
     [web]     NVARCHAR (4000) NULL,
     CONSTRAINT [PK_Vendors] PRIMARY KEY CLUSTERED ([venId] ASC),
-    CONSTRAINT [FK_Vendors_States] FOREIGN KEY ([stateId]) REFERENCES [dbo].[States] ([stateId]) ON UPDATE CASCADE
+    CONSTRAINT [FK_Vendors_States] FOREIGN KEY ([stateId]) REFERENCES [dbo].[States] ([stateId])
 );
 

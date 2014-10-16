@@ -11,6 +11,6 @@
     CONSTRAINT [PK_WorkOrderTasks] PRIMARY KEY CLUSTERED ([woTaskId] ASC),
     CONSTRAINT [FK_WorkOrderTasks_EquipmentModels] FOREIGN KEY ([modelId]) REFERENCES [dbo].[EquipmentModels] ([modelId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_WorkOrderTasks_Tasks] FOREIGN KEY ([taskId]) REFERENCES [dbo].[Tasks] ([taskId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_WorkOrderTasks_WorkOrderRequests] FOREIGN KEY ([reqId]) REFERENCES [dbo].[WorkOrderRequests] ([reqId])
+    CONSTRAINT [FK_WorkOrderTasks_WorkOrderRequests] FOREIGN KEY ([reqId]) REFERENCES [dbo].[WorkOrderRequests] ([reqId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

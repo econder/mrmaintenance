@@ -1,0 +1,9 @@
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Release\MRMaintenance.dacpac
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Release\MRMaintenance.dll
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Release\MRMaintenance.pdb
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\Model.xml
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\refactor.xml
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\postdeploy.sql
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\predeploy.sql
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\MRMaintenance.dll
+C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Release\MRMaintenance.pdb

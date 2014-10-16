@@ -1792,6 +1792,8 @@
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Parts_Units]">
+			<Property Name="OnUpdateAction" Value="1" />
+			<Property Name="OnDeleteAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Parts].[unitId]" />
@@ -1965,6 +1967,8 @@
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Users_Employees]">
+			<Property Name="OnUpdateAction" Value="1" />
+			<Property Name="OnDeleteAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Users].[empId]" />
@@ -2013,7 +2017,6 @@
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Vendors_States]">
-			<Property Name="OnUpdateAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Vendors].[stateId]" />
@@ -7114,16 +7117,6 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 			<Relationship Name="Login">
 				<Entry>
 					<References Name="[mrsystems]" Disambiguator="6" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[Tasks].[taskEstDuration].[MS_Description]">
-			<Property Name="Value">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'Time in hours']]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskEstDuration]" />
 				</Entry>
 			</Relationship>
 		</Element>

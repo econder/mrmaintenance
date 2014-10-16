@@ -8,5 +8,6 @@
     [woDateCompleted] DATETIME        CONSTRAINT [DF_WorkOrders_woDateCompleted] DEFAULT (getdate()) NULL,
     [woCompletedBy]   NVARCHAR (255)  NULL,
     CONSTRAINT [PK_WorkOrders] PRIMARY KEY CLUSTERED ([woID] ASC)
+	
 );
 
