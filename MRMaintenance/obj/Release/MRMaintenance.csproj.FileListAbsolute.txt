@@ -61,3 +61,5 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.MainForm.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrder.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.Properties.Resources.resources

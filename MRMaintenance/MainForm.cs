@@ -40,14 +40,40 @@ namespace MRMaintenance
 		
 		public MainForm()
 		{
-			Initialize();
+            InitializeComponent();
+
+            if (this.TestDbConnection() == true)
+            {
+                Initialize();
+            }
 		}
+
+
+        private bool TestDbConnection()
+        {
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default.MRMaintenanceSql);
+            try
+            {
+                conn.Open();
+                if(conn.State == ConnectionState.Open)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(string.Format("MRMaintenance database connection failed with message \"{0}\"", ex.Message));
+                return false;
+            }
+        }
 		
 		
 		private void Initialize()
 		{
-			InitializeComponent();
-			
 			facilityBA = new FacilityBA();
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
@@ -63,18 +89,21 @@ namespace MRMaintenance
 			cboFacilities.DataSource = dtFacility;
 			cboFacilities.DisplayMember = "name";
 			cboFacilities.ValueMember = "facId";
-			
-			if(cboFacilities.Items.Count > 0)
-			{
-				cboFacilities.SelectedIndex = 0;
-				facility.ID = (long)cboFacilities.SelectedValue;
-			}
-			
-			//Setup event handler after loading and binding the control
-			//to prevent firing the event before the control is populated
-			this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
-			
-			this.FillData();
+
+            if (dtFacility.Rows.Count > 0)
+            {
+                if (cboFacilities.Items.Count > 0)
+                {
+                    cboFacilities.SelectedIndex = 0;
+                    facility.ID = (long)cboFacilities.SelectedValue;
+                }
+
+                //Setup event handler after loading and binding the control
+                //to prevent firing the event before the control is populated
+                this.cboFacilities.SelectedIndexChanged += new System.EventHandler(this.cboFacilities_SelectedIndexChanged);
+
+                this.FillData();
+            }
 		}
 		
 		
@@ -305,6 +334,20 @@ namespace MRMaintenance
             this.Close();
             this.Dispose();
         }
+
+
+        /********************************************************************
+		 * Settings Menu
+		 ********************************************************************/
+        private void databaseConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDbConnectionSettings form = new frmDbConnectionSettings();
+            if(form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Initialize();
+                this.ResetControlBindings();
+            }
+        }
 		
 		
 		/********************************************************************
@@ -331,5 +374,11 @@ namespace MRMaintenance
 			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
 			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
 		}
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout form = new frmAbout();
+            form.ShowDialog(this);
+        }
 	}
 }

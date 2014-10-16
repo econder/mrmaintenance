@@ -2,13 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MRMaintenance.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="MRMaintenanceSql" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=192.168.36.144;Initial Catalog=MRMaintenance;User ID=mrsystems;Password=Reggie123&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=192.168.36.144;Initial Catalog=MRMaintenance;User ID=mrsystems;Password=Reggie123</Value>
+    <Setting Name="ServerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ECVM-WW2014</Value>
+    </Setting>
+    <Setting Name="DatabaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MRMaintenance</Value>
+    </Setting>
+    <Setting Name="DatabaseUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mrsystems</Value>
+    </Setting>
+    <Setting Name="DatabasePwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Reggie123</Value>
+    </Setting>
+    <Setting Name="MRMaintenanceSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

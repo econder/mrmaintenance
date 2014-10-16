@@ -55,17 +55,17 @@ namespace MRMaintenance
 			listFac.ValueMember = "facId";
 			
 			//Bind controls
-			txtName.DataBindings.Add("Text", dt, "name", true, DataSourceUpdateMode.Never, "");
-			txtAddr1.DataBindings.Add("Text", dt, "addr1", true, DataSourceUpdateMode.Never, "");
-			txtAddr2.DataBindings.Add("Text", dt, "addr2", true, DataSourceUpdateMode.Never, "");
-			txtCity.DataBindings.Add("Text", dt, "city", true, DataSourceUpdateMode.Never, "");
-			cboState.DataBindings.Add("SelectedValue", dt, "stateId", true, DataSourceUpdateMode.Never, -1);
-			txtZip.DataBindings.Add("Text", dt, "zip", true, DataSourceUpdateMode.Never, "");
-			txtLat.DataBindings.Add("Text", dt, "lat", true, DataSourceUpdateMode.Never, "0");
-			txtLong.DataBindings.Add("Text", dt, "long", true, DataSourceUpdateMode.Never, "0");
-			txtPhone1.DataBindings.Add("Text", dt, "phone1", true, DataSourceUpdateMode.Never, "");
-			txtPhone2.DataBindings.Add("Text", dt, "phone2", true, DataSourceUpdateMode.Never, "");
-			txtFax.DataBindings.Add("Text", dt, "fax", true, DataSourceUpdateMode.Never, "");
+			txtName.DataBindings.Add("Text", dt, "name", true, DataSourceUpdateMode.OnValidation, "");
+			txtAddr1.DataBindings.Add("Text", dt, "addr1", true, DataSourceUpdateMode.OnValidation, "");
+			txtAddr2.DataBindings.Add("Text", dt, "addr2", true, DataSourceUpdateMode.OnValidation, "");
+			txtCity.DataBindings.Add("Text", dt, "city", true, DataSourceUpdateMode.OnValidation, "");
+			cboState.DataBindings.Add("SelectedValue", dt, "stateId", true, DataSourceUpdateMode.OnValidation, -1);
+			txtZip.DataBindings.Add("Text", dt, "zip", true, DataSourceUpdateMode.OnValidation, "00000-0000");
+			txtLat.DataBindings.Add("Text", dt, "lat", true, DataSourceUpdateMode.OnValidation, "0");
+			txtLong.DataBindings.Add("Text", dt, "long", true, DataSourceUpdateMode.OnValidation, "0");
+			txtPhone1.DataBindings.Add("Text", dt, "phone1", true, DataSourceUpdateMode.OnValidation, "", "000-000-0000");
+            txtPhone2.DataBindings.Add("Text", dt, "phone2", true, DataSourceUpdateMode.OnValidation, "", "000-000-0000");
+            txtFax.DataBindings.Add("Text", dt, "fax", true, DataSourceUpdateMode.OnValidation, "", "000-000-0000");
 		}
 		
 		
@@ -101,10 +101,10 @@ namespace MRMaintenance
 				facility.Address1 = txtAddr1.Text;
 				facility.Address2 = txtAddr2.Text;
 				facility.City = txtCity.Text;
-				facility.StateID = (long)cboState.SelectedValue;
+                if (cboState.SelectedIndex > -1) { facility.StateID = (long)cboState.SelectedValue; } else { facility.StateID = null; }
 				facility.Zipcode = txtZip.Text;
-				facility.Latitude = Convert.ToSingle(txtLat.Text);
-				facility.Longitude = Convert.ToSingle(txtLong.Text);
+                if (txtLat.Text != "") { facility.Latitude = Convert.ToSingle(txtLat.Text); } else { facility.Latitude = null; }
+                if (txtLong.Text != "") { facility.Longitude = Convert.ToSingle(txtLong.Text); } else { facility.Longitude = null; }
 				facility.Phone1 = txtPhone1.Text;
 				facility.Phone2 = txtPhone2.Text;
 				facility.Fax = txtFax.Text;

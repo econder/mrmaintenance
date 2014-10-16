@@ -27,7 +27,7 @@ namespace MRMaintenance.Data
 		
 		public PartDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
+			connStr = Properties.Settings.Default.MRMaintenanceSql;
 		}
 		
 		

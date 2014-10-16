@@ -23,13 +23,63 @@ namespace MRMaintenance.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.36.144;Initial Catalog=MRMaintenance;User ID=mrsystems;Password=Reggie123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ECVM-WW2014")]
+        public string ServerName {
+            get {
+                return ((string)(this["ServerName"]));
+            }
+            set {
+                this["ServerName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MRMaintenance")]
+        public string DatabaseName {
+            get {
+                return ((string)(this["DatabaseName"]));
+            }
+            set {
+                this["DatabaseName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mrsystems")]
+        public string DatabaseUser {
+            get {
+                return ((string)(this["DatabaseUser"]));
+            }
+            set {
+                this["DatabaseUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Reggie123")]
+        public string DatabasePwd {
+            get {
+                return ((string)(this["DatabasePwd"]));
+            }
+            set {
+                this["DatabasePwd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MRMaintenanceSql {
             get {
                 return ((string)(this["MRMaintenanceSql"]));
+            }
+            set {
+                this["MRMaintenanceSql"] = value;
             }
         }
     }

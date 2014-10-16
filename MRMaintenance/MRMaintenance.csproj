@@ -73,6 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessAccess\DepartmentBA.cs" />
     <Compile Include="BusinessAccess\EquipmentBA.cs" />
     <Compile Include="BusinessAccess\EquipmentDocBA.cs" />
@@ -145,6 +151,12 @@
     <Compile Include="Data\WorkOrderDA.cs" />
     <Compile Include="Data\WorkOrderRequestDA.cs" />
     <Compile Include="Data\WorkOrderTaskDA.cs" />
+    <Compile Include="frmDbConnectionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDbConnectionSettings.Designer.cs">
+      <DependentUpon>frmDbConnectionSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEquipmentDoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +180,6 @@
     </Compile>
     <Compile Include="frmFacility.Designer.cs">
       <DependentUpon>frmFacility.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDepartment.cs">
       <SubType>Form</SubType>
@@ -255,6 +261,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -269,6 +280,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDbConnectionSettings.resx">
+      <DependentUpon>frmDbConnectionSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
@@ -317,6 +331,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

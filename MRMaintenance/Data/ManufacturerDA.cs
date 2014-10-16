@@ -26,7 +26,7 @@ namespace MRMaintenance.Data
 		
 		public ManufacturerDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
+			connStr = Properties.Settings.Default.MRMaintenanceSql;
 		}
 		
 		
@@ -66,21 +66,21 @@ namespace MRMaintenance.Data
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("INSERT INTO Manufacturers(name, addr1, addr2, city, stateId, zip, phone1, phone2, fax, web)" +
 				                                " VALUES(@name, @addr1, @addr2, @city, @stateId, @zip, @phone1, @phone2, @fax, @web)", dbConn);
-				
-				try
-				{
-					cmd.Parameters.AddWithValue("@name", manufacturer.Name);
-			cmd.Parameters.AddWithValue("@addr1", manufacturer.Address1);
-			cmd.Parameters.AddWithValue("@addr2", manufacturer.Address2);
-			cmd.Parameters.AddWithValue("@city", manufacturer.City);
-			cmd.Parameters.AddWithValue("@stateId", manufacturer.StateID);
-			cmd.Parameters.AddWithValue("@zip", manufacturer.Zipcode);
-			cmd.Parameters.AddWithValue("@phone1", manufacturer.Phone1);
-			cmd.Parameters.AddWithValue("@phone2", manufacturer.Phone2);
-			cmd.Parameters.AddWithValue("@fax", manufacturer.Fax);
-			cmd.Parameters.AddWithValue("@web", manufacturer.Website);
-					
-					return cmd.ExecuteNonQuery();
+
+                try
+                {
+                    cmd.Parameters.AddWithValue("@name", manufacturer.Name);
+                    cmd.Parameters.AddWithValue("@addr1", manufacturer.Address1);
+                    cmd.Parameters.AddWithValue("@addr2", manufacturer.Address2);
+                    cmd.Parameters.AddWithValue("@city", manufacturer.City);
+                    if (manufacturer.StateID != null) { cmd.Parameters.AddWithValue("@stateId", manufacturer.StateID); } else { cmd.Parameters.AddWithValue("@stateId", DBNull.Value); }
+                    cmd.Parameters.AddWithValue("@zip", manufacturer.Zipcode);
+                    cmd.Parameters.AddWithValue("@phone1", manufacturer.Phone1);
+                    cmd.Parameters.AddWithValue("@phone2", manufacturer.Phone2);
+                    cmd.Parameters.AddWithValue("@fax", manufacturer.Fax);
+                    cmd.Parameters.AddWithValue("@web", manufacturer.Website);
+
+                    return cmd.ExecuteNonQuery();
 				}
 				catch
 				{
@@ -111,7 +111,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@addr1", manufacturer.Address1);
 					cmd.Parameters.AddWithValue("@addr2", manufacturer.Address2);
 					cmd.Parameters.AddWithValue("@city", manufacturer.City);
-					cmd.Parameters.AddWithValue("@stateId", manufacturer.StateID);
+					if (manufacturer.StateID != null) { cmd.Parameters.AddWithValue("@stateId", manufacturer.StateID); } else { cmd.Parameters.AddWithValue("@stateId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@zip", manufacturer.Zipcode);
 					cmd.Parameters.AddWithValue("@phone1", manufacturer.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", manufacturer.Phone2);
