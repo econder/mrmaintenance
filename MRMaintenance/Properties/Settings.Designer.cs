@@ -23,20 +23,9 @@ namespace MRMaintenance.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=OWS-1;Initial Catalog=MRMaintenance;User ID=mrsystems;Password=Reggie" +
-            "123")]
-        public string MRMaintenanceSql {
-            get {
-                return ((string)(this["MRMaintenanceSql"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ECVM-WW2014")]
         public string ServerName {
             get {
                 return ((string)(this["ServerName"]));
@@ -48,7 +37,7 @@ namespace MRMaintenance.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("MRMaintenance")]
         public string DatabaseName {
             get {
                 return ((string)(this["DatabaseName"]));
@@ -60,7 +49,7 @@ namespace MRMaintenance.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mrsystems")]
         public string DatabaseUser {
             get {
                 return ((string)(this["DatabaseUser"]));
@@ -72,13 +61,25 @@ namespace MRMaintenance.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Reggie123")]
         public string DatabasePwd {
             get {
                 return ((string)(this["DatabasePwd"]));
             }
             set {
                 this["DatabasePwd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MRMaintenanceSql {
+            get {
+                return ((string)(this["MRMaintenanceSql"]));
+            }
+            set {
+                this["MRMaintenanceSql"] = value;
             }
         }
     }

@@ -30,7 +30,7 @@ namespace MRMaintenance.Data
 		{
 			try
 			{
-                connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
+                connStr = Properties.Settings.Default.MRMaintenanceSql;
 			}
 			catch
 			{
@@ -83,13 +83,13 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@addr1", facility.Address1);
 					cmd.Parameters.AddWithValue("@addr2", facility.Address2);
 					cmd.Parameters.AddWithValue("@city", facility.City);
-					cmd.Parameters.AddWithValue("@stateId", facility.StateID);
+                    if (facility.StateID != null) { cmd.Parameters.AddWithValue("@stateId", facility.StateID); } else { cmd.Parameters.AddWithValue("stateId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@zip", facility.Zipcode);
 					cmd.Parameters.AddWithValue("@phone1", facility.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", facility.Phone2);
 					cmd.Parameters.AddWithValue("@fax", facility.Fax);
-					cmd.Parameters.AddWithValue("@lat", facility.Latitude);
-					cmd.Parameters.AddWithValue("@long", facility.Longitude);
+                    if (facility.Latitude != null) { cmd.Parameters.AddWithValue("@lat", facility.Latitude); } else { cmd.Parameters.AddWithValue("@lat", DBNull.Value); }
+                    if (facility.Longitude != null) { cmd.Parameters.AddWithValue("@long", facility.Longitude); } else { cmd.Parameters.AddWithValue("@long", DBNull.Value); }
 					
 					return cmd.ExecuteNonQuery();
 				}
@@ -122,13 +122,13 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@addr1", facility.Address1);
 					cmd.Parameters.AddWithValue("@addr2", facility.Address2);
 					cmd.Parameters.AddWithValue("@city", facility.City);
-					cmd.Parameters.AddWithValue("@stateId", facility.StateID);
-					cmd.Parameters.AddWithValue("@zip", facility.Zipcode);
-					cmd.Parameters.AddWithValue("@phone1", facility.Phone1);
-					cmd.Parameters.AddWithValue("@phone2", facility.Phone2);
-					cmd.Parameters.AddWithValue("@fax", facility.Fax);
-					cmd.Parameters.AddWithValue("@lat", facility.Latitude);
-					cmd.Parameters.AddWithValue("@long", facility.Longitude);
+                    if (facility.StateID != null) { cmd.Parameters.AddWithValue("@stateId", facility.StateID); } else { cmd.Parameters.AddWithValue("stateId", DBNull.Value); }
+                    cmd.Parameters.AddWithValue("@zip", facility.Zipcode);
+                    cmd.Parameters.AddWithValue("@phone1", facility.Phone1);
+                    cmd.Parameters.AddWithValue("@phone2", facility.Phone2);
+                    cmd.Parameters.AddWithValue("@fax", facility.Fax);
+                    if (facility.Latitude != null) { cmd.Parameters.AddWithValue("@lat", facility.Latitude); } else { cmd.Parameters.AddWithValue("@lat", DBNull.Value); }
+                    if (facility.Longitude != null) { cmd.Parameters.AddWithValue("@long", facility.Longitude); } else { cmd.Parameters.AddWithValue("@long", DBNull.Value); }
 					
 					return cmd.ExecuteNonQuery();
 				}

@@ -26,7 +26,7 @@ namespace MRMaintenance.Data
 		
 		public VendorContactDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
+			connStr = Properties.Settings.Default.MRMaintenanceSql;
 		}
 		
 		

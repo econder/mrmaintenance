@@ -47,8 +47,8 @@ C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.config
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.pdb
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmAbout.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmDbConnectionSettings.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmDepartment.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipment.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmEquipmentDoc.resources
@@ -62,10 +62,10 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.f
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmManufacturer.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmPart.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmVendor.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmWorkOrder.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmWorkOrderRequest.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.MainForm.resources
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.Properties.Resources.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.frmWorkOrder.resources
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.Properties.Resources.resources

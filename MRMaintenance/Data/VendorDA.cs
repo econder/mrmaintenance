@@ -26,7 +26,7 @@ namespace MRMaintenance.Data
 		
 		public VendorDA()
 		{
-			connStr = ConfigurationManager.ConnectionStrings["MRMaintenance.Properties.Settings.MRMaintenanceSql"].ConnectionString;
+			connStr = Properties.Settings.Default.MRMaintenanceSql;
 		}
 		
 		
@@ -73,7 +73,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@addr1", vendor.Address1);
 					cmd.Parameters.AddWithValue("@addr2", vendor.Address2);
 					cmd.Parameters.AddWithValue("@city", vendor.City);
-					cmd.Parameters.AddWithValue("@stateId", vendor.StateID);
+                    if (vendor.StateID != null) { cmd.Parameters.AddWithValue("@stateId", vendor.StateID); } else { cmd.Parameters.AddWithValue("@stateId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@zip", vendor.Zipcode);
 					cmd.Parameters.AddWithValue("@phone1", vendor.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", vendor.Phone2);
@@ -111,7 +111,7 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@addr1", vendor.Address1);
 					cmd.Parameters.AddWithValue("@addr2", vendor.Address2);
 					cmd.Parameters.AddWithValue("@city", vendor.City);
-					cmd.Parameters.AddWithValue("@stateId", vendor.StateID);
+                    if (vendor.StateID != null) { cmd.Parameters.AddWithValue("@stateId", vendor.StateID); } else { cmd.Parameters.AddWithValue("@stateId", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@zip", vendor.Zipcode);
 					cmd.Parameters.AddWithValue("@phone1", vendor.Phone1);
 					cmd.Parameters.AddWithValue("@phone2", vendor.Phone2);

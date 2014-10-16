@@ -40,14 +40,40 @@ namespace MRMaintenance
 		
 		public MainForm()
 		{
-			Initialize();
+            InitializeComponent();
+
+            if (this.TestDbConnection() == true)
+            {
+                Initialize();
+            }
 		}
+
+
+        private bool TestDbConnection()
+        {
+            SqlConnection conn = new SqlConnection(Properties.Settings.Default.MRMaintenanceSql);
+            try
+            {
+                conn.Open();
+                if(conn.State == ConnectionState.Open)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(string.Format("MRMaintenance database connection failed with message \"{0}\"", ex.Message));
+                return false;
+            }
+        }
 		
 		
 		private void Initialize()
 		{
-			InitializeComponent();
-			
 			facilityBA = new FacilityBA();
 			workOrderReqBA = new WorkOrderRequestBA();
 			workOrderBA = new WorkOrderBA();
@@ -307,6 +333,20 @@ namespace MRMaintenance
         {
             this.Close();
             this.Dispose();
+        }
+
+
+        /********************************************************************
+		 * Settings Menu
+		 ********************************************************************/
+        private void databaseConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDbConnectionSettings form = new frmDbConnectionSettings();
+            if(form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Initialize();
+                this.ResetControlBindings();
+            }
         }
 		
 		
