@@ -69,3 +69,4 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.P
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache

@@ -82,8 +82,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
-					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+                    if (equipment.HmiRuntimeTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname); } else { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", DBNull.Value); }
+                    if (equipment.HmiCyclesTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname); } else { cmd.Parameters.AddWithValue("@hmiCyclesTagname", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
 					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					
@@ -124,8 +124,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
-					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+                    if (equipment.HmiRuntimeTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname); } else { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", DBNull.Value); }
+                    if (equipment.HmiCyclesTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname); } else { cmd.Parameters.AddWithValue("@hmiCyclesTagname", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
 					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					
