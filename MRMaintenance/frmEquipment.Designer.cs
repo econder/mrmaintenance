@@ -80,6 +80,7 @@ namespace MRMaintenance
             this.label16 = new System.Windows.Forms.Label();
             this.txtMccLocation = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnDuplicate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -448,12 +449,24 @@ namespace MRMaintenance
             this.label17.TabIndex = 83;
             this.label17.Text = "MCC Location";
             // 
+            // btnDuplicate
+            // 
+            this.btnDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDuplicate.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicate.Image")));
+            this.btnDuplicate.Location = new System.Drawing.Point(132, 494);
+            this.btnDuplicate.Name = "btnDuplicate";
+            this.btnDuplicate.Size = new System.Drawing.Size(26, 23);
+            this.btnDuplicate.TabIndex = 84;
+            this.btnDuplicate.UseVisualStyleBackColor = true;
+            this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
+            // 
             // frmEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(940, 540);
+            this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.txtMccLocation);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtMccPanel);
@@ -550,5 +563,6 @@ namespace MRMaintenance
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtMccLocation;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnDuplicate;
 	}
 }

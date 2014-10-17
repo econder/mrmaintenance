@@ -62,6 +62,7 @@ namespace MRMaintenance
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDuplicate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
             this.SuspendLayout();
             // 
@@ -300,12 +301,24 @@ namespace MRMaintenance
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // btnDuplicate
+            // 
+            this.btnDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDuplicate.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicate.Image")));
+            this.btnDuplicate.Location = new System.Drawing.Point(132, 382);
+            this.btnDuplicate.Name = "btnDuplicate";
+            this.btnDuplicate.Size = new System.Drawing.Size(26, 23);
+            this.btnDuplicate.TabIndex = 126;
+            this.btnDuplicate.UseVisualStyleBackColor = true;
+            this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
+            // 
             // frmWorkOrderRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(513, 440);
+            this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.button1);
@@ -368,5 +381,6 @@ namespace MRMaintenance
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.ComboBox cboEquip;
+        private System.Windows.Forms.Button btnDuplicate;
 	}
 }

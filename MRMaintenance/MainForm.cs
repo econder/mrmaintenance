@@ -28,8 +28,8 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class MainForm : Form
 	{
+        private string _dbServerName;
 		private WorkOrderRequest workOrderReq;
-		
 		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
 		
@@ -53,6 +53,7 @@ namespace MRMaintenance
                 conn.Open();
                 if(conn.State == ConnectionState.Open)
                 {
+                    this._dbServerName = Properties.Settings.Default.ServerName;
                     return true;
                 }
                 else
@@ -234,7 +235,7 @@ namespace MRMaintenance
 				{
 					if(dgview.Rows[i].Cells["Open Work Orders"].Value != DBNull.Value)
 					{
-						if(Convert.ToInt32(dgview.Rows[i].Cells["Open Work Orders"].Value) > 0)
+						if(Convert.ToInt32(dgview.Rows[i].Cells["Open Work Orders"].Value) == 0)
 						{
 							dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
 						}
@@ -319,18 +320,7 @@ namespace MRMaintenance
 			//if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
 			//	MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
-		
-		
-		//Mark Work Order as Complete
-        /*
-		private void MarkAsCompleteClick(object sender, EventArgs e)
-		{
-			WorkOrder workOrder = new WorkOrder();
-			workOrder.ID = (long)dgviewWO.SelectedRows[0].Cells["Work Order ID"].Value;
-			workOrderBA.MarkComplete(workOrder);
-			this.ResetControlBindings();
-		}
-        */
+
 
         /********************************************************************
 		 * File Menu
@@ -350,6 +340,12 @@ namespace MRMaintenance
             frmDbConnectionSettings form = new frmDbConnectionSettings();
             if(form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
+                if (this.TestDbConnection())
+                {
+                    this.Initialize();
+                }
+                
+                /*
                 //Load and bind facilities combobox
                 FacilityBA facilityBA = new FacilityBA();
                 DataTable dtFacility = facilityBA.Load();
@@ -367,6 +363,7 @@ namespace MRMaintenance
 
                     this.FillData();
                 }
+                */
             }
         }
 		
@@ -377,23 +374,15 @@ namespace MRMaintenance
 		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			//frmReportViewer form = new frmReportViewer("WorkOrdersAll");
-			//form.Show(this);
-			
-			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
-			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", rptServer));
+            Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", this._dbServerName));
 		}
 		
 		
 		//Show Work Order Detail Report
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			//frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
-			//form.Show(this);
-			
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
-			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
-			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
+            Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", this._dbServerName, id));
 		}
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

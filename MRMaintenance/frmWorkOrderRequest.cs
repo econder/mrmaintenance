@@ -186,6 +186,12 @@ namespace MRMaintenance
 			//Load database and re-bind all the controls
 			this.FillData();
 		}
+
+
+        private void btnDuplicate_Click(object sender, EventArgs e)
+        {
+            listWO.SelectedIndex = -1;
+        }
 		
 		
 		private void btnNew_Click(object sender, EventArgs e)

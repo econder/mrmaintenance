@@ -43,7 +43,6 @@ C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.M
 C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe.config
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe
-C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmAbout.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDbConnectionSettings.resources
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDepartment.resources

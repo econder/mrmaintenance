@@ -46,6 +46,7 @@ namespace MRMaintenance
             chkComplete.DataBindings.Add("Checked", dt, "woComplete", true, DataSourceUpdateMode.Never, false);
             dtCompletedOn.DataBindings.Add("Value", dt, "woDateCompleted", true, DataSourceUpdateMode.Never, null);
             txtCompletedBy.DataBindings.Add("Text", dt, "woCompletedBy", true, DataSourceUpdateMode.Never, "");
+            txtReqDesc.DataBindings.Add("Text", dt, "reqDescr", true, DataSourceUpdateMode.Never, "");
             txtNotes.DataBindings.Add("Text", dt, "woNotes", true, DataSourceUpdateMode.Never, "");
 		}
 		
@@ -59,6 +60,7 @@ namespace MRMaintenance
             chkComplete.DataBindings.Clear();
             dtCompletedOn.DataBindings.Clear();
             txtCompletedBy.DataBindings.Clear();
+            txtReqDesc.DataBindings.Clear();
             txtNotes.DataBindings.Clear();
 			
 			//Clear and reload datatable

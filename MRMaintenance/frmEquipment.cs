@@ -124,13 +124,13 @@ namespace MRMaintenance
             cboLocation.DataBindings.Add("SelectedValue", dtEquip, "locId", true, DataSourceUpdateMode.Never, -1);
 			
 			//Load and bind equipment name textbox
-			txtName.DataBindings.Add("Text", dtEquip, "equipName", true, DataSourceUpdateMode.Never, "");
+            txtName.DataBindings.Add("Text", dtEquip, "equipName", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind equipment number textbox
-			txtEquipNumber.DataBindings.Add("Text", dtEquip, "equipNumber", true, DataSourceUpdateMode.Never, "");
+            txtEquipNumber.DataBindings.Add("Text", dtEquip, "equipNumber", true, DataSourceUpdateMode.Never, "");
 			
 			//Load and bind equipment description textbox
-			txtDescr.DataBindings.Add("Text", dtEquip, "descr", true, DataSourceUpdateMode.Never, "");
+            txtDescr.DataBindings.Add("Text", dtEquip, "descr", true, DataSourceUpdateMode.Never, "");
 		    
             //Bind manufacturer combobox
             cboManufacturer.DataBindings.Add("SelectedValue", dtEquip, "manId", true, DataSourceUpdateMode.Never, -1);
@@ -140,7 +140,7 @@ namespace MRMaintenance
 
 			//Load and bind model & serial #'s textboxes
             cboModel.DataBindings.Add("SelectedValue", dtEquip, "modelId", true, DataSourceUpdateMode.Never, -1);
-			txtSerial.DataBindings.Add("Text", dtEquip, "equipSerial", true, DataSourceUpdateMode.Never, "");
+            txtSerial.DataBindings.Add("Text", dtEquip, "equipSerial", true, DataSourceUpdateMode.Never, "");
 
             //Bind equipment type combobox
             cboEquipType.DataBindings.Add("SelectedValue", dtEquip, "equipTypeId", true, DataSourceUpdateMode.Never, -1);
@@ -203,7 +203,7 @@ namespace MRMaintenance
 			equipment.ID = (long)listEquip.SelectedValue;
 
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment.ID, 7);
+			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment.ID);
             listWorkOrderReq.DataSource = dtWorkOrderReq;
 			listWorkOrderReq.DisplayMember = "reqName";
 			listWorkOrderReq.ValueMember = "reqId";
@@ -242,18 +242,26 @@ namespace MRMaintenance
                 listEquipDocs.DisplayMember = "equipDocName";
                 listEquipDocs.ValueMember = "equipDocId";
 
-                //Load and bind work order requests listbox
                 /*
+                //Load and bind work order requests listbox
                 WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-                dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
+                dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment.ID);
                 listWorkOrderReq.DataSource = dtWorkOrderReq;
                 listWorkOrderReq.DisplayMember = "reqName";
                 listWorkOrderReq.ValueMember = "reqId";
-                 */
+                */
                 
                 this.ResetWorkOrderRequestListBindings();
             }
 		}
+
+
+        private void btnDuplicate_Click(object sender, EventArgs e)
+        {
+            listEquip.SelectedIndex = -1;
+            listEquipDocs.DataBindings.Clear();
+            listWorkOrderReq.DataBindings.Clear();
+        }
 		
 		
 		private void btnEquipNew_Click(object sender, EventArgs e)
@@ -381,7 +389,7 @@ namespace MRMaintenance
 		
 		private void btnWORAdd_Click(object sender, EventArgs e)
 		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest((long)listEquip.SelectedValue, (long)listWorkOrderReq.SelectedValue);
+			frmWorkOrderRequest form = new frmWorkOrderRequest((long)listEquip.SelectedValue);
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
 				if(listWorkOrderReq.Items.Count > 0)
@@ -492,54 +500,44 @@ namespace MRMaintenance
 				}
 			}
 		}
-		
-		
-		private void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
+
+
+        private void cboVendor_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             /*
-			int i =  cboVendor.FindStringExact(cboVendor.Text);
-			
-			if(i == -1)
-			{
-				if(cboVendor.Text.Length > 0)
-				{
-					if(MessageBox.Show("Equipment vendor does not exist. Would you like to create it?", "",
-					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-					{
-						frmVendor form = new frmVendor();
-						form.ShowDialog(this);
-					}
-				}
-				else
-				{
-					MessageBox.Show("Equpment vendor cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				}
-			}
+            if (cboVendor.Text.Length > 0)
+            {
+                if (MessageBox.Show("Equipment vendor does not exist. Would you like to create it?", "",
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    frmVendor form = new frmVendor();
+                    form.ShowDialog(this);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Equpment vendor cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             */
-		}
+        }
 		
 		
 		private void cboModel_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
             /*
-			int i =  cboModel.FindStringExact(cboModel.Text);
-			
-			if(i == -1)
-			{
-				if(cboModel.Text.Length > 0)
-				{
-					if(MessageBox.Show("Equipment model does not exist. Would you like to create it?", "",
-					                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-					{
-						frmEquipmentModel form = new frmEquipmentModel();
-						form.ShowDialog(this);
-					}
-				}
-				else
-				{
-					MessageBox.Show("Equpment model cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				}
-			}
+            if (cboModel.Text.Length > 0)
+            {
+                if (MessageBox.Show("Equipment model does not exist. Would you like to create it?", "",
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    frmEquipmentModel form = new frmEquipmentModel();
+                    form.ShowDialog(this);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Equpment model cannot be blank.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             */
 		}
 		
