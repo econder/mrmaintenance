@@ -11,17 +11,17 @@ SELECT     dbo.WorkOrders.woID, dbo.WorkOrders.reqId, dbo.WorkOrders.woDateCreat
                       dbo.Locations.lat AS locLat, dbo.Locations.long AS locLong, dbo.Manufacturers.name AS manName, dbo.Manufacturers.web AS manWeb, 
                       dbo.Manufacturers.phone1 AS manPhone1, dbo.Manufacturers.phone2 AS manPhone2, dbo.Manufacturers.fax AS manFax, dbo.Vendors.name AS venName, 
                       dbo.Priorities.priorityName
-FROM         dbo.WorkOrders INNER JOIN
-                      dbo.Locations INNER JOIN
+FROM         dbo.Vendors INNER JOIN
+                      dbo.Facilities INNER JOIN
                       dbo.TimeIntervals INNER JOIN
                       dbo.WorkOrderRequests ON dbo.TimeIntervals.intId = dbo.WorkOrderRequests.intId INNER JOIN
                       dbo.Equipment ON dbo.WorkOrderRequests.equipId = dbo.Equipment.equipId INNER JOIN
                       dbo.EquipmentTypes ON dbo.Equipment.equipTypeId = dbo.EquipmentTypes.typeId INNER JOIN
-                      dbo.EquipmentModels ON dbo.Equipment.modelId = dbo.EquipmentModels.modelId ON dbo.Locations.locId = dbo.Equipment.locId INNER JOIN
-                      dbo.Facilities ON dbo.Locations.facId = dbo.Facilities.facId INNER JOIN
-                      dbo.Manufacturers ON dbo.Equipment.manId = dbo.Manufacturers.manId ON dbo.WorkOrders.reqId = dbo.WorkOrderRequests.reqId INNER JOIN
-                      dbo.Vendors ON dbo.Equipment.vendorId = dbo.Vendors.venId INNER JOIN
-                      dbo.Priorities ON dbo.WorkOrderRequests.priorityId = dbo.Priorities.priorityId
+                      dbo.Locations ON dbo.Equipment.locId = dbo.Locations.locId ON dbo.Facilities.facId = dbo.Locations.facId INNER JOIN
+                      dbo.Manufacturers ON dbo.Equipment.manId = dbo.Manufacturers.manId INNER JOIN
+                      dbo.WorkOrders ON dbo.WorkOrderRequests.reqId = dbo.WorkOrders.reqId ON dbo.Vendors.venId = dbo.Equipment.vendorId INNER JOIN
+                      dbo.Priorities ON dbo.WorkOrderRequests.priorityId = dbo.Priorities.priorityId LEFT OUTER JOIN
+                      dbo.EquipmentModels ON dbo.Equipment.modelId = dbo.EquipmentModels.modelId
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
