@@ -338,7 +338,7 @@ namespace MRMaintenance
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Work Order Request";
+            this.Text = "Work Order Requests";
             ((System.ComponentModel.ISupportInitialize)(this.numFreq)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

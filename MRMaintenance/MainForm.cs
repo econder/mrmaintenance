@@ -28,10 +28,6 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		private FacilityBA facilityBA;
-		private WorkOrderRequestBA workOrderReqBA;
-		private WorkOrderBA workOrderBA;
-		
 		private WorkOrderRequest workOrderReq;
 		
 		private DataTable dtWorkOrderRequests;
@@ -74,9 +70,9 @@ namespace MRMaintenance
 		
 		private void Initialize()
 		{
-			facilityBA = new FacilityBA();
-			workOrderReqBA = new WorkOrderRequestBA();
-			workOrderBA = new WorkOrderBA();
+			FacilityBA facilityBA = new FacilityBA();
+			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+			WorkOrderBA workOrderBA = new WorkOrderBA();
 			
 			Facility facility = new Facility();
 			
@@ -113,6 +109,7 @@ namespace MRMaintenance
 			facility.ID = (long)cboFacilities.SelectedValue;
 			
 			//Load DataGridView with WorkOrdersDueByFacility
+            WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
 			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
@@ -123,6 +120,7 @@ namespace MRMaintenance
 			}
 			
 			//Load WorkOrders
+            WorkOrderBA workOrderBA = new WorkOrderBA();
 			dtWorkOrders = workOrderBA.LoadOpenByFacilityBrief(facility);
 			if(dtWorkOrders.Rows.Count > 0)
 			{
@@ -164,7 +162,9 @@ namespace MRMaintenance
 		
 		private void WorkOrderRequestsToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest();
+            Facility facility = new Facility();
+            facility.ID = (long)cboFacilities.SelectedValue;
+			frmWorkOrderRequest form = new frmWorkOrderRequest(facility);
 			form.ShowDialog(this);
 		}
 		
@@ -216,7 +216,7 @@ namespace MRMaintenance
 		{
 			if(e.RowIndex >= 0)
 			{
-				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
+				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["Equipment ID"].Value, (long)dgview.SelectedRows[0].Cells["ID"].Value);
 				if(form.ShowDialog(this) == DialogResult.OK)
 				{
 					this.ResetControlBindings();
@@ -248,6 +248,7 @@ namespace MRMaintenance
 		private void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			//Populated workOrderRequest class properties on selection change
+            WorkOrderRequest workOrderReq = new WorkOrderRequest();
 			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
 			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
 			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
@@ -308,6 +309,11 @@ namespace MRMaintenance
 		//Create Work Order from Work Order Request
 		private void CreateWorkOrderFromRequest(object sender, EventArgs e)
 		{
+            WorkOrderRequest workOrderReq = new WorkOrderRequest();
+            workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+            workOrderReq.NextDue = Convert.ToDateTime(dgview.SelectedRows[0].Cells["Due By"].Value);
+
+            WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
             workOrderReqBA.CreateWorkOrder(workOrderReq);
 
 			//if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
@@ -344,8 +350,23 @@ namespace MRMaintenance
             frmDbConnectionSettings form = new frmDbConnectionSettings();
             if(form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
-                this.Initialize();
-                this.ResetControlBindings();
+                //Load and bind facilities combobox
+                FacilityBA facilityBA = new FacilityBA();
+                DataTable dtFacility = facilityBA.Load();
+
+                if (dtFacility.Rows.Count > 0)
+                {
+                    cboFacilities.DataSource = dtFacility;
+                    cboFacilities.DisplayMember = "name";
+                    cboFacilities.ValueMember = "facId";
+
+                    if (cboFacilities.Items.Count > 0)
+                    {
+                        cboFacilities.SelectedIndex = 0;
+                    }
+
+                    this.FillData();
+                }
             }
         }
 		
@@ -378,6 +399,12 @@ namespace MRMaintenance
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAbout form = new frmAbout();
+            form.ShowDialog(this);
+        }
+
+        private void equipmentTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEquipmentType form = new frmEquipmentType();
             form.ShowDialog(this);
         }
 	}

@@ -44,6 +44,8 @@ namespace MRMaintenance
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,8 +70,7 @@ namespace MRMaintenance
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equipmentTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
             this.menuWorkOrderReq.SuspendLayout();
@@ -107,15 +108,31 @@ namespace MRMaintenance
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.databaseConnectionToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "&Settings";
+            // 
+            // databaseConnectionToolStripMenuItem
+            // 
+            this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
+            this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.databaseConnectionToolStripMenuItem.Text = "&Database Connection...";
+            this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.databaseConnectionToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.workOrderRequestsToolStripMenuItem,
             this.equipmentToolStripMenuItem,
+            this.equipmentTypeToolStripMenuItem,
             this.locationsToolStripMenuItem,
             this.facilitiesToolStripMenuItem,
             this.departmentsToolStripMenuItem,
@@ -195,7 +212,7 @@ namespace MRMaintenance
             this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allToolStripMenuItem});
             this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
-            this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.workOrdersToolStripMenuItem.Text = "&Work Orders";
             // 
             // allToolStripMenuItem
@@ -354,20 +371,12 @@ namespace MRMaintenance
             this.label3.TabIndex = 7;
             this.label3.Text = "Work Orders Due";
             // 
-            // settingsToolStripMenuItem
+            // equipmentTypeToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.databaseConnectionToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "&Settings";
-            // 
-            // databaseConnectionToolStripMenuItem
-            // 
-            this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
-            this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.databaseConnectionToolStripMenuItem.Text = "&Database Connection...";
-            this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.databaseConnectionToolStripMenuItem_Click);
+            this.equipmentTypeToolStripMenuItem.Name = "equipmentTypeToolStripMenuItem";
+            this.equipmentTypeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.equipmentTypeToolStripMenuItem.Text = "Equipment &Type";
+            this.equipmentTypeToolStripMenuItem.Click += new System.EventHandler(this.equipmentTypeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -426,5 +435,6 @@ namespace MRMaintenance
 		private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseConnectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem equipmentTypeToolStripMenuItem;
 	}
 }

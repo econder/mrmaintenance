@@ -203,8 +203,8 @@ namespace MRMaintenance
 			equipment.ID = (long)listEquip.SelectedValue;
 
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment, 7);
-			listWorkOrderReq.DataSource = workOrderReqBA.LoadByEquipment(equipment, 7);
+			dtWorkOrderReq = workOrderReqBA.LoadByEquipment(equipment.ID, 7);
+            listWorkOrderReq.DataSource = dtWorkOrderReq;
 			listWorkOrderReq.DisplayMember = "reqName";
 			listWorkOrderReq.ValueMember = "reqId";
 			listWorkOrderReq.DataBindings.Clear();
@@ -268,11 +268,11 @@ namespace MRMaintenance
 			cboVendor.SelectedIndex = -1;
 			cboModel.SelectedIndex = -1;
 			txtSerial.Clear();
+            cboEquipType.SelectedIndex = -1;
             txtRuntimeTagname.Clear();
             txtCyclesTagname.Clear();
             txtMccLocation.Clear();
             txtMccPanel.Clear();
-			cboEquipType.SelectedIndex = -1;
 			listEquipDocs.DataBindings.Clear();
 			listWorkOrderReq.DataBindings.Clear();
 		}
@@ -381,7 +381,7 @@ namespace MRMaintenance
 		
 		private void btnWORAdd_Click(object sender, EventArgs e)
 		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest();
+			frmWorkOrderRequest form = new frmWorkOrderRequest((long)listEquip.SelectedValue, (long)listWorkOrderReq.SelectedValue);
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
 				if(listWorkOrderReq.Items.Count > 0)
