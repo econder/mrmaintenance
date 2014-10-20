@@ -165,7 +165,6 @@ namespace MRMaintenance
 		
 		private void ResetWorkOrderRequestListBindings()
 		{
-			
 			Equipment equipment = new Equipment();
 			equipment.ID = (long)listEquip.SelectedValue;
 
@@ -208,7 +207,6 @@ namespace MRMaintenance
 		
 		private void btnEquipNew_Click(object sender, EventArgs e)
 		{
-            this.ResetControlBindings();
             /*
 			listEquip.SelectedIndex = -1;
             cboLocation.SelectedIndex = -1;
