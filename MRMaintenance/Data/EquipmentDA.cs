@@ -61,6 +61,43 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable LoadByFacility(Facility facility)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT dbo.Equipment.equipId, dbo.Locations.facId, dbo.Equipment.locId, dbo.Equipment.equipTypeId, dbo.Equipment.manId, dbo.Equipment.vendorId," +
+                                                        " dbo.Equipment.modelId, dbo.Equipment.equipNumber, dbo.Equipment.equipName, dbo.Equipment.descr, dbo.Equipment.equipSerial," +
+                                                        " dbo.Equipment.hmiRuntimeTagname, dbo.Equipment.hmiCyclesTagname, dbo.Equipment.equipMccLoc, dbo.Equipment.equipMccPanel" +
+                                                        " FROM dbo.Equipment INNER JOIN Locations ON Locations.locId = Equipment.locId" +
+                                                        " WHERE dbo.Locations.facId=@facId" + 
+                                                        " ORDER BY dbo.Equipment.equipName", dbConn);
+
+                cmd.Parameters.AddWithValue("@facId", facility.ID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Equipment");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public int Insert(Equipment equipment)

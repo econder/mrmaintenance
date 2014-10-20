@@ -41,8 +41,6 @@ namespace MRMaintenance
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboFacility = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.cboLocation = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cboEquipType = new System.Windows.Forms.ComboBox();
@@ -93,7 +91,7 @@ namespace MRMaintenance
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(252, 73);
+            this.txtName.Location = new System.Drawing.Point(249, 29);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(226, 20);
             this.txtName.TabIndex = 4;
@@ -101,33 +99,16 @@ namespace MRMaintenance
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(252, 57);
+            this.label2.Location = new System.Drawing.Point(249, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Equipment Name";
             // 
-            // cboFacility
-            // 
-            this.cboFacility.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboFacility.Location = new System.Drawing.Point(252, 29);
-            this.cboFacility.Name = "cboFacility";
-            this.cboFacility.Size = new System.Drawing.Size(153, 21);
-            this.cboFacility.TabIndex = 2;
-            this.cboFacility.Validating += new System.ComponentModel.CancelEventHandler(this.cboFacility_Validating);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(252, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 16);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Facility";
-            // 
             // cboLocation
             // 
             this.cboLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboLocation.Location = new System.Drawing.Point(420, 29);
+            this.cboLocation.Location = new System.Drawing.Point(492, 28);
             this.cboLocation.Name = "cboLocation";
             this.cboLocation.Size = new System.Drawing.Size(153, 21);
             this.cboLocation.TabIndex = 3;
@@ -135,7 +116,7 @@ namespace MRMaintenance
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(420, 13);
+            this.label12.Location = new System.Drawing.Point(492, 13);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 20);
             this.label12.TabIndex = 29;
@@ -144,7 +125,7 @@ namespace MRMaintenance
             // cboEquipType
             // 
             this.cboEquipType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboEquipType.Location = new System.Drawing.Point(495, 294);
+            this.cboEquipType.Location = new System.Drawing.Point(492, 250);
             this.cboEquipType.Name = "cboEquipType";
             this.cboEquipType.Size = new System.Drawing.Size(226, 21);
             this.cboEquipType.TabIndex = 11;
@@ -152,7 +133,7 @@ namespace MRMaintenance
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(495, 277);
+            this.label5.Location = new System.Drawing.Point(492, 233);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 33;
@@ -161,7 +142,7 @@ namespace MRMaintenance
             // cboManufacturer
             // 
             this.cboManufacturer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboManufacturer.Location = new System.Drawing.Point(495, 118);
+            this.cboManufacturer.Location = new System.Drawing.Point(492, 74);
             this.cboManufacturer.Name = "cboManufacturer";
             this.cboManufacturer.Size = new System.Drawing.Size(226, 21);
             this.cboManufacturer.TabIndex = 7;
@@ -169,7 +150,7 @@ namespace MRMaintenance
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(495, 101);
+            this.label6.Location = new System.Drawing.Point(492, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 35;
@@ -178,7 +159,7 @@ namespace MRMaintenance
             // cboVendor
             // 
             this.cboVendor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboVendor.Location = new System.Drawing.Point(495, 161);
+            this.cboVendor.Location = new System.Drawing.Point(492, 117);
             this.cboVendor.Name = "cboVendor";
             this.cboVendor.Size = new System.Drawing.Size(226, 21);
             this.cboVendor.TabIndex = 8;
@@ -186,7 +167,7 @@ namespace MRMaintenance
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(495, 144);
+            this.label7.Location = new System.Drawing.Point(492, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 20);
             this.label7.TabIndex = 37;
@@ -194,14 +175,14 @@ namespace MRMaintenance
             // 
             // txtSerial
             // 
-            this.txtSerial.Location = new System.Drawing.Point(495, 249);
+            this.txtSerial.Location = new System.Drawing.Point(492, 205);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(226, 20);
             this.txtSerial.TabIndex = 10;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(495, 233);
+            this.label8.Location = new System.Drawing.Point(492, 189);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 20);
             this.label8.TabIndex = 39;
@@ -209,7 +190,7 @@ namespace MRMaintenance
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(495, 189);
+            this.label9.Location = new System.Drawing.Point(492, 145);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 20);
             this.label9.TabIndex = 41;
@@ -217,7 +198,7 @@ namespace MRMaintenance
             // 
             // txtDescr
             // 
-            this.txtDescr.Location = new System.Drawing.Point(252, 161);
+            this.txtDescr.Location = new System.Drawing.Point(249, 117);
             this.txtDescr.Multiline = true;
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -226,7 +207,7 @@ namespace MRMaintenance
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(252, 144);
+            this.label10.Location = new System.Drawing.Point(249, 100);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 20);
             this.label10.TabIndex = 43;
@@ -246,14 +227,14 @@ namespace MRMaintenance
             // 
             // txtEquipNumber
             // 
-            this.txtEquipNumber.Location = new System.Drawing.Point(252, 118);
+            this.txtEquipNumber.Location = new System.Drawing.Point(249, 74);
             this.txtEquipNumber.Name = "txtEquipNumber";
             this.txtEquipNumber.Size = new System.Drawing.Size(153, 20);
             this.txtEquipNumber.TabIndex = 5;
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(252, 101);
+            this.label11.Location = new System.Drawing.Point(249, 57);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 20);
             this.label11.TabIndex = 50;
@@ -285,16 +266,16 @@ namespace MRMaintenance
             this.listEquipDocs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listEquipDocs.FormattingEnabled = true;
-            this.listEquipDocs.Location = new System.Drawing.Point(252, 367);
+            this.listEquipDocs.Location = new System.Drawing.Point(252, 315);
             this.listEquipDocs.Name = "listEquipDocs";
-            this.listEquipDocs.Size = new System.Drawing.Size(229, 121);
+            this.listEquipDocs.Size = new System.Drawing.Size(229, 173);
             this.listEquipDocs.TabIndex = 14;
             this.listEquipDocs.DoubleClick += new System.EventHandler(this.listEquipDocs_DoubleClick);
             // 
             // btnDocRemove
             // 
             this.btnDocRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnDocRemove.Image")));
-            this.btnDocRemove.Location = new System.Drawing.Point(455, 341);
+            this.btnDocRemove.Location = new System.Drawing.Point(452, 291);
             this.btnDocRemove.Name = "btnDocRemove";
             this.btnDocRemove.Size = new System.Drawing.Size(26, 23);
             this.btnDocRemove.TabIndex = 12;
@@ -304,7 +285,7 @@ namespace MRMaintenance
             // btnDocAdd
             // 
             this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
-            this.btnDocAdd.Location = new System.Drawing.Point(423, 341);
+            this.btnDocAdd.Location = new System.Drawing.Point(420, 291);
             this.btnDocAdd.Name = "btnDocAdd";
             this.btnDocAdd.Size = new System.Drawing.Size(26, 23);
             this.btnDocAdd.TabIndex = 13;
@@ -313,7 +294,7 @@ namespace MRMaintenance
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(252, 349);
+            this.label4.Location = new System.Drawing.Point(249, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 68;
@@ -322,7 +303,7 @@ namespace MRMaintenance
             // cboModel
             // 
             this.cboModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboModel.Location = new System.Drawing.Point(495, 205);
+            this.cboModel.Location = new System.Drawing.Point(492, 161);
             this.cboModel.Name = "cboModel";
             this.cboModel.Size = new System.Drawing.Size(226, 21);
             this.cboModel.TabIndex = 69;
@@ -331,7 +312,7 @@ namespace MRMaintenance
             // btnWORAdd
             // 
             this.btnWORAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnWORAdd.Image")));
-            this.btnWORAdd.Location = new System.Drawing.Point(663, 341);
+            this.btnWORAdd.Location = new System.Drawing.Point(660, 291);
             this.btnWORAdd.Name = "btnWORAdd";
             this.btnWORAdd.Size = new System.Drawing.Size(26, 23);
             this.btnWORAdd.TabIndex = 71;
@@ -341,7 +322,7 @@ namespace MRMaintenance
             // btnWORRemove
             // 
             this.btnWORRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnWORRemove.Image")));
-            this.btnWORRemove.Location = new System.Drawing.Point(695, 341);
+            this.btnWORRemove.Location = new System.Drawing.Point(692, 291);
             this.btnWORRemove.Name = "btnWORRemove";
             this.btnWORRemove.Size = new System.Drawing.Size(26, 23);
             this.btnWORRemove.TabIndex = 70;
@@ -353,14 +334,14 @@ namespace MRMaintenance
             this.listWorkOrderReq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listWorkOrderReq.FormattingEnabled = true;
-            this.listWorkOrderReq.Location = new System.Drawing.Point(495, 367);
+            this.listWorkOrderReq.Location = new System.Drawing.Point(495, 315);
             this.listWorkOrderReq.Name = "listWorkOrderReq";
-            this.listWorkOrderReq.Size = new System.Drawing.Size(226, 121);
+            this.listWorkOrderReq.Size = new System.Drawing.Size(226, 173);
             this.listWorkOrderReq.TabIndex = 72;
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(495, 349);
+            this.label13.Location = new System.Drawing.Point(492, 299);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(125, 20);
             this.label13.TabIndex = 73;
@@ -391,14 +372,14 @@ namespace MRMaintenance
             // txtRuntimeTagname
             // 
             this.txtRuntimeTagname.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRuntimeTagname.Location = new System.Drawing.Point(738, 118);
+            this.txtRuntimeTagname.Location = new System.Drawing.Point(735, 74);
             this.txtRuntimeTagname.Name = "txtRuntimeTagname";
             this.txtRuntimeTagname.Size = new System.Drawing.Size(194, 20);
             this.txtRuntimeTagname.TabIndex = 76;
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(738, 102);
+            this.label14.Location = new System.Drawing.Point(735, 58);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(165, 20);
             this.label14.TabIndex = 77;
@@ -406,14 +387,14 @@ namespace MRMaintenance
             // 
             // txtCyclesTagname
             // 
-            this.txtCyclesTagname.Location = new System.Drawing.Point(738, 160);
+            this.txtCyclesTagname.Location = new System.Drawing.Point(735, 116);
             this.txtCyclesTagname.Name = "txtCyclesTagname";
             this.txtCyclesTagname.Size = new System.Drawing.Size(194, 20);
             this.txtCyclesTagname.TabIndex = 78;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(738, 144);
+            this.label15.Location = new System.Drawing.Point(735, 100);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(165, 20);
             this.label15.TabIndex = 79;
@@ -421,14 +402,14 @@ namespace MRMaintenance
             // 
             // txtMccPanel
             // 
-            this.txtMccPanel.Location = new System.Drawing.Point(738, 249);
+            this.txtMccPanel.Location = new System.Drawing.Point(735, 205);
             this.txtMccPanel.Name = "txtMccPanel";
             this.txtMccPanel.Size = new System.Drawing.Size(194, 20);
             this.txtMccPanel.TabIndex = 80;
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(735, 233);
+            this.label16.Location = new System.Drawing.Point(732, 189);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(100, 20);
             this.label16.TabIndex = 81;
@@ -436,14 +417,14 @@ namespace MRMaintenance
             // 
             // txtMccLocation
             // 
-            this.txtMccLocation.Location = new System.Drawing.Point(738, 295);
+            this.txtMccLocation.Location = new System.Drawing.Point(735, 251);
             this.txtMccLocation.Name = "txtMccLocation";
             this.txtMccLocation.Size = new System.Drawing.Size(194, 20);
             this.txtMccLocation.TabIndex = 82;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(735, 277);
+            this.label17.Location = new System.Drawing.Point(732, 233);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 20);
             this.label17.TabIndex = 83;
@@ -501,8 +482,6 @@ namespace MRMaintenance
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cboEquipType);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cboFacility);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cboLocation);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtName);
@@ -549,9 +528,7 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox cboEquipType;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.ComboBox cboLocation;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox cboFacility;
+        private System.Windows.Forms.ComboBox cboLocation;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.Label label1;
