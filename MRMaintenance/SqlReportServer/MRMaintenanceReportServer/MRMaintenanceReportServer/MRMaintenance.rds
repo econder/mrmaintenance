@@ -3,7 +3,7 @@
   <ConnectionProperties>
     <Extension>SQL</Extension>
     <ConnectString>Data Source=.;Initial Catalog=MRMaintenance</ConnectString>
-    <Prompt>Specify a user name and password for data source MRMaintenance:</Prompt>
+    <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>b5321848-167f-48ad-8ce7-d3aaf912b109</DataSourceID>
 </RptDataSource>

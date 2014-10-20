@@ -14,10 +14,6 @@
       <FullPath>WorkOrderDetailsByID.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>WorkOrdersAll.rdl</Name>
-      <FullPath>WorkOrdersAll.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>WorkOrderHistory.rdl</Name>
       <FullPath>WorkOrderHistory.rdl</FullPath>
     </ProjectItem>
@@ -28,6 +24,10 @@
     <ProjectItem>
       <Name>WorkOrderRequestHistoryByRequest.rdl</Name>
       <FullPath>WorkOrderRequestHistoryByRequest.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkOrdersAll.rdl</Name>
+      <FullPath>WorkOrdersAll.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
