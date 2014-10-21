@@ -156,8 +156,10 @@ namespace MRMaintenance
 		
 		private void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmEquipment form = new frmEquipment();
-			form.Show();
+            Facility facility = new Facility();
+            facility.ID = (long)cboFacilities.SelectedValue;
+			frmEquipment form = new frmEquipment(facility);
+			form.ShowDialog(this);
 		}
 		
 		
