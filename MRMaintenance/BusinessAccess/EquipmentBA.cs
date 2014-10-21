@@ -43,6 +43,25 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+
+
+        public DataTable LoadByFacility(Facility facility)
+        {
+            EquipmentDA da = new EquipmentDA();
+
+            try
+            {
+                return da.LoadByFacility(facility);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                da = null;
+            }
+        }
 		
 		
 		public int Insert(Equipment equipment)
