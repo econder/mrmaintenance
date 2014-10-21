@@ -207,17 +207,17 @@ namespace MRMaintenance
 		
 		private void btnEquipNew_Click(object sender, EventArgs e)
 		{
-            /*
+            
 			listEquip.SelectedIndex = -1;
-            cboLocation.SelectedIndex = -1;
+            cboLocation.Text = "";
 			txtName.Clear();
 			txtEquipNumber.Clear();
 			txtDescr.Clear();
-			cboManufacturer.SelectedIndex = -1;
-			cboVendor.SelectedIndex = -1;
-			cboModel.SelectedIndex = -1;
+            cboManufacturer.Text = "";
+            cboVendor.Text = "";
+            cboModel.Text = "";
 			txtSerial.Clear();
-            cboEquipType.SelectedIndex = -1;
+            cboEquipType.Text = "";
             txtRuntimeTagname.Clear();
             txtCyclesTagname.Clear();
             txtMccLocation.Clear();
@@ -226,7 +226,7 @@ namespace MRMaintenance
             //Clear necessary databindings out
 			listEquipDocs.DataBindings.Clear();
 			listWorkOrderReq.DataBindings.Clear();
-            */
+            
 		}
 		
 		
