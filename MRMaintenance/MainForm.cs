@@ -32,8 +32,9 @@ namespace MRMaintenance
 		private WorkOrderRequest workOrderReq;
 		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
-		
-		
+
+        private static int DUE_DATE_DEADBAND = 5;
+
 		public MainForm()
 		{
             InitializeComponent();
@@ -111,7 +112,7 @@ namespace MRMaintenance
 			
 			//Load DataGridView with WorkOrdersDueByFacility
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
 				this.dgview.DataSource = dtWorkOrderRequests;
