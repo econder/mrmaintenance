@@ -226,7 +226,6 @@ namespace MRMaintenance
             //Clear necessary databindings out
 			listEquipDocs.DataBindings.Clear();
 			listWorkOrderReq.DataBindings.Clear();
-            
 		}
 		
 		
