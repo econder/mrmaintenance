@@ -79,6 +79,8 @@ namespace MRMaintenance
             this.txtMccLocation = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnDuplicate = new System.Windows.Forms.Button();
+            this.chkRuntimeCont = new System.Windows.Forms.CheckBox();
+            this.chkCyclesCont = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -217,7 +219,7 @@ namespace MRMaintenance
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(857, 511);
+            this.btnClose.Location = new System.Drawing.Point(950, 511);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 17;
@@ -243,7 +245,7 @@ namespace MRMaintenance
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(776, 511);
+            this.btnSave.Location = new System.Drawing.Point(869, 511);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 15;
@@ -441,12 +443,34 @@ namespace MRMaintenance
             this.btnDuplicate.UseVisualStyleBackColor = true;
             this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
+            // chkRuntimeCont
+            // 
+            this.chkRuntimeCont.AutoSize = true;
+            this.chkRuntimeCont.Location = new System.Drawing.Point(938, 76);
+            this.chkRuntimeCont.Name = "chkRuntimeCont";
+            this.chkRuntimeCont.Size = new System.Drawing.Size(85, 17);
+            this.chkRuntimeCont.TabIndex = 85;
+            this.chkRuntimeCont.Text = "Continuous?";
+            this.chkRuntimeCont.UseVisualStyleBackColor = true;
+            // 
+            // chkCyclesCont
+            // 
+            this.chkCyclesCont.AutoSize = true;
+            this.chkCyclesCont.Location = new System.Drawing.Point(938, 118);
+            this.chkCyclesCont.Name = "chkCyclesCont";
+            this.chkCyclesCont.Size = new System.Drawing.Size(85, 17);
+            this.chkCyclesCont.TabIndex = 86;
+            this.chkCyclesCont.Text = "Continuous?";
+            this.chkCyclesCont.UseVisualStyleBackColor = true;
+            // 
             // frmEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(940, 540);
+            this.ClientSize = new System.Drawing.Size(1033, 540);
+            this.Controls.Add(this.chkCyclesCont);
+            this.Controls.Add(this.chkRuntimeCont);
             this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.txtMccLocation);
             this.Controls.Add(this.label17);
@@ -541,5 +565,7 @@ namespace MRMaintenance
         private System.Windows.Forms.TextBox txtMccLocation;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnDuplicate;
+        private System.Windows.Forms.CheckBox chkRuntimeCont;
+        private System.Windows.Forms.CheckBox chkCyclesCont;
 	}
 }
