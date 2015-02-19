@@ -91,7 +91,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Name</Value>
+                                                <Value>Equipment Name</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -208,7 +208,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Equipment Name</Value>
+                                                <Value>Work Order Name</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -318,14 +318,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="reqName">
+                                      <Textbox Name="equipName1">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!reqName.Value</Value>
+                                                <Value>=Fields!equipName.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                 </Style>
@@ -334,7 +334,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>reqName</rd:DefaultName>
+                                        <rd:DefaultName>equipName1</rd:DefaultName>
                                         <ActionInfo>
                                           <Actions>
                                             <Action>
@@ -434,14 +434,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="equipName">
+                                      <Textbox Name="reqName">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!equipName.Value</Value>
+                                                <Value>=Fields!reqName.Value</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                 </Style>
@@ -450,7 +450,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>equipName</rd:DefaultName>
+                                        <rd:DefaultName>reqName</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -572,7 +572,6 @@
                       <KeepTogether>true</KeepTogether>
                       <Style />
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -637,7 +636,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Scheduled Work Orders</Value>
+                  <Value>Open Work Orders</Value>
                   <Style>
                     <FontFamily>Tahoma</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -652,7 +651,7 @@
           <rd:DefaultName>textbox1</rd:DefaultName>
           <Top>0.07056in</Top>
           <Left>0.01042in</Left>
-          <Height>0.36in</Height>
+          <Height>0.38777in</Height>
           <Width>4.95833in</Width>
           <Style>
             <Border>
