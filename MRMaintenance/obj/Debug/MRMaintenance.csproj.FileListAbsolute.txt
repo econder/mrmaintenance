@@ -70,3 +70,4 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.c
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.pdb
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Debug\MRMaintenance.csprojResolveAssemblyReference.cache
+C:\Users\mrsystems\Documents\mrmaintenance\MRMaintenance\bin\Debug\MRMaintenance.exe.config
