@@ -75,6 +75,8 @@
     <GenerateCreateScript>False</GenerateCreateScript>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <TargetDatabase>MRMaintenance</TargetDatabase>
+    <DacVersion>1.5.0.0</DacVersion>
+    <AssemblyOwner>MR Systems, Inc.</AssemblyOwner>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -268,8 +270,7 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="dbo\Views\v_RuntimesWide.sql" />
-    <Build Include="dbo\Views\v_RuntimesWide_1.sql" />
+    <Build Include="Security\MRMaintenanceApp.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

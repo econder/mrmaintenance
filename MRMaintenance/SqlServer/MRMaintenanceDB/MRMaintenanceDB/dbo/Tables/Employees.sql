@@ -12,8 +12,8 @@
     [city]       NVARCHAR (255) NULL,
     [stateId]    BIGINT         NULL,
     [zip]        NVARCHAR (255) NULL,
-    [phone1]     NVARCHAR (10)  NULL,
-    [phone2]     NVARCHAR (10)  NULL,
+    [phone1]     NVARCHAR (15)  NULL,
+    [phone2]     NVARCHAR (15)  NULL,
     [email]      NVARCHAR (255) NULL,
     CONSTRAINT [PK_Employees] PRIMARY KEY CLUSTERED ([empId] ASC),
     CONSTRAINT [FK_Employees_Departments] FOREIGN KEY ([deptId]) REFERENCES [dbo].[Departments] ([deptId]) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -21,4 +21,6 @@
     CONSTRAINT [FK_Employees_Facilities] FOREIGN KEY ([facId]) REFERENCES [dbo].[Facilities] ([facId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Employees_States] FOREIGN KEY ([stateId]) REFERENCES [dbo].[States] ([stateId])
 );
+
+
 

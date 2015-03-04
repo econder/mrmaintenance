@@ -6,11 +6,13 @@
     [addr2]   NVARCHAR (255) NULL,
     [city]    NVARCHAR (255) NULL,
     [stateId] BIGINT         NULL,
-    [zip]     VARCHAR (10)   NULL,
+    [zip]     VARCHAR (11)   NULL,
     [lat]     FLOAT (53)     NULL,
     [long]    FLOAT (53)     NULL,
     CONSTRAINT [PK_Locations] PRIMARY KEY CLUSTERED ([locId] ASC),
     CONSTRAINT [FK_Locations_Facilities] FOREIGN KEY ([facId]) REFERENCES [dbo].[Facilities] ([facId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Locations_States] FOREIGN KEY ([stateId]) REFERENCES [dbo].[States] ([stateId])
 );
+
+
 

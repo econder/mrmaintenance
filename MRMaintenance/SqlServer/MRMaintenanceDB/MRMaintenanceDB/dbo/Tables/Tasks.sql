@@ -6,3 +6,5 @@
     [equipShutdownRequired] BIT             NOT NULL,
     CONSTRAINT [PK_Tasks] PRIMARY KEY CLUSTERED ([taskId] ASC)
 );
+
+
