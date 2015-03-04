@@ -30,12 +30,19 @@ namespace MRMaintenance
 		private DepartmentBA dept;
 		private TimeIntervalBA timeInterval;
 		private PriorityBA priorityBA;
+
+        private DataTable dt;
+        private Facility _facility;
+        private Equipment _equipment;
+        private long _equipmentId;
+        private bool _filterByEquip;
 		
-		private DataTable dt;
 		
-		
-		public frmWorkOrderRequest()
+		public frmWorkOrderRequest(Facility facility)
 		{
+            this._facility = facility;
+            this._filterByEquip = false;
+
 			InitializeComponent();
 			
 			workOrderReqBA = new WorkOrderRequestBA();
@@ -46,10 +53,30 @@ namespace MRMaintenance
 			
 			this.FillData();
 		}
+
+
+        public frmWorkOrderRequest(long equipmentId)
+        {
+            this._filterByEquip = true;
+            this._equipmentId = equipmentId;
+
+            InitializeComponent();
+
+            workOrderReqBA = new WorkOrderRequestBA();
+            equip = new EquipmentBA();
+            dept = new DepartmentBA();
+            priorityBA = new PriorityBA();
+            timeInterval = new TimeIntervalBA();
+
+            this.FillData();
+        }
 		
 		
-		public frmWorkOrderRequest(long workOrderRequestId)
+		public frmWorkOrderRequest(long equipmentId, long workOrderRequestId)
 		{
+            this._filterByEquip = true;
+            this._equipmentId = equipmentId;
+
 			InitializeComponent();
 			
 			workOrderReqBA = new WorkOrderRequestBA();
@@ -75,12 +102,26 @@ namespace MRMaintenance
 		
 		private void FillData()
 		{
-			dt = workOrderReqBA.Load();
+			if(!this._filterByEquip)
+            {
+                this.dt = workOrderReqBA.LoadByFacility(this._facility);
+
+                //Bind work order requests listbox
+                listWO.DataSource = dt;
+                listWO.DisplayMember = "reqNameExt";
+                listWO.ValueMember = "reqId";
+            }
+            else
+            {
+                this.dt = workOrderReqBA.LoadByEquipment(this._equipmentId);
+
+                //Bind work order requests listbox
+                listWO.DataSource = dt;
+                listWO.DisplayMember = "reqName";
+                listWO.ValueMember = "reqId";
+            }
 			
-			//Bind work order requests listbox
-			listWO.DataSource = dt;
-			listWO.DisplayMember = "reqName";
-			listWO.ValueMember = "reqId";
+			
 			
 			//Bind work order request enabled checkbox
 			chkEnabled.DataBindings.Add("Checked", dt, "enabled", true, DataSourceUpdateMode.Never, false);
@@ -92,14 +133,14 @@ namespace MRMaintenance
 			cboEquip.DataSource = equip.Load();
 			cboEquip.DisplayMember = "equipName";
 			cboEquip.ValueMember = "equipId";
-			//this.cboEquip.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cboEquip_MouseDoubleClick);
+            cboEquip.DataBindings.Add("SelectedValue", dt, "equipId", true, DataSourceUpdateMode.Never, -1);
 			this.cboEquip.Validating += new System.ComponentModel.CancelEventHandler(this.cboEquip_Validating);
 			
 			//Load and bind departments combobox
 			cboDept.DataSource = dept.Load();
 			cboDept.DisplayMember = "name";
 			cboDept.ValueMember = "deptId";
-			cboDept.DataBindings.Add("SelectedValue", dt, "deptId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+			cboDept.DataBindings.Add("SelectedValue", dt, "deptId", true, DataSourceUpdateMode.Never, -1);
 			
 			//Load and bind priorities combobox
 			cboPriority.DataSource = priorityBA.Load();
@@ -145,6 +186,12 @@ namespace MRMaintenance
 			//Load database and re-bind all the controls
 			this.FillData();
 		}
+
+
+        private void btnDuplicate_Click(object sender, EventArgs e)
+        {
+            listWO.SelectedIndex = -1;
+        }
 		
 		
 		private void btnNew_Click(object sender, EventArgs e)

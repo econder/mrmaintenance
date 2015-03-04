@@ -28,16 +28,13 @@ namespace MRMaintenance
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		private FacilityBA facilityBA;
-		private WorkOrderRequestBA workOrderReqBA;
-		private WorkOrderBA workOrderBA;
-		
+        private string _dbServerName;
 		private WorkOrderRequest workOrderReq;
-		
 		private DataTable dtWorkOrderRequests;
 		private DataTable dtWorkOrders;
-		
-		
+
+        private static int DUE_DATE_DEADBAND = 5;
+
 		public MainForm()
 		{
             InitializeComponent();
@@ -57,6 +54,7 @@ namespace MRMaintenance
                 conn.Open();
                 if(conn.State == ConnectionState.Open)
                 {
+                    this._dbServerName = Properties.Settings.Default.ServerName;
                     return true;
                 }
                 else
@@ -74,9 +72,9 @@ namespace MRMaintenance
 		
 		private void Initialize()
 		{
-			facilityBA = new FacilityBA();
-			workOrderReqBA = new WorkOrderRequestBA();
-			workOrderBA = new WorkOrderBA();
+			FacilityBA facilityBA = new FacilityBA();
+			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+			WorkOrderBA workOrderBA = new WorkOrderBA();
 			
 			Facility facility = new Facility();
 			
@@ -113,7 +111,8 @@ namespace MRMaintenance
 			facility.ID = (long)cboFacilities.SelectedValue;
 			
 			//Load DataGridView with WorkOrdersDueByFacility
-			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, 7);
+            WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
 				this.dgview.DataSource = dtWorkOrderRequests;
@@ -123,6 +122,7 @@ namespace MRMaintenance
 			}
 			
 			//Load WorkOrders
+            WorkOrderBA workOrderBA = new WorkOrderBA();
 			dtWorkOrders = workOrderBA.LoadOpenByFacilityBrief(facility);
 			if(dtWorkOrders.Rows.Count > 0)
 			{
@@ -157,14 +157,18 @@ namespace MRMaintenance
 		
 		private void EquipmentToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmEquipment form = new frmEquipment();
-			form.Show();
+            Facility facility = new Facility();
+            facility.ID = (long)cboFacilities.SelectedValue;
+			frmEquipment form = new frmEquipment(facility);
+			form.ShowDialog(this);
 		}
 		
 		
 		private void WorkOrderRequestsToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			frmWorkOrderRequest form = new frmWorkOrderRequest();
+            Facility facility = new Facility();
+            facility.ID = (long)cboFacilities.SelectedValue;
+			frmWorkOrderRequest form = new frmWorkOrderRequest(facility);
 			form.ShowDialog(this);
 		}
 		
@@ -216,7 +220,7 @@ namespace MRMaintenance
 		{
 			if(e.RowIndex >= 0)
 			{
-				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["ID"].Value);
+				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["Equipment ID"].Value, (long)dgview.SelectedRows[0].Cells["ID"].Value);
 				if(form.ShowDialog(this) == DialogResult.OK)
 				{
 					this.ResetControlBindings();
@@ -234,7 +238,7 @@ namespace MRMaintenance
 				{
 					if(dgview.Rows[i].Cells["Open Work Orders"].Value != DBNull.Value)
 					{
-						if(Convert.ToInt32(dgview.Rows[i].Cells["Open Work Orders"].Value) > 0)
+						if(Convert.ToInt32(dgview.Rows[i].Cells["Open Work Orders"].Value) == 0)
 						{
 							dgview.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
 						}
@@ -248,6 +252,7 @@ namespace MRMaintenance
 		private void dgview_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			//Populated workOrderRequest class properties on selection change
+            WorkOrderRequest workOrderReq = new WorkOrderRequest();
 			workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
 			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
 			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
@@ -308,23 +313,17 @@ namespace MRMaintenance
 		//Create Work Order from Work Order Request
 		private void CreateWorkOrderFromRequest(object sender, EventArgs e)
 		{
+            WorkOrderRequest workOrderReq = new WorkOrderRequest();
+            workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
+            workOrderReq.NextDue = Convert.ToDateTime(dgview.SelectedRows[0].Cells["Due By"].Value);
+
+            WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
             workOrderReqBA.CreateWorkOrder(workOrderReq);
 
 			//if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
 			//	MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
-		
-		
-		//Mark Work Order as Complete
-        /*
-		private void MarkAsCompleteClick(object sender, EventArgs e)
-		{
-			WorkOrder workOrder = new WorkOrder();
-			workOrder.ID = (long)dgviewWO.SelectedRows[0].Cells["Work Order ID"].Value;
-			workOrderBA.MarkComplete(workOrder);
-			this.ResetControlBindings();
-		}
-        */
+
 
         /********************************************************************
 		 * File Menu
@@ -344,8 +343,30 @@ namespace MRMaintenance
             frmDbConnectionSettings form = new frmDbConnectionSettings();
             if(form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
-                this.Initialize();
-                this.ResetControlBindings();
+                if (this.TestDbConnection())
+                {
+                    this.Initialize();
+                }
+                
+                /*
+                //Load and bind facilities combobox
+                FacilityBA facilityBA = new FacilityBA();
+                DataTable dtFacility = facilityBA.Load();
+
+                if (dtFacility.Rows.Count > 0)
+                {
+                    cboFacilities.DataSource = dtFacility;
+                    cboFacilities.DisplayMember = "name";
+                    cboFacilities.ValueMember = "facId";
+
+                    if (cboFacilities.Items.Count > 0)
+                    {
+                        cboFacilities.SelectedIndex = 0;
+                    }
+
+                    this.FillData();
+                }
+                */
             }
         }
 		
@@ -356,28 +377,26 @@ namespace MRMaintenance
 		//Show Work Orders All Report
 		private void AllToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			//frmReportViewer form = new frmReportViewer("WorkOrdersAll");
-			//form.Show(this);
-			
-			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
-			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", rptServer));
+            Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrdersAll&rs:Command=Render", this._dbServerName));
 		}
 		
 		
 		//Show Work Order Detail Report
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			//frmReportViewer form = new frmReportViewer(string.Format("{0}", id));
-			//form.Show(this);
-			
 			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
-			string rptServer = ConfigurationManager.AppSettings["ReportServerName"];
-			Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", rptServer, id));
+            Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", this._dbServerName, id));
 		}
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAbout form = new frmAbout();
+            form.ShowDialog(this);
+        }
+
+        private void equipmentTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEquipmentType form = new frmEquipmentType();
             form.ShowDialog(this);
         }
 	}

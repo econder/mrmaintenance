@@ -291,18 +291,25 @@ namespace MRMaintenance.Data
 				SqlCommand cmd = new SqlCommand("UPDATE WorkOrders SET reqId=@reqId, woDateCreated=@woDateCreated, woDateDue=@woDateDue," + 
 				                                " woNotes=@woNotes, woComplete=@woComplete, woDateCompleted=@woDateCompleted, woCompletedBy=@woCompletedBy" +
 				                                " WHERE woId=@woId", dbConn);
-				
+
+                cmd.Parameters.AddWithValue("@woId", workOrder.ID);
+                cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
+                cmd.Parameters.AddWithValue("@woDateCreated", workOrder.DateCreated);
+                cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
+                cmd.Parameters.AddWithValue("@woNotes", workOrder.Notes);
+                cmd.Parameters.AddWithValue("@woComplete", workOrder.Complete);
+                cmd.Parameters.AddWithValue("@woDateCompleted", workOrder.DateCompleted);
+                cmd.Parameters.AddWithValue("@woCompletedBy", workOrder.CompletedBy);
+
 				try
 				{
-					cmd.Parameters.AddWithValue("@woId", workOrder.ID);
-					cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
-					cmd.Parameters.AddWithValue("@woDateCreated", workOrder.DateCreated);
-					cmd.Parameters.AddWithValue("@woDateDue", workOrder.DateDue);
-					cmd.Parameters.AddWithValue("@woNotes", workOrder.Notes);
-					cmd.Parameters.AddWithValue("@woComplete", workOrder.Complete);
-					cmd.Parameters.AddWithValue("@woDateCompleted", workOrder.DateCompleted);
-					cmd.Parameters.AddWithValue("@woCompletedBy", workOrder.CompletedBy);
-					
+                    //Update lastCompleted field in WorkOrderRequests table
+                    //when marked complete
+                    if (workOrder.Complete)
+                    {
+                        this.UpdateParentWorkOrderRequestDateComplete(workOrder);
+                    }
+
 					return cmd.ExecuteNonQuery();
 				}
 				catch
@@ -317,6 +324,35 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        private int UpdateParentWorkOrderRequestDateComplete(WorkOrder workOrder)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET lastCompleted=@woDateCompleted" +
+                                                " WHERE reqId=@reqId", dbConn);
+
+                cmd.Parameters.AddWithValue("@reqId", workOrder.RequestID);
+                cmd.Parameters.AddWithValue("@woDateCompleted", workOrder.DateCompleted);
+
+                try
+                {
+                    return cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public int Delete(WorkOrder workOrder)
@@ -352,13 +388,14 @@ namespace MRMaintenance.Data
 			{
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("spWorkOrderMarkComplete", dbConn);
-				
+                
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                cmd.Parameters.AddWithValue("@workOrderId", workOrder.ID);
+                cmd.Parameters.AddWithValue("@workOrderDateComplete", workOrder.DateCompleted);
+                
 				try
 				{
-					cmd.Parameters.AddWithValue("@workOrderId", workOrder.ID);
-					
-					cmd.CommandType = CommandType.StoredProcedure;
-					
 					return cmd.ExecuteNonQuery();
 				}
 				catch

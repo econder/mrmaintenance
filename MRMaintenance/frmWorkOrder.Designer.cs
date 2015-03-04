@@ -43,6 +43,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.dtCreatedOn = new System.Windows.Forms.DateTimePicker();
             this.numWoReqId = new System.Windows.Forms.NumericUpDown();
+            this.txtReqDesc = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numWoReqId)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,16 +117,19 @@
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(6, 179);
+            this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNotes.Location = new System.Drawing.Point(395, 179);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(464, 120);
+            this.txtNotes.Size = new System.Drawing.Size(267, 181);
             this.txtNotes.TabIndex = 11;
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 163);
+            this.label6.Location = new System.Drawing.Point(395, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 13);
             this.label6.TabIndex = 10;
@@ -142,7 +147,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(311, 317);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(506, 383);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 133;
@@ -152,8 +158,9 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(392, 317);
+            this.btnClose.Location = new System.Drawing.Point(587, 383);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 132;
@@ -179,12 +186,34 @@
             this.numWoReqId.TabIndex = 135;
             this.numWoReqId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txtReqDesc
+            // 
+            this.txtReqDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReqDesc.Location = new System.Drawing.Point(6, 179);
+            this.txtReqDesc.Multiline = true;
+            this.txtReqDesc.Name = "txtReqDesc";
+            this.txtReqDesc.Size = new System.Drawing.Size(380, 181);
+            this.txtReqDesc.TabIndex = 137;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 163);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 13);
+            this.label7.TabIndex = 136;
+            this.label7.Text = "Work Order Tasks";
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(476, 346);
+            this.ClientSize = new System.Drawing.Size(668, 412);
+            this.Controls.Add(this.txtReqDesc);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.numWoReqId);
             this.Controls.Add(this.dtCreatedOn);
             this.Controls.Add(this.btnSave);
@@ -200,9 +229,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtWoReqName);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(684, 450);
             this.Name = "frmWorkOrder";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.ShowIcon = false;
@@ -233,6 +262,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DateTimePicker dtCreatedOn;
         private System.Windows.Forms.NumericUpDown numWoReqId;
+        private System.Windows.Forms.TextBox txtReqDesc;
+        private System.Windows.Forms.Label label7;
 
     }
 }

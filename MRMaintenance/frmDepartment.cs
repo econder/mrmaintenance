@@ -96,11 +96,11 @@ namespace MRMaintenance
 				
 				if(listDept.SelectedIndex == -1)
 				{
-					department.ID = (long)listDept.SelectedValue;
 					departmentBA.Insert(department);
 				}
 				else
 				{
+                    department.ID = (long)listDept.SelectedValue;
 					departmentBA.Update(department);
 				}
 				

@@ -59,6 +59,41 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable LoadByFacility(Facility facility)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
+                                                " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
+                                                " FROM v_WorkOrderRequests" +
+                                                " WHERE v_WorkOrderRequests.facId = @facilityId", dbConn);
+
+                cmd.Parameters.AddWithValue("@facilityId", facility.ID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("WorkOrderRequestsByFacility");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
@@ -66,7 +101,9 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrderRequests" +
+                SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
+                                                " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
+                                                " FROM v_WorkOrderRequests" +
 												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
 												" AND v_WorkOrderRequests.facId = @facilityId", dbConn);
 				
@@ -137,18 +174,55 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable LoadByEquipment(long equipmentId)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
+                                                " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" + 
+                                                " FROM v_WorkOrderRequests" +
+                                                " WHERE v_WorkOrderRequests.equipId = @equipId", dbConn);
+
+                cmd.Parameters.AddWithValue("@equipId", equipmentId);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("WorkOrderRequestsByEquipment");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
-		public DataTable LoadByEquipment(Equipment equipment, int dueDateDeadband)
+		public DataTable LoadByEquipment(long equipmentId, int dueDateDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrderRequests" + 
+                SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
+                                                " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
+                                                " FROM v_WorkOrderRequests" +
 												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
 												" AND v_WorkOrderRequests.equipId = @equipId", dbConn);
 				
-				cmd.Parameters.AddWithValue("@equipId", equipment.ID);
+				cmd.Parameters.AddWithValue("@equipId", equipmentId);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);

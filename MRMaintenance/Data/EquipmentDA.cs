@@ -61,6 +61,43 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable LoadByFacility(Facility facility)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT dbo.Equipment.equipId, dbo.Locations.facId, dbo.Equipment.locId, dbo.Equipment.equipTypeId, dbo.Equipment.manId, dbo.Equipment.vendorId," +
+                                                        " dbo.Equipment.modelId, dbo.Equipment.equipNumber, dbo.Equipment.equipName, dbo.Equipment.descr, dbo.Equipment.equipSerial," +
+                                                        " dbo.Equipment.hmiRuntimeTagname, dbo.Equipment.hmiCyclesTagname, dbo.Equipment.equipMccLoc, dbo.Equipment.equipMccPanel" +
+                                                        " FROM dbo.Equipment INNER JOIN Locations ON Locations.locId = Equipment.locId" +
+                                                        " WHERE dbo.Locations.facId=@facId" + 
+                                                        " ORDER BY dbo.Equipment.equipName", dbConn);
+
+                cmd.Parameters.AddWithValue("@facId", facility.ID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Equipment");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public int Insert(Equipment equipment)
@@ -82,8 +119,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
-					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+                    if (equipment.HmiRuntimeTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname); } else { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", DBNull.Value); }
+                    if (equipment.HmiCyclesTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname); } else { cmd.Parameters.AddWithValue("@hmiCyclesTagname", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
 					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					
@@ -124,8 +161,8 @@ namespace MRMaintenance.Data
 					cmd.Parameters.AddWithValue("@equipName", equipment.Name);
 					cmd.Parameters.AddWithValue("@descr", equipment.Description);
 					cmd.Parameters.AddWithValue("@equipSerial", equipment.Serial);
-					cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname);
-					cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname);
+                    if (equipment.HmiRuntimeTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", equipment.HmiRuntimeTagname); } else { cmd.Parameters.AddWithValue("@hmiRuntimeTagname", DBNull.Value); }
+                    if (equipment.HmiCyclesTagname.Length != 0) { cmd.Parameters.AddWithValue("@hmiCyclesTagname", equipment.HmiCyclesTagname); } else { cmd.Parameters.AddWithValue("@hmiCyclesTagname", DBNull.Value); }
 					cmd.Parameters.AddWithValue("@equipMccLoc", equipment.MccLocation);
 					cmd.Parameters.AddWithValue("@equipMccPanel", equipment.MccPanel);
 					

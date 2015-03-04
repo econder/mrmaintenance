@@ -34,7 +34,9 @@ namespace MRMaintenance.BusinessObjects
 		public string Description { get; set; }
 		public string Serial { get; set; }
 		public string HmiRuntimeTagname { get; set; }
+        public bool HmiRuntimeContinuous { get; set; }
 		public string HmiCyclesTagname { get; set; }
+        public bool HmiCyclesContinuous { get; set; }
 		public string MccLocation { get; set; }
 		public string MccPanel { get; set; }
 	}
