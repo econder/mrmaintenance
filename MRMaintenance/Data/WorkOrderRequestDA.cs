@@ -96,7 +96,7 @@ namespace MRMaintenance.Data
         }
 		
 		
-		public DataTable LoadByFacility(Facility facility, int dueDateDeadband)
+		public DataTable LoadByFacility(Facility facility, int dueDateDeadband = 0, int dueHoursDeadband = 0, int dueCyclesDeadband = 0)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
@@ -104,9 +104,10 @@ namespace MRMaintenance.Data
                 SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
                                                 " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
                                                 " FROM v_WorkOrderRequests" +
-												" WHERE v_WorkOrderRequests.facId = @facilityId" +
-                                                " AND (v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" +
-                                                    " OR v_WorkOrderRequests.dueFromCycRt = 1)", dbConn);
+												" WHERE facId = @facilityId" +
+                                                " AND (nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" +
+                                                    " OR runtime > timeFreq - " + dueHoursDeadband + 
+                                                    " OR cycles > timeFreq - " + dueCyclesDeadband + ")", dbConn);
 				
 				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
@@ -134,24 +135,29 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband)
+		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband, int dueHoursDeadband, int dueCyclesDeadband)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				
-				SqlCommand cmd = new SqlCommand("SELECT v_WorkOrderRequests.reqId AS [ID], v_WorkOrderRequests.reqName AS [Name], v_WorkOrderRequests.reqDateSubmitted AS [Date Submitted]," +
-												" v_WorkOrderRequests.nextDue AS [Due By], v_WorkOrderRequests.locName AS [Location], v_WorkOrderRequests.equipId AS [Equipment ID]," +
-												" v_WorkOrderRequests.equipName AS [Equipment Name], v_WorkOrderRequests.priorityName AS [Priority], v_WorkOrderRequests.woCount AS [Open Work Orders]" +
-												" FROM v_WorkOrderRequests" +
-												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
-												" AND v_WorkOrderRequests.facId = @facilityId" + 
-												" AND v_WorkOrderRequests.enabled = 1" + 
-												" ORDER BY v_WorkOrderRequests.nextDue DESC, priorityId DESC", dbConn);
+
+                SqlCommand cmd = new SqlCommand("SELECT v_WorkOrderRequests.reqId AS [ID], v_WorkOrderRequests.reqName AS [Name], v_WorkOrderRequests.equipName AS [Equipment Name]," +
+                                                " v_WorkOrderRequests.locName AS [Location], v_WorkOrderRequests.equipId AS [Equipment ID], v_WorkOrderRequests.priorityName AS [Priority]," +
+                                                " v_WorkOrderRequests.reqDateSubmitted AS [Date Submitted], v_WorkOrderRequests.nextDue AS [Due By], v_WorkOrderRequests.timeFreq AS [Frequency]," +
+                                                " v_WorkOrderRequests.intName AS [Interval], v_WorkOrderRequests.runtime AS [Runtime], v_WorkOrderRequests.cycles AS [Cycles]" +
+                                                " FROM v_WorkOrderRequests" +
+                                                " WHERE (v_WorkOrderRequests.facId = 4" + 
+                                                " AND v_WorkOrderRequests.enabled = 1)" + 
+                                                " AND (v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
+                                                " OR (v_WorkOrderRequests.intAbbr = 'rt' AND v_WorkOrderRequests.runtime > v_WorkOrderRequests.timeFreq-@dueHoursDeadband)" + 
+                                                " OR (v_WorkOrderRequests.intAbbr = 'cyc' AND v_WorkOrderRequests.cycles > v_WorkOrderRequests.timeFreq-@dueCyclesDeadband))" +
+                                                " ORDER BY v_WorkOrderRequests.equipName", dbConn);
 				
 				//SqlCommand cmd = new SqlCommand("spWorkOrderRequestsDue", dbConn);
 				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
+                cmd.Parameters.AddWithValue("@dueHoursDeadband", dueHoursDeadband);
+                cmd.Parameters.AddWithValue("@dueCyclesDeadband", dueCyclesDeadband);
 				//cmd.CommandType = CommandType.StoredProcedure;
 				
 				SqlDataAdapter da = new SqlDataAdapter(cmd);

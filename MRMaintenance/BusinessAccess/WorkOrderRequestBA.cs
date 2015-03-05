@@ -83,13 +83,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 		
 		
-		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband)
+		public DataTable LoadByFacilityBrief(Facility facility, int dueDateDeadband = 0, int dueHoursDeadband = 0, int dueCyclesDeadband = 0)
 		{
 			WorkOrderRequestDA da = new WorkOrderRequestDA();
 			
 			try
 			{
-				return da.LoadByFacilityBrief(facility, dueDateDeadband);
+				return da.LoadByFacilityBrief(facility, dueDateDeadband, dueHoursDeadband, dueCyclesDeadband);
 			}
 			catch
 			{

@@ -114,13 +114,13 @@ namespace MRMaintenance
 			
 			//Load DataGridView with WorkOrdersDueByFacility
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND);
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND, DUE_HRS_DEADBAND, DUE_CYC_DEADBAND);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
 				this.dgview.DataSource = dtWorkOrderRequests;
 				
 				//Update work order request row colors
-				this.dgViewUpdateRowColors();
+				//this.dgViewUpdateRowColors();
 			}
 			
 			//Load WorkOrders
@@ -231,7 +231,8 @@ namespace MRMaintenance
 		}
 		
 		
-		//Changed work order request row color if request has open an work order 
+		//Changed work order request row color if request has open an work order
+        /*
 		private void dgViewUpdateRowColors()
 		{
 			if(dgview.RowCount > 0)
@@ -247,7 +248,7 @@ namespace MRMaintenance
 					}
 				}
 			}
-		}
+		} */
 		
 		
 		//Select row and display context menu on right-click
