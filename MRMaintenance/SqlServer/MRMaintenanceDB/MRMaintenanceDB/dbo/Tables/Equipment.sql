@@ -10,7 +10,9 @@
     [descr]             NVARCHAR (255) NULL,
     [equipSerial]       NVARCHAR (255) NULL,
     [hmiRuntimeTagname] NVARCHAR (255) NULL,
+    [hmiRuntimeType]    INT            CONSTRAINT [DF_Equipment_hmiRuntimeType] DEFAULT ((0)) NULL,
     [hmiCyclesTagname]  NVARCHAR (255) NULL,
+    [hmiCyclesType]     INT            CONSTRAINT [DF_Equipment_hmiCyclesType] DEFAULT ((0)) NULL,
     [equipMccLoc]       NVARCHAR (255) NULL,
     [equipMccPanel]     NVARCHAR (255) NULL,
     CONSTRAINT [PK_Equipment] PRIMARY KEY CLUSTERED ([equipId] ASC),
@@ -20,4 +22,16 @@
     CONSTRAINT [FK_Equipment_Manufacturers] FOREIGN KEY ([manId]) REFERENCES [dbo].[Manufacturers] ([manId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Equipment_Vendors] FOREIGN KEY ([vendorId]) REFERENCES [dbo].[Vendors] ([venId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiRuntimeType';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiCyclesType';
 

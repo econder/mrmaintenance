@@ -104,8 +104,9 @@ namespace MRMaintenance.Data
                 SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
                                                 " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
                                                 " FROM v_WorkOrderRequests" +
-												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
-												" AND v_WorkOrderRequests.facId = @facilityId", dbConn);
+												" WHERE v_WorkOrderRequests.facId = @facilityId" +
+                                                " AND (v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" +
+                                                    " OR v_WorkOrderRequests.dueFromCycRt = 1)", dbConn);
 				
 				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
