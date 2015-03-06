@@ -264,7 +264,12 @@ namespace MRMaintenance
             {
                 workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
             }
+            else
+            {
+                workOrderReq.NextDue = null;
+            }
 			
+
 			//Handle left-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
 			{
@@ -324,6 +329,10 @@ namespace MRMaintenance
             if (dgview.SelectedRows[0].Cells["Due By"].Value != DBNull.Value)
             {
                 workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            }
+            else
+            {
+                workOrderReq.NextDue = null;
             }
 
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
