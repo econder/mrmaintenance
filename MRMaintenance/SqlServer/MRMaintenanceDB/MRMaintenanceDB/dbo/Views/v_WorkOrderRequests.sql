@@ -5,7 +5,7 @@ SELECT     dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkO
                       dbo.TimeIntervals.intName, dbo.TimeIntervals.intAbbr, dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, 
                       dbo.Locations.facId, dbo.Facilities.name AS facName, dbo.Locations.name AS locName, dbo.WorkOrderRequests.deptId, dbo.Departments.name AS deptName, 
                       dbo.WorkOrderRequests.priorityId, dbo.Priorities.priorityName, CASE WHEN dbo.Equipment.hmiRuntimeCont = 0 THEN SUM(rt.runtime) 
-                      WHEN dbo.Equipment.hmiRuntimeCont = 1 THEN SUM(rt.runtime) WHEN dbo.Equipment.hmiRuntimeCont = 2 THEN MAX(rt.runtime) - MIN(rt.runtime) END AS runtime, 
+                      WHEN dbo.Equipment.hmiRuntimeCont = 1 THEN MAX(rt.runtime) - MIN(rt.runtime) END AS runtime, 
                       CASE WHEN dbo.Equipment.hmiCyclesCont = 0 THEN SUM(cyc.cycles) WHEN dbo.Equipment.hmiCyclesCont = 1 THEN SUM(cyc.cycles) 
                       WHEN dbo.Equipment.hmiCyclesCont = 2 THEN MAX(cyc.cycles) - MIN(cyc.cycles) END AS cycles, 
                       CASE WHEN dbo.TimeIntervals.intAbbr = '1x' THEN lastCompleted WHEN dbo.TimeIntervals.intAbbr = 'cyc' THEN NULL 
@@ -43,7 +43,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[11] 4[11] 2[5] 3) )"
+         Configuration = "(H (1[11] 4[11] 2[57] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -175,7 +175,9 @@ Begin DesignProperties =
                Left = 251
                Bottom = 78
                Right = 418
-            End', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrderRequests';
+            End', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrderRequests';
+
+
 
 
 
