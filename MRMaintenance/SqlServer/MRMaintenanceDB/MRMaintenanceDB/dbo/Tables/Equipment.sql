@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Equipment] (
+CREATE TABLE [dbo].[Equipment] (
     [equipId]           BIGINT         IDENTITY (1, 1) NOT NULL,
     [locId]             BIGINT         NOT NULL,
     [equipTypeId]       BIGINT         NOT NULL,
@@ -10,9 +10,9 @@
     [descr]             NVARCHAR (255) NULL,
     [equipSerial]       NVARCHAR (255) NULL,
     [hmiRuntimeTagname] NVARCHAR (255) NULL,
-    [hmiRuntimeType]    INT            CONSTRAINT [DF_Equipment_hmiRuntimeType] DEFAULT ((0)) NULL,
+    [hmiRuntimeCont]    BIT            CONSTRAINT [DF_Equipment_hmiRuntimeType] DEFAULT ((0)) NULL,
     [hmiCyclesTagname]  NVARCHAR (255) NULL,
-    [hmiCyclesType]     INT            CONSTRAINT [DF_Equipment_hmiCyclesType] DEFAULT ((0)) NULL,
+    [hmiCyclesCont]     BIT            CONSTRAINT [DF_Equipment_hmiCyclesType] DEFAULT ((0)) NULL,
     [equipMccLoc]       NVARCHAR (255) NULL,
     [equipMccPanel]     NVARCHAR (255) NULL,
     CONSTRAINT [PK_Equipment] PRIMARY KEY CLUSTERED ([equipId] ASC),
@@ -28,10 +28,16 @@
 
 
 
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiRuntimeType';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiCyclesType';
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiRuntimeCont';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Daily Total, Previous Total, or Continuous Total', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Equipment', @level2type = N'COLUMN', @level2name = N'hmiCyclesCont';
 
