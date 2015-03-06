@@ -7,3 +7,12 @@ C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\M
 C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\predeploy.sql
 C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.dll
 C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.pdb
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Debug\MRMaintenance.dacpac
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Debug\MRMaintenance.dll
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\bin\Debug\MRMaintenance.pdb
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\Model.xml
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\refactor.xml
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\postdeploy.sql
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\predeploy.sql
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.dll
+C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.pdb

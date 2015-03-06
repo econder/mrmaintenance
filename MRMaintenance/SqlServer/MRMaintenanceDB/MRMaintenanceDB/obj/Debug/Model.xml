@@ -12,15 +12,15 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="MRMaintenance.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\MRSYSTEMS\REPOS\MRMAINTENANCE\MRMAINTENANCE\SQLSERVER\MRMAINTENANCEDB\MRMAINTENANCEDB\OBJ\DEBUG\MRMAINTENANCE.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\ECONDER\DOCUMENTS\MRMAINTENANCE\MRMAINTENANCE\SQLSERVER\MRMAINTENANCEDB\MRMAINTENANCEDB\OBJ\DEBUG\MRMAINTENANCE.DLL" />
 			<Metadata Name="AssemblyName" Value="MRMaintenance" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
-			<Metadata Name="Owner" Value="" />
+			<Metadata Name="Owner" Value="MR Systems, Inc." />
 			<Metadata Name="GenerateSqlClrDdl" Value="True" />
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\mrsystems\repos\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\econder\Documents\mrmaintenance\MRMaintenance\SqlServer\MRMaintenanceDB\MRMaintenanceDB\obj\Debug\MRMaintenance.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
@@ -44,7 +44,7 @@
 		<Element Type="SqlRoleMembership">
 			<Relationship Name="Member">
 				<Entry>
-					<References Name="[mrsystems]" />
+					<References Name="[mrsystems]" Disambiguator="7" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Role">
@@ -56,7 +56,7 @@
 		<Element Type="SqlRoleMembership">
 			<Relationship Name="Member">
 				<Entry>
-					<References Name="[mrsystems]" />
+					<References Name="[mrsystems]" Disambiguator="7" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Role">
@@ -68,7 +68,7 @@
 		<Element Type="SqlRoleMembership">
 			<Relationship Name="Member">
 				<Entry>
-					<References Name="[mrsystems]" />
+					<References Name="[mrsystems]" Disambiguator="7" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Role">
@@ -126,7 +126,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -151,8 +151,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Departments]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -197,7 +197,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Cycles_cyclesDate]">
 			<Property Name="DefaultExpressionScript">
@@ -213,7 +213,39 @@
 					<References Name="[dbo].[Cycles].[cyclesDate]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="8" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Equipment_hmiCyclesType]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Equipment]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiCyclesCont]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Equipment_hmiRuntimeType]">
+			<Property Name="DefaultExpressionScript">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Equipment]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiRuntimeCont]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Parts_partSize]">
 			<Property Name="DefaultExpressionScript">
@@ -229,7 +261,7 @@
 					<References Name="[dbo].[Parts].[partSize]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_Runtimes_runtimeDate]">
 			<Property Name="DefaultExpressionScript">
@@ -245,7 +277,7 @@
 					<References Name="[dbo].[Runtimes].[runtimeDate]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrderRequests_priorityId]">
 			<Property Name="DefaultExpressionScript">
@@ -261,7 +293,7 @@
 					<References Name="[dbo].[WorkOrderRequests].[priorityId]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrderRequests_reqDateSubmitted]">
 			<Property Name="DefaultExpressionScript">
@@ -277,7 +309,7 @@
 					<References Name="[dbo].[WorkOrderRequests].[reqDateSubmitted]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrders_woComplete]">
 			<Property Name="DefaultExpressionScript">
@@ -293,7 +325,7 @@
 					<References Name="[dbo].[WorkOrders].[woComplete]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrders_woDateCompleted]">
 			<Property Name="DefaultExpressionScript">
@@ -309,7 +341,7 @@
 					<References Name="[dbo].[WorkOrders].[woDateCompleted]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrders_woDateCreated]">
 			<Property Name="DefaultExpressionScript">
@@ -325,7 +357,7 @@
 					<References Name="[dbo].[WorkOrders].[woDateCreated]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WorkOrderTasks_taskComplete]">
 			<Property Name="DefaultExpressionScript">
@@ -341,7 +373,7 @@
 					<References Name="[dbo].[WorkOrderTasks].[taskComplete]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
 		</Element>
 		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_WOSchedules_enabled]">
 			<Property Name="DefaultExpressionScript">
@@ -357,7 +389,7 @@
 					<References Name="[dbo].[WorkOrderRequests].[enabled]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[EmployeeAccessLevels]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -435,7 +467,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Employees]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -655,7 +687,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -671,7 +703,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -704,11 +736,11 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Equipment]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -890,6 +922,22 @@
 					</Element>
 				</Entry>
 				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Equipment].[hmiRuntimeCont]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="13" />
+					</Element>
+				</Entry>
+				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[Equipment].[hmiCyclesTagname]">
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -903,6 +951,22 @@
 								</Element>
 							</Entry>
 						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Equipment].[hmiCyclesCont]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="12" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -943,12 +1007,12 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[EquipmentDocs]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1026,8 +1090,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[EquipmentModels]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1072,7 +1136,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[EquipmentTypes]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1117,7 +1181,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Facilities]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1224,7 +1288,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="11" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -1272,10 +1336,10 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -1288,10 +1352,10 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -1304,10 +1368,10 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -1321,8 +1385,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Cycles_Equipment]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1347,7 +1411,7 @@
 					<References Name="[dbo].[Equipment]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="10" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Employees_Departments]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1372,7 +1436,7 @@
 					<References Name="[dbo].[Departments]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="22" />
+			<AttachedAnnotation Disambiguator="25" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Employees_EmployeeAccessLevels]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1397,7 +1461,7 @@
 					<References Name="[dbo].[EmployeeAccessLevels]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="23" />
+			<AttachedAnnotation Disambiguator="26" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Employees_Facilities]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1422,7 +1486,7 @@
 					<References Name="[dbo].[Facilities]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="24" />
+			<AttachedAnnotation Disambiguator="27" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Employees_States]">
 			<Relationship Name="Columns">
@@ -1445,7 +1509,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="25" />
+			<AttachedAnnotation Disambiguator="28" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Equipment_EquipmentModels]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1470,7 +1534,7 @@
 					<References Name="[dbo].[EquipmentModels]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="27" />
+			<AttachedAnnotation Disambiguator="30" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Equipment_EquipmentTypes]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1495,7 +1559,7 @@
 					<References Name="[dbo].[EquipmentTypes]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="28" />
+			<AttachedAnnotation Disambiguator="31" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Equipment_Locations]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1520,7 +1584,7 @@
 					<References Name="[dbo].[Locations]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="29" />
+			<AttachedAnnotation Disambiguator="32" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Equipment_Manufacturers]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1545,7 +1609,7 @@
 					<References Name="[dbo].[Manufacturers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="30" />
+			<AttachedAnnotation Disambiguator="33" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Equipment_Vendors]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1570,7 +1634,7 @@
 					<References Name="[dbo].[Vendors]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="31" />
+			<AttachedAnnotation Disambiguator="34" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_EquipmentDocs_Equipment]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1595,7 +1659,7 @@
 					<References Name="[dbo].[Equipment]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="33" />
+			<AttachedAnnotation Disambiguator="36" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Facilities_States]">
 			<Relationship Name="Columns">
@@ -1618,7 +1682,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="37" />
+			<AttachedAnnotation Disambiguator="40" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Inventory_InventoryLocations]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1643,7 +1707,7 @@
 					<References Name="[dbo].[InventoryLocations]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Inventory_Parts]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1668,7 +1732,7 @@
 					<References Name="[dbo].[Parts]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_InventoryLocations_Facilities]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1693,7 +1757,7 @@
 					<References Name="[dbo].[Facilities]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Locations_Facilities]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1718,7 +1782,7 @@
 					<References Name="[dbo].[Facilities]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Locations_States]">
 			<Relationship Name="Columns">
@@ -1741,7 +1805,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Manufacturers_States]">
 			<Relationship Name="Columns">
@@ -1764,7 +1828,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Parts_Manufacturers]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1789,11 +1853,9 @@
 					<References Name="[dbo].[Manufacturers]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="47" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Parts_Units]">
-			<Property Name="OnUpdateAction" Value="1" />
-			<Property Name="OnDeleteAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Parts].[unitId]" />
@@ -1814,7 +1876,7 @@
 					<References Name="[dbo].[Units]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="48" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Parts_Vendors]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1839,7 +1901,7 @@
 					<References Name="[dbo].[Vendors]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="49" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Runtimes_Equipment]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1864,7 +1926,7 @@
 					<References Name="[dbo].[Equipment]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="47" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="50" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_TaskParts_Parts]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1889,7 +1951,7 @@
 					<References Name="[dbo].[Parts]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="48" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_TaskParts_Tasks]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1914,7 +1976,7 @@
 					<References Name="[dbo].[Tasks]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="49" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="52" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Tools_InventoryLocations]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1939,7 +2001,7 @@
 					<References Name="[dbo].[InventoryLocations]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="50" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Users_Departments]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -1964,11 +2026,9 @@
 					<References Name="[dbo].[Departments]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="54" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Users_Employees]">
-			<Property Name="OnUpdateAction" Value="1" />
-			<Property Name="OnDeleteAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Users].[empId]" />
@@ -1989,7 +2049,7 @@
 					<References Name="[dbo].[Employees]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="52" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="55" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_VendorContacts_Vendors]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2014,9 +2074,10 @@
 					<References Name="[dbo].[Vendors]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="56" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Vendors_States]">
+			<Property Name="OnUpdateAction" Value="1" />
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[Vendors].[stateId]" />
@@ -2037,7 +2098,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="54" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="57" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderRequests_Departments]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2062,7 +2123,7 @@
 					<References Name="[dbo].[Departments]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="55" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="58" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderRequests_Equipment]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2087,7 +2148,7 @@
 					<References Name="[dbo].[Equipment]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="56" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="59" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderRequests_Priorities]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2112,7 +2173,7 @@
 					<References Name="[dbo].[Priorities]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="57" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="60" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderRequests_TimeIntervals]">
 			<Relationship Name="Columns">
@@ -2135,7 +2196,53 @@
 					<References Name="[dbo].[TimeIntervals]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="58" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="61" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderRequests_WorkOrderRequests]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[WorkOrderRequests].[reqId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[WorkOrderRequests]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[WorkOrderRequests].[reqId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[WorkOrderRequests]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="62" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrders_WorkOrders]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[WorkOrders].[woID]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[WorkOrders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[WorkOrders].[woID]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[WorkOrders]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="63" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderTasks_EquipmentModels]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2160,7 +2267,7 @@
 					<References Name="[dbo].[EquipmentModels]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="59" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="64" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderTasks_Tasks]">
 			<Property Name="OnUpdateAction" Value="1" />
@@ -2185,30 +2292,7 @@
 					<References Name="[dbo].[Tasks]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="60" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_WorkOrderTasks_WorkOrderRequests]">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[reqId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[WorkOrderRequests].[reqId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[WorkOrderRequests]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="61" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="65" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Inventory]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2285,9 +2369,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="62" />
-			<AttachedAnnotation Disambiguator="38" />
-			<AttachedAnnotation Disambiguator="39" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="66" />
+			<AttachedAnnotation Disambiguator="41" />
+			<AttachedAnnotation Disambiguator="42" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[InventoryLocations]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2348,8 +2432,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="63" />
-			<AttachedAnnotation Disambiguator="40" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="67" />
+			<AttachedAnnotation Disambiguator="43" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Locations]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2472,7 +2556,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="11" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -2521,9 +2605,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="64" />
-			<AttachedAnnotation Disambiguator="41" />
-			<AttachedAnnotation Disambiguator="42" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="68" />
+			<AttachedAnnotation Disambiguator="44" />
+			<AttachedAnnotation Disambiguator="45" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Manufacturers]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2630,7 +2714,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="11" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -2646,7 +2730,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -2662,7 +2746,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -2678,7 +2762,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -2711,8 +2795,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="65" />
-			<AttachedAnnotation Disambiguator="43" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="69" />
+			<AttachedAnnotation Disambiguator="46" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Parts]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2828,7 +2912,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="11" />
+						<AttachedAnnotation Disambiguator="14" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2852,10 +2936,10 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="66" />
-			<AttachedAnnotation Disambiguator="44" />
-			<AttachedAnnotation Disambiguator="45" />
-			<AttachedAnnotation Disambiguator="46" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="70" />
+			<AttachedAnnotation Disambiguator="47" />
+			<AttachedAnnotation Disambiguator="48" />
+			<AttachedAnnotation Disambiguator="49" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Cycles]">
 			<Relationship Name="ColumnSpecifications">
@@ -2874,7 +2958,7 @@
 					<References Name="[dbo].[Cycles]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="9" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Departments]">
 			<Relationship Name="ColumnSpecifications">
@@ -2893,7 +2977,7 @@
 					<References Name="[dbo].[Departments]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_EmployeeAccessLevels]">
 			<Relationship Name="ColumnSpecifications">
@@ -2912,7 +2996,7 @@
 					<References Name="[dbo].[EmployeeAccessLevels]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="20" />
+			<AttachedAnnotation Disambiguator="23" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Employees]">
 			<Relationship Name="ColumnSpecifications">
@@ -2931,7 +3015,7 @@
 					<References Name="[dbo].[Employees]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="21" />
+			<AttachedAnnotation Disambiguator="24" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Equipment]">
 			<Relationship Name="ColumnSpecifications">
@@ -2950,7 +3034,7 @@
 					<References Name="[dbo].[Equipment]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="26" />
+			<AttachedAnnotation Disambiguator="29" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_EquipmentDocs]">
 			<Relationship Name="ColumnSpecifications">
@@ -2969,7 +3053,7 @@
 					<References Name="[dbo].[EquipmentDocs]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="32" />
+			<AttachedAnnotation Disambiguator="35" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_EquipmentModels]">
 			<Relationship Name="ColumnSpecifications">
@@ -2988,7 +3072,7 @@
 					<References Name="[dbo].[EquipmentModels]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="34" />
+			<AttachedAnnotation Disambiguator="37" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_EquipmentTypes]">
 			<Relationship Name="ColumnSpecifications">
@@ -3007,7 +3091,7 @@
 					<References Name="[dbo].[EquipmentTypes]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="35" />
+			<AttachedAnnotation Disambiguator="38" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Facilities]">
 			<Relationship Name="ColumnSpecifications">
@@ -3026,7 +3110,7 @@
 					<References Name="[dbo].[Facilities]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="36" />
+			<AttachedAnnotation Disambiguator="39" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Inventory]">
 			<Relationship Name="ColumnSpecifications">
@@ -3045,7 +3129,7 @@
 					<References Name="[dbo].[Inventory]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="62" />
+			<AttachedAnnotation Disambiguator="66" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_InventoryLocations]">
 			<Relationship Name="ColumnSpecifications">
@@ -3064,7 +3148,7 @@
 					<References Name="[dbo].[InventoryLocations]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="63" />
+			<AttachedAnnotation Disambiguator="67" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Locations]">
 			<Relationship Name="ColumnSpecifications">
@@ -3083,7 +3167,7 @@
 					<References Name="[dbo].[Locations]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="64" />
+			<AttachedAnnotation Disambiguator="68" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Manufacturers]">
 			<Relationship Name="ColumnSpecifications">
@@ -3102,7 +3186,7 @@
 					<References Name="[dbo].[Manufacturers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="65" />
+			<AttachedAnnotation Disambiguator="69" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Parts]">
 			<Relationship Name="ColumnSpecifications">
@@ -3121,7 +3205,7 @@
 					<References Name="[dbo].[Parts]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="66" />
+			<AttachedAnnotation Disambiguator="70" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Priorities]">
 			<Relationship Name="ColumnSpecifications">
@@ -3140,7 +3224,7 @@
 					<References Name="[dbo].[Priorities]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="67" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="71" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Runtimes]">
 			<Relationship Name="ColumnSpecifications">
@@ -3159,7 +3243,7 @@
 					<References Name="[dbo].[Runtimes]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="68" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="72" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_States]">
 			<Relationship Name="ColumnSpecifications">
@@ -3178,7 +3262,7 @@
 					<References Name="[dbo].[States]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="69" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="73" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_TaskParts]">
 			<Relationship Name="ColumnSpecifications">
@@ -3197,7 +3281,7 @@
 					<References Name="[dbo].[TaskParts]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="70" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="74" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Tasks]">
 			<Relationship Name="ColumnSpecifications">
@@ -3216,7 +3300,7 @@
 					<References Name="[dbo].[Tasks]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="71" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="75" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_TimeIntervals]">
 			<Relationship Name="ColumnSpecifications">
@@ -3235,7 +3319,7 @@
 					<References Name="[dbo].[TimeIntervals]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="72" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="76" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Tools]">
 			<Relationship Name="ColumnSpecifications">
@@ -3254,7 +3338,7 @@
 					<References Name="[dbo].[Tools]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="73" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="77" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Units]">
 			<Relationship Name="ColumnSpecifications">
@@ -3273,7 +3357,7 @@
 					<References Name="[dbo].[Units]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="74" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="78" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Users]">
 			<Relationship Name="ColumnSpecifications">
@@ -3292,7 +3376,7 @@
 					<References Name="[dbo].[Users]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="75" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="79" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_VendorContacts]">
 			<Relationship Name="ColumnSpecifications">
@@ -3311,7 +3395,7 @@
 					<References Name="[dbo].[VendorContacts]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="76" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="80" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Vendors]">
 			<Relationship Name="ColumnSpecifications">
@@ -3330,7 +3414,7 @@
 					<References Name="[dbo].[Vendors]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="77" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="81" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_WorkOrderRequests]">
 			<Relationship Name="ColumnSpecifications">
@@ -3349,7 +3433,7 @@
 					<References Name="[dbo].[WorkOrderRequests]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="78" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="82" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_WorkOrders]">
 			<Relationship Name="ColumnSpecifications">
@@ -3368,7 +3452,7 @@
 					<References Name="[dbo].[WorkOrders]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="79" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="83" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_WorkOrderTasks]">
 			<Relationship Name="ColumnSpecifications">
@@ -3387,7 +3471,7 @@
 					<References Name="[dbo].[WorkOrderTasks]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="80" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="84" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Priorities]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3432,7 +3516,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="67" />
+			<AttachedAnnotation Disambiguator="71" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Runtimes]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3483,7 +3567,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="12" />
+						<AttachedAnnotation Disambiguator="15" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3509,8 +3593,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="68" />
-			<AttachedAnnotation Disambiguator="47" />
+			<AttachedAnnotation Disambiguator="72" />
+			<AttachedAnnotation Disambiguator="50" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[spCreateWorkOrder]">
 			<Property Name="BodyScript">
@@ -4169,13 +4253,8 @@ END]]></Value>
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT reqId AS [ID], reqName AS [Name], reqDateSubmitted AS [Date Submitted], nextDue AS [Due By], locName AS [Location], equipId AS [Equipment ID],
-	equipName AS [Equipment Name], priorityName AS [Priority], woCount AS [Open Work Orders]
-	FROM v_WorkOrderRequests
+	SELECT * FROM v_WorkOrderRequests
 	WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())
-	AND v_WorkOrderRequests.facId = @facilityId
-	AND v_WorkOrderRequests.enabled = 1
-	ORDER BY v_WorkOrderRequests.nextDue DESC, priorityId DESC
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4184,49 +4263,10 @@ END]]></Value>
 					<References Name="[dbo].[v_WorkOrderRequests]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[reqId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[reqName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[reqDateSubmitted]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[nextDue]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[locName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[equipId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[equipName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[priorityName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[woCount]" />
-				</Entry>
-				<Entry>
 					<References Name="[dbo].[v_WorkOrderRequests].[nextDue]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[spWorkOrderRequestsDue].[@dueDateDeadband]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[facId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[spWorkOrderRequestsDue].[@facilityId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[enabled]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderRequests].[priorityId]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
@@ -4248,24 +4288,6 @@ END]]></Value>
 						</Relationship>
 					</Element>
 				</Entry>
-				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[spWorkOrderRequestsDue].[@facilityId]">
-						<Property Name="DefaultExpressionScript">
-							<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[NULL]]></Value>
-						</Property>
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[bigint]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
@@ -4274,10 +4296,10 @@ END]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="218" />
-				<Property Name="Length" Value="883" />
+				<Property Name="Length" Value="475" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;Eric Conder&#xD;&#xA;-- Create date: 2014-07-10&#xD;&#xA;-- Description:&#x9;Returns list of near-due &amp; past-due work orders&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[spWorkOrderRequestsDue]&#xD;&#xA;&#x9;@dueDateDeadband int = NULL,&#x9;&#x9; -- Deadband units = Days&#xD;&#xA;&#x9;@facilityId bigint = NULL&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;Eric Conder&#xD;&#xA;-- Create date: 2014-07-10&#xD;&#xA;-- Description:&#x9;Returns list of near-due &amp; past-due work orders&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[spWorkOrderRequestsDue]&#xD;&#xA;&#x9;@dueDateDeadband int = NULL&#x9;&#x9; -- Deadband units = Days&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[States]">
@@ -4340,7 +4362,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="69" />
+			<AttachedAnnotation Disambiguator="73" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[TaskParts]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4400,9 +4422,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="70" />
-			<AttachedAnnotation Disambiguator="48" />
-			<AttachedAnnotation Disambiguator="49" />
+			<AttachedAnnotation Disambiguator="74" />
+			<AttachedAnnotation Disambiguator="51" />
+			<AttachedAnnotation Disambiguator="52" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Tasks]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4497,7 +4519,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="71" />
+			<AttachedAnnotation Disambiguator="75" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[TimeIntervals]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4574,7 +4596,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="72" />
+			<AttachedAnnotation Disambiguator="76" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Tools]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4667,8 +4689,8 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="73" />
-			<AttachedAnnotation Disambiguator="50" />
+			<AttachedAnnotation Disambiguator="77" />
+			<AttachedAnnotation Disambiguator="53" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Units]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4729,7 +4751,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="74" />
+			<AttachedAnnotation Disambiguator="78" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Users]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4838,9 +4860,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="75" />
-			<AttachedAnnotation Disambiguator="51" />
-			<AttachedAnnotation Disambiguator="52" />
+			<AttachedAnnotation Disambiguator="79" />
+			<AttachedAnnotation Disambiguator="54" />
+			<AttachedAnnotation Disambiguator="55" />
 		</Element>
 		<Element Type="SqlView" Name="[dbo].[v_WorkOrderRequests]">
 			<Property Name="QueryScript">
@@ -4849,7 +4871,10 @@ SELECT     dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkO
                       dbo.WorkOrderRequests.reqDateSubmitted, dbo.WorkOrderRequests.reqStartDate, dbo.WorkOrderRequests.timeFreq, dbo.WorkOrderRequests.intId, 
                       dbo.TimeIntervals.intName, dbo.TimeIntervals.intAbbr, dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, 
                       dbo.Locations.facId, dbo.Facilities.name AS facName, dbo.Locations.name AS locName, dbo.WorkOrderRequests.deptId, dbo.Departments.name AS deptName, 
-                      dbo.WorkOrderRequests.priorityId, dbo.Priorities.priorityName, rt.runtime, cyc.cycles, 
+                      dbo.WorkOrderRequests.priorityId, dbo.Priorities.priorityName, CASE WHEN dbo.Equipment.hmiRuntimeCont = 0 THEN SUM(rt.runtime) 
+                      WHEN dbo.Equipment.hmiRuntimeCont = 1 THEN SUM(rt.runtime) WHEN dbo.Equipment.hmiRuntimeCont = 2 THEN MAX(rt.runtime) - MIN(rt.runtime) END AS runtime, 
+                      CASE WHEN dbo.Equipment.hmiCyclesCont = 0 THEN SUM(cyc.cycles) WHEN dbo.Equipment.hmiCyclesCont = 1 THEN SUM(cyc.cycles) 
+                      WHEN dbo.Equipment.hmiCyclesCont = 2 THEN MAX(cyc.cycles) - MIN(cyc.cycles) END AS cycles, 
                       CASE WHEN dbo.TimeIntervals.intAbbr = '1x' THEN lastCompleted WHEN dbo.TimeIntervals.intAbbr = 'cyc' THEN NULL 
                       WHEN dbo.TimeIntervals.intAbbr = 'rt' THEN NULL WHEN dbo.TimeIntervals.intAbbr = 'n' THEN DATEADD(MINUTE, timeFreq, lastcompleted) 
                       WHEN dbo.TimeIntervals.intAbbr = 'h' THEN DATEADD(HOUR, timeFreq, lastcompleted) WHEN dbo.TimeIntervals.intAbbr = 'd' THEN DATEADD(DAY, timeFreq, 
@@ -4869,17 +4894,15 @@ FROM         dbo.Facilities INNER JOIN
                             FROM          dbo.WorkOrders
                             WHERE      (woComplete = 0)
                             GROUP BY reqId) AS wo ON dbo.WorkOrderRequests.reqId = wo.reqId LEFT OUTER JOIN
-                          (SELECT     equipId, SUM(runtime) AS runtime
-                            FROM          dbo.Runtimes
-                            GROUP BY equipId) AS rt ON dbo.Equipment.equipId = rt.equipId LEFT OUTER JOIN
-                          (SELECT     equipId, SUM(cycles) AS cycles
-                            FROM          dbo.Cycles
-                            GROUP BY equipId) AS cyc ON dbo.Equipment.equipId = cyc.equipId
+                          (SELECT     equipId, runtimeDate, runtime
+                            FROM          dbo.Runtimes) AS rt ON dbo.Equipment.equipId = rt.equipId AND rt.runtimeDate > dbo.WorkOrderRequests.lastCompleted LEFT OUTER JOIN
+                          (SELECT     equipId, cyclesDate, cycles
+                            FROM          dbo.Cycles) AS cyc ON dbo.Equipment.equipId = cyc.equipId AND cyc.cyclesDate > dbo.WorkOrderRequests.lastCompleted
 GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrderRequests.reqDescr, dbo.WorkOrderRequests.equipId, 
                       dbo.WorkOrderRequests.reqDateSubmitted, dbo.WorkOrderRequests.reqStartDate, dbo.WorkOrderRequests.timeFreq, dbo.TimeIntervals.intName, 
-                      dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, dbo.Facilities.name, dbo.Locations.name, rt.runtime, 
-                      cyc.cycles, dbo.TimeIntervals.intAbbr, wo.woCount, dbo.Priorities.priorityName, dbo.WorkOrderRequests.priorityId, dbo.Departments.name, 
-                      dbo.WorkOrderRequests.deptId, dbo.WorkOrderRequests.intId, dbo.Locations.facId]]></Value>
+                      dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, dbo.Facilities.name, dbo.Locations.name, 
+                      dbo.TimeIntervals.intAbbr, wo.woCount, dbo.Priorities.priorityName, dbo.WorkOrderRequests.priorityId, dbo.Departments.name, dbo.WorkOrderRequests.deptId, 
+                      dbo.WorkOrderRequests.intId, dbo.Locations.facId, dbo.Equipment.hmiRuntimeCont, dbo.Equipment.hmiCyclesCont]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -5156,6 +5179,9 @@ GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrd
 					<References Name="[dbo].[Runtimes].[equipId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Runtimes].[runtimeDate]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Runtimes].[runtime]" />
 				</Entry>
 				<Entry>
@@ -5165,16 +5191,28 @@ GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrd
 					<References Name="[dbo].[Runtimes].[equipId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Runtimes].[runtimeDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[WorkOrderRequests].[lastCompleted]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Cycles]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Cycles].[equipId]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Cycles].[cyclesDate]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Cycles].[cycles]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Cycles].[equipId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cycles].[cyclesDate]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[WorkOrderRequests].[reqName]" />
@@ -5204,9 +5242,6 @@ GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrd
 					<References Name="[dbo].[TimeIntervals].[intAbbr]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[WorkOrderRequests].[lastCompleted]" />
-				</Entry>
-				<Entry>
 					<References Name="[dbo].[WorkOrderRequests].[enabled]" />
 				</Entry>
 				<Entry>
@@ -5229,6 +5264,18 @@ GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrd
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Priorities].[priorityName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiRuntimeCont]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Runtimes].[runtime]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiCyclesCont]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cycles].[cycles]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[WorkOrderRequests].[lastCompleted]" />
@@ -5255,7 +5302,7 @@ GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrd
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="4054" />
+				<Property Name="Length" Value="4581" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE VIEW dbo.v_WorkOrderRequests&#xD;&#xA;AS" />
@@ -5271,21 +5318,22 @@ SELECT     dbo.WorkOrders.woID, dbo.WorkOrders.reqId, dbo.WorkOrders.woDateCreat
                       dbo.Equipment.descr AS equipDescr, dbo.Equipment.equipSerial, dbo.Equipment.equipMccLoc, dbo.Equipment.equipMccPanel, dbo.EquipmentTypes.typeName, 
                       dbo.EquipmentModels.modelName, dbo.Locations.name AS locName, dbo.Locations.facId, dbo.Facilities.name AS facName, dbo.Facilities.addr1 AS facAddr1, 
                       dbo.Facilities.addr2 AS facAddr2, dbo.Facilities.fax AS facFax, dbo.Facilities.phone2 AS facPhone2, dbo.Facilities.phone1 AS facPhone1, dbo.Facilities.long AS facLong,
-                       dbo.Facilities.lat AS facLat, dbo.Facilities.city AS facCity, dbo.Locations.addr1 AS locAddr1, dbo.Locations.addr2 AS locAddr2, dbo.Locations.city AS locCity, 
-                      dbo.Locations.lat AS locLat, dbo.Locations.long AS locLong, dbo.Manufacturers.name AS manName, dbo.Manufacturers.web AS manWeb, 
-                      dbo.Manufacturers.phone1 AS manPhone1, dbo.Manufacturers.phone2 AS manPhone2, dbo.Manufacturers.fax AS manFax, dbo.Vendors.name AS venName, 
-                      dbo.Priorities.priorityName
-FROM         dbo.WorkOrders INNER JOIN
-                      dbo.Locations INNER JOIN
+                       dbo.Facilities.lat AS facLat, dbo.Facilities.city AS facCity, dbo.States.abbr AS facState, dbo.Facilities.zip AS facZip, dbo.Locations.addr1 AS locAddr1, 
+                      dbo.Locations.addr2 AS locAddr2, dbo.Locations.city AS locCity, dbo.Locations.lat AS locLat, dbo.Locations.long AS locLong, dbo.Manufacturers.name AS manName, 
+                      dbo.Manufacturers.web AS manWeb, dbo.Manufacturers.phone1 AS manPhone1, dbo.Manufacturers.phone2 AS manPhone2, dbo.Manufacturers.fax AS manFax, 
+                      dbo.Vendors.name AS venName, dbo.Priorities.priorityName
+FROM         dbo.Vendors INNER JOIN
+                      dbo.Facilities INNER JOIN
                       dbo.TimeIntervals INNER JOIN
                       dbo.WorkOrderRequests ON dbo.TimeIntervals.intId = dbo.WorkOrderRequests.intId INNER JOIN
                       dbo.Equipment ON dbo.WorkOrderRequests.equipId = dbo.Equipment.equipId INNER JOIN
                       dbo.EquipmentTypes ON dbo.Equipment.equipTypeId = dbo.EquipmentTypes.typeId INNER JOIN
-                      dbo.EquipmentModels ON dbo.Equipment.modelId = dbo.EquipmentModels.modelId ON dbo.Locations.locId = dbo.Equipment.locId INNER JOIN
-                      dbo.Facilities ON dbo.Locations.facId = dbo.Facilities.facId INNER JOIN
-                      dbo.Manufacturers ON dbo.Equipment.manId = dbo.Manufacturers.manId ON dbo.WorkOrders.reqId = dbo.WorkOrderRequests.reqId INNER JOIN
-                      dbo.Vendors ON dbo.Equipment.vendorId = dbo.Vendors.venId INNER JOIN
-                      dbo.Priorities ON dbo.WorkOrderRequests.priorityId = dbo.Priorities.priorityId]]></Value>
+                      dbo.Locations ON dbo.Equipment.locId = dbo.Locations.locId ON dbo.Facilities.facId = dbo.Locations.facId INNER JOIN
+                      dbo.Manufacturers ON dbo.Equipment.manId = dbo.Manufacturers.manId INNER JOIN
+                      dbo.WorkOrders ON dbo.WorkOrderRequests.reqId = dbo.WorkOrders.reqId ON dbo.Vendors.venId = dbo.Equipment.vendorId INNER JOIN
+                      dbo.Priorities ON dbo.WorkOrderRequests.priorityId = dbo.Priorities.priorityId INNER JOIN
+                      dbo.States ON dbo.Facilities.stateId = dbo.States.stateId LEFT OUTER JOIN
+                      dbo.EquipmentModels ON dbo.Equipment.modelId = dbo.EquipmentModels.modelId]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -5614,6 +5662,24 @@ FROM         dbo.WorkOrders INNER JOIN
 					</Element>
 				</Entry>
 				<Entry>
+					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrders].[facState]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[dbo].[States].[abbr]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrders].[facZip]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[dbo].[Facilities].[zip]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
 					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrders].[locAddr1]">
 						<Relationship Name="ExpressionDependencies">
 							<Entry>
@@ -5724,10 +5790,10 @@ FROM         dbo.WorkOrders INNER JOIN
 			</Relationship>
 			<Relationship Name="QueryDependencies">
 				<Entry>
-					<References Name="[dbo].[WorkOrders]" />
+					<References Name="[dbo].[Vendors]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Locations]" />
+					<References Name="[dbo].[Facilities]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[TimeIntervals]" />
@@ -5760,28 +5826,19 @@ FROM         dbo.WorkOrders INNER JOIN
 					<References Name="[dbo].[EquipmentTypes].[typeId]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[EquipmentModels]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Equipment].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[EquipmentModels].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Locations].[locId]" />
+					<References Name="[dbo].[Locations]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Equipment].[locId]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Facilities]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Locations].[facId]" />
+					<References Name="[dbo].[Locations].[locId]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Facilities].[facId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Locations].[facId]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Manufacturers]" />
@@ -5793,19 +5850,19 @@ FROM         dbo.WorkOrders INNER JOIN
 					<References Name="[dbo].[Manufacturers].[manId]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[WorkOrders].[reqId]" />
+					<References Name="[dbo].[WorkOrders]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[WorkOrderRequests].[reqId]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Vendors]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Equipment].[vendorId]" />
+					<References Name="[dbo].[WorkOrders].[reqId]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Vendors].[venId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Equipment].[vendorId]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Priorities]" />
@@ -5815,6 +5872,24 @@ FROM         dbo.WorkOrders INNER JOIN
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Priorities].[priorityId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[States]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Facilities].[stateId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[States].[stateId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[EquipmentModels]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Equipment].[modelId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[EquipmentModels].[modelId]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[WorkOrders].[woID]" />
@@ -5925,6 +6000,12 @@ FROM         dbo.WorkOrders INNER JOIN
 					<References Name="[dbo].[Facilities].[city]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[States].[abbr]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Facilities].[zip]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Locations].[addr1]" />
 				</Entry>
 				<Entry>
@@ -5967,265 +6048,10 @@ FROM         dbo.WorkOrders INNER JOIN
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="2822" />
+				<Property Name="Length" Value="2978" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE VIEW dbo.v_WorkOrders&#xD;&#xA;AS" />
-			</Annotation>
-		</Element>
-		<Element Type="SqlView" Name="[dbo].[v_WorkOrderTasks]">
-			<Property Name="QueryScript">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[
-SELECT     TOP (100) PERCENT dbo.WorkOrderTasks.taskId AS woTaskId, dbo.WorkOrderTasks.taskStep, dbo.WorkOrderTasks.taskComplete, 
-                      dbo.WorkOrderTasks.taskDateComplete, dbo.WorkOrderTasks.taskDuration, dbo.WorkOrderTasks.woTaskNotes, dbo.Tasks.taskName, dbo.Tasks.taskDescr, 
-                      dbo.Tasks.taskEstDuration, dbo.Tasks.equipShutdownRequired, dbo.Parts.partName, dbo.Parts.partDescr, dbo.Parts.partNumber
-FROM         dbo.Parts INNER JOIN
-                      dbo.TaskParts ON dbo.Parts.partId = dbo.TaskParts.partId RIGHT OUTER JOIN
-                      dbo.WorkOrderRequests INNER JOIN
-                      dbo.Equipment ON dbo.WorkOrderRequests.equipId = dbo.Equipment.equipId INNER JOIN
-                      dbo.WorkOrderTasks INNER JOIN
-                      dbo.Tasks ON dbo.Tasks.taskId = dbo.WorkOrderTasks.taskId INNER JOIN
-                      dbo.EquipmentModels ON dbo.EquipmentModels.modelId = dbo.WorkOrderTasks.modelId ON dbo.Equipment.modelId = dbo.EquipmentModels.modelId INNER JOIN
-                      dbo.WorkOrders ON dbo.WorkOrderRequests.reqId = dbo.WorkOrders.reqId ON dbo.TaskParts.taskId = dbo.Tasks.taskId
-ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
-			</Property>
-			<Property Name="IsAnsiNullsOn" Value="True" />
-			<Relationship Name="Columns">
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[woTaskId]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[taskId]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskStep]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[taskStep]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskComplete]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[taskComplete]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskDateComplete]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[taskDateComplete]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskDuration]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[taskDuration]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[woTaskNotes]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[WorkOrderTasks].[woTaskNotes]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskName]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Tasks].[taskName]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskDescr]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Tasks].[taskDescr]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[taskEstDuration]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Tasks].[taskEstDuration]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[equipShutdownRequired]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Tasks].[equipShutdownRequired]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[partName]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Parts].[partName]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[partDescr]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Parts].[partDescr]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlComputedColumn" Name="[dbo].[v_WorkOrderTasks].[partNumber]">
-						<Relationship Name="ExpressionDependencies">
-							<Entry>
-								<References Name="[dbo].[Parts].[partNumber]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="QueryDependencies">
-				<Entry>
-					<References Name="[dbo].[Parts]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[TaskParts]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Parts].[partId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[TaskParts].[partId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderRequests]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Equipment]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderRequests].[equipId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Equipment].[equipId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[EquipmentModels]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[EquipmentModels].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Equipment].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[EquipmentModels].[modelId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrders]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderRequests].[reqId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrders].[reqId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[TaskParts].[taskId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskStep]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskComplete]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskDateComplete]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[taskDuration]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[WorkOrderTasks].[woTaskNotes]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskDescr]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[taskEstDuration]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Tasks].[equipShutdownRequired]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Parts].[partName]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Parts].[partDescr]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Parts].[partNumber]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="Schema">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[dbo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1260" />
-				<Property Name="StartLine" Value="1" />
-				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE VIEW dbo.v_WorkOrderTasks&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[VendorContacts]">
@@ -6335,10 +6161,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6351,10 +6177,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6367,10 +6193,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6400,8 +6226,8 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="76" />
-			<AttachedAnnotation Disambiguator="53" />
+			<AttachedAnnotation Disambiguator="80" />
+			<AttachedAnnotation Disambiguator="56" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Vendors]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6508,7 +6334,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="11" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varchar]" />
@@ -6524,10 +6350,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6540,10 +6366,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6556,10 +6382,10 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="10" />
+									<Property Name="Length" Value="15" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -6589,8 +6415,8 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="77" />
-			<AttachedAnnotation Disambiguator="54" />
+			<AttachedAnnotation Disambiguator="81" />
+			<AttachedAnnotation Disambiguator="57" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[WorkOrderRequests]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6690,7 +6516,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="14" />
+						<AttachedAnnotation Disambiguator="17" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6770,7 +6596,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="19" />
+						<AttachedAnnotation Disambiguator="22" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6787,7 +6613,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="13" />
+						<AttachedAnnotation Disambiguator="16" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -6796,11 +6622,12 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="78" />
-			<AttachedAnnotation Disambiguator="55" />
-			<AttachedAnnotation Disambiguator="56" />
-			<AttachedAnnotation Disambiguator="57" />
+			<AttachedAnnotation Disambiguator="82" />
 			<AttachedAnnotation Disambiguator="58" />
+			<AttachedAnnotation Disambiguator="59" />
+			<AttachedAnnotation Disambiguator="60" />
+			<AttachedAnnotation Disambiguator="61" />
+			<AttachedAnnotation Disambiguator="62" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[WorkOrders]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6852,12 +6679,11 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="17" />
+						<AttachedAnnotation Disambiguator="20" />
 					</Element>
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[WorkOrders].[woDateDue]">
-						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -6901,7 +6727,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="15" />
+						<AttachedAnnotation Disambiguator="18" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6917,7 +6743,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="16" />
+						<AttachedAnnotation Disambiguator="19" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -6942,7 +6768,8 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="79" />
+			<AttachedAnnotation Disambiguator="83" />
+			<AttachedAnnotation Disambiguator="63" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[WorkOrderTasks]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -7040,7 +6867,7 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="18" />
+						<AttachedAnnotation Disambiguator="21" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -7096,12 +6923,22 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="80" />
-			<AttachedAnnotation Disambiguator="59" />
-			<AttachedAnnotation Disambiguator="60" />
-			<AttachedAnnotation Disambiguator="61" />
+			<AttachedAnnotation Disambiguator="84" />
+			<AttachedAnnotation Disambiguator="64" />
+			<AttachedAnnotation Disambiguator="65" />
 		</Element>
-		<Element Type="SqlLogin" Name="[mrsystems]" Disambiguator="6">
+		<Element Type="SqlApplicationRole" Name="[MRMaintenanceApp]">
+			<Property Name="Password" Value="TpodQMpkdVSFt&amp;rckeucrz|lmsFT7_&amp;#$!~&lt;@|k?s7bs|dnv" />
+			<Relationship Name="DefaultSchema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[guest]" />
+					<Annotation Type="PersistedResolvableAnnotation" Name="[guest]">
+						<Property Name="TargetTypeStorage" Value="SqlSchema" />
+					</Annotation>
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlLogin" Name="[mrsystems]">
 			<Property Name="Password" Value="Reggie123" />
 			<Property Name="DefaultDatabase" Value="mrsystems" />
 			<Property Name="DefaultLanguage" Value="us_english" />
@@ -7109,14 +6946,44 @@ ORDER BY dbo.WorkOrderTasks.taskStep]]></Value>
 			<Property Name="IsCheckPolicyOn" Value="False" />
 			<Annotation Type="GloballyScoped" />
 		</Element>
-		<Element Type="SqlUser" Name="[mrsystems]">
+		<Element Type="SqlUser" Name="[mrsystems]" Disambiguator="7">
 			<Property Name="LoginIdentifierScript">
 				<Value><![CDATA[[mrsystems]]]></Value>
 			</Property>
 			<Property Name="AuthenticationType" Value="1" />
 			<Relationship Name="Login">
 				<Entry>
-					<References Name="[mrsystems]" Disambiguator="6" />
+					<References Name="[mrsystems]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[Equipment].[hmiCyclesCont].[MS_Description]">
+			<Property Name="Value">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'Daily Total, Previous Total, or Continuous Total']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiCyclesCont]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[Equipment].[hmiRuntimeCont].[MS_Description]">
+			<Property Name="Value">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'Daily Total, Previous Total, or Continuous Total']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[Equipment].[hmiRuntimeCont]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[Tasks].[taskEstDuration].[MS_Description]">
+			<Property Name="Value">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'Time in hours']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[Tasks].[taskEstDuration]" />
 				</Entry>
 			</Relationship>
 		</Element>
@@ -7127,7 +6994,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[8] 4[3] 2[34] 3) )"
+         Configuration = "(H (1[11] 4[11] 2[5] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -7189,36 +7056,36 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = 0
+         Top = -288
          Left = 0
       End
       Begin Tables = 
          Begin Table = "Facilities"
             Begin Extent = 
-               Top = 215
-               Left = 716
-               Bottom = 306
-               Right = 867
+               Top = 48
+               Left = 1129
+               Bottom = 139
+               Right = 1280
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "Locations"
             Begin Extent = 
-               Top = 172
-               Left = 512
-               Bottom = 370
-               Right = 663
+               Top = 4
+               Left = 827
+               Bottom = 202
+               Right = 978
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "TimeIntervals"
             Begin Extent = 
-               Top = 386
-               Left = 330
-               Bottom = 494
-               Right = 481
+               Top = 12
+               Left = 498
+               Bottom = 120
+               Right = 649
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -7235,31 +7102,31 @@ Begin DesignProperties =
          End
          Begin Table = "Equipment"
             Begin Extent = 
-               Top = 116
-               Left = 262
-               Bottom = 285
-               Right = 441
+               Top = 160
+               Left = 605
+               Bottom = 329
+               Right = 784
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 8
          End
          Begin Table = "Priorities"
             Begin Extent = 
-               Top = 507
-               Left = 326
-               Bottom = 585
-               Right = 493
+               Top = 431
+               Left = 324
+               Bottom = 509
+               Right = 491
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "Departments"
             Begin Extent = 
-               Top = 297
-               Left = 322
-               Bottom = 375
-               Right = 489
-            End']]></Value>
+               Top = 0
+               Left = 251
+               Bottom = 78
+               Right = 418
+            End']]></Value>
 			</Property>
 			<Relationship Name="Host">
 				<Entry>
@@ -7275,30 +7142,30 @@ Begin DesignProperties =
          End
          Begin Table = "wo"
             Begin Extent = 
-               Top = 12
-               Left = 297
-               Bottom = 90
-               Right = 448
+               Top = 78
+               Left = 219
+               Bottom = 156
+               Right = 386
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "rt"
             Begin Extent = 
-               Top = 2
-               Left = 731
-               Bottom = 80
-               Right = 882
+               Top = 178
+               Left = 325
+               Bottom = 275
+               Right = 492
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "cyc"
             Begin Extent = 
-               Top = 47
-               Left = 927
-               Bottom = 125
-               Right = 1078
+               Top = 321
+               Left = 325
+               Bottom = 414
+               Right = 492
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -7310,13 +7177,19 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 25
+      Begin ColumnWidths = 27
          Width = 284
          Width = 1500
          Width = 1980
          Width = 1500
          Width = 1500
          Width = 1995
+         Width = 1995
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 2145
          Width = 1500
          Width = 1500
          Width = 1500
@@ -7328,11 +7201,7 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
+         Width = 1995
          Width = 1500
          Width = 1500
          Width = 1500
@@ -7340,8 +7209,8 @@ Begin DesignProperties =
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 12
-         Column = 2145
-         Alias = 960
+         Column = 7170
+         Alias = 1200
          Table = 1695
          Output = 720
          Append = 1400
@@ -7381,7 +7250,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[21] 4[23] 2[31] 3) )"
+         Configuration = "(H (1[12] 4[5] 2[46] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -7444,59 +7313,9 @@ Begin DesignProperties =
    Begin DiagramPane = 
       Begin Origin = 
          Top = 0
-         Left = 0
+         Left = -672
       End
       Begin Tables = 
-         Begin Table = "Locations"
-            Begin Extent = 
-               Top = 5
-               Left = 738
-               Bottom = 178
-               Right = 889
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "EquipmentTypes"
-            Begin Extent = 
-               Top = 182
-               Left = 740
-               Bottom = 263
-               Right = 891
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "EquipmentModels"
-            Begin Extent = 
-               Top = 502
-               Left = 740
-               Bottom = 590
-               Right = 891
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Facilities"
-            Begin Extent = 
-               Top = 22
-               Left = 940
-               Bottom = 211
-               Right = 1091
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Manufacturers"
-            Begin Extent = 
-               Top = 278
-               Left = 739
-               Bottom = 386
-               Right = 890
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
          Begin Table = "Vendors"
             Begin Extent = 
                Top = 389
@@ -7507,32 +7326,12 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "WorkOrders"
+         Begin Table = "Facilities"
             Begin Extent = 
-               Top = 96
-               Left = 41
-               Bottom = 296
-               Right = 197
-            End']]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[dbo].[v_WorkOrders]" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlView].[dbo].[v_WorkOrders].[MS_DiagramPane2]">
-			<Property Name="Value">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'
-            DisplayFlags = 280
-            TopColumn = 1
-         End
-         Begin Table = "Equipment"
-            Begin Extent = 
-               Top = 32
-               Left = 496
-               Bottom = 293
-               Right = 675
+               Top = 42
+               Left = 970
+               Bottom = 231
+               Right = 1121
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -7557,12 +7356,92 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 2
          End
+         Begin Table = "Equipment"
+            Begin Extent = 
+               Top = 32
+               Left = 496
+               Bottom = 293
+               Right = 675
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "EquipmentTypes"
+            Begin Extent = 
+               Top = 182
+               Left = 740
+               Bottom = 263
+               Right = 891
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Locations"
+            Begin Extent = 
+               Top = 7
+               Left = 741
+               Bottom = 180
+               Right = 892
+            E']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[v_WorkOrders]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlView].[dbo].[v_WorkOrders].[MS_DiagramPane2]">
+			<Property Name="Value">
+				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'nd
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Manufacturers"
+            Begin Extent = 
+               Top = 278
+               Left = 739
+               Bottom = 386
+               Right = 890
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "WorkOrders"
+            Begin Extent = 
+               Top = 96
+               Left = 41
+               Bottom = 296
+               Right = 197
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
          Begin Table = "Priorities"
             Begin Extent = 
                Top = 345
                Left = 297
                Bottom = 423
                Right = 448
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "EquipmentModels"
+            Begin Extent = 
+               Top = 502
+               Left = 740
+               Bottom = 590
+               Right = 891
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "States"
+            Begin Extent = 
+               Top = 31
+               Left = 1319
+               Bottom = 124
+               Right = 1470
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -7612,7 +7491,7 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1500
+         Width = 2175
          Width = 1500
          Width = 1500
          Width = 1500
@@ -7665,225 +7544,6 @@ End
 			<Relationship Name="Host">
 				<Entry>
 					<References Name="[dbo].[v_WorkOrders]" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlView].[dbo].[v_WorkOrderTasks].[MS_DiagramPane1]">
-			<Property Name="Value">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[18] 4[15] 2[34] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Parts"
-            Begin Extent = 
-               Top = 71
-               Left = 1634
-               Bottom = 243
-               Right = 1785
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "TaskParts"
-            Begin Extent = 
-               Top = 109
-               Left = 1413
-               Bottom = 205
-               Right = 1564
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "WorkOrderRequests"
-            Begin Extent = 
-               Top = 42
-               Left = 214
-               Bottom = 178
-               Right = 381
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Equipment"
-            Begin Extent = 
-               Top = 25
-               Left = 430
-               Bottom = 174
-               Right = 609
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "WorkOrderTasks"
-            Begin Extent = 
-               Top = 34
-               Left = 914
-               Bottom = 195
-               Right = 1082
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Tasks"
-            Begin Extent = 
-               Top = 68
-               Left = 1164
-               Bottom = 194
-               Right = 1361
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "EquipmentModels"
-            Begin Extent = 
-               Top = 20
-               Left = 700
-               Bottom = 98
-               Right = 851
-            End
-']]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderTasks]" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlView].[dbo].[v_WorkOrderTasks].[MS_DiagramPane2]">
-			<Property Name="Value">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[N'
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "WorkOrders"
-            Begin Extent = 
-               Top = 9
-               Left = 16
-               Bottom = 143
-               Right = 172
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 10380
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-']]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderTasks]" />
-				</Entry>
-			</Relationship>
-		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlView].[dbo].[v_WorkOrderTasks].[MS_DiagramPaneCount]">
-			<Property Name="Value">
-				<Value QuotedIdentifiers="True" AnsiNulls="True"><![CDATA[2]]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[dbo].[v_WorkOrderTasks]" />
 				</Entry>
 			</Relationship>
 		</Element>

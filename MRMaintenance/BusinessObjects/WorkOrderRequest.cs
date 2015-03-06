@@ -35,8 +35,9 @@ namespace MRMaintenance.BusinessObjects
 		public DateTime StartDate { get; set; }
 		public int TimeFrequency { get; set; }
 		public long TimeIntervalID { get; set; }
-		public bool Enabled { get; set; }
-		public Nullable<DateTime> NextDue { get; set; }
+        public Nullable<DateTime> LastCompleted { get; set; }
+        public Nullable<DateTime> NextDue { get; set; }
+        public bool Enabled { get; set; }
 		public int Priority { get; set; }
 	}
 }
