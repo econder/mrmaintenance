@@ -260,7 +260,10 @@ namespace MRMaintenance
 			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
 			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
 			workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
-			workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            if (dgview.SelectedRows[0].Cells["Due By"].Value != DBNull.Value)
+            {
+                workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            }
 			
 			//Handle left-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
@@ -318,7 +321,10 @@ namespace MRMaintenance
 		{
             WorkOrderRequest workOrderReq = new WorkOrderRequest();
             workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
-            workOrderReq.NextDue = Convert.ToDateTime(dgview.SelectedRows[0].Cells["Due By"].Value);
+            if (dgview.SelectedRows[0].Cells["Due By"].Value != DBNull.Value)
+            {
+                workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            }
 
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
             workOrderReqBA.CreateWorkOrder(workOrderReq);

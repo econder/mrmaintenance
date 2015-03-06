@@ -79,12 +79,8 @@ namespace MRMaintenance
             this.txtMccLocation = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnDuplicate = new System.Windows.Forms.Button();
-            this.rdoHmiRuntimeDaily = new System.Windows.Forms.RadioButton();
-            this.rdoHmiRuntimePrev = new System.Windows.Forms.RadioButton();
-            this.rdoHmiRuntimeCont = new System.Windows.Forms.RadioButton();
-            this.rdoHmiCyclesCont = new System.Windows.Forms.RadioButton();
-            this.rdoHmiCyclesPrev = new System.Windows.Forms.RadioButton();
-            this.rdoHmiCyclesDaily = new System.Windows.Forms.RadioButton();
+            this.chkRuntimeCont = new System.Windows.Forms.CheckBox();
+            this.chkCyclesCont = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -223,7 +219,7 @@ namespace MRMaintenance
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(876, 511);
+            this.btnClose.Location = new System.Drawing.Point(856, 511);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 17;
@@ -249,7 +245,7 @@ namespace MRMaintenance
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(795, 511);
+            this.btnSave.Location = new System.Drawing.Point(775, 511);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 15;
@@ -447,84 +443,34 @@ namespace MRMaintenance
             this.btnDuplicate.UseVisualStyleBackColor = true;
             this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
-            // rdoHmiRuntimeDaily
+            // chkRuntimeCont
             // 
-            this.rdoHmiRuntimeDaily.AutoSize = true;
-            this.rdoHmiRuntimeDaily.Location = new System.Drawing.Point(750, 97);
-            this.rdoHmiRuntimeDaily.Name = "rdoHmiRuntimeDaily";
-            this.rdoHmiRuntimeDaily.Size = new System.Drawing.Size(48, 17);
-            this.rdoHmiRuntimeDaily.TabIndex = 87;
-            this.rdoHmiRuntimeDaily.TabStop = true;
-            this.rdoHmiRuntimeDaily.Text = "Daily";
-            this.rdoHmiRuntimeDaily.UseVisualStyleBackColor = true;
+            this.chkRuntimeCont.AutoSize = true;
+            this.chkRuntimeCont.Location = new System.Drawing.Point(850, 98);
+            this.chkRuntimeCont.Name = "chkRuntimeCont";
+            this.chkRuntimeCont.Size = new System.Drawing.Size(79, 17);
+            this.chkRuntimeCont.TabIndex = 85;
+            this.chkRuntimeCont.Text = "Continuous";
+            this.chkRuntimeCont.UseVisualStyleBackColor = true;
             // 
-            // rdoHmiRuntimePrev
+            // chkCyclesCont
             // 
-            this.rdoHmiRuntimePrev.AutoSize = true;
-            this.rdoHmiRuntimePrev.Location = new System.Drawing.Point(804, 97);
-            this.rdoHmiRuntimePrev.Name = "rdoHmiRuntimePrev";
-            this.rdoHmiRuntimePrev.Size = new System.Drawing.Size(66, 17);
-            this.rdoHmiRuntimePrev.TabIndex = 88;
-            this.rdoHmiRuntimePrev.TabStop = true;
-            this.rdoHmiRuntimePrev.Text = "Previous";
-            this.rdoHmiRuntimePrev.UseVisualStyleBackColor = true;
-            // 
-            // rdoHmiRuntimeCont
-            // 
-            this.rdoHmiRuntimeCont.AutoSize = true;
-            this.rdoHmiRuntimeCont.Location = new System.Drawing.Point(876, 97);
-            this.rdoHmiRuntimeCont.Name = "rdoHmiRuntimeCont";
-            this.rdoHmiRuntimeCont.Size = new System.Drawing.Size(78, 17);
-            this.rdoHmiRuntimeCont.TabIndex = 89;
-            this.rdoHmiRuntimeCont.TabStop = true;
-            this.rdoHmiRuntimeCont.Text = "Continuous";
-            this.rdoHmiRuntimeCont.UseVisualStyleBackColor = true;
-            // 
-            // rdoHmiCyclesCont
-            // 
-            this.rdoHmiCyclesCont.AutoSize = true;
-            this.rdoHmiCyclesCont.Location = new System.Drawing.Point(876, 162);
-            this.rdoHmiCyclesCont.Name = "rdoHmiCyclesCont";
-            this.rdoHmiCyclesCont.Size = new System.Drawing.Size(78, 17);
-            this.rdoHmiCyclesCont.TabIndex = 92;
-            this.rdoHmiCyclesCont.TabStop = true;
-            this.rdoHmiCyclesCont.Text = "Continuous";
-            this.rdoHmiCyclesCont.UseVisualStyleBackColor = true;
-            // 
-            // rdoHmiCyclesPrev
-            // 
-            this.rdoHmiCyclesPrev.AutoSize = true;
-            this.rdoHmiCyclesPrev.Location = new System.Drawing.Point(804, 162);
-            this.rdoHmiCyclesPrev.Name = "rdoHmiCyclesPrev";
-            this.rdoHmiCyclesPrev.Size = new System.Drawing.Size(66, 17);
-            this.rdoHmiCyclesPrev.TabIndex = 91;
-            this.rdoHmiCyclesPrev.TabStop = true;
-            this.rdoHmiCyclesPrev.Text = "Previous";
-            this.rdoHmiCyclesPrev.UseVisualStyleBackColor = true;
-            // 
-            // rdoHmiCyclesDaily
-            // 
-            this.rdoHmiCyclesDaily.AutoSize = true;
-            this.rdoHmiCyclesDaily.Location = new System.Drawing.Point(750, 162);
-            this.rdoHmiCyclesDaily.Name = "rdoHmiCyclesDaily";
-            this.rdoHmiCyclesDaily.Size = new System.Drawing.Size(48, 17);
-            this.rdoHmiCyclesDaily.TabIndex = 90;
-            this.rdoHmiCyclesDaily.TabStop = true;
-            this.rdoHmiCyclesDaily.Text = "Daily";
-            this.rdoHmiCyclesDaily.UseVisualStyleBackColor = true;
+            this.chkCyclesCont.AutoSize = true;
+            this.chkCyclesCont.Location = new System.Drawing.Point(850, 163);
+            this.chkCyclesCont.Name = "chkCyclesCont";
+            this.chkCyclesCont.Size = new System.Drawing.Size(79, 17);
+            this.chkCyclesCont.TabIndex = 86;
+            this.chkCyclesCont.Text = "Continuous";
+            this.chkCyclesCont.UseVisualStyleBackColor = true;
             // 
             // frmEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(959, 540);
-            this.Controls.Add(this.rdoHmiCyclesCont);
-            this.Controls.Add(this.rdoHmiCyclesPrev);
-            this.Controls.Add(this.rdoHmiCyclesDaily);
-            this.Controls.Add(this.rdoHmiRuntimeCont);
-            this.Controls.Add(this.rdoHmiRuntimePrev);
-            this.Controls.Add(this.rdoHmiRuntimeDaily);
+            this.ClientSize = new System.Drawing.Size(939, 540);
+            this.Controls.Add(this.chkCyclesCont);
+            this.Controls.Add(this.chkRuntimeCont);
             this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.txtMccLocation);
             this.Controls.Add(this.label17);
@@ -619,11 +565,7 @@ namespace MRMaintenance
         private System.Windows.Forms.TextBox txtMccLocation;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnDuplicate;
-        private System.Windows.Forms.RadioButton rdoHmiRuntimeDaily;
-        private System.Windows.Forms.RadioButton rdoHmiRuntimePrev;
-        private System.Windows.Forms.RadioButton rdoHmiRuntimeCont;
-        private System.Windows.Forms.RadioButton rdoHmiCyclesCont;
-        private System.Windows.Forms.RadioButton rdoHmiCyclesPrev;
-        private System.Windows.Forms.RadioButton rdoHmiCyclesDaily;
+        private System.Windows.Forms.CheckBox chkRuntimeCont;
+        private System.Windows.Forms.CheckBox chkCyclesCont;
 	}
 }

@@ -400,7 +400,14 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
-					cmd.Parameters.AddWithValue("@woDateDue", workOrderRequest.NextDue);
+                    if(workOrderRequest.NextDue.Value != DBNull.Value)
+                    {
+                        cmd.Parameters.AddWithValue("@woDateDue", workOrderRequest.NextDue);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@woDateDue", DateTime.Now);
+                    }
 					
 					return cmd.ExecuteNonQuery();
 				}

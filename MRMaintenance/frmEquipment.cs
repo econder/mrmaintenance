@@ -115,7 +115,9 @@ namespace MRMaintenance
 
             //Bind hmi runtimes/cycles tagnames textboxes
             txtRuntimeTagname.DataBindings.Add("Text", dtEquip, "hmiRuntimeTagname", true, DataSourceUpdateMode.Never, "");
+            chkRuntimeCont.DataBindings.Add("Checked", dtEquip, "hmiRuntimeCont", true, DataSourceUpdateMode.Never, 0);
             txtCyclesTagname.DataBindings.Add("Text", dtEquip, "hmiCyclesTagname", true, DataSourceUpdateMode.Never, "");
+            chkCyclesCont.DataBindings.Add("Checked", dtEquip, "hmiCyclesCont", true, DataSourceUpdateMode.Never, 0);
 
             //Load and bind MCC Panel textboxes
             txtMccPanel.DataBindings.Add("Text", dtEquip, "equipMccPanel", true, DataSourceUpdateMode.Never, "");
@@ -136,7 +138,9 @@ namespace MRMaintenance
 			cboModel.DataBindings.Clear();
 			txtSerial.DataBindings.Clear();
             txtRuntimeTagname.DataBindings.Clear();
+            chkRuntimeCont.DataBindings.Clear();
             txtCyclesTagname.DataBindings.Clear();
+            chkCyclesCont.DataBindings.Clear();
             txtMccPanel.DataBindings.Clear();
             txtMccLocation.DataBindings.Clear();
 			cboEquipType.DataBindings.Clear();
@@ -219,7 +223,9 @@ namespace MRMaintenance
 			txtSerial.Clear();
             cboEquipType.Text = "";
             txtRuntimeTagname.Clear();
+            chkRuntimeCont.Checked = false;
             txtCyclesTagname.Clear();
+            chkCyclesCont.Checked = false;
             txtMccLocation.Clear();
             txtMccPanel.Clear();
 
@@ -257,7 +263,9 @@ namespace MRMaintenance
 				equipment.Description = txtDescr.Text;
 				equipment.Serial = txtSerial.Text;
                 equipment.HmiRuntimeTagname = txtRuntimeTagname.Text;
+                equipment.HmiRuntimeContinuous = chkRuntimeCont.Checked;
                 equipment.HmiCyclesTagname = txtCyclesTagname.Text;
+                equipment.HmiCyclesContinuous = chkCyclesCont.Checked;
                 equipment.MccPanel = txtMccPanel.Text;
                 equipment.MccLocation = txtMccLocation.Text;
 				
