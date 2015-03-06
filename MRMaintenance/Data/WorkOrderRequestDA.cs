@@ -385,9 +385,6 @@ namespace MRMaintenance.Data
 		}
 		
 		
-		
-		
-		
 		public int CreateWorkOrder(WorkOrderRequest workOrderRequest)
 		{
 			using(SqlConnection dbConn = new SqlConnection(connStr))
@@ -400,7 +397,7 @@ namespace MRMaintenance.Data
 				try
 				{
 					cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
-                    if(workOrderRequest.NextDue.Value != DBNull.Value)
+                    if(workOrderRequest.NextDue != null)
                     {
                         cmd.Parameters.AddWithValue("@woDateDue", workOrderRequest.NextDue);
                     }
