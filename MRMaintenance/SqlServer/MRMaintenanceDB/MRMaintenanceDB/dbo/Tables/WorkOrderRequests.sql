@@ -15,6 +15,9 @@
     CONSTRAINT [FK_WorkOrderRequests_Departments] FOREIGN KEY ([deptId]) REFERENCES [dbo].[Departments] ([deptId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_WorkOrderRequests_Equipment] FOREIGN KEY ([equipId]) REFERENCES [dbo].[Equipment] ([equipId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_WorkOrderRequests_Priorities] FOREIGN KEY ([priorityId]) REFERENCES [dbo].[Priorities] ([priorityId]) ON DELETE SET DEFAULT ON UPDATE CASCADE,
-    CONSTRAINT [FK_WorkOrderRequests_TimeIntervals] FOREIGN KEY ([intId]) REFERENCES [dbo].[TimeIntervals] ([intId])
+    CONSTRAINT [FK_WorkOrderRequests_TimeIntervals] FOREIGN KEY ([intId]) REFERENCES [dbo].[TimeIntervals] ([intId]),
+    CONSTRAINT [FK_WorkOrderRequests_WorkOrderRequests] FOREIGN KEY ([reqId]) REFERENCES [dbo].[WorkOrderRequests] ([reqId])
 );
+
+
 

@@ -7,7 +7,9 @@
     [woComplete]      BIT             CONSTRAINT [DF_WorkOrders_woComplete] DEFAULT ((0)) NOT NULL,
     [woDateCompleted] DATETIME        CONSTRAINT [DF_WorkOrders_woDateCompleted] DEFAULT (getdate()) NULL,
     [woCompletedBy]   NVARCHAR (255)  NULL,
-    CONSTRAINT [PK_WorkOrders] PRIMARY KEY CLUSTERED ([woID] ASC)
-	
+    CONSTRAINT [PK_WorkOrders] PRIMARY KEY CLUSTERED ([woID] ASC),
+    CONSTRAINT [FK_WorkOrders_WorkOrders] FOREIGN KEY ([woID]) REFERENCES [dbo].[WorkOrders] ([woID])
 );
+
+
 

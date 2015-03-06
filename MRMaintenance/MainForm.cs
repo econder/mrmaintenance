@@ -34,6 +34,8 @@ namespace MRMaintenance
 		private DataTable dtWorkOrders;
 
         private static int DUE_DATE_DEADBAND = 5;
+        private static int DUE_HRS_DEADBAND = 48;
+        private static int DUE_CYC_DEADBAND = 50;
 
 		public MainForm()
 		{
@@ -112,13 +114,13 @@ namespace MRMaintenance
 			
 			//Load DataGridView with WorkOrdersDueByFacility
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND);
+			dtWorkOrderRequests = workOrderReqBA.LoadByFacilityBrief(facility, DUE_DATE_DEADBAND, DUE_HRS_DEADBAND, DUE_CYC_DEADBAND);
 			if(dtWorkOrderRequests.Rows.Count > 0)
 			{
 				this.dgview.DataSource = dtWorkOrderRequests;
 				
 				//Update work order request row colors
-				this.dgViewUpdateRowColors();
+				//this.dgViewUpdateRowColors();
 			}
 			
 			//Load WorkOrders
@@ -229,7 +231,8 @@ namespace MRMaintenance
 		}
 		
 		
-		//Changed work order request row color if request has open an work order 
+		//Changed work order request row color if request has open an work order
+        /*
 		private void dgViewUpdateRowColors()
 		{
 			if(dgview.RowCount > 0)
@@ -245,7 +248,7 @@ namespace MRMaintenance
 					}
 				}
 			}
-		}
+		} */
 		
 		
 		//Select row and display context menu on right-click
@@ -257,7 +260,10 @@ namespace MRMaintenance
 			workOrderReq.Name = (string)dgview.SelectedRows[0].Cells["Name"].Value;
 			workOrderReq.DateSubmitted = (DateTime)dgview.SelectedRows[0].Cells["Date Submitted"].Value;
 			workOrderReq.EquipmentID = (long)dgview.SelectedRows[0].Cells["Equipment ID"].Value;
-			workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            if (dgview.SelectedRows[0].Cells["Due By"].Value != DBNull.Value)
+            {
+                workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            }
 			
 			//Handle left-click
 			if(e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Left)
@@ -315,7 +321,10 @@ namespace MRMaintenance
 		{
             WorkOrderRequest workOrderReq = new WorkOrderRequest();
             workOrderReq.ID = (long)dgview.SelectedRows[0].Cells["ID"].Value;
-            workOrderReq.NextDue = Convert.ToDateTime(dgview.SelectedRows[0].Cells["Due By"].Value);
+            if (dgview.SelectedRows[0].Cells["Due By"].Value != DBNull.Value)
+            {
+                workOrderReq.NextDue = (DateTime)dgview.SelectedRows[0].Cells["Due By"].Value;
+            }
 
             WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
             workOrderReqBA.CreateWorkOrder(workOrderReq);

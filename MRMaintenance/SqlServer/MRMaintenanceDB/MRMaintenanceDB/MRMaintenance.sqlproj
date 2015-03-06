@@ -75,6 +75,8 @@
     <GenerateCreateScript>False</GenerateCreateScript>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <TargetDatabase>MRMaintenance</TargetDatabase>
+    <DacVersion>1.5.0.0</DacVersion>
+    <AssemblyOwner>MR Systems, Inc.</AssemblyOwner>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -229,10 +231,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="dbo\Views\v_WorkOrderTasks.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="dbo\Views\v_WorkOrderRequests.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -268,8 +266,15 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="dbo\Views\v_RuntimesWide.sql" />
-    <Build Include="dbo\Views\v_RuntimesWide_1.sql" />
+    <Build Include="Security\MRMaintenanceApp.sql" />
+    <Build Include="dbo\Views\v_WorkOrderRequests2.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Views\v_RuntimesSinceLastWO.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

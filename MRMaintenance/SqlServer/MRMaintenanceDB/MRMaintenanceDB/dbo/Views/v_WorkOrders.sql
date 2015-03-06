@@ -1,4 +1,4 @@
-﻿CREATE VIEW dbo.v_WorkOrders
+﻿CREATE VIEW [dbo].[v_WorkOrders]
 AS
 SELECT     dbo.WorkOrders.woID, dbo.WorkOrders.reqId, dbo.WorkOrders.woDateCreated, dbo.WorkOrders.woDateDue, dbo.WorkOrders.woNotes, dbo.WorkOrders.woComplete, 
                       dbo.WorkOrders.woDateCompleted, dbo.WorkOrders.woCompletedBy, dbo.WorkOrderRequests.reqName, dbo.WorkOrderRequests.reqDescr, 
@@ -29,7 +29,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[21] 4[23] 2[31] 3) )"
+         Configuration = "(H (1[43] 4[2] 2[31] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -91,16 +91,56 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = 0
+         Top = -288
          Left = 0
       End
       Begin Tables = 
+         Begin Table = "WorkOrders"
+            Begin Extent = 
+               Top = 96
+               Left = 41
+               Bottom = 296
+               Right = 197
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
          Begin Table = "Locations"
             Begin Extent = 
                Top = 5
                Left = 738
                Bottom = 178
                Right = 889
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "TimeIntervals"
+            Begin Extent = 
+               Top = 301
+               Left = 507
+               Bottom = 414
+               Right = 658
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "WorkOrderRequests"
+            Begin Extent = 
+               Top = 29
+               Left = 263
+               Bottom = 267
+               Right = 430
+            End
+            DisplayFlags = 280
+            TopColumn = 2
+         End
+         Begin Table = "Equipment"
+            Begin Extent = 
+               Top = 32
+               Left = 496
+               Bottom = 293
+               Right = 675
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -121,7 +161,13 @@ Begin DesignProperties =
                Left = 740
                Bottom = 590
                Right = 891
-            End
+       ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrders';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'     End
             DisplayFlags = 280
             TopColumn = 0
          End
@@ -154,50 +200,6 @@ Begin DesignProperties =
             End
             DisplayFlags = 280
             TopColumn = 0
-         End
-         Begin Table = "WorkOrders"
-            Begin Extent = 
-               Top = 96
-               Left = 41
-               Bottom = 296
-               Right = 197
-            End', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrders';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
-            DisplayFlags = 280
-            TopColumn = 1
-         End
-         Begin Table = "Equipment"
-            Begin Extent = 
-               Top = 32
-               Left = 496
-               Bottom = 293
-               Right = 675
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "TimeIntervals"
-            Begin Extent = 
-               Top = 301
-               Left = 507
-               Bottom = 414
-               Right = 658
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "WorkOrderRequests"
-            Begin Extent = 
-               Top = 29
-               Left = 263
-               Bottom = 267
-               Right = 430
-            End
-            DisplayFlags = 280
-            TopColumn = 2
          End
          Begin Table = "Priorities"
             Begin Extent = 
@@ -293,6 +295,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrders';
+
+
 
 
 GO

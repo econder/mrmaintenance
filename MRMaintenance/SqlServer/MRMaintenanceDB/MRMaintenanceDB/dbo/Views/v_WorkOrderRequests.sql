@@ -4,7 +4,10 @@ SELECT     dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkO
                       dbo.WorkOrderRequests.reqDateSubmitted, dbo.WorkOrderRequests.reqStartDate, dbo.WorkOrderRequests.timeFreq, dbo.WorkOrderRequests.intId, 
                       dbo.TimeIntervals.intName, dbo.TimeIntervals.intAbbr, dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, 
                       dbo.Locations.facId, dbo.Facilities.name AS facName, dbo.Locations.name AS locName, dbo.WorkOrderRequests.deptId, dbo.Departments.name AS deptName, 
-                      dbo.WorkOrderRequests.priorityId, dbo.Priorities.priorityName, rt.runtime, cyc.cycles, 
+                      dbo.WorkOrderRequests.priorityId, dbo.Priorities.priorityName, CASE WHEN dbo.Equipment.hmiRuntimeCont = 0 THEN SUM(rt.runtime) 
+                      WHEN dbo.Equipment.hmiRuntimeCont = 1 THEN SUM(rt.runtime) WHEN dbo.Equipment.hmiRuntimeCont = 2 THEN MAX(rt.runtime) - MIN(rt.runtime) END AS runtime, 
+                      CASE WHEN dbo.Equipment.hmiCyclesCont = 0 THEN SUM(cyc.cycles) WHEN dbo.Equipment.hmiCyclesCont = 1 THEN SUM(cyc.cycles) 
+                      WHEN dbo.Equipment.hmiCyclesCont = 2 THEN MAX(cyc.cycles) - MIN(cyc.cycles) END AS cycles, 
                       CASE WHEN dbo.TimeIntervals.intAbbr = '1x' THEN lastCompleted WHEN dbo.TimeIntervals.intAbbr = 'cyc' THEN NULL 
                       WHEN dbo.TimeIntervals.intAbbr = 'rt' THEN NULL WHEN dbo.TimeIntervals.intAbbr = 'n' THEN DATEADD(MINUTE, timeFreq, lastcompleted) 
                       WHEN dbo.TimeIntervals.intAbbr = 'h' THEN DATEADD(HOUR, timeFreq, lastcompleted) WHEN dbo.TimeIntervals.intAbbr = 'd' THEN DATEADD(DAY, timeFreq, 
@@ -24,17 +27,15 @@ FROM         dbo.Facilities INNER JOIN
                             FROM          dbo.WorkOrders
                             WHERE      (woComplete = 0)
                             GROUP BY reqId) AS wo ON dbo.WorkOrderRequests.reqId = wo.reqId LEFT OUTER JOIN
-                          (SELECT     equipId, SUM(runtime) AS runtime
-                            FROM          dbo.Runtimes
-                            GROUP BY equipId) AS rt ON dbo.Equipment.equipId = rt.equipId LEFT OUTER JOIN
-                          (SELECT     equipId, SUM(cycles) AS cycles
-                            FROM          dbo.Cycles
-                            GROUP BY equipId) AS cyc ON dbo.Equipment.equipId = cyc.equipId
+                          (SELECT     equipId, runtimeDate, runtime
+                            FROM          dbo.Runtimes) AS rt ON dbo.Equipment.equipId = rt.equipId AND rt.runtimeDate > dbo.WorkOrderRequests.lastCompleted LEFT OUTER JOIN
+                          (SELECT     equipId, cyclesDate, cycles
+                            FROM          dbo.Cycles) AS cyc ON dbo.Equipment.equipId = cyc.equipId AND cyc.cyclesDate > dbo.WorkOrderRequests.lastCompleted
 GROUP BY dbo.WorkOrderRequests.reqId, dbo.WorkOrderRequests.reqName, dbo.WorkOrderRequests.reqDescr, dbo.WorkOrderRequests.equipId, 
                       dbo.WorkOrderRequests.reqDateSubmitted, dbo.WorkOrderRequests.reqStartDate, dbo.WorkOrderRequests.timeFreq, dbo.TimeIntervals.intName, 
-                      dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, dbo.Facilities.name, dbo.Locations.name, rt.runtime, 
-                      cyc.cycles, dbo.TimeIntervals.intAbbr, wo.woCount, dbo.Priorities.priorityName, dbo.WorkOrderRequests.priorityId, dbo.Departments.name, 
-                      dbo.WorkOrderRequests.deptId, dbo.WorkOrderRequests.intId, dbo.Locations.facId
+                      dbo.WorkOrderRequests.lastCompleted, dbo.WorkOrderRequests.enabled, dbo.Equipment.equipName, dbo.Facilities.name, dbo.Locations.name, 
+                      dbo.TimeIntervals.intAbbr, wo.woCount, dbo.Priorities.priorityName, dbo.WorkOrderRequests.priorityId, dbo.Departments.name, dbo.WorkOrderRequests.deptId, 
+                      dbo.WorkOrderRequests.intId, dbo.Locations.facId, dbo.Equipment.hmiRuntimeCont, dbo.Equipment.hmiCyclesCont
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -42,7 +43,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[8] 4[3] 2[34] 3) )"
+         Configuration = "(H (1[11] 4[11] 2[5] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -104,36 +105,36 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = 0
+         Top = -288
          Left = 0
       End
       Begin Tables = 
          Begin Table = "Facilities"
             Begin Extent = 
-               Top = 215
-               Left = 716
-               Bottom = 306
-               Right = 867
+               Top = 48
+               Left = 1129
+               Bottom = 139
+               Right = 1280
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "Locations"
             Begin Extent = 
-               Top = 172
-               Left = 512
-               Bottom = 370
-               Right = 663
+               Top = 4
+               Left = 827
+               Bottom = 202
+               Right = 978
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "TimeIntervals"
             Begin Extent = 
-               Top = 386
-               Left = 330
-               Bottom = 494
-               Right = 481
+               Top = 12
+               Left = 498
+               Bottom = 120
+               Right = 649
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -150,31 +151,35 @@ Begin DesignProperties =
          End
          Begin Table = "Equipment"
             Begin Extent = 
-               Top = 116
-               Left = 262
-               Bottom = 285
-               Right = 441
+               Top = 160
+               Left = 605
+               Bottom = 329
+               Right = 784
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 8
          End
          Begin Table = "Priorities"
             Begin Extent = 
-               Top = 507
-               Left = 326
-               Bottom = 585
-               Right = 493
+               Top = 431
+               Left = 324
+               Bottom = 509
+               Right = 491
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "Departments"
             Begin Extent = 
-               Top = 297
-               Left = 322
-               Bottom = 375
-               Right = 489
-            End', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrderRequests';
+               Top = 0
+               Left = 251
+               Bottom = 78
+               Right = 418
+            End', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrderRequests';
+
+
+
+
 
 
 GO
@@ -184,30 +189,30 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
          End
          Begin Table = "wo"
             Begin Extent = 
-               Top = 12
-               Left = 297
-               Bottom = 90
-               Right = 448
+               Top = 78
+               Left = 219
+               Bottom = 156
+               Right = 386
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "rt"
             Begin Extent = 
-               Top = 2
-               Left = 731
-               Bottom = 80
-               Right = 882
+               Top = 178
+               Left = 325
+               Bottom = 275
+               Right = 492
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "cyc"
             Begin Extent = 
-               Top = 47
-               Left = 927
-               Bottom = 125
-               Right = 1078
+               Top = 321
+               Left = 325
+               Bottom = 414
+               Right = 492
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -219,13 +224,19 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 25
+      Begin ColumnWidths = 27
          Width = 284
          Width = 1500
          Width = 1980
          Width = 1500
          Width = 1500
          Width = 1995
+         Width = 1995
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 2145
          Width = 1500
          Width = 1500
          Width = 1500
@@ -237,11 +248,7 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
+         Width = 1995
          Width = 1500
          Width = 1500
          Width = 1500
@@ -249,8 +256,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 12
-         Column = 2145
-         Alias = 960
+         Column = 7170
+         Alias = 1200
          Table = 1695
          Output = 720
          Append = 1400
@@ -266,6 +273,12 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'v_WorkOrderRequests';
+
+
+
+
+
+
 
 
 GO

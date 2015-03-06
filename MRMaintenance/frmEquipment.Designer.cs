@@ -219,7 +219,7 @@ namespace MRMaintenance
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(950, 511);
+            this.btnClose.Location = new System.Drawing.Point(856, 511);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 17;
@@ -245,7 +245,7 @@ namespace MRMaintenance
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(869, 511);
+            this.btnSave.Location = new System.Drawing.Point(775, 511);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 15;
@@ -383,24 +383,24 @@ namespace MRMaintenance
             // 
             this.label14.Location = new System.Drawing.Point(735, 58);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(165, 20);
+            this.label14.Size = new System.Drawing.Size(180, 20);
             this.label14.TabIndex = 77;
-            this.label14.Text = "HMI Equipment Runtime Tag";
+            this.label14.Text = "HMI Equipment Runtime Tag Name";
             // 
             // txtCyclesTagname
             // 
-            this.txtCyclesTagname.Location = new System.Drawing.Point(735, 116);
+            this.txtCyclesTagname.Location = new System.Drawing.Point(735, 139);
             this.txtCyclesTagname.Name = "txtCyclesTagname";
             this.txtCyclesTagname.Size = new System.Drawing.Size(194, 20);
             this.txtCyclesTagname.TabIndex = 78;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(735, 100);
+            this.label15.Location = new System.Drawing.Point(735, 123);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(165, 20);
+            this.label15.Size = new System.Drawing.Size(180, 20);
             this.label15.TabIndex = 79;
-            this.label15.Text = "HMI Equipment Cycles Tag";
+            this.label15.Text = "HMI Equipment Cycles Tag Name";
             // 
             // txtMccPanel
             // 
@@ -419,7 +419,7 @@ namespace MRMaintenance
             // 
             // txtMccLocation
             // 
-            this.txtMccLocation.Location = new System.Drawing.Point(735, 251);
+            this.txtMccLocation.Location = new System.Drawing.Point(735, 250);
             this.txtMccLocation.Name = "txtMccLocation";
             this.txtMccLocation.Size = new System.Drawing.Size(194, 20);
             this.txtMccLocation.TabIndex = 82;
@@ -446,21 +446,21 @@ namespace MRMaintenance
             // chkRuntimeCont
             // 
             this.chkRuntimeCont.AutoSize = true;
-            this.chkRuntimeCont.Location = new System.Drawing.Point(938, 76);
+            this.chkRuntimeCont.Location = new System.Drawing.Point(850, 98);
             this.chkRuntimeCont.Name = "chkRuntimeCont";
-            this.chkRuntimeCont.Size = new System.Drawing.Size(85, 17);
+            this.chkRuntimeCont.Size = new System.Drawing.Size(79, 17);
             this.chkRuntimeCont.TabIndex = 85;
-            this.chkRuntimeCont.Text = "Continuous?";
+            this.chkRuntimeCont.Text = "Continuous";
             this.chkRuntimeCont.UseVisualStyleBackColor = true;
             // 
             // chkCyclesCont
             // 
             this.chkCyclesCont.AutoSize = true;
-            this.chkCyclesCont.Location = new System.Drawing.Point(938, 118);
+            this.chkCyclesCont.Location = new System.Drawing.Point(850, 163);
             this.chkCyclesCont.Name = "chkCyclesCont";
-            this.chkCyclesCont.Size = new System.Drawing.Size(85, 17);
+            this.chkCyclesCont.Size = new System.Drawing.Size(79, 17);
             this.chkCyclesCont.TabIndex = 86;
-            this.chkCyclesCont.Text = "Continuous?";
+            this.chkCyclesCont.Text = "Continuous";
             this.chkCyclesCont.UseVisualStyleBackColor = true;
             // 
             // frmEquipment
@@ -468,7 +468,7 @@ namespace MRMaintenance
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1033, 540);
+            this.ClientSize = new System.Drawing.Size(939, 540);
             this.Controls.Add(this.chkCyclesCont);
             this.Controls.Add(this.chkRuntimeCont);
             this.Controls.Add(this.btnDuplicate);
