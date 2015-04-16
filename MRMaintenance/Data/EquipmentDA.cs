@@ -107,7 +107,7 @@ namespace MRMaintenance.Data
 			using(SqlConnection dbConn = new SqlConnection(connStr))
 			{
 				dbConn.Open();
-				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, modelId, equipNumber, equipName, descr, equipSerial, hmiRuntimeTagname, hmiCyclesTagname, equipMccLoc, equipMccPanel)" +
+				SqlCommand cmd = new SqlCommand("INSERT INTO Equipment(locId, equipTypeId, manId, vendorId, modelId, equipNumber, equipName, descr, equipSerial, hmiRuntimeTagname, hmiRuntimeCont, hmiCyclesTagname, hmiCyclesCont, equipMccLoc, equipMccPanel)" +
 											" VALUES(@locId, @equipTypeId, @manId, @vendorId, @modelId, @equipNumber, @equipName, @descr, @equipSerial, @hmiRuntimeTagname, @hmiRuntimeCont, @hmiCyclesTagname, @hmiCyclesCont, @equipMccLoc, @equipMccPanel)", dbConn);
 				
 				try
