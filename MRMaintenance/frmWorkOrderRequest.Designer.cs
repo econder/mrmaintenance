@@ -63,6 +63,8 @@ namespace MRMaintenance
             this.btnNew = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDuplicate = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numFreq)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,9 +95,6 @@ namespace MRMaintenance
             // 
             // txtDescr
             // 
-            this.txtDescr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescr.Location = new System.Drawing.Point(242, 161);
             this.txtDescr.Multiline = true;
             this.txtDescr.Name = "txtDescr";
@@ -225,7 +224,7 @@ namespace MRMaintenance
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(432, 411);
+            this.btnClose.Location = new System.Drawing.Point(706, 411);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 13;
@@ -271,7 +270,7 @@ namespace MRMaintenance
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(351, 411);
+            this.btnSave.Location = new System.Drawing.Point(625, 411);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 125;
@@ -312,12 +311,32 @@ namespace MRMaintenance
             this.btnDuplicate.UseVisualStyleBackColor = true;
             this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(522, 21);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(229, 355);
+            this.listBox1.TabIndex = 127;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(519, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 20);
+            this.label9.TabIndex = 128;
+            this.label9.Text = "Work Order History";
+            // 
             // frmWorkOrderRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(513, 440);
+            this.ClientSize = new System.Drawing.Size(787, 440);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDuplicate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnNew);
@@ -382,5 +401,7 @@ namespace MRMaintenance
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.ComboBox cboEquip;
         private System.Windows.Forms.Button btnDuplicate;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label9;
 	}
 }
