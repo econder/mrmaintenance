@@ -4,7 +4,7 @@
  * Created On: 	8/7/2014
  * 
  * Changes:
- * 
+ * 2015-04-16   Added LoadCompletedByRequest method to return completed work orders by request ID.
  *
  * *************************************************************************************************/
 using System;
@@ -122,6 +122,25 @@ namespace MRMaintenance.BusinessAccess
 				da = null;
 			}
 		}
+
+
+        public DataTable LoadCompletedByRequest(WorkOrderRequest workOrderRequest)
+        {
+            WorkOrderDA da = new WorkOrderDA();
+
+            try
+            {
+                return da.LoadCompletedByRequest(workOrderRequest);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                da = null;
+            }
+        }
 		
 		
 		public DataTable LoadOpenByFacilityBrief(Facility facility)

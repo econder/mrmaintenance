@@ -4,7 +4,7 @@
  * Created On: 	8/7/2014
  * 
  * Changes:
- * 
+ * 2015-04-16   Added LoadCompletedByRequest method to return completed work orders by request ID.
  *
  * *************************************************************************************************/
 using System;
@@ -221,6 +221,38 @@ namespace MRMaintenance.Data
 				}
 			}
 		}
+
+
+        public DataTable LoadCompletedByRequest(WorkOrderRequest workOrderRequest)
+        {
+            using (SqlConnection dbConn = new SqlConnection(connStr))
+            {
+                dbConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE woComplete=1 AND reqId=@reqId ORDER BY woDateCompleted", dbConn);
+
+                cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("WorkOrderHistoryByRequest");
+
+                try
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    dt.Dispose();
+                    da.Dispose();
+                    dbConn.Close();
+                    dbConn.Dispose();
+                }
+            }
+        }
 		
 		
 		public DataTable LoadOpenByRequestBrief(WorkOrderRequest workOrderRequest)
