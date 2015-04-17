@@ -241,12 +241,6 @@
     <Compile Include="frmWorkOrder.Designer.cs">
       <DependentUpon>frmWorkOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWorkOrderHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWorkOrderHistory.Designer.cs">
-      <DependentUpon>frmWorkOrderHistory.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmWorkOrderRequest.cs">
       <SubType>Form</SubType>
     </Compile>

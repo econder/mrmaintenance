@@ -45,7 +45,12 @@
             this.numWoReqId = new System.Windows.Forms.NumericUpDown();
             this.txtReqDesc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.numWoId = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtDateDue = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numWoReqId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWoId)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -122,7 +127,7 @@
             this.txtNotes.Location = new System.Drawing.Point(395, 179);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(267, 181);
+            this.txtNotes.Size = new System.Drawing.Size(267, 187);
             this.txtNotes.TabIndex = 11;
             // 
             // label6
@@ -148,7 +153,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(506, 383);
+            this.btnSave.Location = new System.Drawing.Point(506, 389);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 133;
@@ -160,7 +165,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(587, 383);
+            this.btnClose.Location = new System.Drawing.Point(587, 389);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 132;
@@ -181,6 +186,11 @@
             this.numWoReqId.Enabled = false;
             this.numWoReqId.InterceptArrowKeys = false;
             this.numWoReqId.Location = new System.Drawing.Point(351, 23);
+            this.numWoReqId.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
             this.numWoReqId.Name = "numWoReqId";
             this.numWoReqId.Size = new System.Drawing.Size(119, 20);
             this.numWoReqId.TabIndex = 135;
@@ -194,7 +204,7 @@
             this.txtReqDesc.Location = new System.Drawing.Point(6, 179);
             this.txtReqDesc.Multiline = true;
             this.txtReqDesc.Name = "txtReqDesc";
-            this.txtReqDesc.Size = new System.Drawing.Size(380, 181);
+            this.txtReqDesc.Size = new System.Drawing.Size(380, 187);
             this.txtReqDesc.TabIndex = 137;
             // 
             // label7
@@ -206,12 +216,58 @@
             this.label7.TabIndex = 136;
             this.label7.Text = "Work Order Tasks";
             // 
+            // numWoId
+            // 
+            this.numWoId.Enabled = false;
+            this.numWoId.InterceptArrowKeys = false;
+            this.numWoId.Location = new System.Drawing.Point(546, 23);
+            this.numWoId.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.numWoId.Name = "numWoId";
+            this.numWoId.Size = new System.Drawing.Size(119, 20);
+            this.numWoId.TabIndex = 139;
+            this.numWoId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(589, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 138;
+            this.label8.Text = "Work Order ID";
+            // 
+            // dtDateDue
+            // 
+            this.dtDateDue.Enabled = false;
+            this.dtDateDue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDateDue.Location = new System.Drawing.Point(148, 66);
+            this.dtDateDue.Name = "dtDateDue";
+            this.dtDateDue.Size = new System.Drawing.Size(136, 20);
+            this.dtDateDue.TabIndex = 141;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(145, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 140;
+            this.label9.Text = "Due On";
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(668, 412);
+            this.ClientSize = new System.Drawing.Size(668, 418);
+            this.Controls.Add(this.dtDateDue);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.numWoId);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtReqDesc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.numWoReqId);
@@ -240,6 +296,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Work Order";
             ((System.ComponentModel.ISupportInitialize)(this.numWoReqId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWoId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +321,10 @@
         private System.Windows.Forms.NumericUpDown numWoReqId;
         private System.Windows.Forms.TextBox txtReqDesc;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numWoId;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtDateDue;
+        private System.Windows.Forms.Label label9;
 
     }
 }
