@@ -5,7 +5,8 @@
  * 
  * Changes:
  * 2014-08-21	Fixed bug that crashed app when right-clicking on WorkOrder to view report.
- *
+ * 2015-04-16   Added refresh to main form when creating work order from request.
+ *              Fixed bug with invalid column name "ID" when right-clicking on work order to show report.
  * *************************************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace MRMaintenance
 			WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
 			WorkOrderBA workOrderBA = new WorkOrderBA();
 			
-			Facility facility = new Facility();
+            Facility facility = new Facility();
 			
 			//Create work order request object to hold datagridview
 			//information as row selection changes
@@ -171,7 +172,10 @@ namespace MRMaintenance
             Facility facility = new Facility();
             facility.ID = (long)cboFacilities.SelectedValue;
 			frmWorkOrderRequest form = new frmWorkOrderRequest(facility);
-			form.ShowDialog(this);
+            if (form.ShowDialog(this) == DialogResult.Cancel || form.ShowDialog(this) == DialogResult.None)
+            {
+                this.ResetControlBindings();
+            }
 		}
 		
 		
@@ -223,7 +227,7 @@ namespace MRMaintenance
 			if(e.RowIndex >= 0)
 			{
 				frmWorkOrderRequest form = new frmWorkOrderRequest((long)dgview.SelectedRows[0].Cells["Equipment ID"].Value, (long)dgview.SelectedRows[0].Cells["ID"].Value);
-				if(form.ShowDialog(this) == DialogResult.OK)
+				if(form.ShowDialog(this) == DialogResult.Cancel || form.ShowDialog(this) == DialogResult.None)
 				{
 					this.ResetControlBindings();
 				}
@@ -340,6 +344,8 @@ namespace MRMaintenance
 
 			//if(workOrderReqBA.CreateWorkOrder(workOrderReq) == -1)
 			//	MessageBox.Show("Unable to create work order. An open work order already exists for this work request.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.ResetControlBindings();
 		}
 
 
@@ -402,7 +408,7 @@ namespace MRMaintenance
 		//Show Work Order Detail Report
 		private void ToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			string id = dgviewWO.SelectedRows[0].Cells["ID"].Value.ToString();
+			string id = dgviewWO.SelectedRows[0].Cells["Work Order ID"].Value.ToString();
             Process.Start("iexplore.exe", string.Format("http://{0}/ReportServer/Pages/ReportViewer.aspx?%2fWorkOrderDetailsByID&rs:Command=Render&workOrderId={1}", this._dbServerName, id));
 		}
 

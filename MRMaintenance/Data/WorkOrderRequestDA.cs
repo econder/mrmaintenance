@@ -303,8 +303,7 @@ namespace MRMaintenance.Data
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId, deptId=@deptId," +
 				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enabled=@enabled, priorityId=@priorityId" +
-				                                " WHERE reqId=@reqId" + 
-                                                " ORDER BY reqName", dbConn);
+				                                " WHERE reqId=@reqId", dbConn);
 				
 				try
 				{
