@@ -41,8 +41,10 @@ namespace MRMaintenance
 			
 			//Bind controls
 			txtWoReqName.DataBindings.Add("Text", dt, "reqName", true, DataSourceUpdateMode.Never, "");
+            numWoId.DataBindings.Add("Value", dt, "woID", true, DataSourceUpdateMode.Never, 0);
             numWoReqId.DataBindings.Add("Value", dt, "reqId", true, DataSourceUpdateMode.Never, 0);
             dtCreatedOn.DataBindings.Add("Value", dt, "woDateCreated", true, DataSourceUpdateMode.Never, null);
+            dtDateDue.DataBindings.Add("Value", dt, "woDateDue", true, DataSourceUpdateMode.Never, null);
             chkComplete.DataBindings.Add("Checked", dt, "woComplete", true, DataSourceUpdateMode.Never, false);
             dtCompletedOn.DataBindings.Add("Value", dt, "woDateCompleted", true, DataSourceUpdateMode.Never, null);
             txtCompletedBy.DataBindings.Add("Text", dt, "woCompletedBy", true, DataSourceUpdateMode.Never, "");
@@ -55,8 +57,10 @@ namespace MRMaintenance
 		{
 			//Clear existing databindings for each control
 			txtWoReqName.DataBindings.Clear();
+            numWoId.DataBindings.Clear();
             numWoReqId.DataBindings.Clear();
             dtCreatedOn.DataBindings.Clear();
+            dtDateDue.DataBindings.Clear();
             chkComplete.DataBindings.Clear();
             dtCompletedOn.DataBindings.Clear();
             txtCompletedBy.DataBindings.Clear();
@@ -82,9 +86,9 @@ namespace MRMaintenance
         {
             WorkOrder wo = new WorkOrder();
             wo.ID = m_workOrder.ID;
-            wo.RequestID = m_workOrder.RequestID;
-            wo.DateCreated = m_workOrder.DateCreated;
-            wo.DateDue = m_workOrder.DateDue;
+            wo.RequestID = (long)numWoReqId.Value;
+            wo.DateCreated = dtCreatedOn.Value;
+            wo.DateDue = dtDateDue.Value;
             wo.Complete = chkComplete.Checked;
             wo.CompletedBy = txtCompletedBy.Text;
             wo.DateCompleted = dtCompletedOn.Value;

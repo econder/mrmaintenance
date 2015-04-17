@@ -44,10 +44,6 @@ namespace MRMaintenance
             this._filterByEquip = false;
 
 			InitializeComponent();
-
-            //Setup event handler after loading and binding the control
-            //to prevent firing the event before the control is populated
-            this.listWO.SelectedIndexChanged += new System.EventHandler(this.listWO_SelectedIndexChanged);
 			
 			workOrderReqBA = new WorkOrderRequestBA();
 			equip = new EquipmentBA();
@@ -124,6 +120,17 @@ namespace MRMaintenance
                 listWO.DisplayMember = "reqName";
                 listWO.ValueMember = "reqId";
             }
+
+            //Setup event handler after loading and binding the control
+            //to prevent firing the event before the control is populated
+            this.listWO.SelectedIndexChanged += new System.EventHandler(this.listWO_SelectedIndexChanged);
+
+            //Select first request in the list if items exist
+            if (this.listWO.Items.Count > 0)
+            {
+                this.listWO.SelectedIndex = -1;
+                this.listWO.SelectedIndex = 0;
+            }
 			
 			//Bind work order request enabled checkbox
 			chkEnabled.DataBindings.Add("Checked", dt, "enabled", true, DataSourceUpdateMode.Never, false);
@@ -168,9 +175,9 @@ namespace MRMaintenance
 			cboInterval.DataBindings.Add("SelectedValue", dt, "intId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
 
             //Bind work order history
-            listWOHist.DataSource = dtWO;
-            listWOHist.DisplayMember = "lastCompleted";
-            listWOHist.ValueMember = "woId";
+            //listWOHist.DataSource = dtWO;
+            //listWOHist.DisplayMember = "lastCompleted";
+            //listWOHist.ValueMember = "woId";
 		}
 		
 		
@@ -200,13 +207,13 @@ namespace MRMaintenance
             woReq.ID = (long)listWO.SelectedValue;
 
             WorkOrderBA woBA = new WorkOrderBA();
-            dtWO = woBA.LoadCompletedByRequest(woReq);
+            dtWO = woBA.LoadCompletedByRequestBrief(woReq);
 
             listWOHist.DataSource = dtWO;
             listWOHist.DisplayMember = "woDateCompleted";
             listWOHist.ValueMember = "woId";
-            listWOHist.DataBindings.Clear();
-            listWOHist.DataBindings.Add("SelectedValue", dtWO, "woId", false, DataSourceUpdateMode.Never, -1);
+            //listWOHist.DataBindings.Clear();
+            //listWOHist.DataBindings.Add("SelectedValue", listWO, "woId", false, DataSourceUpdateMode.Never, -1);
         }
 
 
@@ -279,6 +286,25 @@ namespace MRMaintenance
 		{
 			this.Hide();
 		}
+
+
+        private void listWO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listWO.SelectedIndex > -1)
+            {
+                WorkOrderRequest woReq = new WorkOrderRequest();
+                woReq.ID = (long)listWO.SelectedValue;
+
+                //Load and bind work order history listbox
+                WorkOrderBA woBA = new WorkOrderBA();
+                dtWO = woBA.LoadCompletedByRequestBrief(woReq);
+                listWOHist.DataSource = dtWO;
+                listWOHist.DisplayMember = "woDateCompleted";
+                listWOHist.ValueMember = "woID";
+
+                this.ResetWorkOrderHistoryListBindings();
+            }
+        }
 		
 		
 		private void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -368,21 +394,18 @@ namespace MRMaintenance
 		}
 
 
-        private void listWO_SelectedIndexChanged(object sender, EventArgs e)
+        private void listWOHist_DoubleClick(object sender, EventArgs e)
         {
-            if (listWO.SelectedIndex > -1)
+            if (listWOHist.SelectedIndex > -1)
             {
-                Equipment equipment = new Equipment();
-                equipment.ID = (long)listEquip.SelectedValue;
+                WorkOrder wo = new WorkOrder();
+                wo.ID = (long)listWOHist.SelectedValue;
 
-                //Load and bind docs/links listbox
-                EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
-                dtEquipDocs = equipmentDocBA.LoadByEquipment(equipment);
-                listEquipDocs.DataSource = dtEquipDocs;
-                listEquipDocs.DisplayMember = "equipDocName";
-                listEquipDocs.ValueMember = "equipDocId";
-
-                this.ResetWorkOrderRequestListBindings();
+                frmWorkOrder form = new frmWorkOrder(wo);
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.ResetWorkOrderHistoryListBindings();
+                }
             }
         }
 	}

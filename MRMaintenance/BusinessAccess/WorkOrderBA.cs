@@ -124,13 +124,13 @@ namespace MRMaintenance.BusinessAccess
 		}
 
 
-        public DataTable LoadCompletedByRequest(WorkOrderRequest workOrderRequest)
+        public DataTable LoadCompletedByRequestBrief(WorkOrderRequest workOrderRequest)
         {
             WorkOrderDA da = new WorkOrderDA();
 
             try
             {
-                return da.LoadCompletedByRequest(workOrderRequest);
+                return da.LoadCompletedByRequestBrief(workOrderRequest);
             }
             catch
             {

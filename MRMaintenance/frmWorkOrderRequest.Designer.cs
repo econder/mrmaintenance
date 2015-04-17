@@ -211,7 +211,6 @@ namespace MRMaintenance
             this.listWO.Name = "listWO";
             this.listWO.Size = new System.Drawing.Size(229, 355);
             this.listWO.TabIndex = 0;
-            this.listWO.SelectedIndexChanged += new System.EventHandler(this.listWO_SelectedIndex);
             // 
             // label1
             // 
@@ -321,6 +320,7 @@ namespace MRMaintenance
             this.listWOHist.Name = "listWOHist";
             this.listWOHist.Size = new System.Drawing.Size(229, 355);
             this.listWOHist.TabIndex = 127;
+            this.listWOHist.DoubleClick += new System.EventHandler(this.listWOHist_DoubleClick);
             // 
             // label9
             // 

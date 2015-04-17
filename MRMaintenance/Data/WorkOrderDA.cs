@@ -223,12 +223,12 @@ namespace MRMaintenance.Data
 		}
 
 
-        public DataTable LoadCompletedByRequest(WorkOrderRequest workOrderRequest)
+        public DataTable LoadCompletedByRequestBrief(WorkOrderRequest workOrderRequest)
         {
             using (SqlConnection dbConn = new SqlConnection(connStr))
             {
                 dbConn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM v_WorkOrders WHERE woComplete=1 AND reqId=@reqId ORDER BY woDateCompleted", dbConn);
+                SqlCommand cmd = new SqlCommand("SELECT woID, reqId, woDateCreated, woDateDue, FORMAT(woDateCompleted, 'yyyy-MM-dd') + ' — WO# ' + CONVERT(nvarchar(15), woID) AS [woDateCompleted] FROM v_WorkOrders WHERE woComplete=1 AND reqId=@reqId ORDER BY woDateCompleted DESC", dbConn);
 
                 cmd.Parameters.AddWithValue("@reqId", workOrderRequest.ID);
 

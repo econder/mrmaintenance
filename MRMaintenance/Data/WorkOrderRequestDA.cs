@@ -69,7 +69,8 @@ namespace MRMaintenance.Data
                 SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
                                                 " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
                                                 " FROM v_WorkOrderRequests" +
-                                                " WHERE v_WorkOrderRequests.facId = @facilityId", dbConn);
+                                                " WHERE v_WorkOrderRequests.facId = @facilityId" + 
+                                                " ORDER BY equipName", dbConn);
 
                 cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 
@@ -107,7 +108,8 @@ namespace MRMaintenance.Data
 												" WHERE facId = @facilityId" +
                                                 " AND (nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" +
                                                     " OR runtime > timeFreq - " + dueHoursDeadband + 
-                                                    " OR cycles > timeFreq - " + dueCyclesDeadband + ")", dbConn);
+                                                    " OR cycles > timeFreq - " + dueCyclesDeadband + ")" + 
+                                                " ORDER BY equipName", dbConn);
 				
 				cmd.Parameters.AddWithValue("@facilityId", facility.ID);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
@@ -191,7 +193,8 @@ namespace MRMaintenance.Data
                 SqlCommand cmd = new SqlCommand("SELECT equipName + ' - ' + reqName AS [reqNameExt], reqId, reqName, reqDescr, equipId, reqDateSubmitted, reqStartDate, timeFreq, intId, intName, intAbbr, lastCompleted, enabled," +
                                                 " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" + 
                                                 " FROM v_WorkOrderRequests" +
-                                                " WHERE v_WorkOrderRequests.equipId = @equipId", dbConn);
+                                                " WHERE v_WorkOrderRequests.equipId = @equipId" + 
+                                                " ORDER BY equipName", dbConn);
 
                 cmd.Parameters.AddWithValue("@equipId", equipmentId);
 
@@ -227,7 +230,8 @@ namespace MRMaintenance.Data
                                                 " equipName, facId, facName, locName, deptId, deptName, priorityId, priorityName, runtime, cycles, nextDue, woCount" +
                                                 " FROM v_WorkOrderRequests" +
 												" WHERE v_WorkOrderRequests.nextDue <= DATEADD(DAY, @dueDateDeadband, GETDATE())" + 
-												" AND v_WorkOrderRequests.equipId = @equipId", dbConn);
+												" AND v_WorkOrderRequests.equipId = @equipId" + 
+                                                " ORDER BY equipName", dbConn);
 				
 				cmd.Parameters.AddWithValue("@equipId", equipmentId);
 				cmd.Parameters.AddWithValue("@dueDateDeadband", dueDateDeadband);
@@ -299,7 +303,8 @@ namespace MRMaintenance.Data
 				dbConn.Open();
 				SqlCommand cmd = new SqlCommand("UPDATE WorkOrderRequests SET reqName=@reqName, reqDescr=@reqDescr, equipId=@equipId, deptId=@deptId," +
 				                                " reqStartDate=@reqStartDate, timeFreq=@timeFreq, intId=@intId, enabled=@enabled, priorityId=@priorityId" +
-				                                " WHERE reqId=@reqId", dbConn);
+				                                " WHERE reqId=@reqId" + 
+                                                " ORDER BY reqName", dbConn);
 				
 				try
 				{
