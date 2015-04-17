@@ -5,7 +5,7 @@
  * 
  * Changes:
  * 2014-08-08	Renamed to frmWorkOrderRequest from frmWorkOrderRequest.
- * 
+ * 2015-04-16   Added Work Order History list
  * *************************************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -32,8 +32,8 @@ namespace MRMaintenance
 		private PriorityBA priorityBA;
 
         private DataTable dt;
+        private DataTable dtWO;
         private Facility _facility;
-        private Equipment _equipment;
         private long _equipmentId;
         private bool _filterByEquip;
 		
@@ -120,8 +120,17 @@ namespace MRMaintenance
                 listWO.DisplayMember = "reqName";
                 listWO.ValueMember = "reqId";
             }
-			
-			
+
+            //Setup event handler after loading and binding the control
+            //to prevent firing the event before the control is populated
+            this.listWO.SelectedIndexChanged += new System.EventHandler(this.listWO_SelectedIndexChanged);
+
+            //Select first request in the list if items exist
+            if (this.listWO.Items.Count > 0)
+            {
+                this.listWO.SelectedIndex = -1;
+                this.listWO.SelectedIndex = 0;
+            }
 			
 			//Bind work order request enabled checkbox
 			chkEnabled.DataBindings.Add("Checked", dt, "enabled", true, DataSourceUpdateMode.Never, false);
@@ -164,6 +173,11 @@ namespace MRMaintenance
 			
 			//Bind interval combobox
 			cboInterval.DataBindings.Add("SelectedValue", dt, "intId", true, DataSourceUpdateMode.OnPropertyChanged, -1);
+
+            //Bind work order history
+            //listWOHist.DataSource = dtWO;
+            //listWOHist.DisplayMember = "lastCompleted";
+            //listWOHist.ValueMember = "woId";
 		}
 		
 		
@@ -186,6 +200,21 @@ namespace MRMaintenance
 			//Load database and re-bind all the controls
 			this.FillData();
 		}
+
+        private void ResetWorkOrderHistoryListBindings()
+        {
+            WorkOrderRequest woReq = new WorkOrderRequest();
+            woReq.ID = (long)listWO.SelectedValue;
+
+            WorkOrderBA woBA = new WorkOrderBA();
+            dtWO = woBA.LoadCompletedByRequestBrief(woReq);
+
+            listWOHist.DataSource = dtWO;
+            listWOHist.DisplayMember = "woDateCompleted";
+            listWOHist.ValueMember = "woId";
+            //listWOHist.DataBindings.Clear();
+            //listWOHist.DataBindings.Add("SelectedValue", listWO, "woId", false, DataSourceUpdateMode.Never, -1);
+        }
 
 
         private void btnDuplicate_Click(object sender, EventArgs e)
@@ -257,6 +286,25 @@ namespace MRMaintenance
 		{
 			this.Hide();
 		}
+
+
+        private void listWO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listWO.SelectedIndex > -1)
+            {
+                WorkOrderRequest woReq = new WorkOrderRequest();
+                woReq.ID = (long)listWO.SelectedValue;
+
+                //Load and bind work order history listbox
+                WorkOrderBA woBA = new WorkOrderBA();
+                dtWO = woBA.LoadCompletedByRequestBrief(woReq);
+                listWOHist.DataSource = dtWO;
+                listWOHist.DisplayMember = "woDateCompleted";
+                listWOHist.ValueMember = "woID";
+
+                this.ResetWorkOrderHistoryListBindings();
+            }
+        }
 		
 		
 		private void cboEquip_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -344,5 +392,21 @@ namespace MRMaintenance
 				MessageBox.Show("Time interval name cannot be blank.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+
+        private void listWOHist_DoubleClick(object sender, EventArgs e)
+        {
+            if (listWOHist.SelectedIndex > -1)
+            {
+                WorkOrder wo = new WorkOrder();
+                wo.ID = (long)listWOHist.SelectedValue;
+
+                frmWorkOrder form = new frmWorkOrder(wo);
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    this.ResetWorkOrderHistoryListBindings();
+                }
+            }
+        }
 	}
 }
