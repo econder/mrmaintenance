@@ -207,6 +207,7 @@ namespace MRMaintenance
             this.listWO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listWO.FormattingEnabled = true;
+            this.listWO.HorizontalScrollbar = true;
             this.listWO.Location = new System.Drawing.Point(6, 21);
             this.listWO.Name = "listWO";
             this.listWO.Size = new System.Drawing.Size(229, 355);
@@ -316,6 +317,7 @@ namespace MRMaintenance
             this.listWOHist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listWOHist.FormattingEnabled = true;
+            this.listWOHist.HorizontalScrollbar = true;
             this.listWOHist.Location = new System.Drawing.Point(522, 21);
             this.listWOHist.Name = "listWOHist";
             this.listWOHist.Size = new System.Drawing.Size(229, 355);

@@ -127,6 +127,7 @@
             this.txtNotes.Location = new System.Drawing.Point(395, 179);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
+            this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtNotes.Size = new System.Drawing.Size(267, 187);
             this.txtNotes.TabIndex = 11;
             // 
@@ -204,6 +205,7 @@
             this.txtReqDesc.Location = new System.Drawing.Point(6, 179);
             this.txtReqDesc.Multiline = true;
             this.txtReqDesc.Name = "txtReqDesc";
+            this.txtReqDesc.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtReqDesc.Size = new System.Drawing.Size(380, 187);
             this.txtReqDesc.TabIndex = 137;
             // 
