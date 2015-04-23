@@ -258,6 +258,7 @@ namespace MRMaintenance
             this.listEquip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listEquip.FormattingEnabled = true;
+            this.listEquip.HorizontalScrollbar = true;
             this.listEquip.Location = new System.Drawing.Point(6, 29);
             this.listEquip.Name = "listEquip";
             this.listEquip.Size = new System.Drawing.Size(229, 459);
@@ -268,6 +269,7 @@ namespace MRMaintenance
             this.listEquipDocs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listEquipDocs.FormattingEnabled = true;
+            this.listEquipDocs.HorizontalScrollbar = true;
             this.listEquipDocs.Location = new System.Drawing.Point(252, 315);
             this.listEquipDocs.Name = "listEquipDocs";
             this.listEquipDocs.Size = new System.Drawing.Size(229, 173);
@@ -336,6 +338,7 @@ namespace MRMaintenance
             this.listWorkOrderReq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listWorkOrderReq.FormattingEnabled = true;
+            this.listWorkOrderReq.HorizontalScrollbar = true;
             this.listWorkOrderReq.Location = new System.Drawing.Point(495, 315);
             this.listWorkOrderReq.Name = "listWorkOrderReq";
             this.listWorkOrderReq.Size = new System.Drawing.Size(226, 173);

@@ -64,6 +64,7 @@ namespace MRMaintenance
             // listLoc
             // 
             this.listLoc.FormattingEnabled = true;
+            this.listLoc.HorizontalScrollbar = true;
             this.listLoc.Location = new System.Drawing.Point(3, 66);
             this.listLoc.Name = "listLoc";
             this.listLoc.Size = new System.Drawing.Size(229, 121);
