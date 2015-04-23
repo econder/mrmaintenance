@@ -175,5 +175,15 @@ namespace MRMaintenance
 				MessageBox.Show("Facility name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+        private void listFac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmFacility_Load(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
