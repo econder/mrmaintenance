@@ -35,8 +35,8 @@ namespace MRMaintenance
 		private DataTable dtWorkOrders;
 
         private static int DUE_DATE_DEADBAND = 5;
-        private static int DUE_HRS_DEADBAND = 48;
-        private static int DUE_CYC_DEADBAND = 50;
+        private static int DUE_HRS_DEADBAND = 24;
+        private static int DUE_CYC_DEADBAND = 24;
 
 		public MainForm()
 		{
