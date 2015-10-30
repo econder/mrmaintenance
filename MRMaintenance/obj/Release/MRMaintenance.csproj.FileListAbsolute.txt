@@ -65,3 +65,4 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe.config
