@@ -311,15 +311,21 @@ namespace MRMaintenance
 			{
 				EquipmentDoc equipmentDoc = new EquipmentDoc();
 				equipmentDoc.ID = (long)listEquipDocs.SelectedValue;
-				
-				EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
-				equipmentDocBA.Delete(equipmentDoc);
-				
-				this.ResetDocControlBindings();
-				
-				listEquipDocs.DataSource = dtEquipDocs;
-				listEquipDocs.DisplayMember = "equipDocName";
-				listEquipDocs.ValueMember = "equipDocId";
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", equipmentDoc.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete the item
+                    EquipmentDocBA equipmentDocBA = new EquipmentDocBA();
+                    equipmentDocBA.Delete(equipmentDoc);
+
+                    //Reload data
+                    this.ResetControlBindings();
+                    listEquipDocs.DataSource = dtEquipDocs;
+                    listEquipDocs.DisplayMember = "equipDocName";
+                    listEquipDocs.ValueMember = "equipDocId";
+                }
 			}
 		}
 		
@@ -360,11 +366,18 @@ namespace MRMaintenance
 			{
 				WorkOrderRequest workOrderRequest = new WorkOrderRequest();
 				workOrderRequest.ID = (long)listWorkOrderReq.SelectedValue;
-				
-				WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
-				workOrderReqBA.Delete(workOrderRequest);
-				
-				this.ResetWorkOrderRequestListBindings();
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", workOrderRequest.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete item
+                    WorkOrderRequestBA workOrderReqBA = new WorkOrderRequestBA();
+                    workOrderReqBA.Delete(workOrderRequest);
+
+                    //Reload data
+                    this.ResetWorkOrderRequestListBindings();
+                }
 			}
 		}
 		

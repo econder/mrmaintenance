@@ -71,19 +71,25 @@ namespace MRMaintenance
 		}
 		
 		
-		private void btnRemove_Click(object sender, EventArgs e)
+		private void btnDelete_Click(object sender, EventArgs e)
 		{
 			if(listDept.SelectedIndex >= 0)
 			{
 				Department department = new Department();
 				department.ID = (long)listDept.SelectedValue;
 				department.Name = txtName.Text;
-				
-				departmentBA.Delete(department);
-				
-				//Reload data
-				this.ResetControlBindings();
-			}
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", department.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete the item
+                    departmentBA.Delete(department);
+
+                    //Reload data
+                    this.ResetControlBindings();
+                }
+            }
 		}
 		
 		

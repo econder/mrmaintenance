@@ -186,11 +186,18 @@ namespace MRMaintenance
 		{
 			Part part = new Part();
 			part.ID = (long)listParts.SelectedValue;
-			
-			PartBA partBA = new PartBA();
-			partBA.Delete(part);
-			
-			this.ResetControlBindings();
+
+            //Show confirmation dialog
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", part.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Delete item
+                PartBA partBA = new PartBA();
+                partBA.Delete(part);
+
+                //Reload data
+                this.ResetControlBindings();
+            }
 		}
 		
 		

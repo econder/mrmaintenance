@@ -65,3 +65,28 @@ C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.Cache
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe
 C:\Users\econder\Documents\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojResolveAssemblyReference.cache
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe.config
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\bin\Release\MRMaintenance.exe
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csprojAssemblyReference.cache
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmAbout.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDbConnectionSettings.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmDepartment.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipment.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipmentDoc.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipmentModel.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmEquipmentType.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmFacility.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmInventoryEdit.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmInventoryLocation.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmInventoryXfer.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmLocations.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmManufacturer.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmPart.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmVendor.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrder.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.frmWorkOrderRequest.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.MainForm.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.Properties.Resources.resources
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.GenerateResource.cache
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.csproj.CoreCompileInputs.cache
+C:\Users\mrsystems\Documents\VS Projects\mrmaintenance\MRMaintenance\obj\Release\MRMaintenance.exe

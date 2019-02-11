@@ -84,11 +84,17 @@ namespace MRMaintenance
 				EquipmentType type = new EquipmentType();
 				type.ID = (long)listType.SelectedValue;
 				type.Name = txtName.Text;
-				
-				typeBA.Delete(type);
-				
-				//Reload data
-				this.ResetControlBindings();
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", type.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete item
+                    typeBA.Delete(type);
+
+                    //Reload data
+                    this.ResetControlBindings();
+                }
 			}
 		}
 		

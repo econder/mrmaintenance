@@ -391,7 +391,7 @@ namespace MRMaintenance
             this.MinimumSize = new System.Drawing.Size(700, 600);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Text = "MRMaintenance - Copyright © 2014";
+            this.Text = string.Format("MRMaintenance - Copyright © 2014-{0}", System.DateTime.Now.Year.ToString());
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();

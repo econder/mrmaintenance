@@ -108,11 +108,17 @@ namespace MRMaintenance
 				EquipmentModel model = new EquipmentModel();
 				model.ID = (long)listModel.SelectedValue;
 				model.Name = txtName.Text;
-				
-				modelBA.Delete(model);
-				
-				//Reload data
-				this.ResetControlBindings();
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", model.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete item
+                    modelBA.Delete(model);
+
+                    //Reload data
+                    this.ResetControlBindings();
+                }
 			}
 		}
 		

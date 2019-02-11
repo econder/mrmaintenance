@@ -45,7 +45,7 @@ namespace MRMaintenance
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -112,15 +112,15 @@ namespace MRMaintenance
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(209, 147);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 123;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(209, 147);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(26, 23);
+            this.btnDelete.TabIndex = 123;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmDepartment
             // 
@@ -130,7 +130,7 @@ namespace MRMaintenance
             this.ClientSize = new System.Drawing.Size(513, 204);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.listDept);
             this.Controls.Add(this.txtName);
@@ -150,7 +150,7 @@ namespace MRMaintenance
             this.PerformLayout();
 
 		}
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnDelete;
 		private System.Windows.Forms.Button btnNew;
 		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label label1;
