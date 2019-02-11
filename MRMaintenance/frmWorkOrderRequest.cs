@@ -244,7 +244,7 @@ namespace MRMaintenance
 			woReq.ID = (long)this.listWO.SelectedValue;
 
             //Show confirmation dialog
-            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", woReq.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", woReq.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
                 //Delete item

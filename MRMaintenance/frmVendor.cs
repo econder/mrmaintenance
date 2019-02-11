@@ -112,7 +112,7 @@ namespace MRMaintenance
 			vendor.ID = (long)listVen.SelectedValue;
 
             //Show confirmation dialog
-            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", vendor.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", vendor.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
                 //Delete item

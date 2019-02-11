@@ -110,7 +110,7 @@ namespace MRMaintenance
 				model.Name = txtName.Text;
 
                 //Show confirmation dialog
-                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", model.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", model.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //Delete item

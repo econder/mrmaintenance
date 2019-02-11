@@ -188,7 +188,7 @@ namespace MRMaintenance
 			part.ID = (long)listParts.SelectedValue;
 
             //Show confirmation dialog
-            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", part.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", part.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
                 //Delete item

@@ -154,7 +154,7 @@ namespace MRMaintenance
 				facility.ID = (long)listFac.SelectedValue;
 
                 //Show confirmation dialog
-                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", facility.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", facility.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.Yes)
                 {
                     //Delete item
