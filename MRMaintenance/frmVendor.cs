@@ -110,11 +110,17 @@ namespace MRMaintenance
 		{
 			Vendor vendor = new Vendor();
 			vendor.ID = (long)listVen.SelectedValue;
-			
-			vendorBA.Delete(vendor);
-			
-			//Reload data
-			this.ResetControlBindings();
+
+            //Show confirmation dialog
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", vendor.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Delete item
+                vendorBA.Delete(vendor);
+
+                //Reload data
+                this.ResetControlBindings();
+            }
 		}
 		
 		

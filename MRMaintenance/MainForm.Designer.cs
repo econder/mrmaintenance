@@ -49,6 +49,7 @@ namespace MRMaintenance
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equipmentTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.locationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@ namespace MRMaintenance
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.equipmentTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgview)).BeginInit();
             this.menuWorkOrderReq.SuspendLayout();
@@ -108,7 +108,7 @@ namespace MRMaintenance
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -146,56 +146,72 @@ namespace MRMaintenance
             // workOrderRequestsToolStripMenuItem
             // 
             this.workOrderRequestsToolStripMenuItem.Name = "workOrderRequestsToolStripMenuItem";
-            this.workOrderRequestsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.workOrderRequestsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D1)));
+            this.workOrderRequestsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.workOrderRequestsToolStripMenuItem.Text = "&Work Order Requests";
             this.workOrderRequestsToolStripMenuItem.Click += new System.EventHandler(this.WorkOrderRequestsToolStripMenuItemClick);
             // 
             // equipmentToolStripMenuItem
             // 
             this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
-            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.equipmentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D2)));
+            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.equipmentToolStripMenuItem.Text = "&Equipment";
             this.equipmentToolStripMenuItem.Click += new System.EventHandler(this.EquipmentToolStripMenuItemClick);
+            // 
+            // equipmentTypeToolStripMenuItem
+            // 
+            this.equipmentTypeToolStripMenuItem.Name = "equipmentTypeToolStripMenuItem";
+            this.equipmentTypeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D3)));
+            this.equipmentTypeToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.equipmentTypeToolStripMenuItem.Text = "Equipment &Type";
+            this.equipmentTypeToolStripMenuItem.Click += new System.EventHandler(this.equipmentTypeToolStripMenuItem_Click);
             // 
             // locationsToolStripMenuItem
             // 
             this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
-            this.locationsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.locationsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D4)));
+            this.locationsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.locationsToolStripMenuItem.Text = "&Locations";
             this.locationsToolStripMenuItem.Click += new System.EventHandler(this.LocationsToolStripMenuItemClick);
             // 
             // facilitiesToolStripMenuItem
             // 
             this.facilitiesToolStripMenuItem.Name = "facilitiesToolStripMenuItem";
-            this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.facilitiesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D5)));
+            this.facilitiesToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.facilitiesToolStripMenuItem.Text = "&Facilities";
             this.facilitiesToolStripMenuItem.Click += new System.EventHandler(this.FacilitiesToolStripMenuItemClick);
             // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.departmentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D6)));
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.departmentsToolStripMenuItem.Text = "&Departments";
             this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.DepartmentsToolStripMenuItemClick);
             // 
             // manufacturersToolStripMenuItem
             // 
             this.manufacturersToolStripMenuItem.Name = "manufacturersToolStripMenuItem";
-            this.manufacturersToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.manufacturersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D7)));
+            this.manufacturersToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.manufacturersToolStripMenuItem.Text = "Manufacturers";
             this.manufacturersToolStripMenuItem.Click += new System.EventHandler(this.ManufacturersToolStripMenuItemClick);
             // 
             // vendorsToolStripMenuItem
             // 
             this.vendorsToolStripMenuItem.Name = "vendorsToolStripMenuItem";
-            this.vendorsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.vendorsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D8)));
+            this.vendorsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.vendorsToolStripMenuItem.Text = "Vendors";
             this.vendorsToolStripMenuItem.Click += new System.EventHandler(this.VendorsToolStripMenuItemClick);
             // 
             // partsToolStripMenuItem
             // 
             this.partsToolStripMenuItem.Name = "partsToolStripMenuItem";
-            this.partsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.partsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D9)));
+            this.partsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.partsToolStripMenuItem.Text = "&Parts";
             this.partsToolStripMenuItem.Click += new System.EventHandler(this.PartsToolStripMenuItemClick);
             // 
@@ -212,13 +228,13 @@ namespace MRMaintenance
             this.workOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allToolStripMenuItem});
             this.workOrdersToolStripMenuItem.Name = "workOrdersToolStripMenuItem";
-            this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.workOrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.workOrdersToolStripMenuItem.Text = "&Work Orders";
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.allToolStripMenuItem.Text = "&All";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuItemClick);
             // 
@@ -371,13 +387,6 @@ namespace MRMaintenance
             this.label3.TabIndex = 7;
             this.label3.Text = "Work Orders Due";
             // 
-            // equipmentTypeToolStripMenuItem
-            // 
-            this.equipmentTypeToolStripMenuItem.Name = "equipmentTypeToolStripMenuItem";
-            this.equipmentTypeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.equipmentTypeToolStripMenuItem.Text = "Equipment &Type";
-            this.equipmentTypeToolStripMenuItem.Click += new System.EventHandler(this.equipmentTypeToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,7 +400,7 @@ namespace MRMaintenance
             this.MinimumSize = new System.Drawing.Size(700, 600);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Text = "MRMaintenance - Copyright © 2014";
+            this.Text = "MRMaintenance - Copyright © 2014-2019";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgview)).EndInit();

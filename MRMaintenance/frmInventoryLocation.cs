@@ -84,11 +84,17 @@ namespace MRMaintenance
 			InventoryLocation inventoryLoc = new InventoryLocation();
 			inventoryLoc.ID = (long)listLoc.SelectedValue;
 			inventoryLoc.Name = txtName.Text;
-			
-			inventoryLocBA.Delete(inventoryLoc);
-			
-			//Reload data
-			this.ResetControlBindings();
+
+            //Show confirmation dialog
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", inventoryLoc.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Delete item
+                inventoryLocBA.Delete(inventoryLoc);
+
+                //Reload data
+                this.ResetControlBindings();
+            }
 		}
 		
 		

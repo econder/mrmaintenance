@@ -242,11 +242,17 @@ namespace MRMaintenance
 		{
 			WorkOrderRequest woReq = new WorkOrderRequest();
 			woReq.ID = (long)this.listWO.SelectedValue;
-			
-			workOrderReqBA.Delete(woReq);
-			
-			//Reload data
-			this.ResetControlBindings();
+
+            //Show confirmation dialog
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", woReq.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Delete item
+                workOrderReqBA.Delete(woReq);
+
+                //Reload data
+                this.ResetControlBindings();
+            }
 		}
 		
 		

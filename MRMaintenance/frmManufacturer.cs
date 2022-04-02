@@ -110,11 +110,17 @@ namespace MRMaintenance
 		{
 			Manufacturer man = new Manufacturer();
 			man.ID = (long)listMan.SelectedValue;
-			
-			manBA.Delete(man);
-			
-			//Reload data
-			this.ResetControlBindings();
+
+            //Show confirmation dialog
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", man.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Delete item
+                manBA.Delete(man);
+
+                //Reload data
+                this.ResetControlBindings();
+            }
 		}
 		
 		

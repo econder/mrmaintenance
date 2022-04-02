@@ -174,11 +174,17 @@ namespace MRMaintenance
 			{
 				Location location = new Location();
 				location.ID = (long)listLoc.SelectedValue;
-				
-				locationBA.Delete(location);
-				
-				//Reload data
-				this.ResetControlBindings();
+
+                //Show confirmation dialog
+                DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete this item?", location.Name), "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Delete item
+                    locationBA.Delete(location);
+
+                    //Reload data
+                    this.ResetControlBindings();
+                }
 			}
 		}
 		
